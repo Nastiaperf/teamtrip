@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "app_id": "app_fd8b2778-0fa5-4329-a2a3-e49fba163b20",
+      "org_id": "user_35d705fe-b012-4925-97d9-b1f703851311",
+      "deploy_url": "https://push-n2-par-clevercloud-customers.services.clever-cloud.com/app_fd8b2778-0fa5-4329-a2a3-e49fba163b20.git",
+      "name": "teamtrip",
+      "alias": "teamtrip"
+    }
+  ]
+}
