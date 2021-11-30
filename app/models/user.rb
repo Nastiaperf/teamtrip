@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :suggestions
   has_many :votes
-  validates :vote, uniqueness: { scope: :suggestion }
   validates :first_name, presence: true
   validates :last_name, presence: true
 end
