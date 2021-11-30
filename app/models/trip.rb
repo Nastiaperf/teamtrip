@@ -9,16 +9,22 @@ class Trip < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
   after_create :days_generation
+  after_create :add_creator_to_trip_member
 
   private
 
   def days_generation
     trip_date = end_date - start_date
     trip_date.to_i.times do |i|
-      new_day = Day.new(date: start_date + i, trip_id: id)
+      new_day = Day.new(date: start_date + i, trip: self)
       new_day.save
     end
-    last_day = Day.new(date: end_date, trip_id: id)
+    last_day = Day.new(date: end_date, trip: self)
     last_day.save
+  end
+
+  def add_creator_to_trip_member
+    user = User.find(creator_id)
+    TripMember.create(user: user, trip: self)
   end
 end
