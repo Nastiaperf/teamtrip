@@ -8,59 +8,53 @@ User.destroy_all
 puts "All exisiting data destroyed"
 
 puts "creating users"
-romain = User.new(
+romain = User.create(
   email: "romain@example.com",
   password: "secret",
   first_name: "romain",
   last_name: "duwagon"
   )
-romain.save!
 
-camille = User.new(
+camille = User.create(
   email: "camille@example.com",
   password: "secret",
   first_name: "camille",
   last_name: "duwagon"
   )
-camille.save!
 
-anastasia = User.new(
+anastasia = User.create(
   email: "anastasia@example.com",
   password: "secret",
   first_name: "anastasia",
   last_name: "duwagon"
   )
-anastasia.save!
 
-vincent = User.new(
+vincent = User.create(
   email: "vincent@example.com",
   password: "secret",
   first_name: "vincent",
   last_name: "duwagon"
   )
-vincent.save!
 
-largo = User.new(
+largo = User.create(
   email: "largo@example.com",
   password: "secret",
   first_name: "largo",
   last_name: "duwagon"
   )
-largo.save!
 
-maria = User.new(
+maria = User.create(
   email: "maria@example.com",
   password: "secret",
   first_name: "maria",
   last_name: "duwagon"
   )
-maria.save!
 
 puts "users created"
 
 puts "creating trip"
 
-portugal_trip = Trip.new(
+portugal_trip = Trip.create(
   name: "Portugal Voyage 2022",
   start_date: '03/01/2022',
   end_date: '11/01/2022',
@@ -71,13 +65,12 @@ portugal_trip.save!
 
 puts "trip created"
 
+puts "-- Day range for the trip --"
+puts portugal_trip.days.pluck(:date)
+puts "-- Day range for the trip --"
+
 
 puts "creating trip_members"
-
-trip_member_1 = TripMember.create(
-  user: User.first,
-  trip: Trip.first
-)
 
 trip_member_2 = TripMember.create(
   user: User.all[1],
@@ -106,15 +99,8 @@ trip_member_6 = TripMember.create(
 
 puts "trip_members created"
 
-puts "creating days for the trip"
-day_1 = Day.create(
-  date: '03/01/2022',
-  trip: Trip.first
-)
-puts "trip days created"
-
 puts "creating suggestions"
-suggestion_1 = Suggestion.new(
+suggestion_1 = Suggestion.create(
   category: "Restaurant",
   name: "casa bonita",
   day: portugal_trip.days.first,
@@ -123,16 +109,16 @@ suggestion_1 = Suggestion.new(
   comment: "Close to hotel, super rating on G Maps"
 )
 
-suggestion_2 = Suggestion.new(
+suggestion_2 = Suggestion.create(
   category: "Hotel",
   name: "Hotel praia do porto",
-  day: portugal_trip.days.first,
+  day: portugal_trip.days.second,
   user: portugal_trip.users.first,
   price: 80,
   comment: "Super view on the beach and nice breakfast"
 )
 
-suggestion_3 = Suggestion.new(
+suggestion_3 = Suggestion.create(
   category: "Activity",
   name: "Ponte Luis I",
   day: portugal_trip.days.first,
@@ -140,5 +126,23 @@ suggestion_3 = Suggestion.new(
   comment: "A must see, definitly!"
 )
 puts "Suggestions created"
+
+puts "creating votes"
+
+vote_1 = Vote.create(
+  user: portugal_trip.users.first,
+  suggestion: portugal_trip.days.first.suggestions.first,
+)
+
+vote_2 = Vote.create(
+  user: portugal_trip.users.second,
+  suggestion: portugal_trip.days.second.suggestions.first,
+)
+
+vote_3 = Vote.create(
+  user: portugal_trip.users.third,
+  suggestion: portugal_trip.days.first.suggestions.second,
+)
+puts "Votes created"
 
 puts "DB all set, now have fun"
