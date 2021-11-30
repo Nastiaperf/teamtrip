@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_120430) do
+ActiveRecord::Schema.define(version: 2021_11_30_141957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2021_11_30_120430) do
     t.date "start_date"
     t.date "end_date"
     t.string "location"
-    t.boolean "freeze", default: true
+    t.boolean "locked", default: false
     t.float "latitude"
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
