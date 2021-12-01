@@ -1,7 +1,8 @@
 class DaysController < ApplicationController
   def index
     #days of the trip page
-    @days = Day.all
+    trip = Trip.find(params[:trip_id])
+    @trip_days = trip.days
   end
 
   def show
