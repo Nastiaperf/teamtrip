@@ -1,3 +1,21 @@
 .row {
-  border: solid;
+  border: 1px solid;
+}
+
+.show-tabs {
+  display: flex;
+}
+
+.tab {
+  margin-right: 2em;
+}
+
+h3 {
+  padding: 0px;
+  margin: 0px;
+}
+
+.show-cards {
+  border: 1px solid;
+  flex-grow: 1;
 }
