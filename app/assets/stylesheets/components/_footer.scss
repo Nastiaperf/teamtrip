@@ -1,0 +1,13 @@
+.footer {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // height: 2rem;
+  padding: 1rem 2rem;
+  color: rgba(0,0,0,0.3);
+}
+
+.footer .fa-heart {
+  color: #D23333;
+}

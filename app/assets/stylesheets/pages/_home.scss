@@ -1,1 +1,35 @@
 // Specific CSS for your home-page
+.banner {
+  background-size: cover;
+  background-position: center;
+  // height: 300px;
+  padding: 4rem 0 21rem 0;
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+  vertical-align: bottom;
+  text-align: center;
+  bottom: 0;
+}
+
+.banner h1 {
+  // text-align: center;
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.banner p {
+  // text-align: center;
+  font-size: 32px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.btn-banner{
+  border-radius: 24px;
+}
