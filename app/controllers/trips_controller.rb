@@ -6,7 +6,7 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.creator_id = current_user.id
-    @trip.save
+    @trip.save!
   end
 
   def show
