@@ -1,8 +1,110 @@
 <h1>Days#index</h1>
 <p>Find me in app/views/days/index.html.erb</p>
 
-<div>
-  <% @days.each do |day| %>
-    <%= day.date %>
-  <% end %>
+<div class="d-flex">
+  <div class="w-50 text-center bg-primary item-align-center">
+    <div> MAP </div>
+  </div>
+  <div class="w-50">
+    <div class="text-center border border-5 border-dark mb-5 p-5">Calendrier</div>
+    <!-- BEGGENING OF ACTIVITY SECTION -->
+      <div id="category-card"> <!-- Category-card // ID not defined -->
+        <div id="category-card-top" class="d-flex justify-content-between"> <!-- Category-card-top// ID not defined -->
+          <div> Activitée :</div>
+          <a id="category-button" href="#" class="link-primary"> See all </a> <!-- Category-button// ID not defined -->
+        </div>
+        <ul class="list-group">
+          <% @trip_days.first.suggestions.where(category: "Activity").first(3).each do |activity| %>
+            <!-- BEGGENING OF ACTIVITY ITEM CARD -->
+            <li id="item-card" class="list-group-item border border-dark"> <!-- Item-card // ID not defined -->
+              <div class="item-card-wrapper d-flex justify-content-around border border-dark">
+                <div class="image-container align-self-center border border-dark">
+                  Photo placeholder
+                </div>
+                <div class="text-container align-self-center border border-dark">
+                  <%= activity.name %>
+                  <%= activity.location %>
+                </div>
+                <div class="info-container border border-dark">
+                  <div class="price-container align-self-center border border-dark">
+                    <%= activity.price %>€
+                  </div>
+                  <div class="vote-container align-self-center border border-dark">
+                    <i class="far fa-thumbs-up"></i><%= activity.votes.count %>
+                  </div>
+                </div>
+              </div>
+            </li>
+          <% end %>
+          <!-- ENDING OF ACTIVITY ITEM CARD -->
+        </ul>
+      </div>
+      <!-- ENDING OF ACTIVITY SECTION -->
+      <!-- BEGGENING OF ACTIVITY SECTION -->
+      <div id="category-card"> <!-- Category-card // ID not defined -->
+        <div id="category-card-top" class="d-flex justify-content-between"> <!-- Category-card-top// ID not defined -->
+          <div> Restaurant :</div>
+          <a id="category-button" href="#" class="link-primary"> See all </a> <!-- Category-button// ID not defined -->
+        </div>
+        <ul class="list-group">
+          <% @trip_days.first.suggestions.where(category: "Restaurant").first(2).each do |restaurant| %>
+            <!-- BEGGENING OF RESTAURANT ITEM CARD -->
+            <li id="item-card" class="list-group-item border border-dark"> <!-- Item-card // ID not defined -->
+              <div class="item-card-wrapper d-flex justify-content-around border border-dark">
+                <div class="image-container align-self-center border border-dark">
+                  Photo placeholder
+                </div>
+                <div class="text-container align-self-center border border-dark">
+                  <%= restaurant.name %>
+                  <%= restaurant.location %>
+                </div>
+                <div class="info-container border border-dark">
+                  <div class="price-container align-self-center border border-dark">
+                    <%= restaurant.price %>€
+                  </div>
+                  <div class="vote-container align-self-center border border-dark">
+                    <i class="far fa-thumbs-up"></i><%= restaurant.votes.count %>
+                  </div>
+                </div>
+              </div>
+            </li>
+          <% end %>
+          <!-- ENDING OF RESTAURANT ITEM CARD -->
+        </ul>
+      </div>
+      <!-- ENDING OF RESTAURANT SECTION -->
+      <!-- BEGGENING OF HOTEL SECTION -->
+      <div id="category-card"> <!-- Category-card // ID not defined -->
+        <div id="category-card-top" class="d-flex justify-content-between"> <!-- Category-card-top// ID not defined -->
+          <div> Hotel :</div>
+          <a id="category-button" href="#" class="link-primary"> See all </a> <!-- Category-button// ID not defined -->
+        </div>
+        <ul class="list-group">
+          <% @trip_days.first.suggestions.where(category: "Hotel").each do |hotel| %>
+            <!-- BEGGENING OF HOTEL ITEM CARD -->
+            <li id="item-card" class="list-group-item border border-dark"> <!-- Item-card // ID not defined -->
+              <div class="item-card-wrapper d-flex justify-content-around border border-dark">
+                <div class="image-container align-self-center border border-dark">
+                  Photo placeholder
+                </div>
+                <div class="text-container align-self-center border border-dark">
+                  <%= hotel.name %>
+                  <%= hotel.location %>
+                </div>
+                <div class="info-container border border-dark">
+                  <div class="price-container align-self-center border border-dark">
+                    <%= hotel.price %>€
+                  </div>
+                  <div class="vote-container align-self-center border border-dark">
+                    <i class="far fa-thumbs-up"></i><%= hotel.votes.count %>
+                  </div>
+                </div>
+              </div>
+            </li>
+          <% end %>
+          <!-- ENDING OF HOTEL ITEM CARD -->
+        </ul>
+      </div>
+      <!-- ENDING OF HOTEL SECTION -->
+  </div>
 </div>

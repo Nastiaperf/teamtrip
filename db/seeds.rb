@@ -101,29 +101,55 @@ puts "trip_members created"
 
 puts "creating suggestions"
 suggestion_1 = Suggestion.create(
-  category: "Restaurant",
-  name: "casa bonita",
-  day: portugal_trip.days.first,
-  user: portugal_trip.users.first,
-  price: 12.30,
-  comment: "Close to hotel, super rating on G Maps"
-)
-
-suggestion_2 = Suggestion.create(
   category: "Hotel",
   name: "Hotel praia do porto",
-  day: portugal_trip.days.second,
+  day: portugal_trip.days.first,
   user: portugal_trip.users.first,
   price: 80,
   comment: "Super view on the beach and nice breakfast"
 )
 
+suggestion_2 = Suggestion.create(
+  category: "Restaurant",
+  name: "casa bonita",
+  day: portugal_trip.days.first,
+  user: portugal_trip.users.second,
+  price: 12.30,
+  comment: "Close to hotel, super rating on G Maps"
+)
+
 suggestion_3 = Suggestion.create(
+  category: "Restaurant",
+  name: "Meia-Nau Porto",
+  day: portugal_trip.days.first,
+  user: portugal_trip.users.first,
+  price: 40,
+  comment: "The food is amazing and the prices very decente"
+)
+
+suggestion_4 = Suggestion.create(
+  category: "Activity",
+  name: "Praia de salgueiro",
+  day: portugal_trip.days.first,
+  user: portugal_trip.users.third,
+  comment: "very crowded and has big waves!"
+)
+
+suggestion_5 = Suggestion.create(
   category: "Activity",
   name: "Ponte Luis I",
   day: portugal_trip.days.first,
-  user: portugal_trip.users.first,
+  user: portugal_trip.users.second,
   comment: "A must see, definitly!"
+)
+
+suggestion_6 = Suggestion.create(
+  category: "Activity",
+  name: "Cruzeiros Douro",
+  day: portugal_trip.days.first,
+  user: portugal_trip.users.first,
+  price: 65,
+  comment: "We spend a very good time going that cruise"
 )
 puts "Suggestions created"
 
@@ -136,7 +162,7 @@ vote_1 = Vote.create(
 
 vote_2 = Vote.create(
   user: portugal_trip.users.second,
-  suggestion: portugal_trip.days.second.suggestions.first,
+  suggestion: portugal_trip.days.first.suggestions.first,
 )
 
 vote_3 = Vote.create(
