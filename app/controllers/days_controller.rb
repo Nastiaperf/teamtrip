@@ -1,8 +1,10 @@
 class DaysController < ApplicationController
   def index
     #days of the trip page
-    trip = Trip.find(params[:trip_id])
-    @trip_days = trip.days
+
+    @trip = Trip.find(params[:trip_id])
+    @trip_days = @trip.days
+    @day = @trip_days.first
 
     @suggestions = Suggestion.where.not(latitude: nil, longitude: nil)
     @markers = @suggestions.map do |suggestion|
@@ -14,6 +16,7 @@ class DaysController < ApplicationController
         # (you will also need to create the partial "/suggestions/map_box")
       }
     end
+
   end
 
   def show

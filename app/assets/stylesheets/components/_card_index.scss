@@ -1,20 +1,63 @@
-.add_suggestion{
-  text-decoration: none;
-}
-
-.rounded_circle{
-  color: red!important;
-}
-
 .category-card{
-  margin-left: 3rem;
+  margin-left: 5rem;
   margin-right: 3rem;
-}
+  width: 70%;
+  margin-top: 2rem;
 
-#color-activities{
-  background-color: rgba($light-green, .2);
-}
+  .item-card{
+    height: 5rem;
+    width: 100%;
+    padding: 1rem;
+    // border-radius: 5%;
+    margin-bottom: 1rem;
+  }
 
-.dark-blue{
-  color: $dark-blue;
+  .add-suggestion-green{
+    text-decoration: none;
+    background-color: $dark-green;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .add-suggestion-blue{
+    text-decoration: none;
+    background-color: $dark-blue;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    color: white;
+  }
+
+  .add-suggestion-saumon{
+    text-decoration: none;
+    background-color: $dark-saumon;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+  }
+
+
+  #color-activities{
+    background-color: rgba($light-green, .2);
+  }
+
+  #color-restaurants{
+    background-color: rgba($light-saumon, .2);
+  }
+
+  #color-hotel{
+    background-color: rgba($light-blue, .2);
+  }
+
+  .dark-blue{
+    color: $dark-blue;
+  }
+
 }
