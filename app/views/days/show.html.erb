@@ -20,18 +20,35 @@
 <!-- BEGGINING OF TAB SECTION -->
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-hotel" role="tabpanel" aria-labelledby="nav-hotel-tab">
-      <!-- BEGGENING OF HOTEL TAB SECTION -->
+      <!-- BEGENING OF HOTEL TAB SECTION -->
       <div id="card-section-container-show" class="d-flex bg-secondary justify-content-center pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
-        <!-- BEGGENING OF HOTEL ITEM CARD -->
+        <!-- BEGENING OF HOTEL ITEM CARD -->
+        <!-- BEGENING VOTING BOUTON -->
         <% @trip_days.first.suggestions.where(category: "Hotel").all.each do |hotel| %>
           <div id="item-card-show" class="border border-dark m-3 p-3 rounded bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
-            <div class="position-relative border border-dark m-1" style="height: 20vh">
-              <!-- CLICK ON THE PICTURE TO VOTE HERE -->
-              <u>Photo</u>.<%= hotel.photo %>
-              <div class="border border-dark rounded position-absolute" style="top: 2%; right: 2%">
-                Vote
-              </div>
-            </div>
+            <% if Vote.find_by(suggestion_id: hotel.id, user_id:current_user.id).nil? %>
+              <%= link_to votes_path(suggestion_id: hotel.id, trip_id: params[:trip_id], day_id:params[:id]), method: :post do %>
+                <div class="position-relative border border-dark m-1" style="height: 20vh">
+                  <u>Photo</u>.<%= hotel.photo %>
+                  <div class="border border-dark rounded position-absolute" style="top: 2%; right: 2%">
+                    Vote <i class="far fa-thumbs-up"></i><%= hotel.votes.count %>
+                  </div>
+                </div>
+              <% end %>
+              <!-- ENDING VOTING BOUTON-->
+            <% else %>
+            <!-- BEGINING UNVOTING BOUTON-->
+              <% vote_id = Vote.find_by(suggestion_id: hotel.id, user_id:current_user.id).id %>
+              <%= link_to vote_path(id: vote_id, trip_id: params[:trip_id], day_id:params[:id]), method: :delete do %>
+                <div class="position-relative border border-dark m-1" style="height: 20vh">
+                  <u>Photo</u>.<%= hotel.photo %>
+                  <div class="border border-dark rounded position-absolute" style="top: 2%; right: 2%">
+                    Vote <i class="far fa-thumbs-up bg-warning"></i><%= hotel.votes.count %>
+                  </div>
+                </div>
+              <% end %>
+              <!-- ENDING UNVOTING BOUTON-->
+            <% end %>
             <div class="d-flex justify-content-between">
               <div class="text-container align-self-center border border-dark m-1 ">
                 <u>Name</u>.<%= hotel.name %>
@@ -74,16 +91,32 @@
       <!-- BEGGENING OF RESTAURANT TAB SECTION -->
       <div id="card-section-container-show" class="d-flex bg-secondary justify-content-center pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
         <!-- BEGGENING OF RESTAURANT ITEM CARD -->
-        <% @trip_days.first.suggestions.where(category: "Restaurant").all.each do |restaurant| %>
+          <!-- BEGENING VOTING BOUTON -->
+          <% @trip_days.first.suggestions.where(category: "Restaurant").all.each do |restaurant| %>
           <div id="item-card-show" class="border border-dark m-3 p-3 rounded bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
-            <div class="position-relative border border-dark m-1" style="height: 20vh">
-              <!-- CLICK ON THE PICTURE TO VOTE FROM HERE -->
-              <u>Photo</u>.<%= restaurant.photo %>
-              <div class="border border-dark rounded position-absolute" style="top: 2%; right: 2%">
-                Vote
-              </div>
-              <!-- TO HERE -->
-            </div>
+            <% if Vote.find_by(suggestion_id: restaurant.id, user_id:current_user.id).nil? %>
+              <%= link_to votes_path(suggestion_id: restaurant.id, trip_id: params[:trip_id], day_id:params[:id]), method: :post do %>
+                <div class="position-relative border border-dark m-1" style="height: 20vh">
+                  <u>Photo</u>.<%= restaurant.photo %>
+                  <div class="border border-dark rounded position-absolute" style="top: 2%; right: 2%">
+                    Vote <i class="far fa-thumbs-up"></i><%= restaurant.votes.count %>
+                  </div>
+                </div>
+              <% end %>
+              <!-- ENDING VOTING BOUTON-->
+            <% else %>
+            <!-- BEGINING UNVOTING BOUTON-->
+              <% vote_id = Vote.find_by(suggestion_id: restaurant.id, user_id:current_user.id).id %>
+              <%= link_to vote_path(id: vote_id, trip_id: params[:trip_id], day_id:params[:id]), method: :delete do %>
+                <div class="position-relative border border-dark m-1" style="height: 20vh">
+                  <u>Photo</u>.<%= restaurant.photo %>
+                  <div class="border border-dark rounded position-absolute" style="top: 2%; right: 2%">
+                    Vote <i class="far fa-thumbs-up bg-warning"></i><%= restaurant.votes.count %>
+                  </div>
+                </div>
+              <% end %>
+              <!-- ENDING UNVOTING BOUTON-->
+            <% end %>
             <div class="d-flex justify-content-between">
               <div class="text-container align-self-center border border-dark m-1 ">
                 <u>Name</u>.<%= restaurant.name %>
@@ -126,16 +159,32 @@
       <!-- BEGGENING OF ACTIVITY TAB SECTION -->
       <div id="card-section-container-show" class="d-flex bg-secondary justify-content-center pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
         <!-- BEGGENING OF ACTIVITY ITEM CARD -->
-        <% @trip_days.first.suggestions.where(category: "Activity").all.each do |activity| %>
+        <!-- BEGENING VOTING BOUTON -->
+          <% @trip_days.first.suggestions.where(category: "Activity").all.each do |activity| %>
           <div id="item-card-show" class="border border-dark m-3 p-3 rounded bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
-            <div class="position-relative border border-dark m-1" style="height: 20vh">
-              <!-- CLICK ON THE PICTURE TO VOTE FROM HERE -->
-              <u>Photo</u>.<%= activity.photo %>
-              <div class="border border-dark rounded position-absolute" style="top: 2%; right: 2%">
-                Vote
-              </div>
-              <!-- TO HERE -->
-            </div>
+            <% if Vote.find_by(suggestion_id: activity.id, user_id:current_user.id).nil? %>
+              <%= link_to votes_path(suggestion_id: activity.id, trip_id: params[:trip_id], day_id:params[:id]), method: :post do %>
+                <div class="position-relative border border-dark m-1" style="height: 20vh">
+                  <u>Photo</u>.<%= activity.photo %>
+                  <div class="border border-dark rounded position-absolute" style="top: 2%; right: 2%">
+                    Vote <i class="far fa-thumbs-up"></i><%= activity.votes.count %>
+                  </div>
+                </div>
+              <% end %>
+              <!-- ENDING VOTING BOUTON-->
+            <% else %>
+            <!-- BEGINING UNVOTING BOUTON-->
+              <% vote_id = Vote.find_by(suggestion_id: activity.id, user_id:current_user.id).id %>
+              <%= link_to vote_path(id: vote_id, trip_id: params[:trip_id], day_id:params[:id]), method: :delete do %>
+                <div class="position-relative border border-dark m-1" style="height: 20vh">
+                  <u>Photo</u>.<%= activity.photo %>
+                  <div class="border border-dark rounded position-absolute" style="top: 2%; right: 2%">
+                    Vote <i class="far fa-thumbs-up bg-warning"></i><%= activity.votes.count %>
+                  </div>
+                </div>
+              <% end %>
+              <!-- ENDING UNVOTING BOUTON-->
+            <% end %>
             <div class="d-flex justify-content-between">
               <div class="text-container align-self-center border border-dark m-1 ">
                 <u>Name</u>.<%= activity.name %>
