@@ -1,4 +1,4 @@
-<div class="d-flex">
+<div class="d-flex body-index">
   <div class="w-50">
     <div id="map"
       style="width: 100%;
@@ -12,27 +12,35 @@
       <div class="category-card"> <!-- Category-card // ID not defined -->
         <div id="category-card-top" class="d-flex justify-content-between"> <!-- Category-card-top// ID not defined -->
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
-
-          <%= link_to "+", new_suggestion_path, class:"add-suggestion-green" %>
-
-          <div> Activities :</div>
-
+          <div class="d-flex">
+            <%= link_to "+", new_suggestion_path, class:"add-suggestion-green" %>
+            <h1 class="category-title"> Activities</h1>
+          </div>
           <%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %><!-- Category-button// ID not defined -->
         </div>
         <div class="list-group">
           <% @trip_days.first.suggestions.where(category: "Activity").first(3).each do |activity| %>
             <!-- BEGGENING OF ACTIVITY ITEM CARD -->
-            <div id="color-activities" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
-              <div class="image-container">
-                <%= activity.photo %>
-              </div>
-              <div class="text-container align-self-center">
-                <div class="dark-blue" ><%= activity.name %></div>
-                <%= activity.location %>
+            <div id="color-activities" class="item-card d-flex justify-content-between"> <!-- Item-card // ID not defined -->
+              <div class="d-flex">
+                <div class="image-container">
+                  <%# <%= activity.photo %>
+                  <%= image_tag "activity_1.jpg", class:"image-card" %>
+                </div>
+                <div class="text-container align-items-start">
+                  <h2><%= activity.name %></h2>
+                  <p> <%= activity.location %> 4 boulevard Charpentier, 44000 Nantes</p>
+                </div>
               </div>
               <div class="info-container ">
                 <div class="price-container align-self-center">
-                  <div class="dark-blue"><%= activity.price %>€ </div>
+                  <div class="dark-blue">
+                    <% if activity.price = 0 %>
+                      <%= "Free" %>
+                    <% else %>
+                      <%= activity.price.to_i %>€
+                    <% end %>
+                  </div>
                 </div>
                 <div class="vote-container align-self-center">
                   <i class="far fa-thumbs-up"></i><%= activity.votes.count %>
@@ -47,19 +55,21 @@
       <div class="category-card"> <!-- Category-card // ID not defined -->
         <div id="category-card-top" class="d-flex justify-content-between"> <!-- Category-card-top// ID not defined -->
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
-          <%= link_to "+", new_suggestion_path, class:"add-suggestion-saumon" %>
-          <div> Restaurants :</div>
-          <a id="category-button" href="#" class="link-primary"> See all </a> <!-- Category-button// ID not defined -->
+          <div class="d-flex">
+            <%= link_to "+", new_suggestion_path, class:"add-suggestion-saumon" %>
+            <h1 class="category-title"> Restaurants</h1>
+          </div>
+          <%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %> <!-- Category-button// ID not defined -->
         </div>
         <div class="list-group">
           <% @trip_days.first.suggestions.where(category: "Restaurant").first(2).each do |restaurant| %>
             <!-- BEGGENING OF RESTAURANT ITEM CARD -->
             <div id="color-restaurants" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
-              <div class="image-container align-self-center">
-                Photo placeholder
+              <div class="image-container">
+                <%= image_tag "resto_1.jpg", class:"image-card" %>
               </div>
               <div class="text-container align-self-center">
-                <%= restaurant.name %>
+                <h2><%= restaurant.name %></h2>
                 <%= restaurant.location %>
               </div>
               <div class="info-container">
@@ -80,16 +90,18 @@
       <div class="category-card"> <!-- Category-card // ID not defined -->
         <div id="category-card-top" class="d-flex justify-content-between"> <!-- Category-card-top// ID not defined -->
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
+          <div class="d-flex">
           <%= link_to "+", new_suggestion_path, class:"add-suggestion-blue" %>
-          <div> Hotels :</div>
-          <a id="category-button" href="#" class="link-primary"> See all </a> <!-- Category-button// ID not defined -->
+          <div class="category-title"> Hotels</div>
+          </div>
+          <%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %> <!-- Category-button// ID not defined -->
         </div>
         <div class="list-group">
           <% @trip_days.first.suggestions.where(category: "Hotel").each do |hotel| %>
             <!-- BEGGENING OF HOTEL ITEM CARD -->
-            <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-around"> <!-- Item-card // ID not defined -->
-              <div class="image-container align-self-center">
-                Photo placeholder
+            <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
+              <div class="image-container">
+                <%= image_tag "hotel_1.jpg", class:"image-card" %>
               </div>
               <div class="text-container align-self-center">
                 <%= hotel.name %>

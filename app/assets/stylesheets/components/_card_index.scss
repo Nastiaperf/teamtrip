@@ -1,3 +1,7 @@
+.body-index{
+  height: 100%;
+}
+
 .category-card{
   margin-left: 5rem;
   margin-right: 3rem;
@@ -7,9 +11,13 @@
   .item-card{
     height: 5rem;
     width: 100%;
-    padding: 1rem;
-    // border-radius: 5%;
-    margin-bottom: 1rem;
+    border-radius: .5rem;
+    margin-bottom: .5rem;
+  }
+
+  .category-title{
+    padding-left: .8rem;
+    font-weight: bold;
   }
 
   .add-suggestion-green{
@@ -56,8 +64,23 @@
     background-color: rgba($light-blue, .2);
   }
 
-  .dark-blue{
+  .text-container{
     color: $dark-blue;
+    font-weight: bold;
   }
 
+  .text-container{
+    padding: 1rem;
+  }
+  .info-container{
+    padding: 1rem;
+  }
+
+  .image-card{
+    height: 100%;
+    width: 8rem;
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    object-fit: cover;
+  }
 }
