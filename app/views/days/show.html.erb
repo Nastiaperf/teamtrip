@@ -6,75 +6,173 @@
   <div>CALENDAR</div>
 </div>
 <!-- ENDING OF CALENDAR -->
-
-<!-- BEGGENING OF TAB MENU -->
-<div class="d-flex ml-5">
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-    </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-    </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-    </li>
-  </ul>
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+<!-- ########################################## -->
+<!-- BEGGINING OF MENU TAB SECTION -->
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-link active" id="nav-hotel-tab" data-toggle="tab" href="#nav-hotel" role="tab" aria-controls="nav-hotel" aria-selected="true">Hotel</a>
+    <a class="nav-link" id="nav-restaurant-tab" data-toggle="tab" href="#nav-restaurant" role="tab" aria-controls="nav-restaurant" aria-selected="false">Restaurant</a>
+    <a class="nav-link" id="nav-activity-tab" data-toggle="tab" href="#nav-activity" role="tab" aria-controls="nav-activity" aria-selected="false">Activity</a>
+  </div>
+</nav>
+<!-- ENDING OF MENU TAB SECTION -->
+<!-- ########################################## -->
+<!-- BEGGINING OF TAB SECTION -->
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-hotel" role="tabpanel" aria-labelledby="nav-hotel-tab">
+      <!-- BEGGENING OF HOTEL TAB SECTION -->
+      <div id="card-section-container-show" class="d-flex bg-secondary justify-content-center pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
+        <!-- BEGGENING OF HOTEL ITEM CARD -->
+        <% @trip_days.first.suggestions.where(category: "Hotel").all.each do |hotel| %>
+          <div id="item-card-show" class="border border-dark m-3 p-3 rounded bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
+            <div class="position-relative border border-dark m-1" style="height: 20vh">
+              <!-- CLICK ON THE PICTURE TO VOTE HERE -->
+              <u>Photo</u>.<%= hotel.photo %>
+              <div class="border border-dark rounded position-absolute" style="top: 2%; right: 2%">
+                Vote
+              </div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <div class="text-container align-self-center border border-dark m-1 ">
+                <u>Name</u>.<%= hotel.name %>
+              </div>
+              <div class="text-container align-self-center border border-dark m-1 ">
+                <u>Price</u>.<%= hotel.price %>
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="text-container align-self-center border border-dark m-1 ">
+                <u>rating</u>.<%= hotel.rating %>
+              </div>
+              <div class="text-container align-self-center border border-dark m-1 ">
+                <u>vote</u>.<i class="far fa-thumbs-up"></i><%= hotel.votes.count %>
+              </div>
+            </div>
+            <div class="text-container align-self-center border border-dark m-1 ">
+              <u>Description</u>.<%= hotel.description %>
+            </div>
+            <div class="text-container align-self-center border border-dark m-1 ">
+              <u>Seel all link (google url)</u>.<%= hotel.google_link %>
+            </div>
+            <div class="divider border border-dark mt-3 mb-3 ">
+            </div>
+            <div class="d-flex flex-column justify-content-center bg-warning" style="height: 20vh">
+              <div class="text-container border border-dark m-1 ">
+                <u>User</u>. <%= "#{hotel.user.first_name.capitalize + " " + hotel.user.last_name.capitalize}" %>
+              </div>
+              <div class="text-container border border-dark m-1 ">
+                <u>Comment</u>.<%= hotel.comment %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <!-- ENDING OF HOTEL ITEM CARD -->
+      </div>
+      <!-- ENDING OF HOTEL TAB SECTION -->
+  </div>
+  <div class="tab-pane fade show" id="nav-restaurant" role="tabpanel" aria-labelledby="nav-restaurant-tab">
+      <!-- BEGGENING OF RESTAURANT TAB SECTION -->
+      <div id="card-section-container-show" class="d-flex bg-secondary justify-content-center pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
+        <!-- BEGGENING OF RESTAURANT ITEM CARD -->
+        <% @trip_days.first.suggestions.where(category: "Restaurant").all.each do |restaurant| %>
+          <div id="item-card-show" class="border border-dark m-3 p-3 rounded bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
+            <div class="position-relative border border-dark m-1" style="height: 20vh">
+              <!-- CLICK ON THE PICTURE TO VOTE FROM HERE -->
+              <u>Photo</u>.<%= restaurant.photo %>
+              <div class="border border-dark rounded position-absolute" style="top: 2%; right: 2%">
+                Vote
+              </div>
+              <!-- TO HERE -->
+            </div>
+            <div class="d-flex justify-content-between">
+              <div class="text-container align-self-center border border-dark m-1 ">
+                <u>Name</u>.<%= restaurant.name %>
+              </div>
+              <div class="text-container align-self-center border border-dark m-1 ">
+                <u>Price</u>.<%= restaurant.price %>
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="text-container align-self-center border border-dark m-1 ">
+                <u>rating</u>.<%= restaurant.rating %>
+              </div>
+              <div class="text-container align-self-center border border-dark m-1 ">
+                <u>vote</u>.<i class="far fa-thumbs-up"></i><%= restaurant.votes.count %>
+              </div>
+            </div>
+            <div class="text-container align-self-center border border-dark m-1 ">
+              <u>Description</u>.<%= restaurant.description %>
+            </div>
+            <div class="text-container align-self-center border border-dark m-1 ">
+              <u>Seel all link (google url)</u>.<%= restaurant.google_link %>
+            </div>
+            <div class="divider border border-dark mt-3 mb-3 ">
+            </div>
+            <div class="d-flex flex-column justify-content-center bg-warning" style="height: 20vh">
+              <div class="text-container border border-dark m-1 ">
+                <u>User</u>. <%= "#{restaurant.user.first_name.capitalize + " " + restaurant.user.last_name.capitalize}" %>
+              </div>
+              <div class="text-container border border-dark m-1 ">
+                <u>Comment</u>.<%= restaurant.comment %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <!-- ENDING OF RESTAURANT ITEM CARD -->
+      </div>
+      <!-- ENDING OF RESTAURANT TAB SECTION -->
+  </div>
+  <div class="tab-pane fade show" id="nav-activity" role="tabpanel" aria-labelledby="nav-activity-tab">
+      <!-- BEGGENING OF ACTIVITY TAB SECTION -->
+      <div id="card-section-container-show" class="d-flex bg-secondary justify-content-center pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
+        <!-- BEGGENING OF ACTIVITY ITEM CARD -->
+        <% @trip_days.first.suggestions.where(category: "Activity").all.each do |activity| %>
+          <div id="item-card-show" class="border border-dark m-3 p-3 rounded bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
+            <div class="position-relative border border-dark m-1" style="height: 20vh">
+              <!-- CLICK ON THE PICTURE TO VOTE FROM HERE -->
+              <u>Photo</u>.<%= activity.photo %>
+              <div class="border border-dark rounded position-absolute" style="top: 2%; right: 2%">
+                Vote
+              </div>
+              <!-- TO HERE -->
+            </div>
+            <div class="d-flex justify-content-between">
+              <div class="text-container align-self-center border border-dark m-1 ">
+                <u>Name</u>.<%= activity.name %>
+              </div>
+              <div class="text-container align-self-center border border-dark m-1 ">
+                <u>Price</u>.<%= activity.price %>
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="text-container align-self-center border border-dark m-1 ">
+                <u>rating</u>.<%= activity.rating %>
+              </div>
+              <div class="text-container align-self-center border border-dark m-1 ">
+                <u>vote</u>.<i class="far fa-thumbs-up"></i><%= activity.votes.count %>
+              </div>
+            </div>
+            <div class="text-container align-self-center border border-dark m-1 ">
+              <u>Description</u>.<%= activity.description %>
+            </div>
+            <div class="text-container align-self-center border border-dark m-1 ">
+              <u>Seel all link (google url)</u>.<%= activity.google_link %>
+            </div>
+            <div class="divider border border-dark mt-3 mb-3 ">
+            </div>
+            <div class="d-flex flex-column justify-content-center bg-warning" style="height: 20vh">
+              <div class="text-container border border-dark m-1 ">
+                <u>User</u>. <%= "#{activity.user.first_name.capitalize + " " + activity.user.last_name.capitalize}" %>
+              </div>
+              <div class="text-container border border-dark m-1 ">
+                <u>Comment</u>.<%= activity.comment %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <!-- ENDING OF ACTIVITY ITEM CARD -->
+      </div>
+      <!-- ENDING OF ACTIVITY TAB SECTION -->
   </div>
 </div>
-<!-- ENDING OF TAB MENU -->
-
-<!-- BEGGENING OF ACTIVITY TAB SECTION -->
-<div id="card-section-container-show" class="d-flex bg-secondary justify-content-center pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
-  <!-- BEGGENING OF ACTIVITY ITEM CARD -->
-  <% @trip_days.first.suggestions.where(category: "Activity").all.each do |activity| %>
-    <div id="item-card-show" class="border border-dark m-3 p-3 rounded bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
-      <div class="position-relative border border-dark m-1" style="height: 20vh">
-        <!-- CLICK ON THE PICTURE TO VOTE FROM HERE -->
-        <u>Photo</u>.<%= activity.photo %>
-        <div class="border border-dark rounded position-absolute" style="top: 2%; right: 2%">
-          Vote
-        </div>
-        <!-- TO HERE -->
-      </div>
-      <div class="d-flex justify-content-between">
-        <div class="text-container align-self-center border border-dark m-1 ">
-          <u>Name</u>.<%= activity.name %>
-        </div>
-        <div class="text-container align-self-center border border-dark m-1 ">
-          <u>Price</u>.<%= activity.price %>
-        </div>
-      </div>
-      <div class="d-flex">
-        <div class="text-container align-self-center border border-dark m-1 ">
-          <u>rating</u>.<%= activity.rating %>
-        </div>
-        <div class="text-container align-self-center border border-dark m-1 ">
-          <u>vote</u>.<i class="far fa-thumbs-up"></i><%= activity.votes.count %>
-        </div>
-      </div>
-      <div class="text-container align-self-center border border-dark m-1 ">
-        <u>Description</u>.<%= activity.description %>
-      </div>
-      <div class="text-container align-self-center border border-dark m-1 ">
-        <u>Seel all link (google url)</u>.<%= activity.google_link %>
-      </div>
-      <div class="divider border border-dark mt-3 mb-3 ">
-      </div>
-      <div class="d-flex flex-column justify-content-center bg-warning" style="height: 20vh">
-        <div class="text-container border border-dark m-1 ">
-          <u>User</u>. <%= "#{activity.user.first_name.capitalize + " " + activity.user.last_name.capitalize}" %>
-        </div>
-        <div class="text-container border border-dark m-1 ">
-          <u>Comment</u>.<%= activity.comment %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-  <!-- ENDING OF ACTIVITY ITEM CARD -->
-</div>
-<!-- ENDING OF ACTIVITY TAB SECTION -->
+<!-- ENDING OF TAB SECTION -->
