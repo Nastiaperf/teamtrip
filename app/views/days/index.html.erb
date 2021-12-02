@@ -24,7 +24,8 @@
             <!-- BEGGENING OF ACTIVITY ITEM CARD -->
             <div id="color-activities" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
               <div class="image-container">
-                <%= activity.photo %>
+                <%# <%= activity.photo %>
+                <img_tag (src="")  alt="">
               </div>
               <div class="text-container align-self-center">
                 <div class="dark-blue" ><%= activity.name %></div>
@@ -49,7 +50,7 @@
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
           <%= link_to "+", new_suggestion_path, class:"add-suggestion-saumon" %>
           <div> Restaurants :</div>
-          <a id="category-button" href="#" class="link-primary"> See all </a> <!-- Category-button// ID not defined -->
+          <%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %> <!-- Category-button// ID not defined -->
         </div>
         <div class="list-group">
           <% @trip_days.first.suggestions.where(category: "Restaurant").first(2).each do |restaurant| %>
@@ -82,7 +83,7 @@
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
           <%= link_to "+", new_suggestion_path, class:"add-suggestion-blue" %>
           <div> Hotels :</div>
-          <a id="category-button" href="#" class="link-primary"> See all </a> <!-- Category-button// ID not defined -->
+          <%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %> <!-- Category-button// ID not defined -->
         </div>
         <div class="list-group">
           <% @trip_days.first.suggestions.where(category: "Hotel").each do |hotel| %>
