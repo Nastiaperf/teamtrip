@@ -1,0 +1,32 @@
+.show-card{
+
+  .vote-pill{
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+    p{
+      margin-bottom: 0!important;
+      font-size: 1.25ch;
+    }
+  }
+
+  .dark-green{
+    background-color: $dark-green;
+  }
+  .dark-blue{
+    background-color: $dark-blue;
+  }
+  .dark-saumon{
+    background-color: $dark-saumon;
+  }
+  .light-green{
+    background-color: rgba($light-green, .2);
+  }
+
+  .light-saumon{
+    background-color: rgba($light-saumon, .2);
+  }
+
+  .light-blue{
+    background-color: rgba($light-blue, .2);
+  }
+}

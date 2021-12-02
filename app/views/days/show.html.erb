@@ -25,12 +25,13 @@
 <div id="card-section-container-show" class="d-flex bg-secondary justify-content-center pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
   <!-- BEGGENING OF ACTIVITY ITEM CARD -->
   <% @trip_days.first.suggestions.where(category: "Activity").all.each do |activity| %>
-    <div id="item-card-show" class="border border-dark m-3 p-3 rounded bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
+    <div id="item-card-show" class="show-card border border-dark m-3 p-3 rounded bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
       <div class="position-relative border border-dark m-1" style="height: 20vh">
         <!-- CLICK ON THE PICTURE TO VOTE FROM HERE -->
         <u>Photo</u>.<%= activity.photo %>
-        <div class="border border-dark rounded position-absolute" style="top: 2%; right: 2%">
-          Vote
+        <%# image_tag() %>
+        <div class="vote-pill dark-green position-absolute" style="top: 3%; right: 2%">
+          <p>Vote</p>
         </div>
         <!-- TO HERE -->
       </div>
