@@ -24,7 +24,20 @@
         <div id="category-card-top" class="d-flex justify-content-between"> <!-- Category-card-top// ID not defined -->
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
           <div class="d-flex">
-            <%= link_to "+", new_suggestion_path, class:"add-suggestion-green" %>
+          <!-- button to add new suggestion -->
+            <button type="button" class="btn btn-outline-success btn-sm rounded-pill" data-toggle="modal" data-target=".bd-example-modal-lg">+</button>
+              <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">+</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             <h1 class="category-title"> Activities</h1>
           </div>
           <%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %><!-- Category-button// ID not defined -->
@@ -61,13 +74,26 @@
           <% end %>
         </div>
       </div>
-      <!-- ENDING OF ACTIVITY SECTION -->
-      <!-- BEGGENING OF ACTIVITY SECTION -->
+      <!-- ENDING OF RESTAURANT SECTION -->
+      <!-- BEGGENING OF RESTAURANT SECTION -->
       <div class="category-card"> <!-- Category-card // ID not defined -->
         <div id="category-card-top" class="d-flex justify-content-between"> <!-- Category-card-top// ID not defined -->
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
           <div class="d-flex">
-            <%= link_to "+", new_suggestion_path, class:"add-suggestion-saumon" %>
+          <!-- button to add new suggestion -->
+            <button type="button" class="btn btn-outline-danger btn-sm rounded-pill" data-toggle="modal" data-target=".bd-example-modal-lg">+</button>
+              <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">+</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             <h1 class="category-title"> Restaurants</h1>
           </div>
           <%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %> <!-- Category-button// ID not defined -->
@@ -102,7 +128,20 @@
         <div id="category-card-top" class="d-flex justify-content-between"> <!-- Category-card-top// ID not defined -->
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
           <div class="d-flex">
-          <%= link_to "+", new_suggestion_path, class:"add-suggestion-blue" %>
+          <!-- button to add new suggestion -->
+            <button type="button" class="btn btn-outline-primary btn-sm rounded-pill" data-toggle="modal" data-target=".bd-example-modal-lg">+</button>
+              <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">+</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
           <div class="category-title"> Hotels</div>
           </div>
           <%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %> <!-- Category-button// ID not defined -->
