@@ -7,7 +7,8 @@ class Suggestion < ApplicationRecord
   geocoded_by :name
   after_validation :geocode, if: :will_save_change_to_name?
 
-  validates_inclusion_of :category, in: %w[Hotel Restaurant Activity]
+  CATEGORIES = %w[Hotel Restaurant Activity]
+  validates_inclusion_of :category, in: CATEGORIES
   validates :name, presence: true
   attribute :price, :float, default: 0
 end
