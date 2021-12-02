@@ -8,10 +8,10 @@ class DaysController < ApplicationController
     @markers = @suggestions.map do |suggestion|
       {
         lat: suggestion.latitude,
-        lng: suggestion.longitude#,
+        lng: suggestion.longitude,
         # infoWindow: { content: render_to_string(partial: "/suggestions/map_box", locals: { suggestion: suggestion }) }
         # Uncomment the above line if you want each of your markers to display a info window when clicked
-        # (you will also need to create the partial "/flats/map_box")
+        # (you will also need to create the partial "/suggestions/map_box")
       }
     end
   end
