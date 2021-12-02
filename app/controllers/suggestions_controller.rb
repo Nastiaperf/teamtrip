@@ -11,14 +11,13 @@ class SuggestionsController < ApplicationController
     @suggestion.location = "location"
     @suggestion.day = Day.first
     # for @suggestion.day value --> Day.find(params[:day_id])
-
-    @suggestion.save
-    # redirect_to day_path(@day)
+    @suggestion.save!
+    redirect_to root_path
   end
 
   private
 
   def suggestion_params
-    params.require(:suggestion).permit(:day, :user, :price, :name, :category, :location)
+    params.require(:suggestion).permit(:day_id, :user, :price, :name, :category, :location, :comment)
   end
 end
