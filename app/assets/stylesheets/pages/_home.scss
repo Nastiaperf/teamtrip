@@ -33,3 +33,48 @@
 .btn-banner{
   border-radius: 24px;
 }
+
+.img-comment {
+  // height: 200px;
+  float: right;
+  clear: right;
+  margin-left: 11rem;
+  margin-top: 1rem;
+  opacity: 0.4;
+  // justify-content: right;
+}
+
+.card-body-home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.cards-home {
+  display: flex;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.card-home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 2rem;
+  border-radius: 1rem;
+}
+
+.card #comments {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 2px;
+}
