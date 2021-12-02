@@ -3,7 +3,12 @@ class DaysController < ApplicationController
     #days of the trip page
 
     @trip = Trip.find(params[:trip_id])
-    @trip_days = @trip.days
+    if params[:date].present?
+      @trip_days = @trip.days.where(date: params[:date])
+    else
+      @trip_days = @trip.days
+    end
+
     @day = @trip_days.first
 
     @suggestions = Suggestion.where.not(latitude: nil, longitude: nil)

@@ -7,7 +7,18 @@
     </div>
   </div>
   <div class="w-50">
-    <div class="text-center border border-5 border-dark ">Calendrier</div>
+    <!-- DATE SELECTOR -->
+    <div class="day selector">
+    <%= form_tag trip_days_path, method: :get, data: { controller: "day" } do %>
+        <%= date_field_tag :date,
+          params[:date],
+          class: "form-control",
+          data: {
+            action: "change->day#handleChange"
+          }
+        %>
+        <% end  %>
+    </div>
     <!-- BEGGENING OF ACTIVITY SECTION -->
       <div class="category-card"> <!-- Category-card // ID not defined -->
         <div id="category-card-top" class="d-flex justify-content-between"> <!-- Category-card-top// ID not defined -->
