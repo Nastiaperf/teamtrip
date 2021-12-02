@@ -1,10 +1,10 @@
 <div class="container suggestion-form justify-content-center">
   <%= simple_form_for(Suggestion.new) do |f| %>
     <%= f.input :name, as: :text %>
-    <%= f.input :category, as: :radio_buttons, collection: ["Hotel", "Restaurant", "Activity"], wrapper: :vertical_collection_inline %>
+    <%= f.input :category, as: :radio_buttons, collection: Suggestion::CATEGORIES, wrapper: :vertical_collection_inline %>
     <%= f.input :price, as: :text, data: { placeholder: 'Search...'} %>
     <%= f.input :comment, as: :text, prompt: "test" %>
-    <%= f.association :day, collection: Day.all, label_method: :date, value_method: :date, prompt: "On which day you'd like to add the suggestion"  %>
+    <%= f.association :day, collection: Day.all, label_method: :date, value_method: :id, prompt: "On which day you'd like to add the suggestion", selected: @day&.id  %>
     <%= f.button :submit, class: "btn-primary" %>
     <%= f.button :button, "Reset", type: "reset", class: "btn-outline-secondary" %>
   <% end %>
