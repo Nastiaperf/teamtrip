@@ -1,14 +1,13 @@
 class VotesController < ApplicationController
   def create
-    suggestion = Suggestion.find(params[:suggestion_id])
-    new_vote = Vote.new(suggestion: suggestion, user: current_user)
+    new_vote = Vote.new(suggestion_id: params[:suggestion_id], user_id: current_user.id)
     new_vote.save!
-    # REDIRECT
+    redirect_to trip_day_path(trip_id:params[:trip_id], id: params[:day_id])
   end
 
   def destroy
-    vote = Vote.find(param[:vote_id])
+    vote = Vote.find(params[:id])
     vote.destroy!
-    # REDIRECT
+    redirect_to trip_day_path(trip_id:params[:trip_id], id: params[:day_id])
   end
 end
