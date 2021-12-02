@@ -21,4 +21,10 @@ class DaysController < ApplicationController
     @day = Day.find(params[:id])
   end
 
+private
+
+  def day_params
+    params.require(:day).permit(:date, :trip_id)
+  end
+
 end
