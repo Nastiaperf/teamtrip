@@ -111,7 +111,7 @@ suggestion_1 = Suggestion.create(
 
 suggestion_2 = Suggestion.create(
   category: "Restaurant",
-  name: "casa bonita",
+  name: "Sabores da Amazónia",
   day: portugal_trip.days.first,
   user: portugal_trip.users.second,
   price: 12.30,
@@ -129,7 +129,7 @@ suggestion_3 = Suggestion.create(
 
 suggestion_4 = Suggestion.create(
   category: "Activity",
-  name: "Praia de salgueiro",
+  name: "Praia de salgueiro, porto",
   day: portugal_trip.days.first,
   user: portugal_trip.users.third,
   comment: "very crowded and has big waves!"
