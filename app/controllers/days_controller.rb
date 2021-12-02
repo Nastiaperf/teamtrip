@@ -21,6 +21,8 @@ class DaysController < ApplicationController
 
   def show
     #details of the suggestions of the day
+    trip = Trip.find(params[:trip_id])
+    @trip_days = trip.days
     @day = Day.find(params[:id])
   end
 
