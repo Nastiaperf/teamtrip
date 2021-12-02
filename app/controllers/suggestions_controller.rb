@@ -5,14 +5,16 @@ class SuggestionsController < ApplicationController
   end
 
   def create
-    # day = Day.find(params[:day_id])
+    day = Day.find(params[:suggestion][:day_id])
+
     @suggestion = Suggestion.new(suggestion_params)
     @suggestion.user = current_user
     @suggestion.location = "location"
-    @suggestion.day = Day.first
+    @suggestion.day = day
     # for @suggestion.day value --> Day.find(params[:day_id])
     @suggestion.save!
-    redirect_to root_path
+
+    redirect_to trip_day_path(day.trip, day)
   end
 
   private
