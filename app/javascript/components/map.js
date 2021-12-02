@@ -19,3 +19,9 @@ const mapImport = () => {
 }
 
 export { mapImport }
+
+
+// new google.maps.InfoWindow({
+//   content: contentString,
+// });
+// https://developers.google.com/maps/documentation/javascript/infowindows#maps_infowindow_simple-javascript

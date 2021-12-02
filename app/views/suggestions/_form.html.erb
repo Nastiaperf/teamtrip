@@ -1,0 +1,10 @@
+<div class="container suggestion-form">
+  <%= simple_form_for(suggestion) do |f| %>
+    <%= f.input :name, as: :text %>
+    <%= f.input :category, as: :text %>
+    <%= f.input :price, as: :text %>
+    <%= f.input :comment, as: :text %>
+    <%= f.input :day, as: :date, html5: true %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
