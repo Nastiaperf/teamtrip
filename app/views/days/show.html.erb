@@ -17,204 +17,43 @@
 <!-- BEGINNING OF TAB SECTION -->
 <div class="tab-content show-card" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-hotel" role="tabpanel" aria-labelledby="nav-hotel-tab">
-      <!-- BEGENING OF HOTEL TAB SECTION -->
-      <div id="card-section-container-show" class="cards background-hotel pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
-        <!-- BEGENING OF HOTEL ITEM CARD -->
-        <!-- BEGENING VOTING BOUTON -->
-        <% @trip_days.first.suggestions.where(category: "Hotel").all.each do |hotel| %>
-          <div id="item-card-show" class="single-card m-3 bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
-            <% if Vote.find_by(suggestion_id: hotel.id, user_id:current_user.id).nil? %>
-              <%= link_to votes_path(suggestion_id: hotel.id, trip_id: params[:trip_id], day_id:params[:id]), method: :post do %>
-                <div class="position-relative"> 
-                  <%= image_tag("hotel_1.jpg", class:"img-card-show") %>
-                  <div class="vote-pill dark-green position-absolute d-flex" style="top: 6%; right: 4%">
-                    <i class="far fa-thumbs-up"></i><p class="pl-1"><%= hotel.votes.count %></p>
-                  </div>
+    <!-- BEGENING OF HOTEL TAB SECTION -->
+    <div id="card-section-container-show" class="cards background-hotel pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
+      <!-- BEGENING OF HOTEL ITEM CARD -->
+      <!-- BEGENING VOTING BOUTON -->
+      <% @trip_days.first.suggestions.where(category: "Hotel").all.each do |hotel| %>
+        <div id="item-card-show" class="single-card m-3 bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
+          <% if Vote.find_by(suggestion_id: hotel.id, user_id:current_user.id).nil? %>
+            <%= link_to votes_path(suggestion_id: hotel.id, trip_id: params[:trip_id], day_id:params[:id]), method: :post do %>
+              <div class="position-relative">
+                <%= image_tag("hotel_1.jpg", class:"img-card-show") %>
+                <div class="vote-pill dark-green position-absolute d-flex" style="top: 6%; right: 4%">
+                  <i class="far fa-thumbs-up"></i><p class="pl-1"><%= hotel.votes.count %></p>
                 </div>
-              <% end %>
-              <!-- ENDING VOTING BOUTON-->
-            <% else %>
-            <!-- BEGINING UNVOTING BOUTON-->
-              <% vote_id = Vote.find_by(suggestion_id: hotel.id, user_id:current_user.id).id %>
-              <%= link_to vote_path(id: vote_id, trip_id: params[:trip_id], day_id:params[:id]), method: :delete do %>
-                <div class="position-relative border border-dark m-1" style="height: 20vh">
-                  <u>Photo</u>.<%= hotel.photo %>
-                  <div class="border border-dark rounded position-absolute" style="top: 2%; right: 2%">
-                    Vote <i class="far fa-thumbs-up bg-warning"></i><%= hotel.votes.count %>
-                  </div>
-                </div>
-              <% end %>
-              <!-- ENDING UNVOTING BOUTON-->
+              </div>
             <% end %>
-            <div class="d-flex justify-content-between">
-              <div class="text-container align-self-center border border-dark m-1 ">
-                <u>Name</u>.<%= hotel.name %>
-              </div>
-              <div class="text-container align-self-center border border-dark m-1 ">
-                <u>Price</u>.<%= hotel.price %>
-             <!--DIV OF CARD ELEMENTS-->
-            <div class="p-3">
-              <div class="d-flex justify-content-between">
-                <div class="text-container align-self-center m-1 ">
-                  <h6><%= hotel.name %></h6>
-                </div>
-                <div class="text-container align-self-center m-1 ">
-                  <h6><%= hotel.price.to_i %>€</h6>
+            <!-- ENDING VOTING BOUTON-->
+          <% else %>
+          <!-- BEGINING UNVOTING BOUTON-->
+            <% vote_id = Vote.find_by(suggestion_id: hotel.id, user_id:current_user.id).id %>
+            <%= link_to vote_path(id: vote_id, trip_id: params[:trip_id], day_id:params[:id]), method: :delete do %>
+              <div class="position-relative">
+                <%= image_tag("hotel_1.jpg", class:"img-card-show") %>
+                <div class="vote-pill dark-green position-absolute d-flex" style="top: 6%; right: 4%">
+                  <i class="far fa-thumbs-up"></i><p class="pl-1"><%= hotel.votes.count %></p>
                 </div>
               </div>
-              <div class="d-flex">
-                <div class="text-container align-self-center m-1" style="color: #FBBC04">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <div class="text-container align-self-center m-1 ">
-                  <p style="margin: 0">4.8</p>
-                  <%# <i class="far fa-thumbs-up"></i><%= hotel.votes.count %>
-                </div>
-              </div>
-              <div class="text-container align-self-center m-1 ">
-                <%# <u>Description</u>.<%= hotel.description %>
-                <p style="font-size: ">
-                Set in an alleyway, this colorful and relaxed hotel is a 13 minutes walk...
-                </p>
-              </div>
-              <div class="text-container align-self-center m-1 ">
-                <a href="https://www.google.com/maps/place/Eurostars+Das+Artes/@41.1500524,-8.620851,15z/data=!4m8!3m7!1s0x0:0x2254bd890e121461!5m2!4m1!1i2!8m2!3d41.1500524!4d-8.620851" target="_blank" class="a-hotel">See on Google maps</a>
-                <%# <u>Seel all link (google url)</u>.<%= hotel.google_link %>
-              </div>
-              <hr class="dark-blue">
-              <div class="d-flex flex-column justify-content-center" style="height: 6rem">
-                <div class="text-container m-1 ">
-                  <p style="margin: 0"><%= "#{hotel.user.first_name.capitalize + " " + hotel.user.last_name.capitalize}" %></p>
-                </div>
-                <div class="text-container m-1 ">
-                  <p style="margin: 0"> <%= hotel.comment %></p>
-                </div>
-              </div>
-          </div>
-        </div>
-        <% end %>
-        <!-- ENDING OF HOTEL ITEM CARD -->
-      </div>
-      <!-- ENDING OF HOTEL TAB SECTION -->
-  </div>
-
-  <div class="tab-pane fade show" id="nav-restaurant" role="tabpanel" aria-labelledby="nav-restaurant-tab">
-      <!-- BEGINNING OF RESTAURANT TAB SECTION -->
-      <div id="card-section-container-show" class="cards background-restaurant pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
-        <!-- BEGGENING OF RESTAURANT ITEM CARD -->
-
-          <!-- BEGENING VOTING BOUTON -->
-          <% @trip_days.first.suggestions.where(category: "Restaurant").all.each do |restaurant| %>
-          <div id="item-card-show" class="single-card m-3 bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
-            <% if Vote.find_by(suggestion_id: restaurant.id, user_id:current_user.id).nil? %>
-              <%= link_to votes_path(suggestion_id: restaurant.id, trip_id: params[:trip_id], day_id:params[:id]), method: :post do %>
-                <div class="position-relative">
-                  <%= image_tag("resto_1.jpg", class:"img-card-show") %>
-                  <div class="vote-pill dark-green position-absolute d-flex" style="top: 6%; right: 4%">
-                    <i class="far fa-thumbs-up"></i><p class="pl-1"><%= restaurant.votes.count %></p>
-                  </div>
-                </div>
-              <% end %>
-              <!-- ENDING VOTING BOUTON-->
-            <% else %>
-            <!-- BEGINING UNVOTING BOUTON-->
-              <% vote_id = Vote.find_by(suggestion_id: restaurant.id, user_id:current_user.id).id %>
-              <%= link_to vote_path(id: vote_id, trip_id: params[:trip_id], day_id:params[:id]), method: :delete do %>
-                <div class="position-relative border border-dark m-1" style="height: 20vh">
-                  <u>Photo</u>.<%= restaurant.photo %>
-                  <div class="border border-dark rounded position-absolute" style="top: 2%; right: 2%">
-                    Vote <i class="far fa-thumbs-up bg-warning"></i><%= restaurant.votes.count %>
-                  </div>
-                </div>
-              <% end %>
-              <!-- ENDING UNVOTING BOUTON-->
             <% end %>
-            <div class="p-3">
-              <div class="d-flex justify-content-between">
-                <div class="text-container align-self-center m-1 ">
-                  <h6><%= restaurant.name %></h6>
-                </div>
-                <div class="text-container align-self-center m-1 ">
-                  <h6><%= restaurant.price %>€</h6>
-                </div>
-              </div>
-              <div class="d-flex">
-                <div class="text-container align-self-center m-1" style="color: #FBBC04">
-                  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <div class="text-container align-self-center m-1 ">
-                  <p style="margin: 0">4.8</p>
-                  <%# <i class="far fa-thumbs-up"></i><%= restaurant.rating SOMEWHERE ON MAPS %>
-                </div>
-              </div>
-              <div class="text-container align-self-center m-1 ">
-                <%# <u>Description</u>.<%= restaurant.description %>
-                <p style="font-size: ">
-                Set in an alleyway, this colorful and relaxed hotel is a 13 minutes walk...
-                </p>
-              </div>
-              <div class="text-container align-self-center m-1 ">
-                <%# <u>Seel all link (google url)</u>.<%= restaurant.google_link %>
-                <a href="https://www.google.com/maps/place/Eurostars+Das+Artes/@41.1500524,-8.620851,15z/data=!4m8!3m7!1s0x0:0x2254bd890e121461!5m2!4m1!1i2!8m2!3d41.1500524!4d-8.620851" target="_blank" class="a-restaurant">See on Google maps</a>
-              </div>
-              <hr class="dark-saumon">
-              <div class="d-flex flex-column justify-content-center" style="height: 6rem">
-                <div class="text-container m-1 ">
-                  <p style="margin: 0"><%= "#{restaurant.user.first_name.capitalize + " " + restaurant.user.last_name.capitalize}" %></p>
-                </div>
-                <div class="text-container m-1 ">
-                  <p style="margin: 0"> <%= restaurant.comment %></p>
-                </div>
-              </div>
-            </div>
+            <!-- ENDING UNVOTING BOUTON-->
           <% end %>
-        <!-- ENDING OF RESTAURANT ITEM CARD -->
-      </div>
-      <!-- ENDING OF RESTAURANT TAB SECTION -->
-  </div>
-
-  <div class="tab-pane fade show" id="nav-activity" role="tabpanel" aria-labelledby="nav-activity-tab">
-      <!-- BEGGENING OF ACTIVITY TAB SECTION -->
-      <div id="card-section-container-show" class="cards background-activity pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
-        <!-- BEGGENING OF ACTIVITY ITEM CARD -->
-        <!-- BEGENING VOTING BOUTON -->
-          <% @trip_days.first.suggestions.where(category: "Activity").all.each do |activity| %>
-          <div id="item-card-show" class="single-card m-3 bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
-            <% if Vote.find_by(suggestion_id: activity.id, user_id:current_user.id).nil? %>
-              <%= link_to votes_path(suggestion_id: activity.id, trip_id: params[:trip_id], day_id:params[:id]), method: :post do %>
-                <div class="position-relative">
-                  <%= image_tag("activity_1.jpg", class:"img-card-show") %>
-                  <div class="vote-pill dark-green position-absolute d-flex" style="top: 6%; right: 4%">
-                    <i class="far fa-thumbs-up"></i><p class="pl-1"><%= activity.votes.count %></p>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-              <!-- ENDING VOTING BOUTON-->
-            <% else %>
-            <!-- BEGINING UNVOTING BOUTON-->
-              <% vote_id = Vote.find_by(suggestion_id: activity.id, user_id:current_user.id).id %>
-              <%= link_to vote_path(id: vote_id, trip_id: params[:trip_id], day_id:params[:id]), method: :delete do %>
-                <div class="position-relative border border-dark m-1" style="height: 20vh">
-                  <u>Photo</u>.<%= activity.photo %>
-                  <div class="border border-dark rounded position-absolute" style="top: 2%; right: 2%">
-                    Vote <i class="far fa-thumbs-up bg-warning"></i><%= activity.votes.count %>
-                  </div>
-                </div>
-              <% end %>
-              <!-- ENDING UNVOTING BOUTON-->
-            <% end %>
+            <!--DIV OF CARD ELEMENTS-->
           <div class="p-3">
             <div class="d-flex justify-content-between">
               <div class="text-container align-self-center m-1 ">
-                <h6><%= activity.name %></h6>
+                <h6><%= hotel.name %></h6>
               </div>
               <div class="text-container align-self-center m-1 ">
-                <% if activity.price == 0 %>
-                  <h6>Free</h6>
-                <% else %>
-                  <h6><%= activity.price %>€</h6>
-                <% end %>
+                <h6><%= hotel.price.to_i %>€</h6>
               </div>
             </div>
             <div class="d-flex">
@@ -222,33 +61,187 @@
                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
               </div>
               <div class="text-container align-self-center m-1 ">
-                <p style="margin: 0">4.9</p>
-                <%# <i class="far fa-thumbs-up"></i><%= restaurant.rating SOMEWHERE ON MAPS %>
+                <p style="margin: 0">4.8</p>
+                <%# <i class="far fa-thumbs-up"></i><%= hotel.votes.count %>
               </div>
             </div>
             <div class="text-container align-self-center m-1 ">
-              <%# <u>Description</u>.<%= activity.description %>
+              <%# <u>Description</u>.<%= hotel.description %>
               <p style="font-size: ">
               Set in an alleyway, this colorful and relaxed hotel is a 13 minutes walk...
               </p>
             </div>
             <div class="text-container align-self-center m-1 ">
-              <%# <u>Seel all link (google url)</u>.<%= activity.google_link %>
-              <a href="https://www.google.com/maps/place/Eurostars+Das+Artes/@41.1500524,-8.620851,15z/data=!4m8!3m7!1s0x0:0x2254bd890e121461!5m2!4m1!1i2!8m2!3d41.1500524!4d-8.620851" target="_blank" class="a-activity">See on Google maps</a>
+              <a href="https://www.google.com/maps/place/Eurostars+Das+Artes/@41.1500524,-8.620851,15z/data=!4m8!3m7!1s0x0:0x2254bd890e121461!5m2!4m1!1i2!8m2!3d41.1500524!4d-8.620851" target="_blank" class="a-hotel">See on Google maps</a>
+              <%# <u>Seel all link (google url)</u>.<%= hotel.google_link %>
             </div>
-            <hr class="dark-green">
+            <hr class="dark-blue">
             <div class="d-flex flex-column justify-content-center" style="height: 6rem">
               <div class="text-container m-1 ">
-                <p style="margin: 0"><%= "#{activity.user.first_name.capitalize + " " + activity.user.last_name.capitalize}" %></p>
+                <p style="margin: 0"><%= "#{hotel.user.first_name.capitalize + " " + hotel.user.last_name.capitalize}" %></p>
               </div>
               <div class="text-container m-1 ">
-                <p style="margin: 0"><%= activity.comment %></p>
+                <p style="margin: 0"> <%= hotel.comment %></p>
               </div>
             </div>
           </div>
         </div>
       <% end %>
-      <!-- ENDING OF ACTIVITY ITEM CARD -->
+      <!-- ENDING OF HOTEL ITEM CARD -->
+    </div>
+    <!-- ENDING OF HOTEL TAB SECTION -->
+  </div>
+
+  <div class="tab-pane fade show" id="nav-restaurant" role="tabpanel" aria-labelledby="nav-restaurant-tab">
+    <!-- BEGINNING OF RESTAURANT TAB SECTION -->
+    <div id="card-section-container-show" class="cards background-restaurant pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
+      <!-- BEGGENING OF RESTAURANT ITEM CARD -->
+      <!-- BEGENING VOTING BOUTON -->
+      <% @trip_days.first.suggestions.where(category: "Restaurant").all.each do |restaurant| %>
+      <div id="item-card-show" class="single-card m-3 bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
+        <% if Vote.find_by(suggestion_id: restaurant.id, user_id:current_user.id).nil? %>
+          <%= link_to votes_path(suggestion_id: restaurant.id, trip_id: params[:trip_id], day_id:params[:id]), method: :post do %>
+            <div class="position-relative">
+              <%= image_tag("resto_1.jpg", class:"img-card-show") %>
+              <div class="vote-pill dark-green position-absolute d-flex" style="top: 6%; right: 4%">
+                <i class="far fa-thumbs-up"></i><p class="pl-1"><%= restaurant.votes.count %></p>
+              </div>
+            </div>
+          <% end %>
+          <!-- ENDING VOTING BOUTON-->
+        <% else %>
+        <!-- BEGINING UNVOTING BOUTON-->
+          <% vote_id = Vote.find_by(suggestion_id: restaurant.id, user_id:current_user.id).id %>
+          <%= link_to vote_path(id: vote_id, trip_id: params[:trip_id], day_id:params[:id]), method: :delete do %>
+            <div class="position-relative">
+              <%= image_tag("resto_1.jpg", class:"img-card-show") %>
+              <div class="vote-pill dark-green position-absolute d-flex" style="top: 6%; right: 4%">
+                <i class="far fa-thumbs-up"></i><p class="pl-1"><%= restaurant.votes.count %></p>
+              </div>
+            </div>
+          <% end %>
+          <!-- ENDING UNVOTING BOUTON-->
+        <% end %>
+        <div class="p-3">
+          <div class="d-flex justify-content-between">
+            <div class="text-container align-self-center m-1 ">
+              <h6><%= restaurant.name %></h6>
+            </div>
+            <div class="text-container align-self-center m-1 ">
+              <h6><%= restaurant.price %>€</h6>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="text-container align-self-center m-1" style="color: #FBBC04">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="text-container align-self-center m-1 ">
+              <p style="margin: 0">4.8</p>
+              <%# <i class="far fa-thumbs-up"></i><%= restaurant.rating SOMEWHERE ON MAPS %>
+            </div>
+          </div>
+          <div class="text-container align-self-center m-1 ">
+            <%# <u>Description</u>.<%= restaurant.description %>
+            <p style="font-size: ">
+            Set in an alleyway, this colorful and relaxed hotel is a 13 minutes walk...
+            </p>
+          </div>
+          <div class="text-container align-self-center m-1 ">
+            <%# <u>Seel all link (google url)</u>.<%= restaurant.google_link %>
+            <a href="https://www.google.com/maps/place/Eurostars+Das+Artes/@41.1500524,-8.620851,15z/data=!4m8!3m7!1s0x0:0x2254bd890e121461!5m2!4m1!1i2!8m2!3d41.1500524!4d-8.620851" target="_blank" class="a-restaurant">See on Google maps</a>
+          </div>
+          <hr class="dark-saumon">
+          <div class="d-flex flex-column justify-content-center" style="height: 6rem">
+            <div class="text-container m-1 ">
+              <p style="margin: 0"><%= "#{restaurant.user.first_name.capitalize + " " + restaurant.user.last_name.capitalize}" %></p>
+            </div>
+            <div class="text-container m-1 ">
+              <p style="margin: 0"> <%= restaurant.comment %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <!-- ENDING OF RESTAURANT ITEM CARD -->
+    </div>
+    <!-- ENDING OF RESTAURANT TAB SECTION -->
+  </div>
+
+  <div class="tab-pane fade show" id="nav-activity" role="tabpanel" aria-labelledby="nav-activity-tab">
+    <!-- BEGGENING OF ACTIVITY TAB SECTION -->
+    <div id="card-section-container-show" class="cards background-activity pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
+      <!-- BEGGENING OF ACTIVITY ITEM CARD -->
+      <!-- BEGENING VOTING BOUTON -->
+      <% @trip_days.first.suggestions.where(category: "Activity").all.each do |activity| %>
+      <div id="item-card-show" class="single-card m-3 bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
+        <% if Vote.find_by(suggestion_id: activity.id, user_id:current_user.id).nil? %>
+          <%= link_to votes_path(suggestion_id: activity.id, trip_id: params[:trip_id], day_id:params[:id]), method: :post do %>
+            <div class="position-relative">
+              <%= image_tag("activity_1.jpg", class:"img-card-show") %>
+              <div class="vote-pill dark-green position-absolute d-flex" style="top: 6%; right: 4%">
+                <i class="far fa-thumbs-up"></i><p class="pl-1"><%= activity.votes.count %></p>
+              </div>
+            </div>
+          <% end %>
+          <!-- ENDING VOTING BOUTON-->
+        <% else %>
+        <!-- BEGINING UNVOTING BOUTON-->
+          <% vote_id = Vote.find_by(suggestion_id: activity.id, user_id:current_user.id).id %>
+          <%= link_to vote_path(id: vote_id, trip_id: params[:trip_id], day_id:params[:id]), method: :delete do %>
+            <div class="position-relative">
+              <%= image_tag("activity_1.jpg", class:"img-card-show") %>
+              <div class="vote-pill dark-green position-absolute d-flex" style="top: 6%; right: 4%">
+                <i class="far fa-thumbs-up"></i><p class="pl-1"><%= activity.votes.count %></p>
+              </div>
+            </div>
+          <% end %>
+          <!-- ENDING UNVOTING BOUTON-->
+        <% end %>
+        <div class="p-3">
+          <div class="d-flex justify-content-between">
+            <div class="text-container align-self-center m-1 ">
+              <h6><%= activity.name %></h6>
+            </div>
+            <div class="text-container align-self-center m-1 ">
+              <% if activity.price == 0 %>
+                <h6>Free</h6>
+              <% else %>
+                <h6><%= activity.price %>€</h6>
+              <% end %>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="text-container align-self-center m-1" style="color: #FBBC04">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <div class="text-container align-self-center m-1 ">
+              <p style="margin: 0">4.9</p>
+              <%# <i class="far fa-thumbs-up"></i><%= restaurant.rating SOMEWHERE ON MAPS %>
+            </div>
+          </div>
+          <div class="text-container align-self-center m-1 ">
+            <%# <u>Description</u>.<%= activity.description %>
+            <p style="font-size: ">
+            Set in an alleyway, this colorful and relaxed hotel is a 13 minutes walk...
+            </p>
+          </div>
+          <div class="text-container align-self-center m-1 ">
+            <%# <u>Seel all link (google url)</u>.<%= activity.google_link %>
+            <a href="https://www.google.com/maps/place/Eurostars+Das+Artes/@41.1500524,-8.620851,15z/data=!4m8!3m7!1s0x0:0x2254bd890e121461!5m2!4m1!1i2!8m2!3d41.1500524!4d-8.620851" target="_blank" class="a-activity">See on Google maps</a>
+          </div>
+          <hr class="dark-green">
+          <div class="d-flex flex-column justify-content-center" style="height: 6rem">
+            <div class="text-container m-1 ">
+              <p style="margin: 0"><%= "#{activity.user.first_name.capitalize + " " + activity.user.last_name.capitalize}" %></p>
+            </div>
+            <div class="text-container m-1 ">
+              <p style="margin: 0"><%= activity.comment %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <!-- ENDING OF ACTIVITY ITEM CARD -->
     </div>
     <!-- ENDING OF ACTIVITY TAB SECTION -->
   </div>
