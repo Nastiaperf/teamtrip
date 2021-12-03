@@ -5,8 +5,10 @@ class DaysController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     if params[:date].present?
       @trip_days = @trip.days.where(date: params[:date])
+      @selected_date = params[:date]
     else
       @trip_days = @trip.days
+      @selected_date = Day.first.date
     end
 
     @day = @trip_days.first
