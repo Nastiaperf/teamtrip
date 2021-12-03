@@ -22,7 +22,7 @@
     </div>
     <!-- BEGGENING OF HOTEL SECTION -->
       <div class="category-card"> <!-- Category-card // ID not defined -->
-        <div id="category-card-top" class="d-flex justify-content-between"> <!-- Category-card-top// ID not defined -->
+        <div id="category-card-top" class="d-flex justify-content-between card-top"> <!-- Category-card-top// ID not defined -->
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
           <div class="d-flex align-items-center">
           <!-- button to add new suggestion -->
@@ -55,11 +55,11 @@
                 </div>
                 <div class="text-container align-items-start">
                   <h2><%= hotel.name %></h2>
-                  <p> <%= hotel.location %> R. Formosa, 4000-214 Porto</p>
+                  <h3> <%= hotel.location %> R. Formosa, 4000-214 Porto</h3>
                 </div>
               </div>
               <div class="info-container ">
-                <div class="price-container align-self-center ">
+                <div class="price-container align-self-center">
                   <h2><%= hotel.price.to_i %>€</h2>
                 </div>
                 <div class="vote-container align-self-center">
@@ -74,9 +74,9 @@
       </div>
       <!-- BEGGENING OF RESTAURANT SECTION -->
       <div class="category-card"> <!-- Category-card // ID not defined -->
-        <div id="category-card-top" class="d-flex justify-content-between"> <!-- Category-card-top// ID not defined -->
+        <div id="category-card-top" class="d-flex justify-content-between card-top"> <!-- Category-card-top// ID not defined -->
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
-          <div class="d-flex">
+          <div class="d-flex align-items-center">
           <!-- button to add new suggestion -->
           <button type="button" class="btn btn-sm rounded-pill align-middle " data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle btn-saumon"></i></button>
 
@@ -93,8 +93,9 @@
                 </div>
               </div>
 
-
-            <h1 class="category-title"> Restaurants</h1>
+            <div class="category-title">
+              <h1> Restaurants</h1>
+            </div>
           </div>
           <h2><%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %></h2> <!-- Category-button// ID not defined -->
         </div>
@@ -108,7 +109,7 @@
                 </div>
                 <div class="text-container align-self-center">
                   <h2><%= restaurant.name %></h2>
-                  <p> <%= restaurant.location %> R. Das Oliveiras 110, 4050-449 Porto</p>
+                  <h3> <%= restaurant.location %> R. Das Oliveiras 110, 4050-449 Porto</h3>
                 </div>
               </div>
               <div class="info-container">
@@ -127,9 +128,9 @@
       <!-- ENDING OF RESTAURANT SECTION -->
     <!-- BEGGENING OF ACTIVITY SECTION -->
       <div class="category-card"> <!-- Category-card // ID not defined -->
-        <div id="category-card-top" class="d-flex justify-content-between"> <!-- Category-card-top// ID not defined -->
+        <div id="category-card-top" class="d-flex justify-content-between card-top"> <!-- Category-card-top// ID not defined -->
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
-          <div class="d-flex">
+          <div class="d-flex align-items-center">
           <!-- button to add new suggestion -->
             <button type="button" class="btn btn-sm rounded-pill align-middle" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle btn-green"></i></button>
 
@@ -145,7 +146,9 @@
                   </div>
                 </div>
               </div>
-            <h1 class="category-title"> Activities</h1>
+              <div class="category-title">
+                <h1> Activities</h1>
+              </div>
           </div>
           <h2><%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %></h2><!-- Category-button// ID not defined -->
         </div>
