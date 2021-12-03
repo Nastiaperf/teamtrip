@@ -33,9 +33,13 @@
     margin-bottom: .5rem;
   }
 
-  .category-title{
-    padding-left: .8rem;
+  .card-top{
+    // padding-left: .8rem;
     font-weight: bold;
+    align-items: center;
+    h1, h2 {
+      margin: 0;
+    }
   }
 
 
@@ -58,7 +62,7 @@
 
   .text-container{
     color: $dark-blue;
-    font-weight: bold;
+    // font-weight: bold;
   }
 
   .text-container{
