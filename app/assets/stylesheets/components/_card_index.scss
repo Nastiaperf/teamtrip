@@ -6,7 +6,25 @@
   margin-left: 5rem;
   margin-right: 3rem;
   width: 70%;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  button{
+    font-size: 1.5rem;
+
+    .btn-blue{
+      color: $dark-blue;
+    }
+
+    .btn-saumon{
+      color: $dark-saumon;
+    }
+
+    .btn-green{
+      color: $dark-green;
+    }
+  }
+
 
   .item-card{
     height: 5rem;
@@ -20,36 +38,10 @@
     font-weight: bold;
   }
 
-  .add-suggestion-green{
-    text-decoration: none;
-    background-color: $dark-green;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-  }
 
-  .add-suggestion-blue{
-    text-decoration: none;
-    background-color: $dark-blue;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    color: white;
-  }
-
-  .add-suggestion-saumon{
-    text-decoration: none;
-    background-color: $dark-saumon;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-  }
+  // .btn{
+  // padding-top: 1rem;
+  // }
 
 
   #color-activities{
