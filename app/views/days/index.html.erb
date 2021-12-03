@@ -43,7 +43,7 @@
           <h2><%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %> </h2><!-- Category-button// ID not defined -->
         </div>
         <div class="list-group">
-          <% @trip_days.first.suggestions.where(category: "Hotel").each do |hotel| %>
+          <% @trip_days.first.suggestions.where(category: "Hotel").first(1).each do |hotel| %>
             <!-- BEGGENING OF HOTEL ITEM CARD -->
             <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
               <div class="d-flex">
