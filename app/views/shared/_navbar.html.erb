@@ -15,7 +15,7 @@
       <% if user_signed_in? %>
         <div class="d-flex centered-links">
           <li class="nav-item">
-            <%= link_to "Trip Overview", trip_days_path, class: "nav-link" %>
+            <%= link_to "Trip Overview", trip_days_path(Trip.first), class: "nav-link" %>
           </li>
           <li class="nav-item mx-3">
 
