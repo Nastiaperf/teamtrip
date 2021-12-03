@@ -1,11 +1,12 @@
-<div id="item-card-show" class="single-card m-3 bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
+<div id="item-card-show" class="single-card voted m-3 bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
   <!-- BEGGENING UNVOTING BOUTON-->
   <% vote_id = Vote.find_by(suggestion_id: data.id, user_id: current_user.id).id %>
   <%= link_to vote_path(id: vote_id, trip_id: params[:trip_id], day_id:params[:id]), method: :delete do %>
     <div class="position-relative">
       <%= image_tag("resto_1.jpg", class:"img-card-show") %>
+      <i class="fas fa-thumbs-up fa-5x unvoted-thumb position-absolute" style="top: 30%; right: 35%"></i>
       <div class="vote-pill dark-green position-absolute d-flex" style="top: 6%; right: 4%">
-        <i class="far fa-thumbs-up"></i><p class="pl-1"><%= data.votes.count %></p>
+        <i class="fas fa-thumbs-up"></i><p class="pl-1"><%= data.votes.count %></p>
       </div>
     </div>
   <% end %>

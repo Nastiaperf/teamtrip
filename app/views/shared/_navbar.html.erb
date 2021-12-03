@@ -15,10 +15,10 @@
       <% if user_signed_in? %>
         <div class="d-flex centered-links">
           <li class="nav-item">
-            <%= link_to "Trip info", "/trips/:id/days", class: "nav-link" %>
+            <%= link_to "Trip Overview", trip_days_path, class: "nav-link" %>
           </li>
           <li class="nav-item mx-3">
-            <%= link_to "Voting pannel", "/trips/:id/days/:id", class: "nav-link" %>
+
           </li>
           <li class="nav-item">
             <%= link_to "Road map", "#", class: "nav-link" %>

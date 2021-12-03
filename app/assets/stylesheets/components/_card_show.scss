@@ -6,6 +6,7 @@
     grid-gap: 16px;
     padding-left: 4rem!important;
     padding-bottom: 2rem;
+    padding-top: 1rem;
   }
 
   .background-hotel{
@@ -21,14 +22,60 @@
   .vote-pill{
     border-radius: 25px;
     padding: 0.2rem 1rem 0.2rem 1rem;
+    color: $dark-blue;
     p{
       margin-bottom: 0!important;
       font-size: 1.25ch;
     }
+    opacity: 1;
+    box-shadow: 0px 2px 5px rgba(0,0,0,.2), 0px 5px 7px rgba(0,0,0,.4);
+  }
+
+  .unvoted-pill{
+    opacity: 0.6;
   }
 
   .single-card{
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,.2), 0px 5px 7px rgba(0,0,0,.4);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  }
+
+  .single-card:hover{
+    transform: scale(1.05);
+    .img-card-show{
+      opacity: 0.5;
+    }
+    .unvoted-thumb{
+      display: flex;
+      color: $dark-blue;
+    }
+    .voted-thumb{
+      display: flex;
+      color: $dark-blue;
+    }
+    .unvoted-pill{
+      opacity: 1;
+    }
+    // box-shadow: 3px 5px 20px rgba($dark-green,.3), 3px 5px 15px rgba($dark-green,.6);
+  }
+
+  .voted{
+    border: 5px solid $dark-green;
+  }
+
+  .unvoted{
+    .img-card-show{
+      opacity: 0.7;
+    }
+  }
+
+  .unvoted-thumb{
+    display: none;
+  }
+
+  .voted-thumb{
+    display: none;
   }
 
   // .cover-img{

@@ -1,20 +1,24 @@
 h1{
   color: $dark-blue;
-  font-size: large;
+  font-size: x-large;
   font-weight: bold;
 }
 
 h2{
-  font-size: medium;
+  font-size: large;
+  color: $dark-blue;
   font-weight: bold;
 }
 
-h3{
-  font-size: small;
+p{
+  font-size: medium;
 }
 
-p{
-  font-size: x-small;
+
+h3{
+  font-size: small;
+  color: $dark-blue;
+  font-weight: bold;
 }
 
 .btn {
