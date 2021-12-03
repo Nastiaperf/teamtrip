@@ -1,4 +1,21 @@
 .show-card{
+  #nav-hotel {
+    .unvoted-thumb, .voted-thumb{
+      color: $dark-blue;
+    }
+  }
+
+  #nav-restaurant{
+    .unvoted-thumb, .voted-thumb{
+      color: $dark-saumon;
+    }
+  }
+
+  #nav-activity{
+    .unvoted-thumb, .voted-thumb{
+      color: $dark-green;
+    }
+  }
 
   .cards{
     display: grid;
@@ -47,14 +64,11 @@
     .img-card-show{
       opacity: 0.5;
     }
-    .unvoted-thumb{
+
+    .unvoted-thumb, .voted-thumb{
       display: flex;
-      color: $dark-blue;
     }
-    .voted-thumb{
-      display: flex;
-      color: $dark-blue;
-    }
+
     .unvoted-pill{
       opacity: 1;
     }
