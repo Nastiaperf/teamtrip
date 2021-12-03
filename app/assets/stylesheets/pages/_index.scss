@@ -1,2 +1,13 @@
 // Import page-specific CSS files here.
 @import "home";
+
+  // map
+#map {
+  position: sticky;
+  top: 0;
+}
+
+#date {
+  margin-top: 0.5rem;
+  width: 25rem;
+}

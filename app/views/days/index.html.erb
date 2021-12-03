@@ -2,16 +2,17 @@
   <div class="w-50">
     <div id="map"
       style="width: 100%;
-      height: 100%;"
+      height: 100vh;"
       data-markers="<%= @markers.to_json %>">
     </div>
   </div>
   <div class="w-50">
     <!-- DATE SELECTOR -->
-    <div class="day selector">
+    <div class="d-flex day-selector justify-content-center">
     <%= form_tag trip_days_path, method: :get, data: { controller: "day" } do %>
         <%= date_field_tag :date,
-          params[:date],
+
+          value=@selected_date,
           class: "form-control",
           data: {
             action: "change->day#handleChange"
@@ -51,8 +52,8 @@
                   <%= image_tag "hotel_1.jpg", class:"image-card" %>
                 </div>
                 <div class="text-container align-items-start">
-                  <%= hotel.name %>
-                  <%= hotel.location %>
+                  <h2><%= hotel.name %></h2>
+                  <p> <%= hotel.location %> R. Formosa, 4000-214 Porto</p>
                 </div>
               </div>
               <div class="info-container ">
@@ -100,9 +101,9 @@
                 <div class="image-container">
                   <%= image_tag "resto_1.jpg", class:"image-card" %>
                 </div>
-                <div class="text-container align-items-start">
+                <div class="text-container align-self-center">
                   <h2><%= restaurant.name %></h2>
-                  <%= restaurant.location %>
+                  <p> <%= restaurant.location %> R. Das Oliveiras 110, 4050-449 Porto</p>
                 </div>
               </div>
               <div class="info-container">
@@ -153,7 +154,7 @@
                 </div>
                 <div class="text-container align-items-start">
                   <h2><%= activity.name %></h2>
-                  <h3> <%= activity.location %> 4 boulevard Charpentier, 44000 Nantes</h3>
+                  <h3> <%= activity.location %> Rua do Almada 438, 4050-039 Porto</h3>
                 </div>
               </div>
               <div class="info-container ">
