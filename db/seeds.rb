@@ -155,8 +155,8 @@ suggestion_6 = Suggestion.create(
 suggestion_7 = Suggestion.create(
   category: "Hotel",
   name: "Hotel Quarteira Sol",
-  day: portugal_trip.days.[1],
-  user: portugal_trip.users.[4],
+  day: portugal_trip.days[1],
+  user: portugal_trip.users[4],
   price: 180,
   comment: "A beautiful view on the beach"
 )
@@ -164,8 +164,8 @@ suggestion_7 = Suggestion.create(
 suggestion_8 = Suggestion.create(
   category: "Hotel",
   name: "Hotel Borges Chiado",
-  day: portugal_trip.days.[1],
-  user: portugal_trip.users.[4],
+  day: portugal_trip.days[1],
+  user: portugal_trip.users[4],
   price: 140,
   comment: "This hotel is in the town center"
 )
@@ -173,8 +173,8 @@ suggestion_8 = Suggestion.create(
 suggestion_9 = Suggestion.create(
   category: "Restaurant",
   name: "Augusto Lisboa",
-  day: portugal_trip.days.[1],
-  user: portugal_trip.users.[4],
+  day: portugal_trip.days[1],
+  user: portugal_trip.users[4],
   price: 90,
   comment: "A very good place to eat good food"
 )
@@ -182,8 +182,8 @@ suggestion_9 = Suggestion.create(
 suggestion_10 = Suggestion.create(
   category: "Restaurant",
   name: "Frade dos Mares",
-  day: portugal_trip.days.[1],
-  user: portugal_trip.users.[3],
+  day: portugal_trip.days[1],
+  user: portugal_trip.users[3],
   price: 80,
   comment: "The good look delicious we should try to go"
 )
@@ -191,8 +191,8 @@ suggestion_10 = Suggestion.create(
 suggestion_11 = Suggestion.create(
   category: "Activity",
   name: "Museo National del Arte",
-  day: portugal_trip.days.[1],
-  user: portugal_trip.users.[3],
+  day: portugal_trip.days[1],
+  user: portugal_trip.users[3],
   price: 10,
   comment: "A prestigious museum that I want visit"
 )
@@ -200,8 +200,8 @@ suggestion_11 = Suggestion.create(
 suggestion_12 = Suggestion.create(
   category: "Activity",
   name: "Jardim Zoológico de Lisboa",
-  day: portugal_trip.days.[1],
-  user: portugal_trip.users.[3],
+  day: portugal_trip.days[1],
+  user: portugal_trip.users[3],
   price: 10,
   comment: "The bigger zoo of the country"
 )
@@ -209,8 +209,8 @@ suggestion_12 = Suggestion.create(
 suggestion_13 = Suggestion.create(
   category: "Activity",
   name: "Adventure Park",
-  day: portugal_trip.days.[1],
-  user: portugal_trip.users.[2],
+  day: portugal_trip.days[1],
+  user: portugal_trip.users[2],
   price: 25,
   comment: "I want do this big amusement park"
 )
