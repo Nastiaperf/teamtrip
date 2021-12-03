@@ -22,9 +22,9 @@
       <!-- BEGENING OF HOTEL ITEM CARD -->
       <% @trip_days.first.suggestions.where(category: "Hotel").all.each do |data| %>
         <% if Vote.find_by(suggestion_id: data.id, user_id: current_user.id).nil? %>
-          <%= render 'days/unvoted_card', data: data %>
+          <%= render 'days/unvoted_card', data: data %><!-- Le vote n'existe pas -->
         <% else %>
-          <%= render 'days/voted_card', data: data %>
+          <%= render 'days/voted_card', data: data %><!-- Le vote existe pas -->
         <% end %>
       <% end %>
       <!-- ENDING OF HOTEL ITEM CARD -->
