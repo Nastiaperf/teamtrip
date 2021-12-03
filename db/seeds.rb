@@ -190,7 +190,7 @@ suggestion_10 = Suggestion.create(
 
 suggestion_11 = Suggestion.create(
   category: "Activity",
-  name: "Museo National del Arte",
+  name: "Museo National de Azulejo",
   day: portugal_trip.days[1],
   user: portugal_trip.users[3],
   price: 10,
@@ -208,7 +208,7 @@ suggestion_12 = Suggestion.create(
 
 suggestion_13 = Suggestion.create(
   category: "Activity",
-  name: "Adventure Park",
+  name: "Jardim dos Aciprestes",
   day: portugal_trip.days[1],
   user: portugal_trip.users[2],
   price: 25,
