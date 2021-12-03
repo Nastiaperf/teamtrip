@@ -23,22 +23,24 @@
       <div class="category-card"> <!-- Category-card // ID not defined -->
         <div id="category-card-top" class="d-flex justify-content-between"> <!-- Category-card-top// ID not defined -->
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
-          <div class="d-flex">
+          <div class="d-flex align-items-center">
           <!-- button to add new suggestion -->
-            <button type="button" class="btn btn-outline-primary btn-sm rounded-pill" data-toggle="modal" data-target=".bd-example-modal-lg">+</button>
-              <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">+</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
+            <button type="button" class="btn btn-sm rounded-pill align-middle " data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle btn-blue"></i></button>
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">+</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
                   </div>
                 </div>
               </div>
-          <div class="category-title"><h1>Hotels</h1> </div>
+            </div>
+            <div class="category-title">
+              <h1 class="align-bottom">Hotels</h1>
+            </div>
           </div>
           <h2><%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %> </h2><!-- Category-button// ID not defined -->
         </div>
@@ -75,7 +77,8 @@
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
           <div class="d-flex">
           <!-- button to add new suggestion -->
-            <button type="button" class="btn btn-outline-danger btn-sm rounded-pill" data-toggle="modal" data-target=".bd-example-modal-lg">+</button>
+          <button type="button" class="btn btn-sm rounded-pill align-middle " data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle btn-saumon"></i></button>
+
               <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
@@ -88,6 +91,8 @@
                   </div>
                 </div>
               </div>
+
+
             <h1 class="category-title"> Restaurants</h1>
           </div>
           <h2><%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %></h2> <!-- Category-button// ID not defined -->
@@ -125,7 +130,8 @@
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
           <div class="d-flex">
           <!-- button to add new suggestion -->
-            <button type="button" class="btn btn-outline-success btn-sm rounded-pill" data-toggle="modal" data-target=".bd-example-modal-lg">+</button>
+            <button type="button" class="btn btn-sm rounded-pill align-middle" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle btn-green"></i></button>
+
               <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
