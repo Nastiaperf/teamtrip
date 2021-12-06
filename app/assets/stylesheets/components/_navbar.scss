@@ -20,3 +20,43 @@
   color: white!important;
   // font-weight: bold;
 }
+
+.trip-member-avatar-wrapper{
+  position: relative;
+}
+
+.trip-member-avatar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.15rem;
+  padding: 0.25rem;
+  height: 30px;
+  width: 30px;
+  font-size: 0.5rem;
+  border-radius: 50%;
+  border: 1px;
+  border-style: solid;
+
+  &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+
+    .user-info-on-hover {
+      opacity: 1;
+    }
+  }
+
+  .user-info-on-hover{
+    opacity: 0;
+    position: absolute;
+    width: 180px;
+    text-align: center;
+    top: 50px;
+    border: solid black;
+    border-width: 0.5px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 0.75rem
+  }
+}
