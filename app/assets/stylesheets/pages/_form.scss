@@ -11,30 +11,40 @@
 }
 
 .modal-dialog {
-  width: 30rem;
+  width: 35rem;
 }
 
 .form-group {
   background-color: #62d0b12c;
   border-radius: 5%;
+  width: 20rem;
+  font-size: larger;
 }
 
 .form-control {
-  border: none !important;
   padding: none !important;
   background-color:transparent !important;
   background-image: none !important;
-  border: none !important;
+}
+
+.stripes {
+background-image: linear-gradient(45deg, #58cc6f 25.64%, #3D6F8E 25.64%, #3D6F8E 50%, #58cc6f 50%, #58cc6f 75.64%, #3D6F8E 75.64%, #3D6F8E 100%);
+background-size: 55.15px 55.15px;
+border: none !important;
 }
 
 .modal-content {
-  // background-image: linear-gradient(37deg, #62d0b159 25%, #6a8fad69 25%, #6a8fad69 50%, #62d0b159 50%, #62d0b159 75%, #6a8fad69 75%, #6a8fad69 100%);
   background-size: 66.47px 50.09px;
+  border-radius: 2% !important;
+}
+
+#suggestion_price, #suggestion_comment, #suggestion_name {
+  border: none;
+  outline: none;
 }
 
 .suggestion_category {
-  background-image: none !important;
-  background-color: none !important;
+  background: none !important;
 }
 
 .suggestion-form {
@@ -49,6 +59,8 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  background-image: none !important;
+  background-color: none !important;
 }
 
 .category-item {
@@ -65,10 +77,10 @@
   cursor: pointer;
   box-sizing: border-box;
   width: 100%;
-  font-size: 12px;
+  font-size: 14px;
   text-align: left;
   padding: 10px 10px 30px 10px;
-  border: 1px solid #EAEAEA;
+  border: 1px solid #EAEAEA !important;
   border-radius: 4px;
   background-color: white;
 }
