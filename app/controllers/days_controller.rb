@@ -24,14 +24,21 @@ class DaysController < ApplicationController
       }
     end
 
+    #Google Places client instance
+    @client = GooglePlaces::Client.new(ENV['GOOGLE_API_BROWSER_KEY'])
   end
 
   def show
+
     #details of the suggestions of the day
     @trip = Trip.find(params[:trip_id])
     @trip_days = @trip.days
     @day = Day.find(params[:id])
 
+    @hotels_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Hotel")
+    @restaurants_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Restaurant")
+    @activities_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Activity")
+  
     # begin calendar
     # @current_day = @day.find(date: params[:date]) || @day.first
     @current_date = @day || Day.first
@@ -46,12 +53,12 @@ class DaysController < ApplicationController
     
     @current_date = (@day.date).strftime("%Y-%m-%d")
     # end calendar
+
   end
 
-private
+  private
 
   def day_params
     params.require(:day).permit(:date, :trip_id)
   end
-
 end

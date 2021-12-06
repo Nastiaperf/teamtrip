@@ -1,9 +1,13 @@
 // Import page-specific CSS files here.
 @import "home";
 
+#right-panel{
+  flex-grow: 1;
+}
   // map
 #map {
-  position: sticky;
+  height: 100vh;
+  position: sticky!important;
   top: 0;
 }
 

@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon p-2">
   <%= link_to "/", class: "navbar-brand" do %>
-    <%= image_tag("TeamTrip_logo.png", height:"50") %>
+    <%= image_tag("TeamTrip_logo.png", height:"47") %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +15,11 @@
       <% if user_signed_in? %>
         <div class="d-flex centered-links">
           <li class="nav-item">
-            <%= link_to "Trip Overview", trip_days_path(Trip.first), class: "nav-link" %>
+            <% if current_page?(trip_days_path(Trip.first)) %>
+              <button class="d-flex justify-content-center align-items-center btn btn-outline-success active btn-sm btn-trip"> <%= image_tag("travel.png", width:"20rem", height:"20rem") %> <%= link_to Trip.first.name, trip_days_path(Trip.first), class: "nav-link" %></button>
+            <% else %>
+              <button class="d-flex justify-content-center align-items-center btn btn-outline-success btn-sm btn-trip"> <%= image_tag("travel.png", width:"20rem", height:"20rem") %> <%= link_to Trip.first.name, trip_days_path(Trip.first), class: "nav-link" %></button>
+            <% end %>
           </li>
           <li class="nav-item mx-3">
 
