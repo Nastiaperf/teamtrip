@@ -29,12 +29,31 @@ class DaysController < ApplicationController
   end
 
   def show
-    trip = Trip.find(params[:trip_id])
-    @trip_days = trip.days
+
+    #details of the suggestions of the day
+    @trip = Trip.find(params[:trip_id])
+    @trip_days = @trip.days
     @day = Day.find(params[:id])
+
     @hotels_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Hotel")
     @restaurants_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Restaurant")
     @activities_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Activity")
+  
+    # begin calendar
+    # @current_day = @day.find(date: params[:date]) || @day.first
+    @current_date = @day || Day.first
+
+    unless @current_date == Day.last
+      @next_date = (@current_date.date + 1.day).strftime("%Y-%m-%d")
+    end
+
+    unless @current_date == Day.first
+      @previous_date = (@current_date.date - 1.day).strftime("%Y-%m-%d")
+    end
+    
+    @current_date = (@day.date).strftime("%Y-%m-%d")
+    # end calendar
+
   end
 
   private

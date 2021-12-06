@@ -1,2 +1,132 @@
-<h1>Trips#show</h1>
-<p>Find me in app/views/trips/show.html.erb</p>
+<div id="roadmap">
+  <div id="body-roadmap">
+    <div class="calendar">
+      <div>
+        <% if @previous_date %>
+          <%= link_to "#{@previous_date}", trip_path(@trip, date: @previous_date) %>
+        <% end %>
+      </div>
+
+      <div>
+        <h1> <%= @current_date %> </h1>
+      </div>
+
+      <div>
+        <% if @next_date %>
+          <%= link_to "#{@next_date}", trip_path(@trip, date: @next_date) %>
+        <% end %>
+      </div>
+
+    </div>
+    <% if @previous_hotel %>
+      <div class="card-top">
+      <!-- hotel previous date -->
+        <h1>Wake up in</h1>
+        <div class="category-card">
+          <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
+            <div class="d-flex">
+              <div class="image-container">
+                <%= image_tag "hotel_1.jpg", class:"image-card" %>
+              </div>
+              <div class="text-container align-items-start">
+                <h2><%= @previous_hotel.name %></h2>
+                <h3> <%= @previous_hotel.location %> Porto</h3>
+              </div>
+            </div>
+
+            <div class="price-container align-self-end">
+              <h2><%= @previous_hotel.price.to_i %>€</h2>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <!-- end hotel previous date -->
+    <!-- begin activity -->
+    <div class="card-top">
+      <h1>Go visit</h1>
+      <div class="category-card">
+
+        <% @current_activities.each do |activity| %>
+          <div id="color-activities" class="item-card d-flex justify-content-between"> <!-- Item-card // ID not defined -->
+            <div class="d-flex">
+              <div class="image-container">
+                <%# <%= activity.photo %>
+                <%= image_tag "activity_1.jpg", class:"image-card" %>
+              </div>
+              <div class="text-container align-items-start">
+                <h2><%= activity.name %></h2>
+                <h3> <%= activity.location %> Porto</h3>
+              </div>
+            </div>
+
+            <div class="price-container align-self-end">
+              <% if activity.price.zero? %>
+                <h2>Free</h2>
+              <% else %>
+                <h2><%= activity.price.to_i %>€</h2>
+              <% end %>
+            </div>
+
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <!-- end activities-->
+    <!-- begin restaurants-->
+    <div class="card-top">
+      <h1>Have lunch</h1>
+      <div class="category-card">
+
+        <% @current_restaurants.each do |restaurant| %>
+          <div id="color-restaurants" class="item-card d-flex justify-content-between"> <!-- Item-card // ID not defined -->
+            <div class="d-flex">
+              <div class="image-container">
+                <%# <%= activity.photo %>
+                <%= image_tag "resto_1.jpg", class:"image-card" %>
+              </div>
+              <div class="text-container align-items-start">
+                <h2><%= restaurant.name %></h2>
+                <h3> <%= restaurant.location %> Porto</h3>
+              </div>
+            </div>
+              <div class="price-container align-self-end">
+                <h2><%= restaurant.price.to_i %>€</h2>
+              </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <!-- end restaurants -->
+
+    <!-- begin hotel for night -->
+
+    <div class="card-top">
+    <!-- hotel current date -->
+      <h1>Go sleep</h1>
+      <div class="category-card">
+        <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
+          <div class="d-flex">
+            <div class="image-container">
+              <%= image_tag "hotel_1.jpg", class:"image-card" %>
+            </div>
+            <div class="text-container align-items-start">
+              <h2><%= @current_hotel.name %></h2>
+              <h3> <%= @current_hotel.location %> Porto</h3>
+            </div>
+          </div>
+
+          <div class="price-container align-self-end">
+            <h2><%= @current_hotel.price.to_i %>€</h2>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- end hotel for night -->
+  </div>
+  <div id="map">
+  </div>
+</div>
