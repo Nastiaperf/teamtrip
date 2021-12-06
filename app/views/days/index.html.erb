@@ -9,7 +9,7 @@
   <div class="w-50">
     <!-- DATE SELECTOR -->
     <div class="d-flex day-selector justify-content-center">
-    <%= form_tag trip_days_path, method: :get, data: { controller: "day" } do %>
+      <%= form_tag trip_days_path, method: :get, data: { controller: "day" } do %>
         <%= date_field_tag :date,
 
           value=@selected_date,
@@ -18,14 +18,14 @@
             action: "change->day#handleChange"
           }
         %>
-        <% end  %>
+      <% end  %>
     </div>
-    <!-- BEGGENING OF HOTEL SECTION -->
+    <!-- BEGINNING OF HOTEL SECTION -->
       <div class="category-card"> <!-- Category-card // ID not defined -->
         <div id="category-card-top" class="d-flex justify-content-between card-top"> <!-- Category-card-top// ID not defined -->
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
           <div class="d-flex align-items-center">
-          <!-- button to add new suggestion -->
+            <!-- button to add new suggestion -->
             <button type="button" class="btn btn-sm rounded-pill align-middle " data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle btn-blue"></i></button>
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg">
@@ -45,34 +45,16 @@
           </div>
           <h2><%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %> </h2><!-- Category-button// ID not defined -->
         </div>
-        <div class="list-group">
-          <% @trip_days.first.suggestions.where(category: "Hotel").first(1).each do |hotel| %>
-            <!-- BEGGENING OF HOTEL ITEM CARD -->
-            <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
-              <div class="d-flex">
-                <div class="image-container">
-                  <%= image_tag "hotel_1.jpg", class:"image-card" %>
-                </div>
-                <div class="text-container align-items-start">
-                  <h2><%= hotel.name %></h2>
-                  <h3> <%= hotel.location %> R. Formosa, 4000-214 Porto</h3>
-                </div>
-              </div>
-              <div class="info-container ">
-                <div class="price-container align-self-center">
-                  <h2><%= hotel.price.to_i %>€</h2>
-                </div>
-                <div class="vote-container align-self-center">
-                  <i class="far fa-thumbs-up"></i><%= hotel.votes.count %>
-                </div>
-              </div>
-            </div>
-          <% end %>
+        <div class="list-group" id="nav-hotel">
+          <% @trip_days.first.suggestions.where(category: "Hotel").first(1).each do |data| %>
+          <!-- BEGINNING OF HOTEL ITEM CARD -->
+            <%= render 'days/unvoted_card_index', data: data %>
           <!-- ENDING OF HOTEL ITEM CARD -->
+          <% end %>
         </div>
-        <!-- ENDING OF HOTEL SECTION -->
       </div>
-      <!-- BEGGENING OF RESTAURANT SECTION -->
+    <!-- ENDING OF HOTEL SECTION -->
+    <!-- BEGINNING OF RESTAURANT SECTION -->
       <div class="category-card"> <!-- Category-card // ID not defined -->
         <div id="category-card-top" class="d-flex justify-content-between card-top"> <!-- Category-card-top// ID not defined -->
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
@@ -99,34 +81,16 @@
           </div>
           <h2><%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %></h2> <!-- Category-button// ID not defined -->
         </div>
-        <div class="list-group">
-          <% @trip_days.first.suggestions.where(category: "Restaurant").first(2).each do |restaurant| %>
-            <!-- BEGGENING OF RESTAURANT ITEM CARD -->
-            <div id="color-restaurants" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
-              <div class="d-flex">
-                <div class="image-container">
-                  <%= image_tag "resto_1.jpg", class:"image-card" %>
-                </div>
-                <div class="text-container align-self-center">
-                  <h2><%= restaurant.name %></h2>
-                  <h3> <%= restaurant.location %> R. Das Oliveiras 110, 4050-449 Porto</h3>
-                </div>
-              </div>
-              <div class="info-container">
-                <div class="price-container align-self-center">
-                  <h2><%= restaurant.price.to_i %>€ </h2>
-                </div>
-                <div class="vote-container align-self-center">
-                  <i class="far fa-thumbs-up"></i><%= restaurant.votes.count %>
-                </div>
-              </div>
-            </div>
+        <div class="list-group" id="nav-restaurant">
+          <% @trip_days.first.suggestions.where(category: "Restaurant").first(2).each do |data| %>
+          <!-- BEGINNING OF RESTAURANT ITEM CARD -->
+            <%= render 'days/unvoted_card_index', data: data %>
           <% end %>
           <!-- ENDING OF RESTAURANT ITEM CARD -->
         </div>
       </div>
-      <!-- ENDING OF RESTAURANT SECTION -->
-    <!-- BEGGENING OF ACTIVITY SECTION -->
+    <!-- ENDING OF RESTAURANT SECTION -->
+    <!-- BEGENNING OF ACTIVITY SECTION -->
       <div class="category-card"> <!-- Category-card // ID not defined -->
         <div id="category-card-top" class="d-flex justify-content-between card-top"> <!-- Category-card-top// ID not defined -->
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
@@ -152,36 +116,13 @@
           </div>
           <h2><%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %></h2><!-- Category-button// ID not defined -->
         </div>
-        <div class="list-group">
-          <% @trip_days.first.suggestions.where(category: "Activity").first(3).each do |activity| %>
-            <!-- BEGGENING OF ACTIVITY ITEM CARD -->
-            <div id="color-activities" class="item-card d-flex justify-content-between"> <!-- Item-card // ID not defined -->
-              <div class="d-flex">
-                <div class="image-container">
-                  <%# <%= activity.photo %>
-                  <%= image_tag "activity_1.jpg", class:"image-card" %>
-                </div>
-                <div class="text-container align-items-start">
-                  <h2><%= activity.name %></h2>
-                  <h3> <%= activity.location %> Rua do Almada 438, 4050-039 Porto</h3>
-                </div>
-              </div>
-              <div class="info-container ">
-                <div class="price-container align-self-center">
-                  <% if activity.price.zero? %>
-                    <h2>Free</h2>
-                  <% else %>
-                    <h2><%= activity.price.to_i %>€</h2>
-                  <% end %>
-                </div>
-                <div class="vote-container align-self-center">
-                  <i class="far fa-thumbs-up"></i><%= activity.votes.count %>
-                </div>
-              </div>
-            </div>
+        <div class="list-group" id="nav-activity">
+          <% @trip_days.first.suggestions.where(category: "Activity").first(3).each do |data| %>
+            <!-- BEGINNING OF ACTIVITY ITEM CARD -->
+            <%= render 'days/unvoted_card_index', data: data %>
           <% end %>
         </div>
       </div>
-      <!-- ENDING OF RESTAURANT SECTION -->
+    <!-- ENDING OF ACTIVITY SECTION -->
   </div>
 </div>
