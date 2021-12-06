@@ -9,13 +9,13 @@
       input_html: {class: 'category-selector'},
       collection: Suggestion::CATEGORIES,
       wrapper: :vertical_collection_inline %>
-    <%= f.input :price, as: :text%>
+    <%= f.input :price, as: :text, class: 'price-input'%>
     <%= f.input :comment, as: :text %>
     <%= f.association :day,
       collection: Day.all,
       label_method: :date,
       value_method: :id,
       selected: @day&.id  %>
-    <%= f.button :submit, class: "btn-primary" %>
+    <%= f.button :submit, class: "btn-primary stripes" %>
   <% end %>
 </div>
