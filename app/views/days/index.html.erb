@@ -1,12 +1,10 @@
 <div class="d-flex body-index">
   <div class="w-50">
     <div id="map"
-      style="width: 100%;
-      height: 100vh;"
       data-markers="<%= @markers.to_json %>">
     </div>
   </div>
-  <div class="w-50">
+  <div class="w-50" id="right-panel">
     <!-- DATE SELECTOR -->
     <div class="d-flex day-selector justify-content-center">
       <%= form_tag trip_days_path, method: :get, data: { controller: "day" } do %>

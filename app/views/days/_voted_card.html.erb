@@ -1,4 +1,4 @@
-<div id="item-card-show" class="single-card voted m-3 bg-light" style="width: 25vw"> <!-- Item-card-show // ID not defined -->
+<div id="item-card-show" class="single-card voted m-3 bg-light" style="width: 27vw"> <!-- Item-card-show // ID not defined -->
   <!-- BEGGENING UNVOTING BOUTON-->
   <% vote_id = Vote.find_by(suggestion_id: data.id, user_id: current_user.id).id %>
   <%= link_to vote_path(id: vote_id, trip_id: params[:trip_id], day_id:params[:id]), method: :delete do %>
@@ -42,12 +42,16 @@
       <a href="https://www.google.com/maps/place/Eurostars+Das+Artes/@41.1500524,-8.620851,15z/data=!4m8!3m7!1s0x0:0x2254bd890e121461!5m2!4m1!1i2!8m2!3d41.1500524!4d-8.620851" target="_blank">See on Google maps</a>
     </div>
     <hr class="dark-blue">
-    <div class="d-flex flex-column justify-content-center" style="height: 6rem">
+    <div>
       <div class="text-container m-1 ">
         <p style="margin: 0"><%= "#{data.user.first_name.capitalize + " " + data.user.last_name.capitalize}" %></p>
       </div>
       <div class="text-container m-1 ">
-        <p style="margin: 0"> <%= data.comment %></p>
+        <% if data.comment.length == 0 %>
+          <p style="margin: 0"><em>There is no comment</em></p>
+        <% else %>
+          <p style="margin: 0"> <%= data.comment %></p>
+        <% end %>
       </div>
     </div>
   </div>
