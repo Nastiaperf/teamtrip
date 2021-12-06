@@ -41,7 +41,8 @@
               <h1 class="align-bottom">Hotels</h1>
             </div>
           </div>
-          <h2><%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %> </h2><!-- Category-button// ID not defined -->
+          <% @day = Day.find_by(date: @selected_date) %>
+          <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Hotel"}), class:"button-see-show" %> </h2><!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-hotel">
           <% @trip_days.first.suggestions.where(category: "Hotel").first(1).each do |data| %>
@@ -77,7 +78,7 @@
               <h1> Restaurants</h1>
             </div>
           </div>
-          <h2><%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %></h2> <!-- Category-button// ID not defined -->
+          <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Restaurant"}), class:"button-see-show" %></h2> <!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-restaurant">
           <% @trip_days.first.suggestions.where(category: "Restaurant").first(2).each do |data| %>
@@ -112,7 +113,7 @@
                 <h1> Activities</h1>
               </div>
           </div>
-          <h2><%= link_to "See all", trip_day_path(@trip, @day), class:"button-see-show" %></h2><!-- Category-button// ID not defined -->
+          <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Activity"}), class:"button-see-show" %></h2><!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-activity">
           <% @trip_days.first.suggestions.where(category: "Activity").first(3).each do |data| %>

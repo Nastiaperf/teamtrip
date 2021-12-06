@@ -25,6 +25,8 @@ require("channels")
 // External imports
 import "bootstrap";
 import { mapImport } from '../components/map.js'
+import { redirectMenu } from '../components/tab_menu.js'
+import { reloadMenu } from '../components/tab_menu.js'
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -32,6 +34,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   mapImport();
+  reloadMenu();
 });
 
 import "controllers"

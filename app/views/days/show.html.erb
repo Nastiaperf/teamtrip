@@ -7,20 +7,21 @@
 <!-- BEGINNING OF MENU TAB SECTION -->
 <nav class="container">
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-link active" id="nav-hotel-tab" data-toggle="tab" href="#nav-hotel" role="tab" aria-controls="nav-hotel" aria-selected="true">Hotel</a>
-    <a class="nav-link" id="nav-restaurant-tab" data-toggle="tab" href="#nav-restaurant" role="tab" aria-controls="nav-restaurant" aria-selected="false">Restaurant</a>
-    <a class="nav-link" id="nav-activity-tab" data-toggle="tab" href="#nav-activity" role="tab" aria-controls="nav-activity" aria-selected="false">Activity</a>
+    <a class="js-selector nav-link <%= "active" if params[:category] == "Hotel" %>" id="nav-hotel-tab" data-toggle="tab" href="#nav-hotel" role="tab" aria-controls="nav-hotel" aria-selected="true">Hotel</a>
+    <a class="js-selector nav-link <%= "active" if params[:category] == "Restaurant" %>" id="nav-restaurant-tab" data-toggle="tab" href="#nav-restaurant" role="tab" aria-controls="nav-restaurant" aria-selected="false">Restaurant</a>
+    <a class="js-selector nav-link <%= "active" if params[:category] == "Activity" %>" id="nav-activity-tab" data-toggle="tab" href="#nav-activity" role="tab" aria-controls="nav-activity" aria-selected="false">Activity</a>
   </div>
 </nav>
 <!-- ENDING OF MENU TAB SECTION -->
 <!-- ########################################## -->
 <!-- BEGINNING OF TAB SECTION -->
+
 <div class="tab-content show-card" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-hotel" role="tabpanel" aria-labelledby="nav-hotel-tab">
+  <div class="tab-pane fade show <%= "active" if params[:category] == "Hotel" %>" id="nav-hotel" role="tabpanel" aria-labelledby="nav-hotel-tab">
     <!-- BEGENING OF HOTEL TAB SECTION -->
     <div id="card-section-container-show" class="cards background-hotel pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
       <!-- BEGENING OF HOTEL ITEM CARD -->
-      <% @trip_days.first.suggestions.where(category: "Hotel").all.each do |data| %>
+      <% @hotels_ordered_by_vote.each do |data| %>
         <% if Vote.find_by(suggestion_id: data.id, user_id: current_user.id).nil? %>
           <%= render 'days/unvoted_card', data: data %><!-- Le vote n'existe pas -->
         <% else %>
@@ -32,11 +33,11 @@
     <!-- ENDING OF HOTEL TAB SECTION -->
   </div>
 
-  <div class="tab-pane fade show" id="nav-restaurant" role="tabpanel" aria-labelledby="nav-restaurant-tab">
+  <div class="tab-pane fade show <%= "active" if params[:category] == "Restaurant" %>" id="nav-restaurant" role="tabpanel" aria-labelledby="nav-restaurant-tab">
     <!-- BEGINNING OF RESTAURANT TAB SECTION -->
     <div id="card-section-container-show" class="cards background-restaurant pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
       <!-- BEGGENING OF RESTAURANT ITEM CARD -->
-      <% @trip_days.first.suggestions.where(category: "Restaurant").all.each do |data| %>
+      <% @restaurants_ordered_by_vote.each do |data| %>
         <% if Vote.find_by(suggestion_id: data.id, user_id:current_user.id).nil? %>
           <%= render 'days/unvoted_card', data: data %>
         <% else %>
@@ -48,11 +49,11 @@
     <!-- ENDING OF RESTAURANT TAB SECTION -->
   </div>
 
-  <div class="tab-pane fade show" id="nav-activity" role="tabpanel" aria-labelledby="nav-activity-tab">
+  <div class="tab-pane fade show <%= "active" if params[:category] == "Activity" %>" id="nav-activity" role="tabpanel" aria-labelledby="nav-activity-tab">
     <!-- BEGGENING OF ACTIVITY TAB SECTION -->
     <div id="card-section-container-show" class="cards background-activity pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
       <!-- BEGGENING OF ACTIVITY ITEM CARD -->
-      <% @trip_days.first.suggestions.where(category: "Activity").all.each do |data| %>
+      <% @activities_ordered_by_vote.each do |data| %>
         <% if Vote.find_by(suggestion_id: data.id, user_id:current_user.id).nil? %>
           <%= render 'days/unvoted_card', data: data %>
         <% else %>
