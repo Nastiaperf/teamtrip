@@ -29,7 +29,7 @@
           </li>
         </div>
         <div class="d-flex trip-member-avatar-wrapper">
-          <% TripMember.where(trip_id: 74).each do |data| %>
+          <% TripMember.where(trip_id: @trip).each do |data| %>
             <div class="trip-member-avatar"><strong><%= "#{data.user.first_name.first.capitalize} #{data.user.last_name.first.capitalize}" %></strong>
               <div class="user-info-on-hover"><%= "#{data.user.first_name.capitalize} #{data.user.last_name.capitalize}" %></div>
             </div>
