@@ -34,13 +34,8 @@
               </div>
             </div>
 
-            <div class="info-container ">
-              <div class="price-container align-self-center">
-                <h2><%= @previous_hotel.price.to_i %>€</h2>
-              </div>
-              <div class="vote-container align-self-center">
-                <i class="far fa-thumbs-up"></i><%= @previous_hotel.votes.count %>
-              </div>
+            <div class="price-container align-self-end">
+              <h2><%= @previous_hotel.price.to_i %>€</h2>
             </div>
 
           </div>
@@ -65,18 +60,15 @@
                 <h3> <%= activity.location %> Porto</h3>
               </div>
             </div>
-            <div class="info-container ">
-              <div class="price-container align-self-center">
-                <% if activity.price.zero? %>
-                  <h2>Free</h2>
-                <% else %>
-                  <h2><%= activity.price.to_i %>€</h2>
-                <% end %>
-              </div>
-              <div class="vote-container align-self-center">
-                <i class="far fa-thumbs-up"></i><%= activity.votes.count %>
-              </div>
+
+            <div class="price-container align-self-end">
+              <% if activity.price.zero? %>
+                <h2>Free</h2>
+              <% else %>
+                <h2><%= activity.price.to_i %>€</h2>
+              <% end %>
             </div>
+
           </div>
         <% end %>
       </div>
@@ -99,14 +91,9 @@
                 <h3> <%= restaurant.location %> Porto</h3>
               </div>
             </div>
-            <div class="info-container ">
-              <div class="price-container align-self-center">
+              <div class="price-container align-self-end">
                 <h2><%= restaurant.price.to_i %>€</h2>
               </div>
-              <div class="vote-container align-self-center">
-                <i class="far fa-thumbs-up"></i><%= restaurant.votes.count %>
-              </div>
-            </div>
           </div>
         <% end %>
       </div>
@@ -130,16 +117,11 @@
             </div>
           </div>
 
-          <div class="info-container ">
-            <div class="price-container align-self-center">
-              <h2><%= @current_hotel.price.to_i %>€</h2>
-            </div>
-            <div class="vote-container align-self-center">
-              <i class="far fa-thumbs-up"></i><%= @current_hotel.votes.count %>
-            </div>
+          <div class="price-container align-self-end">
+            <h2><%= @current_hotel.price.to_i %>€</h2>
           </div>
-
         </div>
+
       </div>
     </div>
 

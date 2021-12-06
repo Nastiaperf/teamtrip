@@ -30,21 +30,21 @@ class TripsController < ApplicationController
                           first
     end
 
-    @current_hotel = @trip_days.find_by(date: @current_date).suggestions.
-                          where(category: "Hotel").
-                          left_joins(:votes).group(:id).
-                          order('COUNT(votes.id) DESC').
-                          first
+    current_day_suggestions = @trip_days.find_by(date: @current_date).
+                                suggestions.
+                                left_joins(:votes).group(:id).
+                                order('COUNT(votes.id) DESC')
 
-    @current_activities = @trip_days.find_by(date: @current_date).suggestions.
-                          where(category: "Activity").left_joins(:votes).group(:id).
-                          order('COUNT(votes.id) DESC').
+    @current_hotel = current_day_suggestions.
+                      where(category: "Hotel").
+                      first
+
+    @current_activities = current_day_suggestions.
+                          where(category: "Activity").
                           first(3)
 
-    @current_restaurants = @trip_days.find_by(date: @current_date).suggestions.
+    @current_restaurants = current_day_suggestions.
                           where(category: "Restaurant").
-                          left_joins(:votes).group(:id).
-                          order('COUNT(votes.id) DESC').
                           first(2)
 
   end
