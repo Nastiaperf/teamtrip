@@ -14,7 +14,7 @@ class SuggestionsController < ApplicationController
     # for @suggestion.day value --> Day.find(params[:day_id])
     @suggestion.save!
 
-    redirect_to trip_day_path(day.trip, day)
+    redirect_to trip_day_path(day.trip, day, category: @suggestion.category)
   end
 
   private
@@ -22,4 +22,5 @@ class SuggestionsController < ApplicationController
   def suggestion_params
     params.require(:suggestion).permit(:day_id, :user, :price, :name, :category, :location, :comment)
   end
+
 end

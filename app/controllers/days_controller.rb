@@ -27,16 +27,17 @@ class DaysController < ApplicationController
   end
 
   def show
-    #details of the suggestions of the day
     trip = Trip.find(params[:trip_id])
     @trip_days = trip.days
     @day = Day.find(params[:id])
+    @hotels_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Hotel")
+    @restaurants_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Restaurant")
+    @activities_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Activity")
   end
 
-private
+  private
 
   def day_params
     params.require(:day).permit(:date, :trip_id)
   end
-
 end
