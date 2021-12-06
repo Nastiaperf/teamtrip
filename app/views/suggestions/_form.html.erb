@@ -3,6 +3,10 @@
     <%= f.input :name, input_html: {"data-places-target": "field"} %>
     <%= f.input :category,
       as: :radio_buttons,
+      collection_wrapper_tag: 'div',
+      collection_wrapper_class: 'category-wrapper',
+      item_wrapper_class: 'category-item',
+      input_html: {class: 'category-selector'},
       collection: Suggestion::CATEGORIES,
       wrapper: :vertical_collection_inline %>
     <%= f.input :price, as: :text%>
@@ -13,6 +17,5 @@
       value_method: :id,
       selected: @day&.id  %>
     <%= f.button :submit, class: "btn-primary" %>
-    <%= f.button :button, "Reset", type: "reset", class: "btn-outline-secondary" %>
   <% end %>
 </div>
