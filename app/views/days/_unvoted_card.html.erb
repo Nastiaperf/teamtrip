@@ -2,7 +2,7 @@
   <!-- BEGGINING UNVOTING BOUTON-->
   <%= link_to votes_path(suggestion_id: data.id, trip_id: params[:trip_id], day_id:params[:id]), method: :post do %>
     <div class="position-relative">
-      <%= image_tag("resto_1.jpg", class:"img-card-show") %>
+      <%= image_tag(data.photo, class:"img-card-show") %>
       <i class="far fa-thumbs-up fa-5x unvoted-thumb position-absolute" style="top: 30%; right: 35%"></i>
       <div class="vote-pill unvoted-pill dark-green position-absolute d-flex" style="top: 6%; right: 4%">
         <i class="far fa-thumbs-up"></i><p class="pl-1"><%= data.votes.count %></p>
