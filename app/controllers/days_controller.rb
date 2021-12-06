@@ -24,6 +24,8 @@ class DaysController < ApplicationController
       }
     end
 
+    #Google Places client instance
+    @client = GooglePlaces::Client.new(ENV['GOOGLE_API_BROWSER_KEY'])
   end
 
   def show

@@ -23,6 +23,7 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'geocoder'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'addressable'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -35,6 +36,13 @@ gem 'devise'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
+
+
+# Google Places
+gem 'google_places'
+
+gem 'httparty'
+
 
 group :development, :test do
   gem 'pry-byebug'
