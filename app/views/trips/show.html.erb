@@ -18,33 +18,132 @@
       </div>
 
     </div>
-    <div class="hotel-day-1">
-      <h1>Wake up in</h1>
-      <div class="list-group">
-      <% if @previous_hotel %>
-              <!-- BEGGENING OF HOTEL ITEM CARD -->
+    <% if @previous_hotel %>
+      <div class="card-top">
+      <!-- hotel previous date -->
+        <h1>Wake up in</h1>
+        <div class="category-card">
+          <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
+            <div class="d-flex">
+              <div class="image-container">
+                <%= image_tag "hotel_1.jpg", class:"image-card" %>
+              </div>
+              <div class="text-container align-items-start">
+                <h2><%= @previous_hotel.name %></h2>
+                <h3> <%= @previous_hotel.location %> Porto</h3>
+              </div>
+            </div>
+
+            <div class="info-container ">
+              <div class="price-container align-self-center">
+                <h2><%= @previous_hotel.price.to_i %>€</h2>
+              </div>
+              <div class="vote-container align-self-center">
+                <i class="far fa-thumbs-up"></i><%= @previous_hotel.votes.count %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <!-- end hotel previous date -->
+    <!-- begin activity -->
+    <div class="card-top">
+      <h1>Go visit</h1>
+      <div class="category-card">
+
+        <% @current_activities.each do |activity| %>
+          <div id="color-activities" class="item-card d-flex justify-content-between"> <!-- Item-card // ID not defined -->
+            <div class="d-flex">
+              <div class="image-container">
+                <%# <%= activity.photo %>
+                <%= image_tag "activity_1.jpg", class:"image-card" %>
+              </div>
+              <div class="text-container align-items-start">
+                <h2><%= activity.name %></h2>
+                <h3> <%= activity.location %> Porto</h3>
+              </div>
+            </div>
+            <div class="info-container ">
+              <div class="price-container align-self-center">
+                <% if activity.price.zero? %>
+                  <h2>Free</h2>
+                <% else %>
+                  <h2><%= activity.price.to_i %>€</h2>
+                <% end %>
+              </div>
+              <div class="vote-container align-self-center">
+                <i class="far fa-thumbs-up"></i><%= activity.votes.count %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <!-- end activities-->
+    <!-- begin restaurants-->
+    <div class="card-top">
+      <h1>Have lunch</h1>
+      <div class="category-card">
+
+        <% @current_restaurants.each do |restaurant| %>
+          <div id="color-restaurants" class="item-card d-flex justify-content-between"> <!-- Item-card // ID not defined -->
+            <div class="d-flex">
+              <div class="image-container">
+                <%# <%= activity.photo %>
+                <%= image_tag "resto_1.jpg", class:"image-card" %>
+              </div>
+              <div class="text-container align-items-start">
+                <h2><%= restaurant.name %></h2>
+                <h3> <%= restaurant.location %> Porto</h3>
+              </div>
+            </div>
+            <div class="info-container ">
+              <div class="price-container align-self-center">
+                <h2><%= restaurant.price.to_i %>€</h2>
+              </div>
+              <div class="vote-container align-self-center">
+                <i class="far fa-thumbs-up"></i><%= restaurant.votes.count %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <!-- end restaurants -->
+
+    <!-- begin hotel for night -->
+
+    <div class="card-top">
+    <!-- hotel current date -->
+      <h1>Go sleep</h1>
+      <div class="category-card">
         <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
           <div class="d-flex">
             <div class="image-container">
-            <%#  <%= image_tag "hotel_1.jpg", class:"image-card" %>
+              <%= image_tag "hotel_1.jpg", class:"image-card" %>
             </div>
             <div class="text-container align-items-start">
-              <h2><%= @previous_hotel.name %></h2>
-              <h3> <%= @previous_hotel.location %> R. Formosa, 4000-214 Porto</h3>
+              <h2><%= @current_hotel.name %></h2>
+              <h3> <%= @current_hotel.location %> Porto</h3>
             </div>
           </div>
+
           <div class="info-container ">
             <div class="price-container align-self-center">
-              <h2><%= @previous_hotel.price.to_i %>€</h2>
+              <h2><%= @current_hotel.price.to_i %>€</h2>
             </div>
             <div class="vote-container align-self-center">
-              <i class="far fa-thumbs-up"></i><%= @previous_hotel.votes.count %>
+              <i class="far fa-thumbs-up"></i><%= @current_hotel.votes.count %>
             </div>
           </div>
+
         </div>
-      <% end %>
       </div>
     </div>
+
+    <!-- end hotel for night -->
   </div>
   <div id="map">
   </div>

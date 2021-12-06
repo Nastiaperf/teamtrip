@@ -1,30 +1,15 @@
-.body-roadmap{
+#body-roadmap{
   height: 100%;
-}
 
-.category-card{
-  margin-left: 5rem;
-  margin-right: 3rem;
+  .card-top{
+    margin-left: 5rem;
+  }
+
+  .category-card{
   width: 70%;
   margin-top: 1rem;
   margin-bottom: 1rem;
-
-  button{
-    font-size: 1.5rem;
-
-    .btn-blue{
-      color: $dark-blue;
-    }
-
-    .btn-saumon{
-      color: $dark-saumon;
-    }
-
-    .btn-green{
-      color: $dark-green;
-    }
   }
-
 
   .item-card{
     height: 5rem;
@@ -33,50 +18,36 @@
     margin-bottom: .5rem;
   }
 
-  .card-top{
-    // padding-left: .8rem;
-    font-weight: bold;
-    align-items: center;
-    h1, h2 {
-      margin: 0;
+    #color-activities{
+      background-color: rgba($light-green, .2);
     }
-  }
 
+    #color-restaurants{
+      background-color: rgba($light-saumon, .2);
+    }
 
-  // .btn{
-  // padding-top: 1rem;
-  // }
+    #color-hotel{
+      background-color: rgba($light-blue, .2);
+    }
 
+    .text-container{
+      color: $dark-blue;
+      // font-weight: bold;
+    }
 
-  #color-activities{
-    background-color: rgba($light-green, .2);
-  }
+    .text-container{
+      padding: 1rem;
+    }
+    .info-container{
+      padding: 1rem;
+    }
 
-  #color-restaurants{
-    background-color: rgba($light-saumon, .2);
-  }
+    .image-card{
+      height: 100%;
+      width: 8rem;
+      border-top-left-radius: .5rem;
+      border-bottom-left-radius: .5rem;
+      object-fit: cover;
+    }
 
-  #color-hotel{
-    background-color: rgba($light-blue, .2);
-  }
-
-  .text-container{
-    color: $dark-blue;
-    // font-weight: bold;
-  }
-
-  .text-container{
-    padding: 1rem;
-  }
-  .info-container{
-    padding: 1rem;
-  }
-
-  .image-card{
-    height: 100%;
-    width: 8rem;
-    border-top-left-radius: .5rem;
-    border-bottom-left-radius: .5rem;
-    object-fit: cover;
-  }
 }
