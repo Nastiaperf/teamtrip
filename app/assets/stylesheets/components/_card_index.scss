@@ -3,9 +3,9 @@
 }
 
 .category-card{
-  margin-left: 5rem;
+  margin-left: 4rem;
   margin-right: 3rem;
-  width: 70%;
+  width: 75%;
   margin-top: 1rem;
   margin-bottom: 1rem;
 
@@ -22,6 +22,22 @@
 
     .btn-green{
       color: $dark-green;
+    }
+  }
+
+  #nav-hotel{
+    #color{
+      background-color: rgba($light-blue, .2);
+    }
+  }
+  #nav-restaurant{
+    #color{
+      background-color: rgba($light-green, .2);
+    }
+  }
+  #nav-activity{
+    #color{
+      background-color: rgba($light-saumon, .2);
     }
   }
 
@@ -42,11 +58,20 @@
     }
   }
 
+  .vote-container{
+    margin-left: 1rem;
+    height: 5rem;
+    width: 5rem;
+    border-radius: .5rem;
+    margin-bottom: .5rem;
 
+    .unvoted-thumb, .voted-thumb{
+      color: $light-gray;
+    }
+  }
   // .btn{
   // padding-top: 1rem;
   // }
-
 
   #color-activities{
     background-color: rgba($light-green, .2);
@@ -62,19 +87,22 @@
 
   .text-container{
     color: $dark-blue;
+    padding: 1rem 0 1rem 1rem;
     // font-weight: bold;
   }
 
-  .text-container{
-    padding: 1rem;
-  }
   .info-container{
-    padding: 1rem;
+    flex-direction: column-reverse;
+    margin-right: 0.6rem;
+    h3{
+      font-size: 16px;
+      margin-bottom: 0.5rem;
+    }
   }
 
   .image-card{
     height: 100%;
-    width: 8rem;
+    width: 7rem;
     border-top-left-radius: .5rem;
     border-bottom-left-radius: .5rem;
     object-fit: cover;
