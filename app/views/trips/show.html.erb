@@ -1,2 +1,51 @@
-<h1>Trips#show</h1>
-<p>Find me in app/views/trips/show.html.erb</p>
+<div id="roadmap">
+  <div id="body-roadmap">
+    <div class="calendar">
+      <div>
+        <% if @previous_date %>
+          <%= link_to "#{@previous_date}", trip_path(@trip, date: @previous_date) %>
+        <% end %>
+      </div>
+
+      <div>
+        <h1> <%= @current_date %> </h1>
+      </div>
+
+      <div>
+        <% if @next_date %>
+          <%= link_to "#{@next_date}", trip_path(@trip, date: @next_date) %>
+        <% end %>
+      </div>
+
+    </div>
+    <div class="hotel-day-1">
+      <h1>Wake up in</h1>
+      <div class="list-group">
+      <% if @previous_hotel %>
+              <!-- BEGGENING OF HOTEL ITEM CARD -->
+        <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
+          <div class="d-flex">
+            <div class="image-container">
+            <%#  <%= image_tag "hotel_1.jpg", class:"image-card" %>
+            </div>
+            <div class="text-container align-items-start">
+              <h2><%= @previous_hotel.name %></h2>
+              <h3> <%= @previous_hotel.location %> R. Formosa, 4000-214 Porto</h3>
+            </div>
+          </div>
+          <div class="info-container ">
+            <div class="price-container align-self-center">
+              <h2><%= @previous_hotel.price.to_i %>€</h2>
+            </div>
+            <div class="vote-container align-self-center">
+              <i class="far fa-thumbs-up"></i><%= @previous_hotel.votes.count %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <div id="map">
+  </div>
+</div>
