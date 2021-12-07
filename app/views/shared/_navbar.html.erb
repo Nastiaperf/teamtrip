@@ -16,14 +16,15 @@
         <div class="d-flex centered-links">
           <div class="d-flex">
             <div>
-              <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target=".modal-trip">Edit trip</button>
+              <button type="button" class="btn btn-outline-info edit-button" data-toggle="modal" data-target=".modal-trip">Edit trip</button>
               <div class="modal fade bd-example-modal-lg modal-trip" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
               <%# <button class="d-flex justify-content-center align-items-center btn btn-outline-info edit-trip" data-toggle="modal" data-target=".bd-edit-trip-modal-lg"> Edit Trip </button>
               <div class="modal fade bd-edit-trip-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> %>
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="edit-tripModalLabel"> <%= @trip.name %></h5>
+                      <% trip_modal = TripMember.find_by(@current_user).trip_id %>
+                      <h5 class="modal-title" id="edit-tripModalLabel"> <%= Trip.find(trip_modal).name %></h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -36,7 +37,7 @@
               </div>
             </div>
             <div>
-              <li class="nav-item">
+              <li class="nav-item mr-3 ml-3">
                 <% if current_page?(trip_days_path(Trip.first)) %>
                   <button class="d-flex justify-content-center align-items-center btn btn-outline-success active btn-sm btn-trip" style="border-radius: 0.5rem"> <%= image_tag("travel.png", width:"20rem", height:"20rem") %> <%= link_to Trip.first.name, trip_days_path(Trip.first), class: "nav-link" %></button>
                 <% else %>
