@@ -14,15 +14,38 @@
 
       <% if user_signed_in? %>
         <div class="d-flex centered-links">
-          <li class="nav-item">
-            <% if current_page?(trip_days_path(Trip.first)) %>
-              <button class="d-flex justify-content-center align-items-center btn btn-outline-success active btn-sm btn-trip" style="border-radius: 0.5rem"> <%= image_tag("travel.png", width:"20rem", height:"20rem") %> <%= link_to Trip.first.name, trip_days_path(Trip.first), class: "nav-link" %></button>
-            <% else %>
-              <button class="d-flex justify-content-center align-items-center btn btn-outline-success btn-sm btn-trip" style="border-radius: 0.5rem"> <%= image_tag("travel.png", width:"20rem", height:"20rem") %> <%= link_to Trip.first.name, trip_days_path(Trip.first), class: "nav-link" %></button>
-            <% end %>
-          </li>
-          <li class="nav-item mx-3">
-
+          <div class="d-flex">
+            <div>
+              <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target=".modal-trip">Edit trip</button>
+              <div class="modal fade bd-example-modal-lg modal-trip" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <%# <button class="d-flex justify-content-center align-items-center btn btn-outline-info edit-trip" data-toggle="modal" data-target=".bd-edit-trip-modal-lg"> Edit Trip </button>
+              <div class="modal fade bd-edit-trip-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> %>
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="edit-tripModalLabel"> <%= @trip.name %></h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body d-flex">
+                      <%= render "edit_trip/edit_trip_form", trip: trip%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <li class="nav-item">
+                <% if current_page?(trip_days_path(Trip.first)) %>
+                  <button class="d-flex justify-content-center align-items-center btn btn-outline-success active btn-sm btn-trip" style="border-radius: 0.5rem"> <%= image_tag("travel.png", width:"20rem", height:"20rem") %> <%= link_to Trip.first.name, trip_days_path(Trip.first), class: "nav-link" %></button>
+                <% else %>
+                  <button class="d-flex justify-content-center align-items-center btn btn-outline-success btn-sm btn-trip" style="border-radius: 0.5rem"> <%= image_tag("travel.png", width:"20rem", height:"20rem") %> <%= link_to Trip.first.name, trip_days_path(Trip.first), class: "nav-link" %></button>
+                <% end %>
+              </li>
+              <li class="nav-item mx-3">
+            </div>
+          </div>
           </li>
           <li class="nav-item">
             <%= link_to "Road map", "#", class: "nav-link border", style:"border-radius: 0.5rem" %>
@@ -39,8 +62,8 @@
           <% end %>
         </div>
         <li class="btn btn-primary btn-sm btn-add" style="border-radius: 0.5rem">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Add a new Suggestion</button>
-            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal-suggestion">Add a new Suggestion</button>
+            <div class="modal fade bd-example-modal-lg modal-suggestion" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -50,7 +73,7 @@
                     </button>
                   </div>
                   <div class="modal-body d-flex">
-                  <%= render "suggestions/form", suggestion: suggestion%>
+                    <%= render "suggestions/form", suggestion: suggestion%>
                   </div>
                 </div>
               </div>
