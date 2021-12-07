@@ -49,11 +49,6 @@ class TripsController < ApplicationController
     @current_activities_restaurants = []
     @current_activities_restaurants << @current_activities + @current_restaurants
 
-    # if suggestion.category == "Activity"
-    #   @background-card-color = "color-activities"
-    # else
-    #   @background-card-color = "color-restaurants"
-    # end
   end
 
   def update
