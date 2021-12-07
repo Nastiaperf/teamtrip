@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :trips, only: [:new, :create, :show, :update] do
     resources :days, only: [:index, :show]
     resources :trip_members, only: [:new, :create]
-
+    member do
+      patch :lock_trip
+    end
 
     namespace :onboarding do
       resources :registrations, only: [:new, :create]
@@ -15,5 +17,4 @@ Rails.application.routes.draw do
 
   resources :suggestions, only: [:new, :create]
   resources :votes, only: [:create, :destroy]
-
 end

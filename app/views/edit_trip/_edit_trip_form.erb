@@ -11,7 +11,11 @@
   </div>
   <h2 class="member-invite">Invite a new trip member:</h2>
   <div class="d-flex flex-row">
-    <span class="input-group-text email-invite" id="basic-addon3">email</span>
-    <a tabindex="0" class="btn btn-lg btn-success" role="button" data-toggle="popover" data-trigger="click" title="Dismissible popover" data-content="Du contenu" data-container="body">Invite sent!</a>
+    <input class="input-group-text email-invite" id="basic-addon3" placeholder="email">
+    <button type="button" class="btn btn-outline-success" id="sweet-alert">Invite!</button>
+  </div>
+  <div class="Votes-lock">
+    <h4>Close votes for this trip</h4>
+    <%= button_to "freeze the votes!", lock_trip_trip_path(@trip), method: :patch  %>
   </div>
 </div>

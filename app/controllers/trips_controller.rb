@@ -46,7 +46,12 @@ class TripsController < ApplicationController
     @current_restaurants = current_day_suggestions.
                           where(category: "Restaurant").
                           first(2)
+  end
 
+  def lock_trip
+    @trip = Trip.find(params[:id])
+    @trip.locked = true
+    @trip.save!
   end
 
   def update

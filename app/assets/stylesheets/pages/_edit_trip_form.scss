@@ -1,3 +1,5 @@
+require bootstrap-toggle
+
 .member-invite {
   margin-top: 1rem;
 }
@@ -39,4 +41,16 @@
 
 .email-invite {
   width: 20rem;
+}
+
+.member-invite {
+  margin-top: 2rem;
+}
+
+.Votes-lock {
+  margin-top: 5rem;
+}
+
+#sweet-alert {
+  z-index: 2147483647 !important;;
 }

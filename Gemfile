@@ -41,8 +41,11 @@ gem 'simple_form'
 # Google Places
 gem 'google_places'
 
+#url conversion
 gem 'httparty'
 
+#bootstrap toggle
+gem 'bootstrap-toggle-rails'
 
 group :development, :test do
   gem 'pry-byebug'

@@ -24,9 +24,13 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import "controllers"
+
 import { mapImport } from '../components/map.js'
 import { redirectMenu } from '../components/tab_menu.js'
 import { reloadMenu } from '../components/tab_menu.js'
+import { initSweetalert } from '../plugins/init_sweetalert';
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -35,6 +39,11 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   mapImport();
   reloadMenu();
+  initSweetalert('#sweet-alert', {
+    title: "Invitation sent!",
+    text: "Email has been sent, new member will join the trip when accepting the invitation",
+    icon: "success"
+  }, (value) => {
+    console.log(value);
+  });
 });
-
-import "controllers"
