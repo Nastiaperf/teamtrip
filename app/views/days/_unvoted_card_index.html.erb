@@ -1,6 +1,6 @@
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center pt-2 pb-1" data-marker="<%=[{"lat":data.latitude, "lng": data.longitude, "icon":image_tag("#{data.category}.png")}] %>" >
   <div>
-  <%= image_tag(data.user.photo, class:"mini-avatar position-absolute border", style:"margin-top: 1.5rem; margin-left: -0.75rem; z-index: 1") %>
+  <%= image_tag(data.user.photo, class:"mini-avatar position-absolute border", style:"margin-top: -0.75rem; margin-left: -0.75rem; z-index: 1") %>
   </div>
   <div id="color" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
     <div class="d-flex">
@@ -19,7 +19,7 @@
     </div>
   </div>
   <div id="color" class="d-flex flex-column vote-container justify-content-center align-items-center">
-    <div style="font-size:28px">
+    <div style="font-size:28px; color:blue">
     <i class=" fas fa-caret-up fa-lg unvoted-thumb"></i>
     </div>
     <h2><%= data.votes.count %></h2>

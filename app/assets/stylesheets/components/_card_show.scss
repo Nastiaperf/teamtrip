@@ -34,12 +34,15 @@
 
   .background-hotel{
     background-color: $dark-blue;
+    min-height: 65vh;
   }
   .background-restaurant{
     background-color: $dark-saumon;
+    min-height: 65vh;
   }
   .background-activity{
     background-color: $dark-green;
+    min-height: 65vh;
   }
 
   .vote-pill{

@@ -21,7 +21,6 @@ class DaysController < ApplicationController
     # @suggestions = Suggestion.where.not(latitude: nil, longitude: nil)
     @markers = @suggestions.map do |suggestion|
       {
-        name: suggestion.name,
         lat: suggestion.latitude,
         lng: suggestion.longitude,
         icon: helpers.asset_url("#{suggestion.category}.png"),
