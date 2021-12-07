@@ -11,13 +11,13 @@
 }
 
 .modal-dialog {
-  width: 35rem;
+  width: 50rem;
 }
 
 .form-group {
   background-color: #62d0b12c;
   border-radius: 5%;
-  width: 20rem;
+  width: 25rem;
   font-size: larger;
 }
 
@@ -28,8 +28,7 @@
 }
 
 .stripes {
-background-image: linear-gradient(45deg, #58cc6f 25.64%, #3D6F8E 25.64%, #3D6F8E 50%, #58cc6f 50%, #58cc6f 75.64%, #3D6F8E 75.64%, #3D6F8E 100%);
-background-size: 55.15px 55.15px;
+
 border: none !important;
 }
 
@@ -83,6 +82,7 @@ border: none !important;
   border: 1px solid #EAEAEA !important;
   border-radius: 4px;
   background-color: white;
+  height: 6rem;
 }
 
 .category-selector:checked + label {
@@ -92,28 +92,52 @@ border: none !important;
 
 #suggestion_category_hotel + label {
   color: #537ba8;
+  background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Font_Awesome_5_solid_bed.svg/1279px-Font_Awesome_5_solid_bed.svg.png");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: right 50% bottom 10%;
 }
 
 #suggestion_category_hotel:checked + label {
   background-color: #86baf5;
   border-color: #86baf5;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Font_Awesome_5_solid_bed.svg/1279px-Font_Awesome_5_solid_bed.svg.png");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: right 50% bottom 10%;
 }
 
 #suggestion_category_restaurant + label {
   color: #50b899;
+  background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url("https://camo.githubusercontent.com/f06febfc8afae47eb60e5d359305ab1ba53c5ad94bef82be765e4d56437e5c3f/68747470733a2f2f63646e302e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f7472616e7369742d322f33322f7472616e7369742d33352d3531322e706e67");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: right 50% bottom;
 }
 
 #suggestion_category_restaurant:checked + label {
   background-color: #a9e8d5;
   border-color: #a9e8d5;
+  background-image: url("https://camo.githubusercontent.com/f06febfc8afae47eb60e5d359305ab1ba53c5ad94bef82be765e4d56437e5c3f/68747470733a2f2f63646e302e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f7472616e7369742d322f33322f7472616e7369742d33352d3531322e706e67");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: right 50% bottom;
 }
 
 
 #suggestion_category_activity + label {
   color: #c26c45;
+  background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url("https://camo.githubusercontent.com/1c91db9627bacc7699ce0bcda22d6cd6e5ea6c9408dc5935defece348a93fa7f/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f333834303430302f313930383535332f30343065613933302d376366382d313165332d383133632d6566666139633361613738312e706e67");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: right 50% bottom;
 }
 
 #suggestion_category_activity:checked + label {
   background-color: #f7ae8c;
   border-color: #f7ae8c;
+  background-image: url("https://camo.githubusercontent.com/1c91db9627bacc7699ce0bcda22d6cd6e5ea6c9408dc5935defece348a93fa7f/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f333834303430302f313930383535332f30343065613933302d376366382d313165332d383133632d6566666139633361613738312e706e67");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: right 50% bottom;
 }

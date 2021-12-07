@@ -1,6 +1,6 @@
 <div class="container suggestion-form justify-content-center" data-controller="places">
   <%= simple_form_for(Suggestion.new) do |f| %>
-    <%= f.input :name, input_html: {"data-places-target": "field"} %>
+    <%= f.input :name, input_html: {"data-places-target": "field"}, :placeholder => 'Select name with Google Places' %>
     <%= f.input :category,
       as: :radio_buttons,
       collection_wrapper_tag: 'div',
@@ -9,8 +9,8 @@
       input_html: {class: 'category-selector'},
       collection: Suggestion::CATEGORIES,
       wrapper: :vertical_collection_inline %>
-    <%= f.input :price, as: :text, class: 'price-input'%>
-    <%= f.input :comment, as: :text %>
+    <%= f.input :price, as: :text, class: 'price-input', :placeholder => ' '%>
+    <%= f.input :comment, as: :text, :placeholder => 'This place is awesome because...'%>
     <%= f.association :day,
       collection: Day.all,
       label_method: :date,
