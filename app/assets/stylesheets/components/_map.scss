@@ -1,0 +1,34 @@
+.map-window{
+  width: 15rem;
+  height: fit-content;
+
+  h2{
+    padding-top: 1.5rem;
+    text-align: left;
+  }
+  h3{
+    font-size: medium;
+    padding-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  p{
+    font-family: $body-font;
+    padding-top: .5rem;
+    margin-bottom: 0;
+  }
+  .img-card{
+    // width: 100%;
+    height: 7rem;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 6px 6px 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .content-window {
+    padding-top: 6rem;
+    padding-bottom: .5rem;
+  }
+}

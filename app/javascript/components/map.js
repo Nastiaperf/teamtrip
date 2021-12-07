@@ -9,53 +9,23 @@ const mapImport = () => {
       streetViewControl: true,
     });
     const markers = JSON.parse(mapElement.dataset.markers);
-    console.log(markers)
-    map.addMarkers(markers);
+    const gmapsMarkers = map.addMarkers(markers);
 
-    // const iconBase =
-    //   "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
-    // const icons = {
-    //   hotel: {
-    //     icon: iconBase + "parking_lot_maps.png",
-    //   },
-    //   restaurant: {
-    //     icon: iconBase + "library_maps.png",
-    //   },
-    //   activity: {
-    //     icon: iconBase + "info-i_maps.png",
-    //   },
-    // };
-
-    // if  (category === hotel) {
-    //   const features = [
-    //     {
-    //       position: new google.maps.LatLng,
-    //       type: "hotel",
-    //     },
-    //   ];
-    // } else if  (category === restaurant) {
-    //   const features = [
-    //     {
-    //       position: new google.maps.LatLng,
-    //       type: "restaurant",
-    //     },
-    //   ];
-    // } else if (category === activity) {
-    //   const features = [
-    //     {
-    //       position: new google.maps.LatLng,
-    //       type: "activity",
-    //     },
-    //   ];
-    // }
-
-    // markers.forEach(marker => {
-    //   const marker = new google.maps.Marker({
-    //     position: features[i].position,
-    //     icon: icons[features[i].type].icon,
-    //     map: map,
-    //   });
-    // })
+    gmapsMarkers.forEach(gmapsMarker => {
+      const infowindow = new google.maps.InfoWindow({
+        content: gmapsMarker.info_window,
+      });
+      gmapsMarker.addListener("click", () => {
+        infowindow.open({
+          anchor: gmapsMarker,
+          map,
+          shouldFocus: false,
+        });
+        infoWindow.addListener('closeclick', () => {
+          // Handle focus manually.
+        });
+      });
+    });
 
     if (markers.length === 0) {
       map.setZoom(2);

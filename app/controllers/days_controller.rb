@@ -21,9 +21,11 @@ class DaysController < ApplicationController
     # @suggestions = Suggestion.where.not(latitude: nil, longitude: nil)
     @markers = @suggestions.map do |suggestion|
       {
+        name: suggestion.name,
         lat: suggestion.latitude,
         lng: suggestion.longitude,
-        icon: helpers.asset_url("#{suggestion.category}.png")
+        icon: helpers.asset_url("#{suggestion.category}.png"),
+        info_window: render_to_string(partial: "info_window", locals: { suggestion: suggestion })
         # infoWindow: { content: render_to_string(partial: "/suggestions/map_box", locals: { suggestion: suggestion }) }
         # Uncomment the above line if you want each of your markers to display a info window when clicked
         # (you will also need to create the partial "/suggestions/map_box")
