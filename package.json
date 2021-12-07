@@ -12,6 +12,7 @@
     "popper.js": "^1.16.1",
     "sortablejs": "^1.14.0",
     "stimulus": "^3.0.1",
+    "sweetalert": "^2.1.2",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",

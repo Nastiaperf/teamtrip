@@ -14,12 +14,20 @@
 
       <% if user_signed_in? %>
         <div class="d-flex centered-links">
-          <div class="d-flex">
+          <div class="d-flex align-items-center">
             <div>
-              <button type="button" class="btn btn-outline-info edit-button" data-toggle="modal" data-target=".modal-trip">Edit trip</button>
+              <li class="nav-item">
+                <% if current_page?(trip_days_path(Trip.first)) %>
+                  <button class="d-flex justify-content-center align-items-center btn btn-outline-success active btn-sm btn-trip"> <%= image_tag("travel.png", width:"20rem", height:"20rem") %> <%= link_to Trip.first.name, trip_days_path(Trip.first), class: "nav-link" %></button>
+                <% else %>
+                  <button class="d-flex justify-content-center align-items-center btn btn-outline-success btn-sm btn-trip"> <%= image_tag("travel.png", width:"20rem", height:"20rem") %> <%= link_to Trip.first.name, trip_days_path(Trip.first), class: "nav-link" %></button>
+                <% end %>
+              </li>
+              <li class="nav-item mx-3">
+            </div>
+            <div>
+              <i class="fas fa-edit" data-toggle="modal" data-target=".modal-trip"></i>
               <div class="modal fade bd-example-modal-lg modal-trip" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-              <%# <button class="d-flex justify-content-center align-items-center btn btn-outline-info edit-trip" data-toggle="modal" data-target=".bd-edit-trip-modal-lg"> Edit Trip </button>
-              <div class="modal fade bd-edit-trip-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> %>
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -35,16 +43,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div>
-              <li class="nav-item mr-3 ml-3">
-                <% if current_page?(trip_days_path(Trip.first)) %>
-                  <button class="d-flex justify-content-center align-items-center btn btn-outline-success active btn-sm btn-trip" style="border-radius: 0.5rem"> <%= image_tag("travel.png", width:"20rem", height:"20rem") %> <%= link_to Trip.first.name, trip_days_path(Trip.first), class: "nav-link" %></button>
-                <% else %>
-                  <button class="d-flex justify-content-center align-items-center btn btn-outline-success btn-sm btn-trip" style="border-radius: 0.5rem"> <%= image_tag("travel.png", width:"20rem", height:"20rem") %> <%= link_to Trip.first.name, trip_days_path(Trip.first), class: "nav-link" %></button>
-                <% end %>
-              </li>
-              <li class="nav-item mx-3">
             </div>
           </div>
           </li>
@@ -99,4 +97,16 @@
     </ul>
 
   </div>
+</div>
+<div class="d-flex justify-content-center">
+  <%if (Trip.first.locked == true)  &&  current_page?(trip_days_path)%>
+  <div class="container locked-bar text-center">
+    <h2>Votes have been locked, now enjoy your trip and relax!</h2>
+  </div>
+  <%elsif (Trip.first.locked == true)  &&  current_page?(trip_day_path)%>
+  <div class="container locked-bar text-center">
+    <h2>Votes have been locked, now enjoy your trip and relax!</h2>
+  </div>
+  <% else %>
+  <%end  %>
 </div>

@@ -49,6 +49,12 @@ class TripsController < ApplicationController
     @current_activities_restaurants = (@current_activities + @current_restaurants).sort_by(&:position)
   end
 
+  def lock_trip
+    @trip = Trip.find(params[:id])
+    @trip.locked = true
+    @trip.save!
+  end
+
   def update
     #for trip update (locked, name, dates, etc.)
     @trip = Trip.find(params[:id])

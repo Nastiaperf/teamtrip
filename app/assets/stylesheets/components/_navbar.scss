@@ -56,9 +56,8 @@
     border: solid black;
     border-width: 0.5px;
     border-radius: 5px;
-    padding: 5px;
-    font-size: 0.75rem;
-    background-color: white;
+    padding: 2px 10px;
+    font-size: 0.75rem
   }
 }
 
@@ -66,8 +65,23 @@
 .edit-trip {
 margin-right: 5px;
 }
-.edit-button {
-border-radius: 0.5rem;
-color: $dark-green;
-border-color: $dark-green;
+
+.fa-edit {
+  color: #163753;
+  font-size: 1.5rem;
+  font-weight: lighter;
+  margin-left: 1rem;
+  margin-right: 3rem;
+  vertical-align: bottom;
+}
+
+.locked-bar {
+  background-image: linear-gradient(43deg, #8fe6bd 25%, #619dc2 25%, #619dc2 50%, #8fe6bd 50%, #8fe6bd 75%, #619dc2 75%, #619dc2 100%);
+  background-size: 58.65px 54.69px;  border: solid rgba(196, 196, 196, 0.747);
+  border-width: 0.5px;
+  border-radius: 10px;
+  height: 1.7rem;
+  font-weight: 100;
+  vertical-align: middle;
+  color: white;
 }

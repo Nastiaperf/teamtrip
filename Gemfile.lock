@@ -66,6 +66,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.9.3)
       msgpack (~> 1.0)
+    bootstrap-toggle-rails (2.2.1.0)
     builder (3.2.4)
     byebug (11.1.3)
     capybara (3.36.0)
@@ -254,6 +255,7 @@ DEPENDENCIES
   addressable
   autoprefixer-rails (= 10.2.5)
   bootsnap (>= 1.4.2)
+  bootstrap-toggle-rails
   byebug
   capybara (>= 2.15)
   devise

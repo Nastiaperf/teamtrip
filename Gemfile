@@ -41,7 +41,11 @@ gem 'simple_form'
 # Google Places
 gem 'google_places'
 
+#url conversion
 gem 'httparty'
+
+#bootstrap toggle
+gem 'bootstrap-toggle-rails'
 
 #Drag-and-drop
 gem 'acts_as_list'
