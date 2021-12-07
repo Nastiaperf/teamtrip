@@ -50,15 +50,19 @@
       <div class="category-card">
         <ul id="results">
 
-          <% @current_activities_restaurants.first.each do |suggestion| %>
+          <% @current_activities_restaurants.each do |suggestion| %>
 
-            
+
+
 
 
 
 
 
             <li class="list-unstyled">
+              <%= simple_form_for(suggestion, { html: { class: "d-none" } })do |f| %>
+                <%= f.hidden_field :position, class: "new_position" %>
+              <% end %>
               <% if suggestion.category == "Activity" %>
                 <% background_card_color = "color-activities" %>
               <% else %>
