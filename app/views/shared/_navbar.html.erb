@@ -16,18 +16,20 @@
         <div class="d-flex centered-links">
           <div class="d-flex">
             <div>
-              <button class="d-flex justify-content-center align-items-center btn btn-outline-info edit-trip" data-toggle="modal" data-target=".bd-edit-trip-modal-lg"> Edit Trip </button>
-              <div class="modal fade bd-edit-trip-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target=".modal-trip">Edit trip</button>
+              <div class="modal fade bd-example-modal-lg modal-trip" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <%# <button class="d-flex justify-content-center align-items-center btn btn-outline-info edit-trip" data-toggle="modal" data-target=".bd-edit-trip-modal-lg"> Edit Trip </button>
+              <div class="modal fade bd-edit-trip-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> %>
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="edit-tripModalLabel">Create your Suggestion</h5>
+                      <h5 class="modal-title" id="edit-tripModalLabel"> <%= @trip.name %></h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body d-flex">
-                    <%= render "suggestions/form", suggestion: suggestion%>
+                      <%= render "edit_trip/edit_trip_form", trip: trip%>
                     </div>
                   </div>
                 </div>
@@ -57,8 +59,8 @@
           <% end %>
         </div>
         <li class="btn btn-primary btn-sm btn-add">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Add a new Suggestion</button>
-            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal-suggestion">Add a new Suggestion</button>
+            <div class="modal fade bd-example-modal-lg modal-suggestion" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -68,7 +70,7 @@
                     </button>
                   </div>
                   <div class="modal-body d-flex">
-                  <%= render "suggestions/form", suggestion: suggestion%>
+                    <%= render "suggestions/form", suggestion: suggestion%>
                   </div>
                 </div>
               </div>
