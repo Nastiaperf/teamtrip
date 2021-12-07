@@ -43,6 +43,8 @@ gem 'google_places'
 
 gem 'httparty'
 
+#Drag-and-drop
+gem 'acts_as_list'
 
 group :development, :test do
   gem 'pry-byebug'

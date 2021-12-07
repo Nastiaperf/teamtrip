@@ -48,7 +48,6 @@ class DaysController < ApplicationController
     @activities_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Activity")
 
     # begin calendar
-    # @current_day = @day.find(date: params[:date]) || @day.first
     @current_date = @day || Day.first
 
     unless @current_date == Day.last
