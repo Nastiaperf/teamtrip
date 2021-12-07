@@ -34,6 +34,9 @@ class DaysController < ApplicationController
 
     #Google Places client instance
     @client = GooglePlaces::Client.new(ENV['GOOGLE_API_BROWSER_KEY'])
+    @hotels_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Hotel")
+    @restaurants_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Restaurant")
+    @activities_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Activity")
   end
 
   def show

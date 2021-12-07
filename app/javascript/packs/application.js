@@ -26,7 +26,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import { mapImport } from '../components/map.js'
-import { redirectMenu } from '../components/tab_menu.js'
+import { setActiveTab } from '../components/tab_menu.js'
 import { reloadMenu } from '../components/tab_menu.js'
 import { initSortable } from '../components/init_sortable.js'
 // Internal imports, e.g:
@@ -37,6 +37,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   mapImport();
   reloadMenu();
+  setActiveTab();
   initSortable();
 });
 

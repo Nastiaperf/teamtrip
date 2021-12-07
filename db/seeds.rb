@@ -7,8 +7,15 @@ Trip.destroy_all
 User.destroy_all
 puts "All exisiting data destroyed"
 
+def get_photo(name)
+  url = Addressable::URI.parse("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=#{name}&inputtype=textquery&fields=formatted_address%2Cphoto%2Crating%2Copening_hours&key=AIzaSyD9TVwPVhLsV4XkHFI6fiAkcJ31IqNPGxA")
+  response = HTTParty.get("https://maps.googleapis.com#{url.normalize.request_uri}")
+  return photo = "https://maps.googleapis.com/maps/api/place/photo?photoreference=#{response['candidates'][0]['photos'][0]['photo_reference']}&sensor=false&maxheight=500&maxwidth=500&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+end
+
 puts "creating users"
 romain = User.create(
+  photo: "https://kitt.lewagon.com/placeholder/users/romainp72",
   email: "romain@example.com",
   password: "secret",
   first_name: "romain",
@@ -16,6 +23,7 @@ romain = User.create(
   )
 
 camille = User.create(
+  photo: "https://kitt.lewagon.com/placeholder/users/camillemarti",
   email: "camille@example.com",
   password: "secret",
   first_name: "camille",
@@ -23,6 +31,7 @@ camille = User.create(
   )
 
 anastasia = User.create(
+  photo: "https://kitt.lewagon.com/placeholder/users/nastiaperf",
   email: "anastasia@example.com",
   password: "secret",
   first_name: "anastasia",
@@ -30,6 +39,7 @@ anastasia = User.create(
   )
 
 vincent = User.create(
+  photo: "https://kitt.lewagon.com/placeholder/users/vincentvignali",
   email: "vincent@example.com",
   password: "secret",
   first_name: "vincent",
@@ -37,16 +47,18 @@ vincent = User.create(
   )
 
 largo = User.create(
+  photo: "https://t2.ea.ltmcdn.com/fr/razas/3/7/5/img_573_beagle_0_600.jpg",
   email: "largo@example.com",
   password: "secret",
   first_name: "largo",
   last_name: "duwagon"
   )
 
-maria = User.create(
-  email: "maria@example.com",
+charly = User.create(
+  photo: "https://kitt.lewagon.com/placeholder/users/ssaunier",
+  email: "charly@example.com",
   password: "secret",
-  first_name: "maria",
+  first_name: "Sebastien",
   last_name: "duwagon"
   )
 
@@ -100,6 +112,8 @@ trip_member_6 = TripMember.create(
 puts "trip_members created"
 
 puts "creating suggestions"
+
+
 suggestion_1 = Suggestion.create(
   category: "Hotel",
   name: "Hotel praia do porto",
@@ -107,7 +121,7 @@ suggestion_1 = Suggestion.create(
   user: portugal_trip.users.first,
   price: 80,
   comment: "Super view on the beach and nice breakfast",
-  photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/75/cd/b5/bosque-do-porto-praia.jpg?w=900&h=-1&s=1"
+  photo: get_photo("Hotel praia do porto")
 )
 
 suggestion_2 = Suggestion.create(
@@ -117,7 +131,7 @@ suggestion_2 = Suggestion.create(
   user: portugal_trip.users.second,
   price: 12.30,
   comment: "Close to hotel, super rating on G Maps",
-  photo: "https://b.zmtcdn.com/data/pictures/9/18988569/b086082c7b2e6c100c1766bde7e1c0f3.jpg"
+  photo: get_photo("Sabores da Amazónia")
 )
 
 suggestion_3 = Suggestion.create(
@@ -127,7 +141,7 @@ suggestion_3 = Suggestion.create(
   user: portugal_trip.users.first,
   price: 40,
   comment: "The food is amazing and the prices very decent",
-  photo: "https://media-cdn.tripadvisor.com/media/photo-s/1d/29/4a/44/sala-de-refeicoes.jpg"
+  photo: get_photo("Meia-Nau Porto")
 )
 
 suggestion_4 = Suggestion.create(
@@ -136,7 +150,7 @@ suggestion_4 = Suggestion.create(
   day: portugal_trip.days.first,
   user: portugal_trip.users.third,
   comment: "very crowded and has big waves!",
-  photo: "https://cdn.visitportugal.com/sites/default/files/styles/encontre_detalhe_poi_destaque/public/mediateca/N4.PRA1587D.jpg?itok=5FNkDWK0"
+  photo: get_photo("Praia de salgueiro, porto")
 )
 
 suggestion_5 = Suggestion.create(
@@ -145,7 +159,7 @@ suggestion_5 = Suggestion.create(
   day: portugal_trip.days.first,
   user: portugal_trip.users.second,
   comment: "A must see, definitly!",
-  photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Puente_de_Don_Luis_I%2C_Oporto%2C_Portugal%2C_2019-06-02%2C_DD_29-31_HDR.jpg/700px-Puente_de_Don_Luis_I%2C_Oporto%2C_Portugal%2C_2019-06-02%2C_DD_29-31_HDR.jpg"
+  photo: get_photo("Ponte Luis I")
 )
 
 suggestion_6 = Suggestion.create(
@@ -155,7 +169,7 @@ suggestion_6 = Suggestion.create(
   user: portugal_trip.users.first,
   price: 65,
   comment: "We spend a very good time going that cruise",
-  photo: "https://media-cdn.tripadvisor.com/media/photo-s/1a/f1/75/aa/cruzeiros-no-rio-douro.jpg"
+  photo: get_photo("Cruzeiros Douro")
 )
 
 suggestion_7 = Suggestion.create(
@@ -165,7 +179,7 @@ suggestion_7 = Suggestion.create(
   user: portugal_trip.users[4],
   price: 180,
   comment: "A beautiful view on the beach",
-  photo: "https://lh3.googleusercontent.com/proxy/00MuFW27_JfMtcSQAY4hV_aiktVY1pPsuwgw-rD-kyAivqENzsCkK9fO7kRa9KILsdyqevBymfxTF8zkXYqLeqfZyZp548r7tzyjF0R8BFigxTxlJYhtvbjyMh_EImCgpJUDdOdYqc5O5TUyNhn6AmIxirYPLPdWMBFt-wVUWwg"
+  photo: get_photo("Hotel Quarteira Sol")
 )
 
 suggestion_8 = Suggestion.create(
@@ -175,17 +189,17 @@ suggestion_8 = Suggestion.create(
   user: portugal_trip.users[4],
   price: 140,
   comment: "This hotel is in the town center",
-  photo: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/259345247.jpg?k=f969c5b0d5c974425624376ebfa5db33c8057878badb5998a473e4578ac984c1&o=&hp=1"
+  photo: get_photo("Hotel Borges Chiado")
 )
 
 suggestion_9 = Suggestion.create(
-  category: "Restaurant",
-  name: "Augusto Lisboa",
-  day: portugal_trip.days[1],
+  category: "Hotel",
+  name: "Vincci Porto",
+  day: portugal_trip.days[5],
   user: portugal_trip.users[4],
   price: 90,
-  comment: "A very good place to eat good food",
-  photo: "https://media-cdn.tripadvisor.com/media/photo-s/18/e3/c2/11/after-a-walk-in-alfama.jpg"
+  comment: "I think they have a gym in the building",
+  photo: get_photo("Vincci Porto")
 )
 
 suggestion_10 = Suggestion.create(
@@ -195,7 +209,7 @@ suggestion_10 = Suggestion.create(
   user: portugal_trip.users[3],
   price: 80,
   comment: "The good look delicious we should try to go",
-  photo: "https://res.cloudinary.com/tf-lab/image/upload/restaurant/a820c569-de5a-4d0c-a0c4-bbd46bcbd672/1354226d-f84e-4fe8-b61c-27bef095c978.jpg"
+  photo: get_photo("Frade dos Mares")
 )
 
 suggestion_11 = Suggestion.create(
@@ -205,17 +219,17 @@ suggestion_11 = Suggestion.create(
   user: portugal_trip.users[3],
   price: 10,
   comment: "A prestigious museum that I want visit",
-  photo: "https://cdn.visitportugal.com/sites/default/files/styles/encontre_detalhe_poi_destaque/public/mediateca/%C2%A9MNAA-Gallery-of-Portuguese-Paintings-2013_660x371.jpg?itok=bozrNfHv"
+  photo: get_photo("Museo National de Azulejo")
 )
 
 suggestion_12 = Suggestion.create(
-  category: "Activity",
-  name: "Jardim Zoológico de Lisboa",
-  day: portugal_trip.days[1],
+  category: "Hotel",
+  name: "Moov Hotel Porto Centro",
+  day: portugal_trip.days[8],
   user: portugal_trip.users[3],
   price: 10,
   comment: "The bigger zoo of the country",
-  photo: "https://images.impresa.pt/sicnot/2020-05-06-Jardim-Zoologico_Torreoes--2-.jpg/original/mw-860"
+  photo: get_photo("Moov Hotel Porto Centro")
 )
 
 suggestion_13 = Suggestion.create(
@@ -225,7 +239,223 @@ suggestion_13 = Suggestion.create(
   user: portugal_trip.users[2],
   price: 25,
   comment: "I want do this big amusement park",
-  photo: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/6b/93/f7/mega-circuito-up-to-14.jpg?w=1200&h=-1&s=1"
+  photo: get_photo("Jardim dos Aciprestes")
+)
+
+suggestion_14 = Suggestion.create(
+  category: "Hotel",
+  name: "Vera Cruz Porto Downtown Hotel",
+  day: portugal_trip.days[5],
+  user: portugal_trip.users[4],
+  price: 38,
+  comment: "Cheap place for the middle journey",
+  photo: get_photo("Vera Cruz Porto Downtown Hotel")
+)
+
+suggestion_15 = Suggestion.create(
+  category: "Activity",
+  name: "Praia de miramar",
+  day: portugal_trip.days[3],
+  user: portugal_trip.users[3],
+  comment: "Very cool beach to see",
+  photo: get_photo("Praia de miramar")
+)
+
+suggestion_16 = Suggestion.create(
+  category: "Activity",
+  name: "Praia de Nazare",
+  day: portugal_trip.days[4],
+  user: portugal_trip.users[5],
+  comment: "The biggest waves of the world but a bit far from Porto",
+  photo: get_photo("Praia de Nazare")
+)
+
+suggestion_17 = Suggestion.create(
+  category: "Activity",
+  name: "Pinhão",
+  day: portugal_trip.days[3],
+  user: portugal_trip.users[3],
+  price: 25,
+  comment: "Very cool cruize recommended by my cousin",
+  photo: get_photo("Pinhão")
+)
+
+suggestion_18 = Suggestion.create(
+  category: "Activity",
+  name: "Torre dos Clérigos",
+  day: portugal_trip.days[4],
+  user: portugal_trip.users[2],
+  price: 5,
+  comment: "They say the view really worth the pain to get there",
+  photo: get_photo("Torre dos Clérigos")
+)
+
+suggestion_19 = Suggestion.create(
+  category: "Activity",
+  name: "Igreja de São Francisco",
+  day: portugal_trip.days[2],
+  user: portugal_trip.users[3],
+  price: 25,
+  comment: "Only opens on morning",
+  photo: get_photo("Igreja de São Francisco Porto")
+)
+
+suggestion_20 = Suggestion.create(
+  category: "Restaurant",
+  name: "Mercado Bom Sucesso",
+  day: portugal_trip.days[8],
+  user: portugal_trip.users[1],
+  price: 15,
+  comment: "Lot of different things to eat, cheap prices !",
+  photo: get_photo("Mercado Bom Sucesso")
+)
+
+suggestion_21 = Suggestion.create(
+  category: "Restaurant",
+  name: "Mercado Beira-Rio",
+  day: portugal_trip.days[3],
+  user: portugal_trip.users[2],
+  price: 25,
+  comment: "The place to eat traditional portuguese food ",
+  photo: get_photo("Mercado Beira-Rio")
+)
+
+suggestion_22 = Suggestion.create(
+  category: "Activity",
+  name: "Serralves Porto",
+  day: portugal_trip.days[2],
+  user: portugal_trip.users[2],
+  comment: "A cool hike to discover the city on first days",
+  photo: get_photo("Serralves Porto")
+)
+
+suggestion_23 = Suggestion.create(
+  category: "Activity",
+  name: "Foz do Douro",
+  day: portugal_trip.days[1],
+  user: portugal_trip.users[2],
+  price: 25,
+  comment: "The coolest praia arround, let's chill there.",
+  photo: get_photo("Foz do Douro")
+)
+
+suggestion_24 = Suggestion.create(
+  category: "Restaurant",
+  name: "Matosinhos",
+  day: portugal_trip.days[2],
+  user: portugal_trip.users[5],
+  price: 25,
+  comment: "Street food spot !",
+  photo: get_photo("Matosinhos")
+)
+
+suggestion_25 = Suggestion.create(
+  category: "Activity",
+  name: "Espaço Porto Cruz",
+  day: portugal_trip.days[6],
+  user: portugal_trip.users[5],
+  price: 25,
+  comment: "wine tasting : We can have a group discount",
+  photo: get_photo("Espaço Porto Cruz")
+)
+
+suggestion_26 = Suggestion.create(
+  category: "Activity",
+  name: "Sé cathedral",
+  day: portugal_trip.days[4],
+  user: portugal_trip.users[2],
+  price: 5,
+  comment: "The most amazing church my parents told me.",
+  photo: get_photo("Sé cathedral Porto")
+)
+
+suggestion_27 = Suggestion.create(
+  category: "Restaurant",
+  name: "Café Santiago",
+  day: portugal_trip.days[2],
+  user: portugal_trip.users[1],
+  price: 10,
+  comment: "We should go there to get Franceshinha and Super Bock.",
+  photo: get_photo("Café Santiago Porto")
+)
+
+suggestion_28 = Suggestion.create(
+  category: "Activity",
+  name: "Casa do Infante",
+  day: portugal_trip.days[1],
+  user: portugal_trip.users[2],
+  comment: "A bit of History ! Open on sunday morning",
+  photo: get_photo("Casa do Infante")
+)
+
+suggestion_29 = Suggestion.create(
+  category: "Restaurant",
+  name: "CASA DA MARIQUINHAS",
+  day: portugal_trip.days[4],
+  user: portugal_trip.users[5],
+  price: 17,
+  comment: "Looks regular that nice but they have amazing food",
+  photo: get_photo("CASA DA MARIQUINHAS")
+)
+
+suggestion_30 = Suggestion.create(
+  category: "Restaurant",
+  name: "BULHAO BOLHÃO",
+  day: portugal_trip.days[3],
+  user: portugal_trip.users[4],
+  price: 35,
+  comment: "More expensive that the rest, true ! But much better my local friends said.",
+  photo: get_photo("BULHAO BOLHÃO")
+)
+
+suggestion_31 = Suggestion.create(
+  category: "Hotel",
+  name: "The Yeatman",
+  day: portugal_trip.days[6],
+  user: portugal_trip.users[5],
+  price: 98,
+  comment: "The pool looks super cool !",
+  photo: get_photo("The Yeatman")
+)
+
+suggestion_32 = Suggestion.create(
+  category: "Hotel",
+  name: "InterContinental Hotel Porto",
+  day: portugal_trip.days[2],
+  user: portugal_trip.users[6],
+  price: 134,
+  comment: "I´ve tried it in Vienna, it was all perfect !",
+  photo: get_photo("InterContinental Hotel Porto")
+)
+
+suggestion_33 = Suggestion.create(
+  category: "Hotel",
+  name: "Pestana Vintage Porto",
+  day: portugal_trip.days[6],
+  user: portugal_trip.users[3],
+  price: 76,
+  comment: "Super nice place, very centrical",
+  photo: get_photo("Pestana Vintage Porto")
+)
+
+suggestion_34 = Suggestion.create(
+  category: "Hotel",
+  name: "Torel Palace porto",
+  day: portugal_trip.days[4],
+  user: portugal_trip.users[1],
+  price: 62,
+  comment: "Price is very correct and .. Breakfast Included !",
+  photo: get_photo("Torel Palace porto")
+)
+
+suggestion_35 = Suggestion.create(
+  category: "Hotel",
+  name: "Torel Palace porto",
+  day: portugal_trip.days[3],
+  user: portugal_trip.users[5],
+  price: 86,
+  comment: "Typical place recommended by my colleagues from work.",
+  photo: get_photo("Torel Palace porto")
 )
 
 puts "Suggestions created"

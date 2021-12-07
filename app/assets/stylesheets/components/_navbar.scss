@@ -43,21 +43,22 @@
     cursor: pointer;
 
     .user-info-on-hover {
-      opacity: 1;
+      display: inline-block;
     }
   }
 
   .user-info-on-hover{
-    opacity: 0;
+    display: none;
     position: absolute;
     width: 180px;
     text-align: center;
-    top: 50px;
+    top: 35px;
     border: solid black;
     border-width: 0.5px;
     border-radius: 5px;
-    padding: 10px;
-    font-size: 0.75rem
+    padding: 5px;
+    font-size: 0.75rem;
+    background-color: white;
   }
 }
 

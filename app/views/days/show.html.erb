@@ -1,17 +1,18 @@
 <!-- BEGINNING OF CALENDAR -->
-<div class="d-flex justify-content-around">
+<div class="d-flex justify-content-around m-1 p-2">
   <div class="d-flex justify-content-around align-items-center w-50 m-1">
-    <div>
+    <div class="side-day-container">
       <% if @previous_date %>
-        <%= link_to "#{@previous_date}", trip_day_path(trip_id: @trip, id: @day.id - 1, date: @previous_date) %>
+        <i class="fas fa-arrow-circle-left day-arrow"></i><%= link_to "#{@previous_date}", trip_day_path(trip_id: @trip, id: @day.id - 1, date: @previous_date), class:"js-selector-days side-day ml-2" %>
       <% end %>
     </div>
     <div>
-      <h1> <%= @current_date %> </h1>
+      <p class="weekday"> <%= @day.date.strftime("%A") %> </p>
+      <h1 class="current-date"> <%= @current_date %> </h1>
     </div>
-    <div>
+    <div class="side-day-container">
       <% if @next_date %>
-        <%= link_to "#{@next_date}", trip_day_path(trip_id: @trip, id: @day.id + 1, date: @next_date) %>
+        <%= link_to "#{@next_date}", trip_day_path(trip_id: @trip, id: @day.id + 1, date: @next_date), class:"js-selector-days side-day mr-2" %><i class="fas fa-arrow-circle-right day-arrow"></i></div>
       <% end %>
     </div>
   </div>
@@ -21,7 +22,7 @@
 <!-- BEGINNING OF MENU TAB SECTION -->
 <nav class="container">
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="js-selector nav-link <%= "active" if params[:category] == "Hotel" %>" id="nav-hotel-tab" data-toggle="tab" href="#nav-hotel" role="tab" aria-controls="nav-hotel" aria-selected="true">Hotel</a>
+    <a class="js-selector nav-link <%= "active" if params[:category] == "Hotel" || params[:category].blank? %>" id="nav-hotel-tab" data-toggle="tab" href="#nav-hotel" role="tab" aria-controls="nav-hotel" aria-selected="true">Hotel</a>
     <a class="js-selector nav-link <%= "active" if params[:category] == "Restaurant" %>" id="nav-restaurant-tab" data-toggle="tab" href="#nav-restaurant" role="tab" aria-controls="nav-restaurant" aria-selected="false">Restaurant</a>
     <a class="js-selector nav-link <%= "active" if params[:category] == "Activity" %>" id="nav-activity-tab" data-toggle="tab" href="#nav-activity" role="tab" aria-controls="nav-activity" aria-selected="false">Activity</a>
   </div>
@@ -31,7 +32,7 @@
 <!-- BEGINNING OF TAB SECTION -->
 
 <div class="tab-content show-card" id="nav-tabContent" style="height: 74vh">
-  <div class="tab-pane fade show <%= "active" if params[:category] == "Hotel" %>" id="nav-hotel" role="tabpanel" aria-labelledby="nav-hotel-tab">
+  <div class="tab-pane fade show <%= "active" if params[:category] == "Hotel" || params[:category].blank? %>" id="nav-hotel" role="tabpanel" aria-labelledby="nav-hotel-tab">
     <!-- BEGENING OF HOTEL TAB SECTION -->
     <div id="card-section-container-show" class="cards background-hotel pr-5 pl-5"><!-- card-section-container-show // ID not defined -->
       <!-- BEGENING OF HOTEL ITEM CARD -->
@@ -39,7 +40,7 @@
         <% if Vote.find_by(suggestion_id: data.id, user_id: current_user.id).nil? %>
           <%= render 'days/unvoted_card', data: data %><!-- Le vote n'existe pas -->
         <% else %>
-          <%= render 'days/voted_card', data: data %><!-- Le vote existe pas -->
+          <%= render 'days/voted_card', data: data %><!-- Le vote existe -->
         <% end %>
       <% end %>
       <!-- ENDING OF HOTEL ITEM CARD -->
