@@ -17,6 +17,6 @@
   </div>
   <div class="Votes-lock">
     <h4>Close votes for this trip</h4>
-    <%= button_to "freeze the votes!", lock_trip_trip_path(@trip), method: :patch  %>
+    <%= button_to "freeze the votes!", lock_trip_trip_path(:trip_id), method: :patch  %>
   </div>
 </div>
