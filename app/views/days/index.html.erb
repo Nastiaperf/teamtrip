@@ -45,7 +45,7 @@
           <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Hotel"}), class:"button-see-show" %> </h2><!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-hotel">
-          <% @trip_days.first.suggestions.where(category: "Hotel").first(1).each do |data| %>
+          <% @hotels_ordered_by_vote.first(1).each do |data| %>
           <!-- BEGINNING OF HOTEL ITEM CARD -->
             <% if data.nil? %>
               <%= render 'days/first_sug_card', data: data %>
@@ -85,7 +85,7 @@
           <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Restaurant"}), class:"button-see-show" %></h2> <!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-restaurant">
-          <% @trip_days.first.suggestions.where(category: "Restaurant").first(2).each do |data| %>
+          <% @restaurants_ordered_by_vote.first(2).each do |data| %>
           <!-- BEGINNING OF RESTAURANT ITEM CARD -->
             <%= render 'days/unvoted_card_index', data: data %>
           <% end %>
@@ -120,7 +120,7 @@
           <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Activity"}), class:"button-see-show" %></h2><!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-activity">
-          <% @trip_days.first.suggestions.where(category: "Activity").first(3).each do |data| %>
+          <% @activities_ordered_by_vote.first(3).each do |data| %>
             <!-- BEGINNING OF ACTIVITY ITEM CARD -->
             <%= render 'days/unvoted_card_index', data: data %>
           <% end %>

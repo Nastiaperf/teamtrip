@@ -26,6 +26,9 @@ class DaysController < ApplicationController
 
     #Google Places client instance
     @client = GooglePlaces::Client.new(ENV['GOOGLE_API_BROWSER_KEY'])
+    @hotels_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Hotel")
+    @restaurants_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Restaurant")
+    @activities_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Activity")
   end
 
   def show
@@ -38,7 +41,7 @@ class DaysController < ApplicationController
     @hotels_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Hotel")
     @restaurants_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Restaurant")
     @activities_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Activity")
-  
+
     # begin calendar
     # @current_day = @day.find(date: params[:date]) || @day.first
     @current_date = @day || Day.first
@@ -50,7 +53,7 @@ class DaysController < ApplicationController
     unless @current_date == Day.first
       @previous_date = (@current_date.date - 1.day).strftime("%Y-%m-%d")
     end
-    
+
     @current_date = (@day.date).strftime("%Y-%m-%d")
     # end calendar
 

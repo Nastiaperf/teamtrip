@@ -20,3 +20,64 @@ h3 {
   flex-grow: 1;
 }
 
+.weekday{
+  text-align: center;
+  font-weight: 700;
+  color: $dark-blue;
+}
+
+.current-date{
+  background-color: $dark-blue;
+  color: white;
+  border: 1px solid $dark-blue;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.side-day{
+  text-decoration: none;
+}
+
+.day-arrow{
+  opacity: 0.75;
+  text-decoration: none;
+}
+
+.side-day-container:hover{
+  .day-arrow{
+  text-decoration: none;
+  opacity: 1;
+  }
+  .side-day{
+  text-decoration: none;
+  }
+}
+
+#nav-hotel-tab.active{
+ background-color: $dark-blue;
+ margin: none;
+ color: white;
+ font-weight: 600;
+ border: 0;
+ border-radius: 0.5rem 0.5rem 0 0;
+}
+
+#nav-restaurant-tab.active{
+ background-color: $dark-saumon;
+ margin: none;
+ color: white;
+ font-weight: 600;
+ border: 0;
+ border-radius: 0.5rem 0.5rem 0 0;
+}
+
+#nav-activity-tab.active{
+ background-color: $dark-green;
+ margin: none;
+ color: white;
+ font-weight: 600;
+ border: 0;
+ border-radius: 0.5rem 0.5rem 0 0;
+}
