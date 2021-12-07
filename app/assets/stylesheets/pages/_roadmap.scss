@@ -17,4 +17,17 @@
     position: sticky !important;
     top: 0;
   }
+
+  #results {
+  cursor: grab;
+  }
+
+  #results:active {
+    cursor: grabbing;
+  }
+
+  #results.ghost {
+    filter: grayscale(1);
+    opacity: 0.8;
+  }
 }

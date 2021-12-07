@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_07_091329) do
+
+ActiveRecord::Schema.define(version: 2021_12_07_112526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 2021_12_07_091329) do
     t.string "opening_hours"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "position"
     t.index ["day_id"], name: "index_suggestions_on_day_id"
     t.index ["user_id"], name: "index_suggestions_on_user_id"
   end
