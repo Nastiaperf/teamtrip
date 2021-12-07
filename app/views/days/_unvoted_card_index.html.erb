@@ -1,8 +1,11 @@
 <div class="d-flex justify-content-center">
+  <div>
+  <%= image_tag(data.user.photo, class:"mini-avatar position-absolute border", style:"margin-top: 1.5rem; margin-left: -0.75rem; z-index: 1") %>
+  </div>
   <div id="color" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
     <div class="d-flex">
       <div class="image-container">
-        <%= image_tag "hotel_1.jpg", class:"image-card" %>
+        <%= image_tag (data.photo), class:"image-card" %>
       </div>
       <div class="text-container align-items-start">
         <h2><%= data.name %></h2>

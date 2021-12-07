@@ -47,6 +47,9 @@ gem 'httparty'
 #bootstrap toggle
 gem 'bootstrap-toggle-rails'
 
+#Drag-and-drop
+gem 'acts_as_list'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'

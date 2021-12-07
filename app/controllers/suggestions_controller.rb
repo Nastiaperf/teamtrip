@@ -24,10 +24,17 @@ class SuggestionsController < ApplicationController
     redirect_to trip_day_path(day.trip, day, category: @suggestion.category)
   end
 
+  def update
+    @suggestion = Suggestion.find(params[:id])
+    @suggestion.update(suggestion_params)
+
+    head :no_content
+  end
+
   private
 
   def suggestion_params
-    params.require(:suggestion).permit(:day_id, :user, :price, :name, :category, :location, :comment)
+    params.require(:suggestion).permit(:day_id, :user, :price, :name, :category, :location, :comment, :position)
   end
 
 end

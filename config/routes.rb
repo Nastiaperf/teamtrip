@@ -15,6 +15,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :suggestions, only: [:new, :create]
+  resources :suggestions, only: [:new, :create, :update]
   resources :votes, only: [:create, :destroy]
 end

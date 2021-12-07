@@ -45,7 +45,7 @@
           <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Hotel"}), class:"button-see-show" %> </h2><!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-hotel">
-          <% @trip_days.first.suggestions.where(category: "Hotel").first(1).each do |data| %>
+          <% @hotels_ordered_by_vote.first(1).each do |data| %>
           <!-- BEGINNING OF HOTEL ITEM CARD -->
             <% if data.nil? %>
               <%= render 'days/first_sug_card', data: data %>
@@ -63,7 +63,7 @@
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
           <div class="d-flex align-items-center">
           <!-- button to add new suggestion -->
-          <button type="button" class="btn btn-sm rounded-pill align-middle " data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle btn-green"></i></button>
+          <button type="button" class="btn btn-sm rounded-pill align-middle " data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle btn-saumon"></i></button>
 
               <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
@@ -85,7 +85,7 @@
           <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Restaurant"}), class:"button-see-show" %></h2> <!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-restaurant">
-          <% @trip_days.first.suggestions.where(category: "Restaurant").first(2).each do |data| %>
+          <% @restaurants_ordered_by_vote.first(2).each do |data| %>
           <!-- BEGINNING OF RESTAURANT ITEM CARD -->
             <%= render 'days/unvoted_card_index', data: data %>
           <% end %>
@@ -99,7 +99,7 @@
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
           <div class="d-flex align-items-center">
           <!-- button to add new suggestion -->
-            <button type="button" class="btn btn-sm rounded-pill align-middle" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle btn-saumon"></i></button>
+            <button type="button" class="btn btn-sm rounded-pill align-middle" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle btn-green"></i></button>
 
               <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
@@ -120,7 +120,7 @@
           <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Activity"}), class:"button-see-show" %></h2><!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-activity">
-          <% @trip_days.first.suggestions.where(category: "Activity").first(3).each do |data| %>
+          <% @activities_ordered_by_vote.first(3).each do |data| %>
             <!-- BEGINNING OF ACTIVITY ITEM CARD -->
             <%= render 'days/unvoted_card_index', data: data %>
           <% end %>

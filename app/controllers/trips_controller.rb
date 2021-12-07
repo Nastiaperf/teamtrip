@@ -46,6 +46,7 @@ class TripsController < ApplicationController
     @current_restaurants = current_day_suggestions.
                           where(category: "Restaurant").
                           first(2)
+    @current_activities_restaurants = (@current_activities + @current_restaurants).sort_by(&:position)
   end
 
   def lock_trip

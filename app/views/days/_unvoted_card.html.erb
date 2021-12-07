@@ -1,4 +1,7 @@
-<div id="item-card-show" class="single-card unvoted m-3 bg-light" style="width: 27vw"> <!-- Item-card-show // ID not defined -->
+<div id="item-card-show" class="single-card unvoted m-3 bg-light position-relative" style="width: 27vw"> <!-- Item-card-show // ID not defined -->
+  <div>
+  <%= image_tag(data.user.photo, class:"avatar-large avatar-large-bordered position-absolute", style:"margin: -15px; z-index: 1") %>
+  </div>
   <!-- BEGGINING UNVOTING BOUTON-->
   <%= link_to votes_path(suggestion_id: data.id, trip_id: params[:trip_id], day_id:params[:id]), method: :post do %>
     <div class="position-relative">
