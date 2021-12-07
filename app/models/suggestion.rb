@@ -3,6 +3,9 @@ class Suggestion < ApplicationRecord
   belongs_to :user
   has_many :votes
   has_many :users, through: :votes
+  
+  #drag-and-drop
+  acts_as_list scope: :day
 
   geocoded_by :name
   after_validation :geocode, if: :will_save_change_to_name?
