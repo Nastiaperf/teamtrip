@@ -43,6 +43,48 @@
       </div>
     <% end %>
     <!-- end hotel previous date -->
+
+    <!-- begin activities + restaurants -->
+    <div class="card-top">
+      <h1>Go explore</h1>
+      <div class="category-card">
+
+        <% @current_activities_restaurants.first.each do |suggestion| %>
+          <% if suggestion.category == "Activity" %>
+            <% background_card_color = "color-activities" %>
+          <% else %>
+            <% background_card_color = "color-restaurants" %>
+          <% end %>
+          <div id= "<%=background_card_color %>" class="item-card d-flex justify-content-between">
+
+
+            <div class="d-flex">
+              <div class="image-container">
+                <%# <%= activity.photo %>
+                <%= image_tag "activity_1.jpg", class:"image-card" %>
+              </div>
+              <div class="text-container align-items-start">
+                <h2><%= suggestion.name %></h2>
+                <h3> <%= suggestion.location %> Porto</h3>
+              </div>
+            </div>
+
+            <div class="price-container align-self-end">
+
+              <% if suggestion.price.zero? && suggestion.category == "Activity" %>
+                <h2>Free</h2>
+              <% else %>
+                <h2><%= suggestion.price.to_i %>€</h2>
+              <% end %>
+
+            </div>
+
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <!-- end activities + restaurants -->
+
     <!-- begin activity -->
     <div class="card-top">
       <h1>Go visit</h1>
