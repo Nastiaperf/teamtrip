@@ -11,12 +11,43 @@
       margin-top: 1rem;
     }
 
-    #columns{
+    .card-icon{
       display: flex;
 
-      .column-icone{
-        height: 100%;
-        width: 3rem;
+      .column-icon{
+        border: 2rem;
+        height: 5rem;
+        width: 5rem;
+        padding: .5rem;
+        margin-right: 3rem;
+
+        .icon-suggestion{
+          width: 3rem;
+          height: 3rem;
+        }
+
+        img{
+          width: 4rem;
+        }
+        // background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url("https://camo.githubusercontent.com/1c91db9627bacc7699ce0bcda22d6cd6e5ea6c9408dc5935defece348a93fa7f/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f333834303430302f313930383535332f30343065613933302d376366382d313165332d383133632d6566666139633361613738312e706e67");
+        // background-size: cover;
+
+        // .icon-hotel{
+        //   width: 5rem;
+        //   height: 5rem;
+        //   }
+        // .icon-restaurant{
+        // width: 100%;
+        // height: 5rem;
+        // background-image: url("https://camo.githubusercontent.com/f06febfc8afae47eb60e5d359305ab1ba53c5ad94bef82be765e4d56437e5c3f/68747470733a2f2f63646e302e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f7472616e7369742d322f33322f7472616e7369742d33352d3531322e706e67");
+        // background-size: 50%;
+        // background-repeat: no-repeat;
+
+        // // background-position: right 50% bottom;
+        // }
+
+        // background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url("https://camo.githubusercontent.com/f06febfc8afae47eb60e5d359305ab1ba53c5ad94bef82be765e4d56437e5c3f/68747470733a2f2f63646e302e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f7472616e7369742d322f33322f7472616e7369742d33352d3531322e706e67");
+
       }
     }
   }
