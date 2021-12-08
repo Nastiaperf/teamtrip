@@ -1,18 +1,18 @@
 <!-- BEGINNING OF CALENDAR -->
 <div class="d-flex justify-content-around m-1 p-2">
-  <div class="d-flex justify-content-around align-items-center w-50 m-1">
-    <div class="side-day-container">
+  <div class="d-flex justify-content-between align-items-center w-50 mt-1 pb-2">
+    <div class="side-day-container text-left">
       <% if @previous_date %>
-        <i class="fas fa-arrow-circle-left day-arrow"></i><%= link_to "#{@previous_date}", trip_day_path(trip_id: @trip, id: @day.id - 1, date: @previous_date), class:"js-selector-days side-day ml-2" %>
+        <i class="fas fa-arrow-circle-left day-arrow"></i><%= link_to "#{(@day.date - 1.day).strftime("%a %e, %B")}", trip_day_path(trip_id: @trip, id: @day.id - 1, date: @previous_date), class:"js-selector-days side-day ml-3" %>
       <% end %>
     </div>
-    <div>
-      <p class="weekday"> <%= @day.date.strftime("%A") %> </p>
-      <h1 class="current-date"> <%= @current_date %> </h1>
+    <div class="middle-container text-center">
+      <p class="weekday mb-1"> <%= @day.date.strftime("%A") %> </p>
+      <h1 class="current-date"> <%= @day.date.strftime("%B %e") %> </h1>
     </div>
-    <div class="side-day-container">
+    <div class="side-day-container text-right">
       <% if @next_date %>
-        <%= link_to "#{@next_date}", trip_day_path(trip_id: @trip, id: @day.id + 1, date: @next_date), class:"js-selector-days side-day mr-2" %><i class="fas fa-arrow-circle-right day-arrow"></i></div>
+        <%= link_to "#{(@day.date + 1.day).strftime("%a %e, %B")}", trip_day_path(trip_id: @trip, id: @day.id + 1, date: @next_date), class:"js-selector-days side-day mr-3" %><i class="fas fa-arrow-circle-right day-arrow"></i></div>
       <% end %>
     </div>
   </div>
@@ -21,10 +21,10 @@
 <!-- ########################################## -->
 <!-- BEGINNING OF MENU TAB SECTION -->
 <nav class="container">
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="js-selector nav-link <%= "active" if params[:category] == "Hotel" || params[:category].blank? %>" id="nav-hotel-tab" data-toggle="tab" href="#nav-hotel" role="tab" aria-controls="nav-hotel" aria-selected="true">Hotel</a>
-    <a class="js-selector nav-link <%= "active" if params[:category] == "Restaurant" %>" id="nav-restaurant-tab" data-toggle="tab" href="#nav-restaurant" role="tab" aria-controls="nav-restaurant" aria-selected="false">Restaurant</a>
-    <a class="js-selector nav-link <%= "active" if params[:category] == "Activity" %>" id="nav-activity-tab" data-toggle="tab" href="#nav-activity" role="tab" aria-controls="nav-activity" aria-selected="false">Activity</a>
+  <div class="nav nav-tabs d-flex" id="nav-tab" role="tablist">
+    <a class="js-selector nav-link flex-grow-1 text-center font-weight-bold <%= "active" if params[:category] == "Hotel" || params[:category].blank? %>" id="nav-hotel-tab" data-toggle="tab" href="#nav-hotel" role="tab" aria-controls="nav-hotel" aria-selected="true">Hotel</a>
+    <a class="js-selector nav-link flex-grow-1 text-center font-weight-bold <%= "active" if params[:category] == "Restaurant" %>" id="nav-restaurant-tab" data-toggle="tab" href="#nav-restaurant" role="tab" aria-controls="nav-restaurant" aria-selected="false">Restaurant</a>
+    <a class="js-selector nav-link flex-grow-1 text-center font-weight-bold <%= "active" if params[:category] == "Activity" %>" id="nav-activity-tab" data-toggle="tab" href="#nav-activity" role="tab" aria-controls="nav-activity" aria-selected="false">Activity</a>
   </div>
 </nav>
 <!-- ENDING OF MENU TAB SECTION -->

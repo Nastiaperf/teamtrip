@@ -7,11 +7,10 @@
   <div class="w-50" id="right-panel">
     <!-- DATE SELECTOR -->
     <div class="d-flex day-selector justify-content-center">
-      <%= form_tag trip_days_path, method: :get, data: { controller: "day" } do %>
+      <%= form_tag trip_days_path, method: :get, data: { controller: "day" }, class:"w-75 d-flex justify-content-center" do %>
         <%= date_field_tag :date,
-
           value=@selected_date,
-          class: "form-control",
+          class: "form-control calendar-index w-100 text-center",
           data: {
             action: "change->day#handleChange"
           }
@@ -42,7 +41,7 @@
             </div>
           </div>
           <% @day = Day.find_by(date: @selected_date) %>
-          <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Hotel"}), class:"button-see-show" %> </h2><!-- Category-button// ID not defined -->
+          <h2><%= link_to "Go vote", trip_day_path(@trip, @day, {category: "Hotel"}), class:"button-see-show" %> </h2><!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-hotel">
           <% @hotels_ordered_by_vote.first(1).each do |data| %>
