@@ -29,15 +29,24 @@
     #color{
       background-color: rgba($light-blue, .2);
     }
+    #arrow{
+      color: $dark-blue;
+    }
   }
   #nav-restaurant{
     #color{
       background-color: rgba($light-saumon, .2);
     }
+    #arrow{
+      color: $dark-saumon;
+    }
   }
   #nav-activity{
     #color{
       background-color: rgba($light-green, .2);
+    }
+    #arrow{
+      color: $dark-green;
     }
   }
 
@@ -47,6 +56,7 @@
     width: 100%;
     border-radius: .5rem;
     margin-bottom: .5rem;
+    overflow: hidden;
   }
 
   .card-top{
@@ -108,3 +118,10 @@
     object-fit: cover;
   }
 }
+
+.text-adress {
+  max-width: 35ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }

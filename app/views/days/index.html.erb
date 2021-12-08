@@ -1,10 +1,11 @@
-<div class="d-flex body-index">
+<div class="d-flex body-index" data-controller="highlight">
   <div class="w-50">
-    <div id="map"
+    <div id="map" class='map-marker'
       data-markers="<%= @markers.to_json %>">
     </div>
   </div>
   <div class="w-50" id="right-panel">
+<<<<<<< HEAD
     <h2 class="text-center mt-2">Top voted suggestions for the day</h2>
       <div>
         <div class="form-wrapper w-75 rounded" style="width: 400px; margin: 0 auto;">
@@ -13,6 +14,20 @@
           <% end %>
         </div>
       </div>
+=======
+    <!-- DATE SELECTOR -->
+    <div class="d-flex day-selector justify-content-center">
+      <%= form_tag trip_days_path, method: :get, data: { controller: "day" }, class:"w-75 d-flex justify-content-center" do %>
+        <%= date_field_tag :date,
+          value=@selected_date,
+          class: "form-control calendar-index w-100 text-center",
+          data: {
+            action: "change->day#handleChange"
+          }
+        %>
+      <% end  %>
+    </div>
+>>>>>>> 65a09890976087c9d04f9c09461f881b0ea21289
     <!-- BEGINNING OF HOTEL SECTION -->
       <div class="category-card"> <!-- Category-card // ID not defined -->
         <div id="category-card-top" class="d-flex justify-content-between card-top"> <!-- Category-card-top// ID not defined -->
@@ -37,7 +52,7 @@
             </div>
           </div>
           <% @day = Day.find_by(date: @selected_date) %>
-          <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Hotel"}), class:"button-see-show" %> </h2><!-- Category-button// ID not defined -->
+          <h2><%= link_to "Go vote", trip_day_path(@trip, @day, {category: "Hotel"}), class:"button-see-show" %> </h2><!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-hotel">
           <% @hotels_ordered_by_vote.first(1).each do |data| %>
@@ -77,7 +92,7 @@
               <h1> Restaurants</h1>
             </div>
           </div>
-          <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Restaurant"}), class:"button-see-show" %></h2> <!-- Category-button// ID not defined -->
+          <h2><%= link_to "Go Vote", trip_day_path(@trip, @day, {category: "Restaurant"}), class:"button-see-show" %></h2> <!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-restaurant">
           <% @restaurants_ordered_by_vote.first(2).each do |data| %>
@@ -112,7 +127,7 @@
                 <h1> Activities</h1>
               </div>
           </div>
-          <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Activity"}), class:"button-see-show" %></h2><!-- Category-button// ID not defined -->
+          <h2><%= link_to "Go Vote", trip_day_path(@trip, @day, {category: "Activity"}), class:"button-see-show" %></h2><!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-activity">
           <% @activities_ordered_by_vote.first(3).each do |data| %>

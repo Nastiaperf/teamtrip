@@ -1,12 +1,9 @@
 <div id="item-card-show" class="single-card unvoted m-3 bg-light position-relative" style="width: 27vw"> <!-- Item-card-show // ID not defined -->
-  <div>
-  <%= image_tag(data.user.photo, class:"avatar-large avatar-large-bordered position-absolute", style:"margin: -15px; z-index: 1") %>
-  </div>
   <!-- BEGGINING UNVOTING BOUTON-->
   <%= link_to votes_path(suggestion_id: data.id, trip_id: params[:trip_id], day_id:params[:id]), method: :post do %>
-    <div class="position-relative">
+    <div class="d-flex justify-content-center align-items-center">
       <%= image_tag(data.photo, class:"img-card-show") %>
-      <i class="far fa-thumbs-up fa-5x unvoted-thumb position-absolute" style="top: 30%; right: 35%"></i>
+      <i class="far fa-thumbs-up fa-5x unvoted-thumb position-absolute"></i>
       <div class="vote-pill unvoted-pill light-gray position-absolute d-flex flex-column justify-content-center align-items-center" style="top: 6%; right: 4%">
         <i class="far fa-thumbs-up fa-lg"></i>
         <h2 class="pl-1"><%= data.votes.count %></h2>
@@ -42,18 +39,18 @@
     -->
     <div class="text-container align-self-center m-1 pt-2">
       <%# <u>Seel all link (google url)</u>.<%= data.google_link %>
-      <a href="https://www.google.com/maps/place/Eurostars+Das+Artes/@41.1500524,-8.620851,15z/data=!4m8!3m7!1s0x0:0x2254bd890e121461!5m2!4m1!1i2!8m2!3d41.1500524!4d-8.620851" target="_blank">See on Google maps</a>
+      <a href="<%= data.google_link %>" target="_blank">See on Google maps</a>
     </div>
     <hr class="dark-blue">
-    <div>
-      <div class="text-container m-1 ">
-        <p style="margin: 0"><%= "#{data.user.first_name.capitalize + " " + data.user.last_name.capitalize}" %></p>
+    <div class="align-items-center">
+      <div>
+      <%= image_tag(data.user.photo, class:"avatar avatar-bordered position-absolute") %>
       </div>
-      <div class="text-container m-1 ">
+      <div class="text-container align-items-center ">
         <% if data.comment.length == 0 %>
-          <p style="margin: 0"><em>There is no comment</em></p>
+          <p style="margin-left: 3rem"><em>There is no comment</em></p>
         <% else %>
-          <p style="margin: 0"> <%= data.comment %></p>
+          <p style="margin-left: 3rem"> <%= data.comment.capitalize %></p>
         <% end %>
       </div>
     </div>
