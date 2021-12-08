@@ -5,19 +5,14 @@
     </div>
   </div>
   <div class="w-50" id="right-panel">
-    <!-- DATE SELECTOR -->
-    <div class="d-flex day-selector justify-content-center">
-      <%= form_tag trip_days_path, method: :get, data: { controller: "day" } do %>
-        <%= date_field_tag :date,
-
-          value=@selected_date,
-          class: "form-control",
-          data: {
-            action: "change->day#handleChange"
-          }
-        %>
-      <% end  %>
-    </div>
+    <h2 class="text-center mt-2">Top voted suggestions for the day</h2>
+      <div>
+        <div class="form-wrapper w-75 rounded" style="width: 400px; margin: 0 auto;">
+          <%= simple_form_for trip_days_path, method: :get, data: { controller: "day" } do %>
+            <%= date_field_tag :date, value=@selected_date, class: "form-control datepicker w-100 calendar-index", data: { action: "change->day#handleChange" }%>
+          <% end %>
+        </div>
+      </div>
     <!-- BEGINNING OF HOTEL SECTION -->
       <div class="category-card"> <!-- Category-card // ID not defined -->
         <div id="category-card-top" class="d-flex justify-content-between card-top"> <!-- Category-card-top// ID not defined -->

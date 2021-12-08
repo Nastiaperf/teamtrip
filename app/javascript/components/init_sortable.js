@@ -2,6 +2,9 @@ import Sortable from 'sortablejs';
 
 const initSortable = () => {
   const list = document.querySelector('#results');
+  if (list == null) {
+    return
+  }
   Sortable.create(list, {
     ghostClass: "ghost",
     animation: 150,

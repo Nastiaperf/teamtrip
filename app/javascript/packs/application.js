@@ -8,7 +8,9 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+require("bootstrap")
 
+require("flatpickr")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -25,19 +27,22 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import "controllers"
+import "controllers";
 
-import { mapImport } from '../components/map.js'
-import { setActiveTabOnLoading } from '../components/tab_menu.js'
-import { setActiveTabOnClicking } from '../components/tab_menu.js'
+import { mapImport } from '../components/map.js';
+import { setActiveTabOnLoading } from '../components/tab_menu.js';
+import { setActiveTabOnClicking } from '../components/tab_menu.js';
 import { initSweetalert } from '../plugins/init_sweetalert';
-import { initSortable } from '../components/init_sortable.js'
+import { initSortable } from '../components/init_sortable.js';
+import { initFlatpickr } from "../plugins/flatpickr.js";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initSortable();
+  initFlatpickr();
   mapImport();
   setActiveTabOnLoading();
   setActiveTabOnClicking();
@@ -48,5 +53,4 @@ document.addEventListener('turbolinks:load', () => {
   }, (value) => {
     console.log(value);
   });
-  initSortable();
 });
