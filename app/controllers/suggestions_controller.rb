@@ -18,6 +18,7 @@ class SuggestionsController < ApplicationController
     @suggestion.photo = "https://maps.googleapis.com/maps/api/place/photo?photoreference=#{response['candidates'][0]['photos'][0]['photo_reference']}&sensor=false&maxheight=500&maxwidth=500&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     @suggestion.user = current_user
     @suggestion.day = day
+    @suggestion.google_link =
     # for @suggestion.day value --> Day.find(params[:day_id])
     @suggestion.save!
 

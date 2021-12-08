@@ -55,7 +55,7 @@ largo = User.create(
   )
 
 charly = User.create(
-  photo: "https://kitt.lewagon.com/placeholder/users/ssaunier",
+  photo: "https://www.thesprucepets.com/thmb/YQzfza2oKOCzQIvX-K66BRi1DjI=/1080x1080/filters:no_upscale():max_bytes(150000):strip_icc()/30078352_448703938920062_6275637137232625664_n-5b0de8c443a1030036f9e15e.jpg",
   email: "charly@example.com",
   password: "secret",
   first_name: "Sebastien",

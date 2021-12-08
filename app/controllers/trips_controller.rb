@@ -50,7 +50,7 @@ class TripsController < ApplicationController
   end
 
   def lock_trip
-    @trip = Trip.find(params[:id])
+    @trip = Trip.first
     @trip.locked = true
     @trip.save!
   end

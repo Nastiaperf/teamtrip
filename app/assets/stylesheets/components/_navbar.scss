@@ -74,15 +74,17 @@ margin-right: 5px;
   margin-left: 1rem;
   margin-right: 3rem;
   vertical-align: bottom;
+  cursor: pointer;
 }
 
 .locked-bar {
   background-image: linear-gradient(43deg, #8fe6bd 25%, #619dc2 25%, #619dc2 50%, #8fe6bd 50%, #8fe6bd 75%, #619dc2 75%, #619dc2 100%);
   background-size: 58.65px 54.69px;  border: solid rgba(196, 196, 196, 0.747);
   border-width: 0.5px;
-  height: 1.7rem;
-  font-weight: 100;
+  height: 2rem;
+  font-weight: bold;
+  font-size: larger;
   vertical-align: middle;
-  color: white;
+  color: rgb(255, 255, 255);
   width: 100%;
 }
