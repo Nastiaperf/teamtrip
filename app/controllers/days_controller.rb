@@ -23,6 +23,7 @@ class DaysController < ApplicationController
       {
         lat: suggestion.latitude,
         lng: suggestion.longitude,
+        id: suggestion.id,
         icon: helpers.asset_url("#{suggestion.category}.png"),
         info_window: render_to_string(partial: "info_window", locals: { suggestion: suggestion })
         # infoWindow: { content: render_to_string(partial: "/suggestions/map_box", locals: { suggestion: suggestion }) }

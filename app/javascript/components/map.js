@@ -15,6 +15,30 @@ const mapImport = () => {
       const infowindow = new google.maps.InfoWindow({
         content: gmapsMarker.info_window,
       });
+      gmapsMarker.set('title', gmapsMarker.id)
+
+      const cards = document.querySelectorAll('.card-marker')
+      cards.forEach((card) => {
+        card.addEventListener('mouseenter', (event) => {
+          // console.log('coucou')
+          // console.log(typeof event.target.dataset.id)
+          // console.log(.)
+          const test = gmapsMarkers.find(gmapsMarker => gmapsMarker.id === parseInt(event.target.dataset.id, 10))
+          // console.log(test)
+
+          test.setAnimation(google.maps.Animation.BOUNCE)
+          setTimeout(() => {
+            test.setAnimation(null)
+          }, 700);
+        })
+
+      })
+
+      // console.log(gmapsMarker.id)
+      // console.log(gmapsMarker)
+      // gmapsMarker.dataset.marker = gmapsMarker.id
+      // console.log(gmapsMarker)
+
       gmapsMarker.addListener("click", () => {
         infowindow.open({
           anchor: gmapsMarker,
