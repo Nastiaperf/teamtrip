@@ -81,7 +81,7 @@
               <h1> Restaurants</h1>
             </div>
           </div>
-          <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Restaurant"}), class:"button-see-show" %></h2> <!-- Category-button// ID not defined -->
+          <h2><%= link_to "Go Vote", trip_day_path(@trip, @day, {category: "Restaurant"}), class:"button-see-show" %></h2> <!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-restaurant">
           <% @restaurants_ordered_by_vote.first(2).each do |data| %>
@@ -116,7 +116,7 @@
                 <h1> Activities</h1>
               </div>
           </div>
-          <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Activity"}), class:"button-see-show" %></h2><!-- Category-button// ID not defined -->
+          <h2><%= link_to "Go Vote", trip_day_path(@trip, @day, {category: "Activity"}), class:"button-see-show" %></h2><!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-activity">
           <% @activities_ordered_by_vote.first(3).each do |data| %>

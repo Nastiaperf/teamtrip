@@ -116,13 +116,14 @@ puts "creating suggestions"
 
 suggestion_1 = Suggestion.create(
   category: "Hotel",
-  name: "Hotel praia do porto",
+  name: "Golden Tulip Porto Gaia Hotel & SPA",
   day: portugal_trip.days.first,
-  user: portugal_trip.users.first,
+  user: portugal_trip.users.second,
   price: 80,
   comment: "Super view on the beach and nice breakfast",
-  photo: get_photo("Hotel praia do porto"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Hotel praia do porto").normalize}"
+  photo: get_photo("Golden Tulip Porto Gaia Hotel & SPA"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Golden Tulip Porto Gaia Hotel & SPA").normalize}",
+  location: "Praia de Lavadores, R. da Bélgica 86, 4400-044 Vila Nova de Gaia, Portugal",
 )
 
 suggestion_2 = Suggestion.create(
@@ -133,18 +134,20 @@ suggestion_2 = Suggestion.create(
   price: 12.30,
   comment: "Close to hotel, super rating on G Maps",
   photo: get_photo("Sabores da Amazónia"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Sabores da Amazónia").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Sabores da Amazónia").normalize}",
+  location: "R. de Dom Manuel II 270, 4050-378 Porto, Portugal",
 )
 
 suggestion_3 = Suggestion.create(
   category: "Restaurant",
   name: "Meia-Nau Porto",
   day: portugal_trip.days.first,
-  user: portugal_trip.users.first,
+  user: portugal_trip.users[5],
   price: 40,
   comment: "The food is amazing and the prices very decent",
   photo: get_photo("Meia-Nau Porto"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Meia-Nau Porto").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Meia-Nau Porto").normalize}",
+  location: "Tv. de Cedofeita 48, 4050-183 Porto, Portugal",
 )
 
 suggestion_4 = Suggestion.create(
@@ -154,7 +157,8 @@ suggestion_4 = Suggestion.create(
   user: portugal_trip.users.third,
   comment: "very crowded and has big waves!",
   photo: get_photo("Praia de salgueiro, porto"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Praia de salgueiro, porto").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Praia de salgueiro, porto").normalize}",
+  location: "Av. da Beira-Mar C2, 4400-572 Vila Nova de Gaia, Portugal",
 )
 
 suggestion_5 = Suggestion.create(
@@ -164,18 +168,20 @@ suggestion_5 = Suggestion.create(
   user: portugal_trip.users.second,
   comment: "A must see, definitly!",
   photo: get_photo("Ponte Luis I"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Ponte Luis I").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Ponte Luis I").normalize}",
+  location: "Pte. Luiz I, Porto, Portugal"
 )
 
 suggestion_6 = Suggestion.create(
   category: "Activity",
-  name: "Cruzeiros Douro",
+  name: "Cruzeiro das seis pontes",
   day: portugal_trip.days.first,
-  user: portugal_trip.users.first,
+  user: portugal_trip.users[3],
   price: 65,
   comment: "We spend a very good time going that cruise",
-  photo: get_photo("Cruzeiros Douro"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Cruzeiros Douro").normalize}"
+  photo: get_photo("Cruzeiro das seis pontes"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Cruzeiro das seis pontes").normalize}",
+  location: "Muelle de, 4050-513, Portugal"
 )
 
 suggestion_7 = Suggestion.create(
@@ -186,7 +192,8 @@ suggestion_7 = Suggestion.create(
   price: 180,
   comment: "A beautiful view on the beach",
   photo: get_photo("Hotel Quarteira Sol"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Hotel Quarteira Sol").normalize}"
+  location: "Av. Francisco Sá Carneiro, 8125-141 Quarteira, Portugal",
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Hotel Quarteira Sol").normalize}",
 )
 
 suggestion_8 = Suggestion.create(
@@ -197,7 +204,8 @@ suggestion_8 = Suggestion.create(
   price: 140,
   comment: "This hotel is in the town center",
   photo: get_photo("Hotel Borges Chiado"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Hotel Borges Chiado").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Hotel Borges Chiado").normalize}",
+  location: "R. Garrett 108, 1200-205 Lisboa, Portugal"
 )
 
 suggestion_9 = Suggestion.create(
@@ -208,7 +216,8 @@ suggestion_9 = Suggestion.create(
   price: 90,
   comment: "I think they have a gym in the building",
   photo: get_photo("Vincci Porto"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Vincci Porto").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Vincci Porto").normalize}",
+  location: "Alameda de Basílio Teles 29, 4150-127 Porto, Portugal"
 )
 
 suggestion_10 = Suggestion.create(
@@ -219,7 +228,8 @@ suggestion_10 = Suggestion.create(
   price: 80,
   comment: "The good look delicious we should try to go",
   photo: get_photo("Frade dos Mares"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Frade dos Mares").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Frade dos Mares").normalize}",
+  location: "Av. Dom Carlos i 55A, 1200-647 Lisboa, Portugal"
 )
 
 suggestion_11 = Suggestion.create(
@@ -230,18 +240,20 @@ suggestion_11 = Suggestion.create(
   price: 10,
   comment: "A prestigious museum that I want visit",
   photo: get_photo("Museo National de Azulejo"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Museo National de Azulejo").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Museo National de Azulejo").normalize}",
+  location: "R. Me. Deus 4, 1900-312 Lisboa, Portugal"
 )
 
 suggestion_12 = Suggestion.create(
   category: "Hotel",
   name: "Moov Hotel Porto Centro",
-  day: portugal_trip.days[8],
+  day: portugal_trip.days[0],
   user: portugal_trip.users[3],
   price: 10,
   comment: "The bigger zoo of the country",
   photo: get_photo("Moov Hotel Porto Centro"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Moov Hotel Porto Centro").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Moov Hotel Porto Centro").normalize}",
+  location: "Praça da Batalha 32, 4000-101 Porto, Portugal"
 )
 
 suggestion_13 = Suggestion.create(
@@ -252,179 +264,196 @@ suggestion_13 = Suggestion.create(
   price: 25,
   comment: "I want do this big amusement park",
   photo: get_photo("Jardim dos Aciprestes"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Jardim dos Aciprestes").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Jardim dos Aciprestes").normalize}",
+  location: "Av. Tomás Ribeiro 18, 2795-164 Linda-a-Velha, Portugal"
 )
 
 suggestion_14 = Suggestion.create(
   category: "Hotel",
   name: "Vera Cruz Porto Downtown Hotel",
-  day: portugal_trip.days[5],
+  day: portugal_trip.days[0],
   user: portugal_trip.users[4],
   price: 38,
   comment: "Cheap place for the middle journey",
   photo: get_photo("Vera Cruz Porto Downtown Hotel"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Vera Cruz Porto Downtown Hotel").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Vera Cruz Porto Downtown Hotel").normalize}",
+  location: "R. de Ramalho Ortigão 14, 4000-407 Porto, Portugal"
 )
 
 suggestion_15 = Suggestion.create(
   category: "Activity",
   name: "Praia de miramar",
-  day: portugal_trip.days[3],
+  day: portugal_trip.days[0],
   user: portugal_trip.users[3],
   comment: "Very cool beach to see",
   photo: get_photo("Praia de miramar"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Praia de miramar").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Praia de miramar").normalize}",
+  location: "Arcozelo, Portugal"
 )
 
 suggestion_16 = Suggestion.create(
   category: "Activity",
-  name: "Praia de Nazare",
+  name: "Nazare beach",
   day: portugal_trip.days[4],
   user: portugal_trip.users[5],
   comment: "The biggest waves of the world but a bit far from Porto",
-  photo: get_photo("Praia de Nazare"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Praia de Nazare").normalize}"
+  photo: get_photo("Nazare beach"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Nazare beach").normalize}",
+  location: "Praia da Nazare"
 )
 
 suggestion_17 = Suggestion.create(
   category: "Activity",
-  name: "Pinhão",
+  name: "Double viewpoint De Loivos",
   day: portugal_trip.days[3],
   user: portugal_trip.users[3],
   price: 25,
   comment: "Very cool cruize recommended by my cousin",
-  photo: get_photo("Pinhão"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Pinhão").normalize}"
+  photo: get_photo("Double viewpoint De Loivos"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Double viewpoint De Loivos").normalize}",
+  location: "R. Praça de Oliveira 1, 5085-010 Casal de Loivos, Portugal"
 )
 
 suggestion_18 = Suggestion.create(
   category: "Activity",
-  name: "Torre dos Clérigos",
-  day: portugal_trip.days[4],
+  name: "Clérigos Tower",
+  day: portugal_trip.days[0],
   user: portugal_trip.users[2],
   price: 5,
   comment: "They say the view really worth the pain to get there",
-  photo: get_photo("Torre dos Clérigos"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Torre dos Clérigos").normalize}"
+  photo: get_photo("Clérigos Tower"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Clérigos Tower").normalize}",
+  location: "R. de São Filipe de Nery, 4050-546 Porto, Portugal"
 )
 
 suggestion_19 = Suggestion.create(
   category: "Activity",
   name: "Igreja de São Francisco",
-  day: portugal_trip.days[2],
+  day: portugal_trip.days[5],
   user: portugal_trip.users[3],
   price: 25,
   comment: "Only opens on morning",
   photo: get_photo("Igreja de São Francisco Porto"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Igreja de São Francisco").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Igreja de São Francisco").normalize}",
+  location: "Rua do Infante D. Henrique, 4050-297 Porto, Portugal"
 )
 
 suggestion_20 = Suggestion.create(
   category: "Restaurant",
   name: "Mercado Bom Sucesso",
-  day: portugal_trip.days[8],
+  day: portugal_trip.days[5],
   user: portugal_trip.users[1],
   price: 15,
   comment: "Lot of different things to eat, cheap prices !",
   photo: get_photo("Mercado Bom Sucesso"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Mercado Bom Sucesso").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Mercado Bom Sucesso").normalize}",
+  location: "Praça do Bom Sucesso 74-90, 4150-145 Porto, Portugal"
 )
 
 suggestion_21 = Suggestion.create(
   category: "Restaurant",
   name: "Mercado Beira-Rio",
-  day: portugal_trip.days[3],
+  day: portugal_trip.days[5],
   user: portugal_trip.users[2],
   price: 25,
   comment: "The place to eat traditional portuguese food ",
   photo: get_photo("Mercado Beira-Rio"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Mercado Beira-Rio").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Mercado Beira-Rio").normalize}",
+  location: "Av. de Ramos Pinto 148, 4400-261 Vila Nova de Gaia, Portugal"
 )
 
 suggestion_22 = Suggestion.create(
   category: "Activity",
-  name: "Serralves Porto",
-  day: portugal_trip.days[2],
+  name: "fondation de Serralves",
+  day: portugal_trip.days[5],
   user: portugal_trip.users[2],
   comment: "A cool hike to discover the city on first days",
-  photo: get_photo("Serralves Porto"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Serralves Porto").normalize}"
+  photo: get_photo("fondation de Serralves"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("fondation de Serralves").normalize}",
+  location: "R. Dom João de Castro 210, 4150-417 Porto, Portugal"
 )
 
 suggestion_23 = Suggestion.create(
   category: "Activity",
-  name: "Foz do Douro",
-  day: portugal_trip.days[1],
+  name: "Jardim do Passeio Alegre",
+  day: portugal_trip.days[5],
   user: portugal_trip.users[2],
   price: 25,
   comment: "The coolest praia arround, let's chill there.",
-  photo: get_photo("Foz do Douro"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Foz do Douro").normalize}"
-)
+  photo: get_photo("Jardim do Passeio Alegre"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Jardim do Passeio Alegre").normalize}",
+  location: "R. do Passeio Alegre 828, 4150-570 Porto, Portugal"
+  )
 
 suggestion_24 = Suggestion.create(
   category: "Restaurant",
-  name: "Matosinhos",
-  day: portugal_trip.days[2],
+  name: "Requinte Francesinhas",
+  day: portugal_trip.days[5],
   user: portugal_trip.users[5],
   price: 25,
   comment: "Street food spot !",
-  photo: get_photo("Matosinhos"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Matosinhos").normalize}"
+  photo: get_photo("Requinte Francesinhas"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Requinte Francesinhas").normalize}",
+  location: "R. Godinho 837, 4450-150 Matosinhos, Portugal"
 )
 
 suggestion_25 = Suggestion.create(
   category: "Activity",
   name: "Espaço Porto Cruz",
-  day: portugal_trip.days[6],
+  day: portugal_trip.days[5],
   user: portugal_trip.users[5],
   price: 25,
   comment: "wine tasting : We can have a group discount",
   photo: get_photo("Espaço Porto Cruz"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Espaço Porto Cruz").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Espaço Porto Cruz").normalize}",
+  location: "Largo Miguel Bombarda 23, 4400-222 Vila Nova de Gaia, Portugal"
 )
 
 suggestion_26 = Suggestion.create(
   category: "Activity",
-  name: "Sé cathedral",
-  day: portugal_trip.days[4],
+  name: "Sé cathedral Porto",
+  day: portugal_trip.days[5],
   user: portugal_trip.users[2],
   price: 5,
   comment: "The most amazing church my parents told me.",
   photo: get_photo("Sé cathedral Porto"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Sé cathedral").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Sé cathedral").normalize}",
+  location: "Terreiro da Sé, 4050-573 Porto, Portugal"
 )
 
 suggestion_27 = Suggestion.create(
   category: "Restaurant",
-  name: "Café Santiago",
-  day: portugal_trip.days[2],
+  name: "Café Santiago Porto",
+  day: portugal_trip.days[5],
   user: portugal_trip.users[1],
   price: 10,
   comment: "We should go there to get Franceshinha and Super Bock.",
   photo: get_photo("Café Santiago Porto"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Café Santiago").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Café Santiago").normalize}",
+  location: "R. de Passos Manuel 226, 4000-382 Porto, Portugal"
 )
 
 suggestion_28 = Suggestion.create(
   category: "Activity",
   name: "Casa do Infante",
-  day: portugal_trip.days[1],
+  day: portugal_trip.days[0],
   user: portugal_trip.users[2],
   comment: "A bit of History ! Open on sunday morning",
   photo: get_photo("Casa do Infante"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Casa do Infante").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Casa do Infante").normalize}",
+  location: "R. da Alfândega 10, 4050-029 Porto, Portugal"
 )
 
 suggestion_29 = Suggestion.create(
   category: "Restaurant",
   name: "CASA DA MARIQUINHAS",
-  day: portugal_trip.days[4],
+  day: portugal_trip.days[0],
   user: portugal_trip.users[5],
   price: 17,
   comment: "Looks regular that nice but they have amazing food",
   photo: get_photo("CASA DA MARIQUINHAS"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("CASA DA MARIQUINHAS").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("CASA DA MARIQUINHAS").normalize}",
+  location: "R. de São Sebastião 25, Porto, Portugal"
 )
 
 suggestion_30 = Suggestion.create(
@@ -435,29 +464,32 @@ suggestion_30 = Suggestion.create(
   price: 35,
   comment: "More expensive that the rest, true ! But much better my local friends said.",
   photo: get_photo("BULHAO BOLHÃO"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("BULHAO BOLHÃO").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("BULHAO BOLHÃO").normalize}",
+  location: "R. de Sá da Bandeira nº 490, 4000-430 Porto, Portugal"
 )
 
 suggestion_31 = Suggestion.create(
   category: "Hotel",
   name: "The Yeatman",
-  day: portugal_trip.days[6],
+  day: portugal_trip.days[5],
   user: portugal_trip.users[5],
   price: 98,
   comment: "The pool looks super cool !",
   photo: get_photo("The Yeatman"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("The Yeatman").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("The Yeatman").normalize}",
+  location: "Rua do Choupelo, 4400-088 Vila Nova de Gaia, Portugal"
 )
 
 suggestion_32 = Suggestion.create(
   category: "Hotel",
   name: "InterContinental Hotel Porto",
-  day: portugal_trip.days[2],
+  day: portugal_trip.days[0],
   user: portugal_trip.users[6],
   price: 134,
   comment: "I´ve tried it in Vienna, it was all perfect !",
   photo: get_photo("InterContinental Hotel Porto"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("InterContinental Hotel Porto").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("InterContinental Hotel Porto").normalize}",
+  location: "Praça da Liberdade 25, 4000-322 Porto, Portugal"
 )
 
 suggestion_33 = Suggestion.create(
@@ -468,29 +500,32 @@ suggestion_33 = Suggestion.create(
   price: 76,
   comment: "Super nice place, very centrical",
   photo: get_photo("Pestana Vintage Porto"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Pestana Vintage Porto").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Pestana Vintage Porto").normalize}",
+  location: "Praça Ribeira nº1, 4050-513 Porto, Portugal"
 )
 
 suggestion_34 = Suggestion.create(
   category: "Hotel",
   name: "Torel Palace porto",
-  day: portugal_trip.days[4],
+  day: portugal_trip.days[5],
   user: portugal_trip.users[1],
   price: 62,
   comment: "Price is very correct and .. Breakfast Included !",
   photo: get_photo("Torel Palace porto"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Torel Palace porto").normalize}"
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Torel Palace porto").normalize}",
+  location: "Rua de Entreparedes 42, 4000-198 Porto, Portugal"
 )
 
 suggestion_35 = Suggestion.create(
   category: "Hotel",
-  name: "Torel Palace porto",
+  name: "hotel Evolution Lisboa",
   day: portugal_trip.days[3],
   user: portugal_trip.users[5],
   price: 86,
   comment: "Typical place recommended by my colleagues from work.",
-  photo: get_photo("Torel Palace porto"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Torel Palace porto").normalize}"
+  photo: get_photo("hotel Evolution Lisboa"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Torel Palace porto").normalize}",
+  location: "Praça Duque de Saldanha 4, 1050-094 Lisboa, Portugal"
 )
 
 puts "Suggestions created"
@@ -512,7 +547,7 @@ vote_3 = Vote.create(
   suggestion: portugal_trip.days.first.suggestions[1],
 )
 
-vote_3 = Vote.create(
+vote_81 = Vote.create(
   user: portugal_trip.users[3],
   suggestion: portugal_trip.days.first.suggestions[1],
 )
@@ -620,6 +655,281 @@ vote_23 = Vote.create(
 vote_24 = Vote.create(
   user: portugal_trip.users[0],
   suggestion: portugal_trip.days.first.suggestions[17],
+)
+
+vote_25 = Vote.create(
+  user: portugal_trip.users[0],
+  suggestion: portugal_trip.days.first.suggestions[15],
+)
+
+vote_26 = Vote.create(
+  user: portugal_trip.users[0],
+  suggestion: portugal_trip.days.first.suggestions[11],
+)
+
+vote_27 = Vote.create(
+  user: portugal_trip.users[0],
+  suggestion: portugal_trip.days.first.suggestions[9],
+)
+
+vote_28 = Vote.create(
+  user: portugal_trip.users[0],
+  suggestion: portugal_trip.days.first.suggestions[6],
+)
+
+vote_29 = Vote.create(
+  user: portugal_trip.users[0],
+  suggestion: portugal_trip.days.first.suggestions[4],
+)
+
+vote_80 = Vote.create(
+  user: portugal_trip.users[1],
+  suggestion: portugal_trip.days.first.suggestions[4],
+)
+
+vote_30 = Vote.create(
+  user: portugal_trip.users[1],
+  suggestion: portugal_trip.days.first.suggestions[3],
+)
+
+vote_31 = Vote.create(
+  user: portugal_trip.users[1],
+  suggestion: portugal_trip.days.first.suggestions[7],
+)
+
+vote_32 = Vote.create(
+  user: portugal_trip.users[1],
+  suggestion: portugal_trip.days.first.suggestions[8],
+)
+
+vote_33 = Vote.create(
+  user: portugal_trip.users[1],
+  suggestion: portugal_trip.days.first.suggestions[12],
+)
+
+vote_34 = Vote.create(
+  user: portugal_trip.users[1],
+  suggestion: portugal_trip.days.first.suggestions[13],
+)
+
+vote_35 = Vote.create(
+  user: portugal_trip.users[1],
+  suggestion: portugal_trip.days.first.suggestions[18],
+)
+
+vote_36 = Vote.create(
+  user: portugal_trip.users[1],
+  suggestion: portugal_trip.days.first.suggestions[19],
+)
+
+vote_37 = Vote.create(
+  user: portugal_trip.users[1],
+  suggestion: portugal_trip.days.first.suggestions[21],
+)
+
+vote_38 = Vote.create(
+  user: portugal_trip.users[1],
+  suggestion: portugal_trip.days.first.suggestions[25],
+)
+
+vote_39 = Vote.create(
+  user: portugal_trip.users[1],
+  suggestion: portugal_trip.days.first.suggestions[27],
+)
+
+vote_40 = Vote.create(
+  user: portugal_trip.users[1],
+  suggestion: portugal_trip.days.first.suggestions[30],
+)
+
+vote_41 = Vote.create(
+  user: portugal_trip.users[1],
+  suggestion: portugal_trip.days.first.suggestions[33],
+)
+
+vote_42 = Vote.create(
+  user: portugal_trip.users[2],
+  suggestion: portugal_trip.days.first.suggestions[3],
+)
+
+vote_43 = Vote.create(
+  user: portugal_trip.users[2],
+  suggestion: portugal_trip.days.first.suggestions[6],
+)
+
+vote_44 = Vote.create(
+  user: portugal_trip.users[2],
+  suggestion: portugal_trip.days.first.suggestions[8],
+)
+
+vote_45 = Vote.create(
+  user: portugal_trip.users[2],
+  suggestion: portugal_trip.days.first.suggestions[10],
+)
+
+vote_46 = Vote.create(
+  user: portugal_trip.users[2],
+  suggestion: portugal_trip.days.first.suggestions[15],
+)
+
+vote_47 = Vote.create(
+  user: portugal_trip.users[2],
+  suggestion: portugal_trip.days.first.suggestions[19],
+)
+
+vote_48 = Vote.create(
+  user: portugal_trip.users[2],
+  suggestion: portugal_trip.days.first.suggestions[20],
+)
+
+vote_49 = Vote.create(
+  user: portugal_trip.users[2],
+  suggestion: portugal_trip.days.first.suggestions[21],
+)
+
+vote_50 = Vote.create(
+  user: portugal_trip.users[2],
+  suggestion: portugal_trip.days.first.suggestions[27],
+)
+
+vote_51 = Vote.create(
+  user: portugal_trip.users[2],
+  suggestion: portugal_trip.days.first.suggestions[31],
+)
+
+vote_52 = Vote.create(
+  user: portugal_trip.users[2],
+  suggestion: portugal_trip.days.first.suggestions[33],
+)
+
+vote_53 = Vote.create(
+  user: portugal_trip.users[3],
+  suggestion: portugal_trip.days.first.suggestions[3],
+)
+
+vote_54 = Vote.create(
+  user: portugal_trip.users[3],
+  suggestion: portugal_trip.days.first.suggestions[8],
+)
+
+vote_55 = Vote.create(
+  user: portugal_trip.users[3],
+  suggestion: portugal_trip.days.first.suggestions[13],
+)
+
+vote_56 = Vote.create(
+  user: portugal_trip.users[3],
+  suggestion: portugal_trip.days.first.suggestions[14],
+)
+
+vote_57 = Vote.create(
+  user: portugal_trip.users[3],
+  suggestion: portugal_trip.days.first.suggestions[16],
+)
+
+vote_58 = Vote.create(
+  user: portugal_trip.users[3],
+  suggestion: portugal_trip.days.first.suggestions[17],
+)
+
+vote_59 = Vote.create(
+  user: portugal_trip.users[3],
+  suggestion: portugal_trip.days.first.suggestions[19],
+)
+
+vote_60 = Vote.create(
+  user: portugal_trip.users[3],
+  suggestion: portugal_trip.days.first.suggestions[20],
+)
+
+vote_61 = Vote.create(
+  user: portugal_trip.users[3],
+  suggestion: portugal_trip.days.first.suggestions[22],
+)
+
+vote_62 = Vote.create(
+  user: portugal_trip.users[3],
+  suggestion: portugal_trip.days.first.suggestions[26],
+)
+
+vote_63 = Vote.create(
+  user: portugal_trip.users[3],
+  suggestion: portugal_trip.days.first.suggestions[27],
+)
+
+vote_64 = Vote.create(
+  user: portugal_trip.users[3],
+  suggestion: portugal_trip.days.first.suggestions[29],
+)
+
+vote_65 = Vote.create(
+  user: portugal_trip.users[3],
+  suggestion: portugal_trip.days.first.suggestions[30],
+)
+
+vote_66 = Vote.create(
+  user: portugal_trip.users[5],
+  suggestion: portugal_trip.days.first.suggestions[2],
+)
+
+vote_67 = Vote.create(
+  user: portugal_trip.users[5],
+  suggestion: portugal_trip.days.first.suggestions[4],
+)
+
+vote_68 = Vote.create(
+  user: portugal_trip.users[5],
+  suggestion: portugal_trip.days.first.suggestions[8],
+)
+
+vote_69 = Vote.create(
+  user: portugal_trip.users[5],
+  suggestion: portugal_trip.days.first.suggestions[9],
+)
+
+vote_70 = Vote.create(
+  user: portugal_trip.users[5],
+  suggestion: portugal_trip.days.first.suggestions[11],
+)
+
+vote_71 = Vote.create(
+  user: portugal_trip.users[5],
+  suggestion: portugal_trip.days.first.suggestions[16],
+)
+
+vote_72 = Vote.create(
+  user: portugal_trip.users[5],
+  suggestion: portugal_trip.days.first.suggestions[18],
+)
+
+vote_73 = Vote.create(
+  user: portugal_trip.users[5],
+  suggestion: portugal_trip.days.first.suggestions[24],
+)
+
+vote_74 = Vote.create(
+  user: portugal_trip.users[5],
+  suggestion: portugal_trip.days.first.suggestions[25],
+)
+
+vote_75 = Vote.create(
+  user: portugal_trip.users[5],
+  suggestion: portugal_trip.days.first.suggestions[26],
+)
+
+vote_76 = Vote.create(
+  user: portugal_trip.users[5],
+  suggestion: portugal_trip.days.first.suggestions[27],
+)
+
+vote_77 = Vote.create(
+  user: portugal_trip.users[5],
+  suggestion: portugal_trip.days.first.suggestions[32],
+)
+
+vote_78 = Vote.create(
+  user: portugal_trip.users[5],
+  suggestion: portugal_trip.days.first.suggestions[33],
 )
 puts "Votes created"
 

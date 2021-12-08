@@ -47,6 +47,7 @@
     width: 100%;
     border-radius: .5rem;
     margin-bottom: .5rem;
+    overflow: hidden;
   }
 
   .card-top{
@@ -108,3 +109,10 @@
     object-fit: cover;
   }
 }
+
+.text-adress {
+  max-width: 35ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }
