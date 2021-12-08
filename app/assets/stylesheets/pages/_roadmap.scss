@@ -10,6 +10,15 @@
       justify-content: space-evenly;
       margin-top: 1rem;
     }
+
+    #columns{
+      display: flex;
+
+      .column-icone{
+        height: 100%;
+        width: 3rem;
+      }
+    }
   }
 
   #map{

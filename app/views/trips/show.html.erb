@@ -15,101 +15,101 @@
         <% end %>
       </div>
     </div>
-    <% if @previous_hotel %>
-      <div class="card-top">
-      <!-- hotel previous date -->
-        <h1>Wake up in</h1>
-        <div class="card-roadmap">
-          <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
-            <div class="d-flex">
-              <div class="image-container">
-                <%= image_tag "hotel_1.jpg", class:"image-card" %>
-              </div>
-              <div class="text-container align-items-start">
-                <h2><%= @previous_hotel.name %></h2>
-                <h3> <%= @previous_hotel.location %> Porto</h3>
-              </div>
-            </div>
-
-            <div class="price-container align-self-end">
-            <!--
-              <h2><%= @previous_hotel.opening_hours %></h2>
-            -->
-              <h2><%= @previous_hotel.price.to_i %>€</h2>
-            </div>
-
-          </div>
-        </div>
+    <div id="columns">
+      <div class="column-icone">
       </div>
-    <% end %>
-    <!-- end hotel previous date -->
-
-    <!-- begin activities + restaurants -->
-    <div class="card-top">
-      <h1>Go explore</h1>
-      <div class="card-roadmap">
-        <ul id="results">
-          <% @current_activities_restaurants.each do |suggestion| %>
-            <li class="list-unstyled">
-              <%= simple_form_for(suggestion, { html: { class: "d-none" } })do |f| %>
-                <%= f.hidden_field :position, class: "new_position" %>
-              <% end %>
-              <% if suggestion.category == "Activity" %>
-                <% background_card_color = "color-activities" %>
-              <% else %>
-                <% background_card_color = "color-restaurants" %>
-              <% end %>
-              <div id= "<%=background_card_color %>" class="item-card d-flex justify-content-between">
+      <div class="column-card">
+        <% if @previous_hotel %>
+          <div class="card-top">
+          <!-- hotel previous date -->
+            <h1>Wake up in</h1>
+            <div class="card-roadmap">
+              <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
                 <div class="d-flex">
                   <div class="image-container">
-                    <%# <%= activity.photo %>
-                    <%= image_tag "activity_1.jpg", class:"image-card" %>
+                    <%= image_tag (@previous_hotel.photo), class:"image-card" %>
                   </div>
                   <div class="text-container align-items-start">
-                    <h2><%= suggestion.name %></h2>
-                    <h3> <%= suggestion.location %> Porto</h3>
+                    <h2><%= @previous_hotel.name %></h2>
+                    <h3> <%= link_to "See google page", @previous_hotel.google_link %> </h3>
                   </div>
                 </div>
-                <div class="price-container align-self-end">
-                  <% if suggestion.price.zero? && suggestion.category == "Activity" %>
-                    <h2>Free</h2>
-                  <% else %>
-                    <h2><%= suggestion.price.to_i %>€</h2>
-                  <% end %>
-                </div>
-              </div>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-    <!-- end activities + restaurants -->
 
-    <!-- begin hotel for night -->
-    <div class="card-top">
-    <!-- hotel current date -->
-      <h1>Go sleep</h1>
-      <div class="card-roadmap">
-        <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
-          <div class="d-flex">
-            <div class="image-container">
-              <%= image_tag "hotel_1.jpg", class:"image-card" %>
-            </div>
-            <div class="text-container align-items-start">
-              <h2><%= @current_hotel.name %></h2>
-              <h3> <%= @current_hotel.location %> Porto</h3>
+                <div class="price-container align-self-end">
+                  <h2><%= @previous_hotel.price.to_i %>€</h2>
+                </div>
+
+              </div>
             </div>
           </div>
+        <% end %>
+        <!-- end hotel previous date -->
 
-          <div class="price-container align-self-end">
-            <h2><%= @current_hotel.price.to_i %>€</h2>
+        <!-- begin activities + restaurants -->
+        <div class="card-top">
+          <h1>Go explore</h1>
+          <div class="card-roadmap">
+            <ul id="results">
+              <% @current_activities_restaurants.each do |suggestion| %>
+                <li class="list-unstyled">
+                  <%= simple_form_for(suggestion, { html: { class: "d-none" } })do |f| %>
+                    <%= f.hidden_field :position, class: "new_position" %>
+                  <% end %>
+                  <% if suggestion.category == "Activity" %>
+                    <% background_card_color = "color-activities" %>
+                  <% else %>
+                    <% background_card_color = "color-restaurants" %>
+                  <% end %>
+                  <div id= "<%=background_card_color %>" class="item-card d-flex justify-content-between">
+                    <div class="d-flex">
+                      <div class="image-container">
+                        <%= image_tag (suggestion.photo), class:"image-card" %>
+                      </div>
+                      <div class="text-container align-items-start">
+                        <h2><%= suggestion.name %></h2>
+                        <h3> <%= link_to "See google page", suggestion.google_link %> </h3>
+                      </div>
+                    </div>
+                    <div class="price-container align-self-end">
+                      <% if suggestion.price.zero? && suggestion.category == "Activity" %>
+                        <h2>Free</h2>
+                      <% else %>
+                        <h2><%= suggestion.price.to_i %>€</h2>
+                      <% end %>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
           </div>
         </div>
+        <!-- end activities + restaurants -->
 
+        <!-- begin hotel for night -->
+        <div class="card-top">
+        <!-- hotel current date -->
+          <h1>Go sleep</h1>
+          <div class="card-roadmap">
+            <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
+              <div class="d-flex">
+                <div class="image-container">
+                  <%= image_tag (@current_hotel.photo), class:"image-card" %>
+                </div>
+                <div class="text-container align-items-start">
+                  <h2><%= @current_hotel.name %></h2>
+                  <h3> <%= link_to "See google page", @current_hotel.google_link %> </h3>
+                </div>
+              </div>
+              <div class="price-container align-self-end">
+                <h2><%= @current_hotel.price.to_i %>€</h2>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- end hotel for night -->
       </div>
     </div>
-
-    <!-- end hotel for night -->
   </div>
   <div id="map" data-markers="<%= @markers.to_json %>">
   </div>

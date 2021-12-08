@@ -18,7 +18,7 @@ class SuggestionsController < ApplicationController
     @suggestion.photo = "https://maps.googleapis.com/maps/api/place/photo?photoreference=#{response['candidates'][0]['photos'][0]['photo_reference']}&sensor=false&maxheight=500&maxwidth=500&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
     @suggestion.user = current_user
     @suggestion.day = day
-    @suggestion.google_link =
+    @suggestion.google_link = "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse(@suggestion.name).normalize}"
     # for @suggestion.day value --> Day.find(params[:day_id])
     @suggestion.save!
 
@@ -35,7 +35,7 @@ class SuggestionsController < ApplicationController
   private
 
   def suggestion_params
-    params.require(:suggestion).permit(:day_id, :user, :price, :name, :category, :location, :comment, :position)
+    params.require(:suggestion).permit(:day_id, :user, :price, :name, :category, :location, :comment, :position, :google_link)
   end
 
 end
