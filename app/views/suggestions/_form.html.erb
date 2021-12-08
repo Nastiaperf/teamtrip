@@ -9,7 +9,7 @@
       input_html: {class: 'category-selector'},
       collection: Suggestion::CATEGORIES,
       wrapper: :vertical_collection_inline %>
-    <%= f.input :price, as: :text, class: 'price-input', :placeholder => ' '%>
+    <%= f.input :price, as: :text, class: 'price-input', placeholder: "here..."%>
     <%= f.input :comment, as: :text, :placeholder => 'This place is awesome because...'%>
     <%= f.association :day,
       collection: Day.all,
