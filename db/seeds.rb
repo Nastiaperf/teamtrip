@@ -328,12 +328,12 @@ suggestion_18 = Suggestion.create(
 
 suggestion_19 = Suggestion.create(
   category: "Activity",
-  name: "Igreja de São Francisco",
+  name: "Escape4Real Escape Game Porto",
   day: portugal_trip.days[5],
   user: portugal_trip.users[3],
   price: 25,
   comment: "Only opens on morning",
-  photo: get_photo("Igreja de São Francisco Porto"),
+  photo: get_photo("Escape4Real Escape Game Porto"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Igreja de São Francisco").normalize}",
   location: "Rua do Infante D. Henrique, 4050-297 Porto, Portugal"
 )
