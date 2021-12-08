@@ -16,6 +16,7 @@
   </div>
   <div class="Votes-lock">
     <h4>Close votes for this trip</h4>
-    <%= button_to "freeze the votes!", lock_trip_trip_path(Trip.first), method: :patch  %>
+    <%= "Click this button to close the votes and start your trip with the Roadmap page" %>
+    <%= button_to "freeze the votes!", lock_trip_trip_path(:trip_id), method: :patch, class: 'btn btn-outline-warning', data: { confirm: 'Are you sure you want to close the votes?' }, id: "sweet-alert-freeze"%>
   </div>
 </div>
