@@ -17,6 +17,10 @@
   <div class="Votes-lock">
     <h4>Close votes for this trip</h4>
     <%= "Click this button to close the votes and start your trip with the Roadmap page" %>
-    <%= button_to "freeze the votes!", lock_trip_trip_path(:trip_id), method: :patch, class: 'btn btn-outline-warning', data: { confirm: 'Are you sure you want to close the votes?' }, id: "sweet-alert-freeze"%>
+    <% if Trip.first.locked == false %>
+      <%= button_to "freeze the votes!", lock_trip_trip_path(:trip_id), method: :patch, class: 'btn btn-outline-warning', data: { confirm: 'Are you sure you want to close the votes?', id:"sweet-alert" }%>
+    <% elsif Trip.first.locked == true %>
+      <%= button_to "Unfreeze the votes!", lock_trip_trip_path(:trip_id), method: :patch, class: 'btn btn-outline-primary', data: { confirm: 'Are you sure you want to re-open the votes?', id:"sweet-alert" }%>
+    <% end %>
   </div>
 </div>
