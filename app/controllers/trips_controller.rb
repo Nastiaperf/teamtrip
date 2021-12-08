@@ -47,6 +47,23 @@ class TripsController < ApplicationController
                           where(category: "Restaurant").
                           first(2)
     @current_activities_restaurants = (@current_activities + @current_restaurants).sort_by(&:position)
+
+    # FOR THE MAP
+    @markers = current_day_suggestions.map do |suggestion|
+      {
+        lat: suggestion.latitude,
+        lng: suggestion.longitude,
+        id: suggestion.id,
+        icon: helpers.asset_url("#{suggestion.category}.png"),
+        info_window: render_to_string(partial: "info_window", locals: { suggestion: suggestion })
+      }
+    end
+
+    @client = GooglePlaces::Client.new(ENV['GOOGLE_API_BROWSER_KEY'])
+    @hotels_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Hotel")
+    @restaurants_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Restaurant")
+    @activities_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Activity")
+    # END FOR THE MAP
   end
 
   def lock_trip
