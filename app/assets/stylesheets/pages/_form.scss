@@ -7,7 +7,7 @@
 }
 
 .modal-body {
-  border-radius: 5%;
+  border-radius: 0.5rem;
 }
 
 .modal-dialog {
@@ -16,7 +16,7 @@
 
 .form-group {
   background-color: #62d0b12c;
-  border-radius: 5%;
+  border-radius: 0.5rem;
   width: 25rem;
   font-size: larger;
 }
@@ -28,7 +28,6 @@
 }
 
 .stripes {
-
 border: none !important;
 }
 
@@ -40,6 +39,12 @@ border: none !important;
 #suggestion_price, #suggestion_comment, #suggestion_name {
   border: none;
   outline: none;
+}
+
+.suggestion_price {
+  display: flex;
+  height: 2rem;
+  
 }
 
 .suggestion_category {
