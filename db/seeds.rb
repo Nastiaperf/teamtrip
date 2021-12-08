@@ -121,7 +121,8 @@ suggestion_1 = Suggestion.create(
   user: portugal_trip.users.first,
   price: 80,
   comment: "Super view on the beach and nice breakfast",
-  photo: get_photo("Hotel praia do porto")
+  photo: get_photo("Hotel praia do porto"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Hotel praia do porto").normalize}"
 )
 
 suggestion_2 = Suggestion.create(
@@ -131,7 +132,8 @@ suggestion_2 = Suggestion.create(
   user: portugal_trip.users.second,
   price: 12.30,
   comment: "Close to hotel, super rating on G Maps",
-  photo: get_photo("Sabores da Amazónia")
+  photo: get_photo("Sabores da Amazónia"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Sabores da Amazónia").normalize}"
 )
 
 suggestion_3 = Suggestion.create(
@@ -141,7 +143,8 @@ suggestion_3 = Suggestion.create(
   user: portugal_trip.users.first,
   price: 40,
   comment: "The food is amazing and the prices very decent",
-  photo: get_photo("Meia-Nau Porto")
+  photo: get_photo("Meia-Nau Porto"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Meia-Nau Porto").normalize}"
 )
 
 suggestion_4 = Suggestion.create(
@@ -150,7 +153,8 @@ suggestion_4 = Suggestion.create(
   day: portugal_trip.days.first,
   user: portugal_trip.users.third,
   comment: "very crowded and has big waves!",
-  photo: get_photo("Praia de salgueiro, porto")
+  photo: get_photo("Praia de salgueiro, porto"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Praia de salgueiro, porto").normalize}"
 )
 
 suggestion_5 = Suggestion.create(
@@ -159,7 +163,8 @@ suggestion_5 = Suggestion.create(
   day: portugal_trip.days.first,
   user: portugal_trip.users.second,
   comment: "A must see, definitly!",
-  photo: get_photo("Ponte Luis I")
+  photo: get_photo("Ponte Luis I"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Ponte Luis I").normalize}"
 )
 
 suggestion_6 = Suggestion.create(
@@ -169,7 +174,8 @@ suggestion_6 = Suggestion.create(
   user: portugal_trip.users.first,
   price: 65,
   comment: "We spend a very good time going that cruise",
-  photo: get_photo("Cruzeiros Douro")
+  photo: get_photo("Cruzeiros Douro"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Cruzeiros Douro").normalize}"
 )
 
 suggestion_7 = Suggestion.create(
@@ -179,7 +185,8 @@ suggestion_7 = Suggestion.create(
   user: portugal_trip.users[4],
   price: 180,
   comment: "A beautiful view on the beach",
-  photo: get_photo("Hotel Quarteira Sol")
+  photo: get_photo("Hotel Quarteira Sol"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Hotel Quarteira Sol").normalize}"
 )
 
 suggestion_8 = Suggestion.create(
@@ -189,7 +196,8 @@ suggestion_8 = Suggestion.create(
   user: portugal_trip.users[4],
   price: 140,
   comment: "This hotel is in the town center",
-  photo: get_photo("Hotel Borges Chiado")
+  photo: get_photo("Hotel Borges Chiado"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Hotel Borges Chiado").normalize}"
 )
 
 suggestion_9 = Suggestion.create(
@@ -199,7 +207,8 @@ suggestion_9 = Suggestion.create(
   user: portugal_trip.users[4],
   price: 90,
   comment: "I think they have a gym in the building",
-  photo: get_photo("Vincci Porto")
+  photo: get_photo("Vincci Porto"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Vincci Porto").normalize}"
 )
 
 suggestion_10 = Suggestion.create(
@@ -209,7 +218,8 @@ suggestion_10 = Suggestion.create(
   user: portugal_trip.users[3],
   price: 80,
   comment: "The good look delicious we should try to go",
-  photo: get_photo("Frade dos Mares")
+  photo: get_photo("Frade dos Mares"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Frade dos Mares").normalize}"
 )
 
 suggestion_11 = Suggestion.create(
@@ -219,7 +229,8 @@ suggestion_11 = Suggestion.create(
   user: portugal_trip.users[3],
   price: 10,
   comment: "A prestigious museum that I want visit",
-  photo: get_photo("Museo National de Azulejo")
+  photo: get_photo("Museo National de Azulejo"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Museo National de Azulejo").normalize}"
 )
 
 suggestion_12 = Suggestion.create(
@@ -229,7 +240,8 @@ suggestion_12 = Suggestion.create(
   user: portugal_trip.users[3],
   price: 10,
   comment: "The bigger zoo of the country",
-  photo: get_photo("Moov Hotel Porto Centro")
+  photo: get_photo("Moov Hotel Porto Centro"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Moov Hotel Porto Centro").normalize}"
 )
 
 suggestion_13 = Suggestion.create(
@@ -239,7 +251,8 @@ suggestion_13 = Suggestion.create(
   user: portugal_trip.users[2],
   price: 25,
   comment: "I want do this big amusement park",
-  photo: get_photo("Jardim dos Aciprestes")
+  photo: get_photo("Jardim dos Aciprestes"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Jardim dos Aciprestes").normalize}"
 )
 
 suggestion_14 = Suggestion.create(
@@ -249,7 +262,8 @@ suggestion_14 = Suggestion.create(
   user: portugal_trip.users[4],
   price: 38,
   comment: "Cheap place for the middle journey",
-  photo: get_photo("Vera Cruz Porto Downtown Hotel")
+  photo: get_photo("Vera Cruz Porto Downtown Hotel"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Vera Cruz Porto Downtown Hotel").normalize}"
 )
 
 suggestion_15 = Suggestion.create(
@@ -258,7 +272,8 @@ suggestion_15 = Suggestion.create(
   day: portugal_trip.days[3],
   user: portugal_trip.users[3],
   comment: "Very cool beach to see",
-  photo: get_photo("Praia de miramar")
+  photo: get_photo("Praia de miramar"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Praia de miramar").normalize}"
 )
 
 suggestion_16 = Suggestion.create(
@@ -267,7 +282,8 @@ suggestion_16 = Suggestion.create(
   day: portugal_trip.days[4],
   user: portugal_trip.users[5],
   comment: "The biggest waves of the world but a bit far from Porto",
-  photo: get_photo("Praia de Nazare")
+  photo: get_photo("Praia de Nazare"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Praia de Nazare").normalize}"
 )
 
 suggestion_17 = Suggestion.create(
@@ -277,7 +293,8 @@ suggestion_17 = Suggestion.create(
   user: portugal_trip.users[3],
   price: 25,
   comment: "Very cool cruize recommended by my cousin",
-  photo: get_photo("Pinhão")
+  photo: get_photo("Pinhão"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Pinhão").normalize}"
 )
 
 suggestion_18 = Suggestion.create(
@@ -287,7 +304,8 @@ suggestion_18 = Suggestion.create(
   user: portugal_trip.users[2],
   price: 5,
   comment: "They say the view really worth the pain to get there",
-  photo: get_photo("Torre dos Clérigos")
+  photo: get_photo("Torre dos Clérigos"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Torre dos Clérigos").normalize}"
 )
 
 suggestion_19 = Suggestion.create(
@@ -297,7 +315,8 @@ suggestion_19 = Suggestion.create(
   user: portugal_trip.users[3],
   price: 25,
   comment: "Only opens on morning",
-  photo: get_photo("Igreja de São Francisco Porto")
+  photo: get_photo("Igreja de São Francisco Porto"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Igreja de São Francisco").normalize}"
 )
 
 suggestion_20 = Suggestion.create(
@@ -307,7 +326,8 @@ suggestion_20 = Suggestion.create(
   user: portugal_trip.users[1],
   price: 15,
   comment: "Lot of different things to eat, cheap prices !",
-  photo: get_photo("Mercado Bom Sucesso")
+  photo: get_photo("Mercado Bom Sucesso"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Mercado Bom Sucesso").normalize}"
 )
 
 suggestion_21 = Suggestion.create(
@@ -317,7 +337,8 @@ suggestion_21 = Suggestion.create(
   user: portugal_trip.users[2],
   price: 25,
   comment: "The place to eat traditional portuguese food ",
-  photo: get_photo("Mercado Beira-Rio")
+  photo: get_photo("Mercado Beira-Rio"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Mercado Beira-Rio").normalize}"
 )
 
 suggestion_22 = Suggestion.create(
@@ -326,7 +347,8 @@ suggestion_22 = Suggestion.create(
   day: portugal_trip.days[2],
   user: portugal_trip.users[2],
   comment: "A cool hike to discover the city on first days",
-  photo: get_photo("Serralves Porto")
+  photo: get_photo("Serralves Porto"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Serralves Porto").normalize}"
 )
 
 suggestion_23 = Suggestion.create(
@@ -336,7 +358,8 @@ suggestion_23 = Suggestion.create(
   user: portugal_trip.users[2],
   price: 25,
   comment: "The coolest praia arround, let's chill there.",
-  photo: get_photo("Foz do Douro")
+  photo: get_photo("Foz do Douro"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Foz do Douro").normalize}"
 )
 
 suggestion_24 = Suggestion.create(
@@ -346,7 +369,8 @@ suggestion_24 = Suggestion.create(
   user: portugal_trip.users[5],
   price: 25,
   comment: "Street food spot !",
-  photo: get_photo("Matosinhos")
+  photo: get_photo("Matosinhos"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Matosinhos").normalize}"
 )
 
 suggestion_25 = Suggestion.create(
@@ -356,7 +380,8 @@ suggestion_25 = Suggestion.create(
   user: portugal_trip.users[5],
   price: 25,
   comment: "wine tasting : We can have a group discount",
-  photo: get_photo("Espaço Porto Cruz")
+  photo: get_photo("Espaço Porto Cruz"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Espaço Porto Cruz").normalize}"
 )
 
 suggestion_26 = Suggestion.create(
@@ -366,7 +391,8 @@ suggestion_26 = Suggestion.create(
   user: portugal_trip.users[2],
   price: 5,
   comment: "The most amazing church my parents told me.",
-  photo: get_photo("Sé cathedral Porto")
+  photo: get_photo("Sé cathedral Porto"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Sé cathedral").normalize}"
 )
 
 suggestion_27 = Suggestion.create(
@@ -376,7 +402,8 @@ suggestion_27 = Suggestion.create(
   user: portugal_trip.users[1],
   price: 10,
   comment: "We should go there to get Franceshinha and Super Bock.",
-  photo: get_photo("Café Santiago Porto")
+  photo: get_photo("Café Santiago Porto"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Café Santiago").normalize}"
 )
 
 suggestion_28 = Suggestion.create(
@@ -385,7 +412,8 @@ suggestion_28 = Suggestion.create(
   day: portugal_trip.days[1],
   user: portugal_trip.users[2],
   comment: "A bit of History ! Open on sunday morning",
-  photo: get_photo("Casa do Infante")
+  photo: get_photo("Casa do Infante"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Casa do Infante").normalize}"
 )
 
 suggestion_29 = Suggestion.create(
@@ -395,7 +423,8 @@ suggestion_29 = Suggestion.create(
   user: portugal_trip.users[5],
   price: 17,
   comment: "Looks regular that nice but they have amazing food",
-  photo: get_photo("CASA DA MARIQUINHAS")
+  photo: get_photo("CASA DA MARIQUINHAS"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("CASA DA MARIQUINHAS").normalize}"
 )
 
 suggestion_30 = Suggestion.create(
@@ -405,7 +434,8 @@ suggestion_30 = Suggestion.create(
   user: portugal_trip.users[4],
   price: 35,
   comment: "More expensive that the rest, true ! But much better my local friends said.",
-  photo: get_photo("BULHAO BOLHÃO")
+  photo: get_photo("BULHAO BOLHÃO"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("BULHAO BOLHÃO").normalize}"
 )
 
 suggestion_31 = Suggestion.create(
@@ -415,7 +445,8 @@ suggestion_31 = Suggestion.create(
   user: portugal_trip.users[5],
   price: 98,
   comment: "The pool looks super cool !",
-  photo: get_photo("The Yeatman")
+  photo: get_photo("The Yeatman"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("The Yeatman").normalize}"
 )
 
 suggestion_32 = Suggestion.create(
@@ -425,7 +456,8 @@ suggestion_32 = Suggestion.create(
   user: portugal_trip.users[6],
   price: 134,
   comment: "I´ve tried it in Vienna, it was all perfect !",
-  photo: get_photo("InterContinental Hotel Porto")
+  photo: get_photo("InterContinental Hotel Porto"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("InterContinental Hotel Porto").normalize}"
 )
 
 suggestion_33 = Suggestion.create(
@@ -435,7 +467,8 @@ suggestion_33 = Suggestion.create(
   user: portugal_trip.users[3],
   price: 76,
   comment: "Super nice place, very centrical",
-  photo: get_photo("Pestana Vintage Porto")
+  photo: get_photo("Pestana Vintage Porto"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Pestana Vintage Porto").normalize}"
 )
 
 suggestion_34 = Suggestion.create(
@@ -445,7 +478,8 @@ suggestion_34 = Suggestion.create(
   user: portugal_trip.users[1],
   price: 62,
   comment: "Price is very correct and .. Breakfast Included !",
-  photo: get_photo("Torel Palace porto")
+  photo: get_photo("Torel Palace porto"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Torel Palace porto").normalize}"
 )
 
 suggestion_35 = Suggestion.create(
@@ -455,7 +489,8 @@ suggestion_35 = Suggestion.create(
   user: portugal_trip.users[5],
   price: 86,
   comment: "Typical place recommended by my colleagues from work.",
-  photo: get_photo("Torel Palace porto")
+  photo: get_photo("Torel Palace porto"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Torel Palace porto").normalize}"
 )
 
 puts "Suggestions created"
