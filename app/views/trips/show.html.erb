@@ -20,13 +20,11 @@
       <div class="card-top">
       <!-- hotel previous date -->
         <h1>Wake up in</h1>
-        <div class="card-roadmap">
+        <div class="card-roadmap mb-4">
           <div class="card-icon">
             <div class="column-icon">
-              <div class="icon-suggestion">
-                <%= image_tag ("https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Font_Awesome_5_solid_bed.svg/1279px-Font_Awesome_5_solid_bed.svg.png")%>
-              </div>
-
+              <%= image_tag ("https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Font_Awesome_5_solid_bed.svg/1279px-Font_Awesome_5_solid_bed.svg.png")%>
+              <%# <i class="fas fa-long-arrow-alt-down"></i> %>
             </div>
             <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
               <div class="d-flex">
@@ -107,7 +105,7 @@
     <!-- hotel current date -->
       <% if @current_hotel %>
         <h1>Go sleep</h1>
-        <div class="card-roadmap">
+        <div class="card-roadmap mb-3">
           <div class="card-icon">
             <div class="column-icon">
               <div class="icon-suggestion">
