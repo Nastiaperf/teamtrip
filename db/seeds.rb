@@ -113,7 +113,6 @@ puts "trip_members created"
 
 puts "creating suggestions"
 
-
 suggestion_1 = Suggestion.create(
   category: "Hotel",
   name: "Golden Tulip Porto Gaia Hotel & SPA",
@@ -328,14 +327,14 @@ suggestion_18 = Suggestion.create(
 
 suggestion_19 = Suggestion.create(
   category: "Activity",
-  name: "Escape4Real Escape Game Porto",
+  name: "São Bento Station",
   day: portugal_trip.days[5],
   user: portugal_trip.users[3],
   price: 25,
   comment: "Only opens on morning",
-  photo: get_photo("Escape4Real Escape Game Porto"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Igreja de São Francisco").normalize}",
-  location: "Rua do Infante D. Henrique, 4050-297 Porto, Portugal"
+  photo: get_photo("São Bento Station Porto"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("São Bento Station").normalize}",
+  location: "Praça de Almeida Garrett, 4000-069 Porto, Portugal"
 )
 
 suggestion_20 = Suggestion.create(
@@ -518,14 +517,14 @@ suggestion_34 = Suggestion.create(
 
 suggestion_35 = Suggestion.create(
   category: "Hotel",
-  name: "hotel Evolution Lisboa",
+  name: "Vinha Boutique Hotel",
   day: portugal_trip.days[3],
   user: portugal_trip.users[5],
   price: 86,
   comment: "Typical place recommended by my colleagues from work.",
-  photo: get_photo("hotel Evolution Lisboa"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Torel Palace porto").normalize}",
-  location: "Praça Duque de Saldanha 4, 1050-094 Lisboa, Portugal"
+  photo: get_photo("Vinha Boutique Hotel"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Vinha Boutique Hotel").normalize}",
+  location: "R. Canos, 4430-604 Vila Nova de Gaia, Portugal"
 )
 
 puts "Suggestions created"
@@ -534,402 +533,402 @@ puts "creating votes"
 
 vote_1 = Vote.create(
   user: portugal_trip.users[0],
-  suggestion: portugal_trip.days.first.suggestions[0],
+  suggestion: suggestion_1,
 )
 
 vote_2 = Vote.create(
   user: portugal_trip.users[1],
-  suggestion: portugal_trip.days.first.suggestions[0],
+  suggestion: suggestion_1,
 )
 
 vote_3 = Vote.create(
   user: portugal_trip.users[2],
-  suggestion: portugal_trip.days.first.suggestions[1],
+  suggestion: suggestion_2,
 )
 
 vote_81 = Vote.create(
   user: portugal_trip.users[3],
-  suggestion: portugal_trip.days.first.suggestions[1],
+  suggestion: suggestion_2,
 )
 
 vote_4 = Vote.create(
   user: portugal_trip.users[4],
-  suggestion: portugal_trip.days.first.suggestions[1],
+  suggestion: suggestion_2,
 )
 
 vote_5 = Vote.create(
   user: portugal_trip.users[4],
-  suggestion: portugal_trip.days.first.suggestions[3],
+  suggestion: suggestion_4,
 )
 
 vote_6 = Vote.create(
   user: portugal_trip.users[4],
-  suggestion: portugal_trip.days.first.suggestions[4],
+  suggestion: suggestion_5,
 )
 
 vote_7 = Vote.create(
   user: portugal_trip.users[4],
-  suggestion: portugal_trip.days.first.suggestions[7],
+  suggestion: suggestion_8,
 )
 
 vote_8 = Vote.create(
   user: portugal_trip.users[4],
-  suggestion: portugal_trip.days.first.suggestions[10],
+  suggestion: suggestion_11,
 )
 
 vote_9 = Vote.create(
   user: portugal_trip.users[4],
-  suggestion: portugal_trip.days.first.suggestions[12],
+  suggestion: suggestion_13,
 )
 
 vote_10 = Vote.create(
   user: portugal_trip.users[4],
-  suggestion: portugal_trip.days.first.suggestions[15],
+  suggestion: suggestion_16,
 )
 
 vote_11 = Vote.create(
   user: portugal_trip.users[4],
-  suggestion: portugal_trip.days.first.suggestions[20],
+  suggestion: suggestion_21,
 )
 
 vote_12 = Vote.create(
   user: portugal_trip.users[4],
-  suggestion: portugal_trip.days.first.suggestions[25],
+  suggestion: suggestion_26,
 )
 
 vote_13 = Vote.create(
   user: portugal_trip.users[4],
-  suggestion: portugal_trip.days.first.suggestions[24],
+  suggestion: suggestion_25,
 )
 
 vote_14 = Vote.create(
   user: portugal_trip.users[4],
-  suggestion: portugal_trip.days.first.suggestions[27],
+  suggestion: suggestion_28,
 )
 
 vote_15 = Vote.create(
   user: portugal_trip.users[4],
-  suggestion: portugal_trip.days.first.suggestions[29],
+  suggestion: suggestion_30,
 )
 
 vote_16 = Vote.create(
   user: portugal_trip.users[4],
-  suggestion: portugal_trip.days.first.suggestions[33],
+  suggestion: suggestion_34,
 )
 
 vote_17 = Vote.create(
   user: portugal_trip.users[0],
-  suggestion: portugal_trip.days.first.suggestions[24],
+  suggestion: suggestion_25,
 )
 
 vote_18 = Vote.create(
   user: portugal_trip.users[0],
-  suggestion: portugal_trip.days.first.suggestions[27],
+  suggestion: suggestion_28,
 )
 
 vote_19 = Vote.create(
   user: portugal_trip.users[0],
-  suggestion: portugal_trip.days.first.suggestions[29],
+  suggestion: suggestion_30,
 )
 
 vote_20 = Vote.create(
   user: portugal_trip.users[0],
-  suggestion: portugal_trip.days.first.suggestions[33],
+  suggestion: suggestion_34,
 )
 
 vote_21 = Vote.create(
   user: portugal_trip.users[0],
-  suggestion: portugal_trip.days.first.suggestions[22],
+  suggestion: suggestion_23,
 )
 
 vote_22 = Vote.create(
   user: portugal_trip.users[0],
-  suggestion: portugal_trip.days.first.suggestions[21],
+  suggestion: suggestion_22,
 )
 
 vote_23 = Vote.create(
   user: portugal_trip.users[0],
-  suggestion: portugal_trip.days.first.suggestions[18],
+  suggestion: suggestion_19,
 )
 
 vote_24 = Vote.create(
   user: portugal_trip.users[0],
-  suggestion: portugal_trip.days.first.suggestions[17],
+  suggestion: suggestion_18,
 )
 
 vote_25 = Vote.create(
   user: portugal_trip.users[0],
-  suggestion: portugal_trip.days.first.suggestions[15],
+  suggestion: suggestion_16,
 )
 
 vote_26 = Vote.create(
   user: portugal_trip.users[0],
-  suggestion: portugal_trip.days.first.suggestions[11],
+  suggestion: suggestion_12,
 )
 
 vote_27 = Vote.create(
   user: portugal_trip.users[0],
-  suggestion: portugal_trip.days.first.suggestions[9],
+  suggestion: suggestion_10,
 )
 
 vote_28 = Vote.create(
   user: portugal_trip.users[0],
-  suggestion: portugal_trip.days.first.suggestions[6],
+  suggestion: suggestion_7,
 )
 
 vote_29 = Vote.create(
   user: portugal_trip.users[0],
-  suggestion: portugal_trip.days.first.suggestions[4],
+  suggestion: suggestion_5,
 )
 
 vote_80 = Vote.create(
   user: portugal_trip.users[1],
-  suggestion: portugal_trip.days.first.suggestions[4],
+  suggestion: suggestion_5,
 )
 
 vote_30 = Vote.create(
   user: portugal_trip.users[1],
-  suggestion: portugal_trip.days.first.suggestions[3],
+  suggestion: suggestion_4,
 )
 
 vote_31 = Vote.create(
   user: portugal_trip.users[1],
-  suggestion: portugal_trip.days.first.suggestions[7],
+  suggestion: suggestion_8,
 )
 
 vote_32 = Vote.create(
   user: portugal_trip.users[1],
-  suggestion: portugal_trip.days.first.suggestions[8],
+  suggestion: suggestion_9,
 )
 
 vote_33 = Vote.create(
   user: portugal_trip.users[1],
-  suggestion: portugal_trip.days.first.suggestions[12],
+  suggestion: suggestion_13,
 )
 
 vote_34 = Vote.create(
   user: portugal_trip.users[1],
-  suggestion: portugal_trip.days.first.suggestions[13],
+  suggestion: suggestion_14,
 )
 
 vote_35 = Vote.create(
   user: portugal_trip.users[1],
-  suggestion: portugal_trip.days.first.suggestions[18],
+  suggestion: suggestion_19,
 )
 
 vote_36 = Vote.create(
   user: portugal_trip.users[1],
-  suggestion: portugal_trip.days.first.suggestions[19],
+  suggestion: suggestion_20,
 )
 
 vote_37 = Vote.create(
   user: portugal_trip.users[1],
-  suggestion: portugal_trip.days.first.suggestions[21],
+  suggestion: suggestion_22,
 )
 
 vote_38 = Vote.create(
   user: portugal_trip.users[1],
-  suggestion: portugal_trip.days.first.suggestions[25],
+  suggestion: suggestion_26,
 )
 
 vote_39 = Vote.create(
   user: portugal_trip.users[1],
-  suggestion: portugal_trip.days.first.suggestions[27],
+  suggestion: suggestion_28,
 )
 
 vote_40 = Vote.create(
   user: portugal_trip.users[1],
-  suggestion: portugal_trip.days.first.suggestions[30],
+  suggestion: suggestion_31,
 )
 
 vote_41 = Vote.create(
   user: portugal_trip.users[1],
-  suggestion: portugal_trip.days.first.suggestions[33],
+  suggestion: suggestion_34,
 )
 
 vote_42 = Vote.create(
   user: portugal_trip.users[2],
-  suggestion: portugal_trip.days.first.suggestions[3],
+  suggestion: suggestion_4,
 )
 
 vote_43 = Vote.create(
   user: portugal_trip.users[2],
-  suggestion: portugal_trip.days.first.suggestions[6],
+  suggestion: suggestion_7,
 )
 
 vote_44 = Vote.create(
   user: portugal_trip.users[2],
-  suggestion: portugal_trip.days.first.suggestions[8],
+  suggestion: suggestion_9,
 )
 
 vote_45 = Vote.create(
   user: portugal_trip.users[2],
-  suggestion: portugal_trip.days.first.suggestions[10],
+  suggestion: suggestion_11,
 )
 
 vote_46 = Vote.create(
   user: portugal_trip.users[2],
-  suggestion: portugal_trip.days.first.suggestions[15],
+  suggestion: suggestion_16,
 )
 
 vote_47 = Vote.create(
   user: portugal_trip.users[2],
-  suggestion: portugal_trip.days.first.suggestions[19],
+  suggestion: suggestion_20,
 )
 
 vote_48 = Vote.create(
   user: portugal_trip.users[2],
-  suggestion: portugal_trip.days.first.suggestions[20],
+  suggestion: suggestion_21,
 )
 
 vote_49 = Vote.create(
   user: portugal_trip.users[2],
-  suggestion: portugal_trip.days.first.suggestions[21],
+  suggestion: suggestion_22,
 )
 
 vote_50 = Vote.create(
   user: portugal_trip.users[2],
-  suggestion: portugal_trip.days.first.suggestions[27],
+  suggestion: suggestion_28,
 )
 
 vote_51 = Vote.create(
   user: portugal_trip.users[2],
-  suggestion: portugal_trip.days.first.suggestions[31],
+  suggestion: suggestion_32,
 )
 
 vote_52 = Vote.create(
   user: portugal_trip.users[2],
-  suggestion: portugal_trip.days.first.suggestions[33],
+  suggestion: suggestion_34,
 )
 
 vote_53 = Vote.create(
   user: portugal_trip.users[3],
-  suggestion: portugal_trip.days.first.suggestions[3],
+  suggestion: suggestion_4,
 )
 
 vote_54 = Vote.create(
   user: portugal_trip.users[3],
-  suggestion: portugal_trip.days.first.suggestions[8],
+  suggestion: suggestion_9,
 )
 
 vote_55 = Vote.create(
   user: portugal_trip.users[3],
-  suggestion: portugal_trip.days.first.suggestions[13],
+  suggestion: suggestion_14,
 )
 
 vote_56 = Vote.create(
   user: portugal_trip.users[3],
-  suggestion: portugal_trip.days.first.suggestions[14],
+  suggestion: suggestion_15,
 )
 
 vote_57 = Vote.create(
   user: portugal_trip.users[3],
-  suggestion: portugal_trip.days.first.suggestions[16],
+  suggestion: suggestion_17,
 )
 
 vote_58 = Vote.create(
   user: portugal_trip.users[3],
-  suggestion: portugal_trip.days.first.suggestions[17],
+  suggestion: suggestion_18,
 )
 
 vote_59 = Vote.create(
   user: portugal_trip.users[3],
-  suggestion: portugal_trip.days.first.suggestions[19],
+  suggestion: suggestion_20,
 )
 
 vote_60 = Vote.create(
   user: portugal_trip.users[3],
-  suggestion: portugal_trip.days.first.suggestions[20],
+  suggestion: suggestion_21,
 )
 
 vote_61 = Vote.create(
   user: portugal_trip.users[3],
-  suggestion: portugal_trip.days.first.suggestions[22],
+  suggestion: suggestion_23,
 )
 
 vote_62 = Vote.create(
   user: portugal_trip.users[3],
-  suggestion: portugal_trip.days.first.suggestions[26],
+  suggestion: suggestion_27,
 )
 
 vote_63 = Vote.create(
   user: portugal_trip.users[3],
-  suggestion: portugal_trip.days.first.suggestions[27],
+  suggestion: suggestion_28,
 )
 
 vote_64 = Vote.create(
   user: portugal_trip.users[3],
-  suggestion: portugal_trip.days.first.suggestions[29],
+  suggestion: suggestion_30,
 )
 
 vote_65 = Vote.create(
   user: portugal_trip.users[3],
-  suggestion: portugal_trip.days.first.suggestions[30],
+  suggestion: suggestion_31,
 )
 
 vote_66 = Vote.create(
   user: portugal_trip.users[5],
-  suggestion: portugal_trip.days.first.suggestions[2],
+  suggestion: suggestion_3,
 )
 
 vote_67 = Vote.create(
   user: portugal_trip.users[5],
-  suggestion: portugal_trip.days.first.suggestions[4],
+  suggestion: suggestion_5,
 )
 
 vote_68 = Vote.create(
   user: portugal_trip.users[5],
-  suggestion: portugal_trip.days.first.suggestions[8],
+  suggestion: suggestion_9,
 )
 
 vote_69 = Vote.create(
   user: portugal_trip.users[5],
-  suggestion: portugal_trip.days.first.suggestions[9],
+  suggestion: suggestion_10,
 )
 
 vote_70 = Vote.create(
   user: portugal_trip.users[5],
-  suggestion: portugal_trip.days.first.suggestions[11],
+  suggestion: suggestion_12,
 )
 
 vote_71 = Vote.create(
   user: portugal_trip.users[5],
-  suggestion: portugal_trip.days.first.suggestions[16],
+  suggestion: suggestion_17,
 )
 
 vote_72 = Vote.create(
   user: portugal_trip.users[5],
-  suggestion: portugal_trip.days.first.suggestions[18],
+  suggestion: suggestion_19,
 )
 
 vote_73 = Vote.create(
   user: portugal_trip.users[5],
-  suggestion: portugal_trip.days.first.suggestions[24],
+  suggestion: suggestion_25,
 )
 
 vote_74 = Vote.create(
   user: portugal_trip.users[5],
-  suggestion: portugal_trip.days.first.suggestions[25],
+  suggestion: suggestion_26,
 )
 
 vote_75 = Vote.create(
   user: portugal_trip.users[5],
-  suggestion: portugal_trip.days.first.suggestions[26],
+  suggestion: suggestion_27,
 )
 
 vote_76 = Vote.create(
   user: portugal_trip.users[5],
-  suggestion: portugal_trip.days.first.suggestions[27],
+  suggestion: suggestion_28,
 )
 
 vote_77 = Vote.create(
   user: portugal_trip.users[5],
-  suggestion: portugal_trip.days.first.suggestions[32],
+  suggestion: suggestion_33,
 )
 
 vote_78 = Vote.create(
   user: portugal_trip.users[5],
-  suggestion: portugal_trip.days.first.suggestions[33],
+  suggestion: suggestion_34,
 )
 puts "Votes created"
 

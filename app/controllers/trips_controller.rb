@@ -68,8 +68,19 @@ class TripsController < ApplicationController
 
   def lock_trip
     @trip = Trip.first
-    @trip.locked = true
-    @trip.save!
+    if @trip.locked == false
+      @trip.locked = true
+      @trip.save!
+      respond_to do |format|
+        format.html { redirect_to trip_path(@trip), notice: 'Votes have sucessfully been locked!' }
+      end
+    else
+      @trip.locked = false
+      @trip.save!
+      respond_to do |format|
+        format.html { redirect_to trip_path(@trip), notice: 'Votes have sucessfully been unlocked!' }
+      end
+    end
   end
 
   def update
