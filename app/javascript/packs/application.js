@@ -28,6 +28,7 @@ import "bootstrap";
 import "controllers"
 
 import { mapImport } from '../components/map.js'
+import { calcRoute } from '../components/map.js'
 import { setActiveTabOnLoading } from '../components/tab_menu.js'
 import { setActiveTabOnClicking } from '../components/tab_menu.js'
 import { initSweetalert } from '../plugins/init_sweetalert';
@@ -39,6 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   mapImport();
+  calcRoute();
   setActiveTabOnLoading();
   setActiveTabOnClicking();
   initSweetalert('#sweet-alert', {

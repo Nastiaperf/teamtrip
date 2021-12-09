@@ -50,6 +50,20 @@
     }
   }
 
+  .no-item-category{
+    background-color: rgba($light-blue, .2);
+    border-radius: .5rem;
+    h1{
+      margin-left: .5rem;
+      margin-bottom: 0;
+    }
+  }
+
+  .no-item{
+    border-radius: .5rem;
+    background-color: $light-gray;
+    padding: .5rem;
+  }
 
   .item-card{
     height: 5rem;
