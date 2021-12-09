@@ -39,6 +39,8 @@ ul{
 
 li .item-card{
   margin-bottom: 1rem;
+  // box-shadow: 5px 15px -1px rgba(0,0,0,0.84);
+  box-shadow: black;
   // margin-left: none !important;
 }
 
@@ -80,7 +82,7 @@ li .item-card{
 }
 
 .suggestion-name {
-  max-width: 25ch;
+  max-width: 17ch;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

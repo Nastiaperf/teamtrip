@@ -185,14 +185,14 @@ suggestion_6 = Suggestion.create(
 
 suggestion_7 = Suggestion.create(
   category: "Hotel",
-  name: "Hotel Quarteira Sol",
+  name: "Dom João Lisboa",
   day: portugal_trip.days[1],
   user: portugal_trip.users[4],
-  price: 180,
-  comment: "A beautiful view on the beach",
-  photo: get_photo("Hotel Quarteira Sol"),
-  location: "Av. Francisco Sá Carneiro, 8125-141 Quarteira, Portugal",
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Hotel Quarteira Sol").normalize}",
+  price: 100,
+  comment: "Newt to Rossio area, perfect to start visiting the city",
+  photo: get_photo("Dom João Lisboa"),
+  location: "R. José Estêvão 43, 1150-200 Lisboa, Portugal",
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Dom João Lisboa").normalize}",
 )
 
 suggestion_8 = Suggestion.create(
@@ -527,6 +527,18 @@ suggestion_35 = Suggestion.create(
   location: "R. Canos, 4430-604 Vila Nova de Gaia, Portugal"
 )
 
+suggestion_36 = Suggestion.create(
+  category: "Activity",
+  name: "Parc forestier de Monsanto",
+  day: portugal_trip.days[1],
+  user: portugal_trip.users[6],
+  price: 0,
+  comment: "largest park of the city, amazing point of view",
+  photo: get_photo("Parc forestier de Monsanto"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Parc forestier de Monsanto").normalize}",
+  location: "Parque Florestal de Monsanto"
+)
+
 puts "Suggestions created"
 
 puts "creating votes"
@@ -621,11 +633,6 @@ vote_17 = Vote.create(
   suggestion: suggestion_25,
 )
 
-vote_18 = Vote.create(
-  user: portugal_trip.users[0],
-  suggestion: suggestion_28,
-)
-
 vote_19 = Vote.create(
   user: portugal_trip.users[0],
   suggestion: suggestion_30,
@@ -674,11 +681,6 @@ vote_27 = Vote.create(
 vote_28 = Vote.create(
   user: portugal_trip.users[0],
   suggestion: suggestion_7,
-)
-
-vote_29 = Vote.create(
-  user: portugal_trip.users[0],
-  suggestion: suggestion_5,
 )
 
 vote_80 = Vote.create(
@@ -924,6 +926,16 @@ vote_77 = Vote.create(
 vote_78 = Vote.create(
   user: portugal_trip.users[5],
   suggestion: suggestion_34,
+)
+
+vote_79 = Vote.create(
+  user: portugal_trip.users[4],
+  suggestion: suggestion_15,
+)
+
+vote_80 = Vote.create(
+  user: portugal_trip.users[5],
+  suggestion: suggestion_15,
 )
 puts "Votes created"
 

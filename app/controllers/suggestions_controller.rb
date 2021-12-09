@@ -15,7 +15,8 @@ class SuggestionsController < ApplicationController
     @suggestion.location = response['candidates'][0]['formatted_address']
     @suggestion.rating = response['candidates'][0]['rating']
     @suggestion.opening_hours = response['candidates'][0]['opening_hours']
-    if @suggestion.photo.nil?
+    # @suggestion.photo = "https://maps.googleapis.com/maps/api/place/photo?photoreference=#{response['candidates'][0]['photos'][0]['photo_reference']}&sensor=false&maxheight=500&maxwidth=500&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+    if response['candidates'][0]['photos'].nil?
       @suggestion.photo = "standard-image-suggestion.jpeg"
     else
       @suggestion.photo = "https://maps.googleapis.com/maps/api/place/photo?photoreference=#{response['candidates'][0]['photos'][0]['photo_reference']}&sensor=false&maxheight=500&maxwidth=500&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
