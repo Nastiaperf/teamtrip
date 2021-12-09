@@ -12,7 +12,7 @@
     </div>
     <div class="side-day-container text-right">
       <% if @next_date %>
-        <%= link_to "#{(@day.date + 1.day).strftime("%a %e, %B")}", trip_day_path(trip_id: @trip, id: @day.id + 1, date: @next_date), class:"js-selector-days side-day mr-3" %><i class="fas fa-arrow-circle-right day-arrow"></i></div>
+        <%= link_to "#{(@day.date + 1.day).strftime("%a %e, %B")}", trip_day_path(trip_id: @trip, id: @day.id + 1, date: @next_date), class:"js-selector-days side-day mr-3" %><i class="fas fa-arrow-circle-right day-arrow"></i>
       <% end %>
     </div>
   </div>
