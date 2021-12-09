@@ -74,3 +74,10 @@ li .item-card{
   }
 
 }
+
+.suggestion-name {
+  max-width: 10ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
