@@ -10,14 +10,18 @@
 
   .card-top{
     margin-left: 3rem;
+
+    h1{
+      padding-left: 8rem;
+      color: $dark-green;
+    }
   }
 
   .card-roadmap{
   // width: 70%;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  // margin-bottom: 1rem;
   display: flex;
-  justify-content: center;
 }
 
 .item-card{

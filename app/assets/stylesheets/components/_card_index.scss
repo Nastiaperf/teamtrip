@@ -29,15 +29,24 @@
     #color{
       background-color: rgba($light-blue, .2);
     }
+    #arrow{
+      color: $dark-blue;
+    }
   }
   #nav-restaurant{
     #color{
       background-color: rgba($light-saumon, .2);
     }
+    #arrow{
+      color: $dark-saumon;
+    }
   }
   #nav-activity{
     #color{
       background-color: rgba($light-green, .2);
+    }
+    #arrow{
+      color: $dark-green;
     }
   }
 
