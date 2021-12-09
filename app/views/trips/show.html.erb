@@ -3,15 +3,15 @@
     <div class="calendar">
       <div>
         <% if @previous_date %>
-          <%= link_to "#{@previous_date}", trip_path(@trip, date: @previous_date) %>
+          <%= link_to "#{Date.parse(@previous_date).strftime("%A %e")}", trip_path(@trip, date: @previous_date) %>
         <% end %>
       </div>
       <div>
-        <h1> <%= @current_date %> </h1>
+        <h1> <%= Date.parse(@current_date).strftime("%A %e") %> </h1>
       </div>
       <div>
         <% if @next_date %>
-          <%= link_to "#{@next_date}", trip_path(@trip, date: @next_date) %>
+          <%= link_to "#{Date.parse(@next_date).strftime("%A %e")}", trip_path(@trip, date: @next_date) %>
         <% end %>
       </div>
     </div>
