@@ -50,8 +50,16 @@
     }
   }
 
-  .no-item-category{
+  .hotel{
     background-color: rgba($light-blue, .2);
+  }
+  .restaurant{
+    background-color: rgba($light-saumon, .2);
+  }
+  .activity{
+    background-color: rgba($light-green, .2);
+  }
+  .no-item-category{
     border-radius: .5rem;
     h1{
       margin-left: .5rem;
@@ -61,7 +69,7 @@
 
   .no-item{
     border-radius: .5rem;
-    background-color: $light-gray;
+    background-color: $white;
     padding: .5rem;
   }
 
