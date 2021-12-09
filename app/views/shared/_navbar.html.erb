@@ -10,7 +10,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-    <ul class="navbar-nav mr-auto align-items-center">
+    <ul class="navbar-nav mr-auto align-items-center w-100">
 
       <% if user_signed_in? %>
         <div class="d-flex centered-links">
@@ -18,9 +18,9 @@
             <div>
               <li class="nav-item">
                 <% if current_page?(trip_days_path(Trip.first)) %>
-                  <button class="d-flex justify-content-center align-items-center btn btn-outline-success active btn-sm btn-trip"> <%= image_tag("travel.png", width:"20rem", height:"20rem") %> <%= link_to Trip.first.name, trip_days_path(Trip.first), class: "nav-link" %></button>
+                  <button class="d-flex justify-content-center align-items-center active btn-sm btn-trip mr-1 nav-link-active"> <%= image_tag("travel.png", width:"20rem", height:"20rem") %> <%= link_to "#{Trip.first.name} #{Trip.first.start_date.strftime("%b")} #{Trip.first.start_date.strftime("%Y")}", trip_days_path(Trip.first), class: "nav-link" %></button>
                 <% else %>
-                  <button class="d-flex justify-content-center align-items-center btn btn-outline-success btn-sm btn-trip"> <%= image_tag("travel.png", width:"20rem", height:"20rem") %> <%= link_to Trip.first.name, trip_days_path(Trip.first), class: "nav-link" %></button>
+                  <button class="d-flex justify-content-center align-items-center active btn-sm btn-trip mr-1 nav-link-inactive"> <%= image_tag("travel.png", width:"20rem", height:"20rem") %> <%= link_to "#{Trip.first.name} #{Trip.first.start_date.strftime("%b")} #{Trip.first.start_date.strftime("%Y")}", trip_days_path(Trip.first), class: "nav-link" %></button>
                 <% end %>
               </li>
               <li class="nav-item mx-3">
@@ -48,9 +48,9 @@
           </li>
           <li class="nav-item">
             <% if current_page?(trip_path(Trip.first)) %>
-              <%= link_to "Road map", trip_path(Trip.first), class: "d-flex justify-content-center align-items-center btn btn-outline-success btn-sm btn-trip", style:"height: 100%" %>
+              <%= link_to "Road map", trip_path(Trip.first), class: "d-flex justify-content-center align-items-center btn btn-outline-success btn-sm btn-trip nav-link-active", style:"height: 100%" %>
             <% else %>
-              <%= link_to "Road map", trip_path(Trip.first), class: "d-flex justify-content-center align-items-center btn btn-outline-success btn-sm btn-trip", style:"height: 100%" %>
+              <%= link_to "Road map", trip_path(Trip.first), class: "d-flex justify-content-center align-items-center btn btn-outline-success btn-sm btn-trip nav-link-inactive", style:"height: 100%" %>
             <% end %>
           </li>
         </div>

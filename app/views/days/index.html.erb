@@ -20,7 +20,7 @@
         <% @calendar_days.each do |data| %>
           <%= link_to trip_days_path(date: data.date), class:"m-0 p-0 d-flex", style:"text-decoration: none" do %>
             <% params[:date] = @trip.days.first.date.to_s.last(2) if params[:date].nil? %>
-            <div class="day-badge <%= "active" if data.date.strftime("%d") == params[:date].last(2) %>" style="width: 60px; height: 40px">
+            <div class="day-badge <%= "day-badge-active" if data.date.strftime("%d") == params[:date].last(2) %>" style="width: 60px; height: 40px">
               <div>
                 <%=  data.date.strftime("%e")%>
               </div>

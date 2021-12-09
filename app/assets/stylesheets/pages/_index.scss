@@ -58,13 +58,6 @@
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  .active{
-    background-color: $dark-blue;
-    color: white;
-    font-size: large;
-    font-weight: 900;
-    box-shadow: -3px 3px 5px 0px rgba(81,81,81,0.5);
-  }
 }
 
 .day-badge:hover{
@@ -75,3 +68,11 @@
   box-shadow: -3px 3px 5px 0px rgba(81,81,81,0.5);
   transition: 0.3s ease-in-out;
 }
+
+.day-badge-active{
+    background-color: $dark-blue;
+    color: white;
+    font-size: large;
+    font-weight: 900;
+    box-shadow: -3px 3px 5px 0px rgba(81,81,81,0.5);
+  }

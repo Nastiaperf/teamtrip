@@ -89,3 +89,16 @@ margin-right: 5px;
   color: rgb(255, 255, 255);
   width: 100%;
 }
+
+.nav-link-active{
+  background-color: #62d0b1;
+  width: 15vw;
+}
+
+.nav-link-inactive{
+  background-color: white;
+  width: 15vw;
+}
+.nav-link-inactive:hover{
+  background-color: #62d0b1;
+}
