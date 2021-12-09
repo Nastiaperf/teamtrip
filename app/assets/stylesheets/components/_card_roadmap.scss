@@ -15,6 +15,9 @@
       padding-left: 8rem;
       color: $dark-green;
     }
+    p {
+      padding-left: 8rem;
+    }
   }
 
   .card-roadmap{
@@ -37,11 +40,26 @@ ul{
   padding: 0;
 }
 
-li .item-card{
-  margin-bottom: 1rem;
-  // box-shadow: 5px 15px -1px rgba(0,0,0,0.84);
-  box-shadow: black;
-  // margin-left: none !important;
+li{
+  #six-dice{
+    display: flex;
+    align-items: center;
+    background-color: #F8FAFC;
+    margin-left: 1rem;
+
+
+    i{
+      color: #F8FAFC;
+      background-color: lightgrey;
+      font-size: 2.5rem;
+    }
+  }
+
+  .item-card{
+    margin-bottom: 1rem;
+    // margin-left: none !important;
+    // box-shadow: 5px 15px -1px rgba(0,0,0,0.84);
+  }
 }
 
 #color-activities{
@@ -55,6 +73,13 @@ li .item-card{
 #color-hotel{
   background-color: rgba($light-blue, .2);
 }
+.shadowed {
+  box-shadow: 2px 2px 8px -4px rgba(0,0,0,0.40);
+
+  &:hover {
+  box-shadow: 4px 4px 14px -4px rgba(0,0,0,0.59);
+  }
+}
 
 .text-container{
   color: $dark-blue;
@@ -64,8 +89,6 @@ li .item-card{
   .text-container{
     padding: 1rem;
   }
-
-
 
   .image-card{
     height: 100%;
@@ -78,7 +101,6 @@ li .item-card{
   .price-container{
     padding-right: 1rem;
   }
-
 }
 
 .suggestion-name {

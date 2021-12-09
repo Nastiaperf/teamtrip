@@ -6,64 +6,42 @@
   </div>
   <div class="w-50" id="right-panel">
     <!-- DATE SELECTOR -->
-    <div class="d-flex day-selector justify-content-center">
-      <%= form_tag trip_days_path, method: :get, data: { controller: "day" }, class:"w-75 d-flex justify-content-center" do %>
-        <%= date_field_tag :date,
-          value=@selected_date,
-          class: "form-control calendar-index w-100 text-center",
-          data: {
-            action: "change->day#handleChange"
-          }
-        %>
-      <% end  %>
+    <div class="calendar-container">
+      <div class="calendar-wrapper-days d-flex" style="margin-left: auto; margin-right: auto">
+        <% @calendar_days.each do |data| %>
+          <div class="d-flex align-items-center justify-content-center" style="width: 60px; height: 40px">
+            <div class="text-center align-self-center m-1 p-1">
+              <%=  data.date.strftime("%a")%>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="calendar-wrapper-links d-flex" style="margin-left: auto; margin-right: auto">
+        <% @calendar_days.each do |data| %>
+          <%= link_to trip_days_path(date: data.date), class:"m-0 p-0 d-flex", style:"text-decoration: none" do %>
+            <% params[:date] = @trip.days.first.date.to_s.last(2) if params[:date].nil? %>
+            <div class="day-badge <%= "active" if data.date.strftime("%d") == params[:date].last(2) %>" style="width: 60px; height: 40px">
+              <div>
+                <%=  data.date.strftime("%e")%>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
     <!-- BEGINNING OF HOTEL SECTION -->
       <div class="category-card"> <!-- Category-card // ID not defined -->
-        <div id="category-card-top" class="d-flex justify-content-between card-top"> <!-- Category-card-top// ID not defined -->
-          <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
-          <div class="d-flex align-items-center">
-            <!-- button to add new suggestion -->
-            <button type="button" class="btn btn-sm rounded-pill align-middle " data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle fa-lg btn-blue"></i></button>
-            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">+</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                </div>
+        <% if @best_hotels.empty? %>
+          <%= render 'days/first_sug_card' %>
+        <% else %>
+          <div id="category-card-top" class="d-flex justify-content-between card-top"> <!-- Category-card-top// ID not defined -->
+            <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
+            <div class="d-flex">
+              <div>
+                <%= image_tag('Hotel_ROUND.png', style:"width:25px; height:25px; margin-top:4px; margin-right:8px; margin-left:4px;") %>
               </div>
-            </div>
-            <div class="category-title">
-              <h1 class="align-bottom">Hotels</h1>
-            </div>
-          </div>
-          <% @day = Day.find_by(date: @selected_date) %>
-          <h2><%= link_to "Go vote", trip_day_path(@trip, @day, {category: "Hotel"}), class:"button-see-show" %> </h2><!-- Category-button// ID not defined -->
-        </div>
-        <div class="list-group" id="nav-hotel">
-          <% @hotels_ordered_by_vote.first(1).each do |data| %>
-          <!-- BEGINNING OF HOTEL ITEM CARD -->
-            <% if data.nil? %>
-              <%= render 'days/first_sug_card', data: data %>
-            <% else %>
-              <%= render 'days/unvoted_card_index', data: data %>
-            <% end %>
-          <!-- ENDING OF HOTEL ITEM CARD -->
-          <% end %>
-        </div>
-      </div>
-    <!-- ENDING OF HOTEL SECTION -->
-    <!-- BEGINNING OF RESTAURANT SECTION -->
-      <div class="category-card"> <!-- Category-card // ID not defined -->
-        <div id="category-card-top" class="d-flex justify-content-between card-top"> <!-- Category-card-top// ID not defined -->
-          <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
-          <div class="d-flex align-items-center">
-          <!-- button to add new suggestion -->
-          <button type="button" class="btn btn-sm rounded-pill align-middle " data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle fa-lg btn-saumon"></i></button>
-
+              <%# <!-- button to add new suggestion -->
+              <button type="button" class="btn btn-sm rounded-pill align-middle " data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle fa-lg btn-blue"></i></button>
               <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
@@ -75,18 +53,48 @@
                     </div>
                   </div>
                 </div>
+              </div> %>
+              <div class="category-title">
+                <h1 class="align-bottom">Hotels</h1>
+                <p class="align-bottom" style="margin-bottom:0; color:gray; font-size:12px; font-weight:300;">Favorite hotel out of <%= pluralize(@hotels_ordered_by_vote.length,'suggestion')%></p>
               </div>
+            </div>
+            <% @day = Day.find_by(date: @selected_date) %>
+            <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Hotel"}), class:"button-see-show" %> </h2><!-- Category-button// ID not defined -->
+          </div>
+          <div class="list-group" id="nav-hotel">
+            <% @hotels_ordered_by_vote.first(1).each do |data| %>
+            <!-- BEGINNING OF HOTEL ITEM CARD -->
+                <%= render 'days/card_index', data: data %>
+            <!-- ENDING OF HOTEL ITEM CARD -->
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <!-- ENDING OF HOTEL SECTION -->
+    <!-- BEGINNING OF RESTAURANT SECTION -->
+      <div class="category-card"> <!-- Category-card // ID not defined -->
+        <div id="category-card-top" class="d-flex justify-content-between card-top"> <!-- Category-card-top// ID not defined -->
+          <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
+          <div class="d-flex">
+          <!-- button to add new suggestion -->
+
+            <div>
+              <%= image_tag('Restau_ROUND.png', style:"width:25px; height:25px; margin-top:4px; margin-right:8px; margin-left:4px;") %>
+            </div>
 
             <div class="category-title">
               <h1> Restaurants</h1>
+              <p class="align-bottom" style="margin-bottom:0; color:gray; font-size:12px; font-weight:300;">Favorite <%= pluralize(@restaurants_ordered_by_vote.first(2).length, 'restaurant') %> out of <%= pluralize(@restaurants_ordered_by_vote.length,'suggestion')%></p>
             </div>
+
           </div>
           <h2><%= link_to "Go Vote", trip_day_path(@trip, @day, {category: "Restaurant"}), class:"button-see-show" %></h2> <!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-restaurant">
           <% @restaurants_ordered_by_vote.first(2).each do |data| %>
           <!-- BEGINNING OF RESTAURANT ITEM CARD -->
-            <%= render 'days/unvoted_card_index', data: data %>
+            <%= render 'days/card_index', data: data %>
           <% end %>
           <!-- ENDING OF RESTAURANT ITEM CARD -->
         </div>
@@ -96,32 +104,24 @@
       <div class="category-card"> <!-- Category-card // ID not defined -->
         <div id="category-card-top" class="d-flex justify-content-between card-top"> <!-- Category-card-top// ID not defined -->
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
-          <div class="d-flex align-items-center">
           <!-- button to add new suggestion -->
-            <button type="button" class="btn btn-sm rounded-pill align-middle" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle fa-lg btn-green"></i></button>
-
-              <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">+</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div class="d-flex">
+            <div>
+              <%= image_tag('Activity_ROUND.png', class:"align-top", style:"width:25px; height:25px; margin-top:4px; margin-right:8px; margin-left:4px;") %>
+            </div>
+            <div class="d-flex align-items-center">
               <div class="category-title">
                 <h1> Activities</h1>
+                <p class="align-bottom" style="margin-bottom:0; color:gray; font-size:12px; font-weight:300;">Favorite <%= pluralize(@activities_ordered_by_vote.first(3).length, 'activity') %> out of <%= pluralize(@activities_ordered_by_vote.length, "suggestion")%></p>
               </div>
+            </div>
           </div>
           <h2><%= link_to "Go Vote", trip_day_path(@trip, @day, {category: "Activity"}), class:"button-see-show" %></h2><!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-activity">
           <% @activities_ordered_by_vote.first(3).each do |data| %>
             <!-- BEGINNING OF ACTIVITY ITEM CARD -->
-            <%= render 'days/unvoted_card_index', data: data %>
+            <%= render 'days/card_index', data: data %>
           <% end %>
         </div>
       </div>
