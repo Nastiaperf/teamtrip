@@ -41,15 +41,17 @@ ul{
 }
 
 li{
-  #arrow{
+  #six-dice{
     display: flex;
     align-items: center;
     background-color: #F8FAFC;
     margin-left: 1rem;
 
+
     i{
-      color: grey;
-      font-size: 1.5rem;
+      color: #F8FAFC;
+      background-color: lightgrey;
+      font-size: 2.5rem;
     }
   }
 
@@ -78,6 +80,7 @@ li{
   box-shadow: 4px 4px 14px -4px rgba(0,0,0,0.59);
   }
 }
+
 .text-container{
   color: $dark-blue;
   // font-weight: bold;
@@ -86,8 +89,6 @@ li{
   .text-container{
     padding: 1rem;
   }
-
-
 
   .image-card{
     height: 100%;
@@ -100,7 +101,6 @@ li{
   .price-container{
     padding-right: 1rem;
   }
-
 }
 
 .suggestion-name {
