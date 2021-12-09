@@ -11,11 +11,6 @@ require bootstrap-toggle
   margin: 0.3rem;
   padding: 0.25rem;
   height: 30px;
-  width: 100px;
-  font-size: 1rem;
-  border-radius: 5%;
-  border: 1px;
-  border-style: solid;
 
   &:hover {
     transform: scale(1.1);
@@ -35,6 +30,7 @@ require bootstrap-toggle
     border-radius: 5px;
     padding: 10px;
     font-size: 0.85rem;
+    margin-top: 2px;
     background-color: #D8EDE7;
   }
 }
