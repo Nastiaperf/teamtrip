@@ -47,7 +47,7 @@ class TripsController < ApplicationController
                           where(category: "Restaurant").
                           first(2)
     @current_activities_restaurants = (@current_activities + @current_restaurants).sort_by(&:position)
-
+    # @marker_suggestions_day = (@current_hotel + @current_restaurants + @current_activities)
     # FOR THE MAP
     @markers = current_day_suggestions.map do |suggestion|
       {
