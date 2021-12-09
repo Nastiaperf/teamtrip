@@ -25,8 +25,11 @@
         <% else %>
           <div id="category-card-top" class="d-flex justify-content-between card-top"> <!-- Category-card-top// ID not defined -->
             <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
-            <div class="d-flex align-items-center">
-              <!-- button to add new suggestion -->
+            <div class="d-flex">
+              <div>
+                <%= image_tag('Hotel_ROUND.png', style:"width:25px; height:25px; margin-top:4px; margin-right:8px; margin-left:4px;") %>
+              </div>
+              <%# <!-- button to add new suggestion -->
               <button type="button" class="btn btn-sm rounded-pill align-middle " data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle fa-lg btn-blue"></i></button>
               <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
@@ -39,9 +42,10 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> %>
               <div class="category-title">
                 <h1 class="align-bottom">Hotels</h1>
+                <p class="align-bottom" style="margin-bottom:0; color:gray; font-size:12px; font-weight:300;">Favorite hotel out of <%= pluralize(@hotels_ordered_by_vote.length,'suggestion')%></p>
               </div>
             </div>
             <% @day = Day.find_by(date: @selected_date) %>
@@ -50,7 +54,7 @@
           <div class="list-group" id="nav-hotel">
             <% @hotels_ordered_by_vote.first(1).each do |data| %>
             <!-- BEGINNING OF HOTEL ITEM CARD -->
-                <%= render 'days/unvoted_card_index', data: data %>
+                <%= render 'days/card_index', data: data %>
             <!-- ENDING OF HOTEL ITEM CARD -->
             <% end %>
           </div>
@@ -61,33 +65,25 @@
       <div class="category-card"> <!-- Category-card // ID not defined -->
         <div id="category-card-top" class="d-flex justify-content-between card-top"> <!-- Category-card-top// ID not defined -->
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
-          <div class="d-flex align-items-center">
+          <div class="d-flex">
           <!-- button to add new suggestion -->
-          <button type="button" class="btn btn-sm rounded-pill align-middle " data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle fa-lg btn-saumon"></i></button>
 
-              <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">+</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div>
+              <%= image_tag('Restau_ROUND.png', style:"width:25px; height:25px; margin-top:4px; margin-right:8px; margin-left:4px;") %>
+            </div>
 
             <div class="category-title">
               <h1> Restaurants</h1>
+              <p class="align-bottom" style="margin-bottom:0; color:gray; font-size:12px; font-weight:300;">Favorite <%= pluralize(@restaurants_ordered_by_vote.first(2).length, 'restaurant') %> out of <%= pluralize(@restaurants_ordered_by_vote.length,'suggestion')%></p>
             </div>
+
           </div>
           <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Restaurant"}), class:"button-see-show" %></h2> <!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-restaurant">
           <% @restaurants_ordered_by_vote.first(2).each do |data| %>
           <!-- BEGINNING OF RESTAURANT ITEM CARD -->
-            <%= render 'days/unvoted_card_index', data: data %>
+            <%= render 'days/card_index', data: data %>
           <% end %>
           <!-- ENDING OF RESTAURANT ITEM CARD -->
         </div>
@@ -97,32 +93,24 @@
       <div class="category-card"> <!-- Category-card // ID not defined -->
         <div id="category-card-top" class="d-flex justify-content-between card-top"> <!-- Category-card-top// ID not defined -->
           <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
-          <div class="d-flex align-items-center">
           <!-- button to add new suggestion -->
-            <button type="button" class="btn btn-sm rounded-pill align-middle" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle fa-lg btn-green"></i></button>
-
-              <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">+</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div class="d-flex">
+            <div>
+              <%= image_tag('Activity_ROUND.png', class:"align-top", style:"width:25px; height:25px; margin-top:4px; margin-right:8px; margin-left:4px;") %>
+            </div>
+            <div class="d-flex align-items-center">
               <div class="category-title">
                 <h1> Activities</h1>
+                <p class="align-bottom" style="margin-bottom:0; color:gray; font-size:12px; font-weight:300;">Favorite <%= pluralize(@activities_ordered_by_vote.first(3).length, 'activity') %> out of <%= pluralize(@activities_ordered_by_vote.length, "suggestion")%></p>
               </div>
+            </div>
           </div>
           <h2><%= link_to "See all", trip_day_path(@trip, @day, {category: "Activity"}), class:"button-see-show" %></h2><!-- Category-button// ID not defined -->
         </div>
         <div class="list-group" id="nav-activity">
           <% @activities_ordered_by_vote.first(3).each do |data| %>
             <!-- BEGINNING OF ACTIVITY ITEM CARD -->
-            <%= render 'days/unvoted_card_index', data: data %>
+            <%= render 'days/card_index', data: data %>
           <% end %>
         </div>
       </div>
