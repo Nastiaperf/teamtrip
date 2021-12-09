@@ -67,7 +67,7 @@ puts "users created"
 puts "creating trip"
 
 portugal_trip = Trip.create(
-  name: "Portugal Voyage 2022",
+  name: "Portugal",
   start_date: '03/01/2022',
   end_date: '11/01/2022',
   location: "Portugal",
@@ -269,7 +269,7 @@ suggestion_13 = Suggestion.create(
 
 suggestion_14 = Suggestion.create(
   category: "Hotel",
-  name: "Vera Cruz Porto Downtown Hotel jznefijznefoijzefozfzfzeifznikfnezjfn zeoizaenfozeknfozenf",
+  name: "Vera Cruz Porto Downtown Hotelnhijandfijhzebfijeanfozehfizebfia",
   day: portugal_trip.days[0],
   user: portugal_trip.users[4],
   price: 38,
@@ -544,7 +544,7 @@ puts "Suggestions created"
 puts "creating votes"
 
 vote_1 = Vote.create(
-  user: portugal_trip.users[0],
+  user: portugal_trip.users[4],
   suggestion: suggestion_1,
 )
 
@@ -626,61 +626,6 @@ vote_15 = Vote.create(
 vote_16 = Vote.create(
   user: portugal_trip.users[4],
   suggestion: suggestion_34,
-)
-
-vote_17 = Vote.create(
-  user: portugal_trip.users[0],
-  suggestion: suggestion_25,
-)
-
-vote_19 = Vote.create(
-  user: portugal_trip.users[0],
-  suggestion: suggestion_30,
-)
-
-vote_20 = Vote.create(
-  user: portugal_trip.users[0],
-  suggestion: suggestion_34,
-)
-
-vote_21 = Vote.create(
-  user: portugal_trip.users[0],
-  suggestion: suggestion_23,
-)
-
-vote_22 = Vote.create(
-  user: portugal_trip.users[0],
-  suggestion: suggestion_22,
-)
-
-vote_23 = Vote.create(
-  user: portugal_trip.users[0],
-  suggestion: suggestion_19,
-)
-
-vote_24 = Vote.create(
-  user: portugal_trip.users[0],
-  suggestion: suggestion_18,
-)
-
-vote_25 = Vote.create(
-  user: portugal_trip.users[0],
-  suggestion: suggestion_16,
-)
-
-vote_26 = Vote.create(
-  user: portugal_trip.users[0],
-  suggestion: suggestion_12,
-)
-
-vote_27 = Vote.create(
-  user: portugal_trip.users[0],
-  suggestion: suggestion_10,
-)
-
-vote_28 = Vote.create(
-  user: portugal_trip.users[0],
-  suggestion: suggestion_7,
 )
 
 vote_80 = Vote.create(
