@@ -3,6 +3,7 @@ class DaysController < ApplicationController
     #days of the trip page
 
     @trip = Trip.find(params[:trip_id])
+    @calendar_days = @trip.days
     if params[:date].present?
       @trip_days = @trip.days.where(date: params[:date])
       @selected_date = params[:date]
