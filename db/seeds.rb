@@ -791,11 +791,6 @@ vote_50 = Vote.create(
   suggestion: suggestion_28,
 )
 
-vote_51 = Vote.create(
-  user: portugal_trip.users[2],
-  suggestion: suggestion_32,
-)
-
 vote_52 = Vote.create(
   user: portugal_trip.users[2],
   suggestion: suggestion_34,
