@@ -15,6 +15,9 @@
       padding-left: 8rem;
       color: $dark-green;
     }
+    p {
+      padding-left: 8rem;
+    }
   }
 
   .card-roadmap{
@@ -37,11 +40,24 @@ ul{
   padding: 0;
 }
 
-li .item-card{
-  margin-bottom: 1rem;
-  // box-shadow: 5px 15px -1px rgba(0,0,0,0.84);
-  box-shadow: black;
-  // margin-left: none !important;
+li{
+  #arrow{
+    display: flex;
+    align-items: center;
+    background-color: #F8FAFC;
+    margin-left: 1rem;
+
+    i{
+      color: grey;
+      font-size: 1.5rem;
+    }
+  }
+
+  .item-card{
+    margin-bottom: 1rem;
+    // margin-left: none !important;
+    box-shadow: 5px 15px -1px rgba(0,0,0,0.84);
+  }
 }
 
 #color-activities{
@@ -55,7 +71,11 @@ li .item-card{
 #color-hotel{
   background-color: rgba($light-blue, .2);
 }
-
+.shadowed {
+    &:hover {
+    box-shadow: 1px 9px 9px 3px rgba(0,0,0,0.59);
+  }
+}
 .text-container{
   color: $dark-blue;
   // font-weight: bold;
