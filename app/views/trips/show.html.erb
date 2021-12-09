@@ -23,7 +23,6 @@
           <div class="card-icon">
             <div class="column-icon">
               <%= image_tag ("https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Font_Awesome_5_solid_bed.svg/1279px-Font_Awesome_5_solid_bed.svg.png")%>
-              <%# <i class="fas fa-long-arrow-alt-down"></i> %>
             </div>
             <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
               <div class="d-flex">
@@ -31,8 +30,8 @@
                   <%= image_tag (@previous_hotel.photo), class:"image-card" %>
                 </div>
                 <div class="text-container align-items-start">
-                  <h2><%= @previous_hotel.name %></h2>
-                  <h3> <%= link_to "See google page", @previous_hotel.google_link %> </h3>
+                  <h2 class="suggestion-name"><%= @previous_hotel.name %></h2>
+                  <h3><%= link_to "See google page", @previous_hotel.google_link %> </h3>
                 </div>
               </div>
 
@@ -54,9 +53,8 @@
       <div class="card-roadmap">
         <ul id="results">
           <% @current_activities_restaurants.each do |suggestion| %>
-
             <li class="list-unstyled card-icon">
-              <%= simple_form_for(suggestion, { html: { class: "d-none" } })do |f| %>
+              <%= simple_form_for(suggestion, { html: { class: "d-none" } }) do |f| %>
                 <%= f.hidden_field :position, class: "new_position" %>
               <% end %>
 
@@ -67,7 +65,6 @@
                   <%= image_tag ("https://camo.githubusercontent.com/f06febfc8afae47eb60e5d359305ab1ba53c5ad94bef82be765e4d56437e5c3f/68747470733a2f2f63646e302e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f7472616e7369742d322f33322f7472616e7369742d33352d3531322e706e67") %>
                 <% end %>
               </div>
-
 
               <% if suggestion.category == "Activity" %>
                 <% background_card_color = "color-activities" %>
@@ -80,7 +77,7 @@
                     <%= image_tag (suggestion.photo), class:"image-card" %>
                   </div>
                   <div class="text-container align-items-start">
-                    <h2><%= suggestion.name %></h2>
+                    <h2 class="suggestion-name" ><%= suggestion.name %></h2>
                     <h3> <%= link_to "See google page", suggestion.google_link %> </h3>
                   </div>
                 </div>
@@ -115,7 +112,6 @@
                 <%= image_tag ("https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Font_Awesome_5_solid_bed.svg/1279px-Font_Awesome_5_solid_bed.svg.png")%>
               </div>
             </div>
-
             <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
               <div class="d-flex">
                 <div class="image-container">
@@ -123,7 +119,7 @@
                 </div>
 
                 <div class="text-container align-items-start">
-                  <h2><%= @current_hotel.name %></h2>
+                  <h2 class="suggestion-name"><%= @current_hotel.name.capitalize %></h2>
                   <h3> <%= link_to "See google page", @current_hotel.google_link %> </h3>
                 </div>
               </div> <!-- d flex -->
