@@ -17,7 +17,11 @@
         <h2><%= data.name %></h2>
       </div>
       <div class="text-container price align-self-center m-1 ">
-        <h2><%= data.price.to_i %>€</h2>
+        <% if data.price.zero? && data.category == "Activity" %>
+          <h2>Free</h2>
+        <% else %>
+          <h2><%= data.price.to_i %>€</h2>
+        <% end %>
       </div>
     </div>
     <div class="d-flex">
