@@ -56,9 +56,9 @@ largo = User.create(
 
 charly = User.create(
   photo: "https://www.thesprucepets.com/thmb/YQzfza2oKOCzQIvX-K66BRi1DjI=/1080x1080/filters:no_upscale():max_bytes(150000):strip_icc()/30078352_448703938920062_6275637137232625664_n-5b0de8c443a1030036f9e15e.jpg",
-  email: "charly@example.com",
+  email: "jojo@example.com",
   password: "secret",
-  first_name: "Sebastien",
+  first_name: "Jojo",
   last_name: "duwagon"
   )
 
@@ -269,7 +269,7 @@ suggestion_13 = Suggestion.create(
 
 suggestion_14 = Suggestion.create(
   category: "Hotel",
-  name: "Vera Cruz Porto Downtown Hotelnhijandfijhzebfijeanfozehfizebfia",
+  name: "Vera Cruz Porto Downtown Hotel",
   day: portugal_trip.days[0],
   user: portugal_trip.users[4],
   price: 38,
@@ -886,6 +886,11 @@ vote_80 = Vote.create(
 vote_82 = Vote.create(
   user: portugal_trip.users[4],
   suggestion: suggestion_36,
+)
+
+vote_82 = Vote.create(
+  user: portugal_trip.users[2],
+  suggestion: suggestion_5,
 )
 
 puts "Votes created"
