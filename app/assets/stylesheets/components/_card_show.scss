@@ -193,3 +193,10 @@
   }
 
 }
+
+.suggestion-name-show {
+  max-width: 27rem;
+  white-space: nowrap;
+  overflow: scroll;
+  text-overflow: ellipsis;
+}
