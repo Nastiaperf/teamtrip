@@ -51,6 +51,7 @@
     <!-- begin activities + restaurants -->
     <div class="card-top">
       <h1>Go explore</h1>
+      <p> Drag below events to plan your trip step by step </p>
       <div class="card-roadmap">
         <ul id="results">
           <% @current_activities_restaurants.each do |suggestion| %>
@@ -74,7 +75,7 @@
               <% else %>
                 <% background_card_color = "color-restaurants" %>
               <% end %>
-              <div id= "<%=background_card_color %>" class="item-card d-flex justify-content-between">
+              <div id= "<%=background_card_color %>" class="shadowed item-card d-flex justify-content-between">
                 <div class="d-flex">
                   <div class="image-container">
                     <%= image_tag (suggestion.photo), class:"image-card" %>
@@ -92,18 +93,21 @@
                   <% end %>
                 </div>
               </div>
+              <div id="arrow">
+                <i class="fas fa-dice-six"></i>
+              </div>
             </li>
           <% end %>
         </ul>
       </div>
     </div>
     <!-- end activities + restaurants -->
-    
+
     <!-- begin hotel for night -->
     <div class="card-top">
     <!-- hotel current date -->
       <% if @current_hotel %>
-        <h1>Go sleep</h1>
+        <h1>Go to sleep</h1>
         <div class="card-roadmap mb-3">
           <div class="card-icon">
             <!-- icon premiere colonne -->
