@@ -29,8 +29,8 @@
                   <div class="image-container">
                     <%= image_tag (@previous_hotel.photo), class:"image-card" %>
                   </div>
-                  <div class="text-container align-items-start">
-                    <h2><%= @previous_hotel.name %></h2>
+                  <div class="text-container align-items-start suggestion-name">
+                    <h2><%= @previous_hotel.name.capitalize %></h2>
                     <h3> <%= link_to "See google page", @previous_hotel.google_link %> </h3>
                   </div>
                 </div>
@@ -65,8 +65,8 @@
                       <div class="image-container">
                         <%= image_tag (suggestion.photo), class:"image-card" %>
                       </div>
-                      <div class="text-container align-items-start">
-                        <h2 class=><%= suggestion.name %></h2>
+                      <div class="text-container align-items-start suggestion-name">
+                        <h2 class=><%= suggestion.name.capitalize %></h2>
                         <h3> <%= link_to "See google page", suggestion.google_link %> </h3>
                       </div>
                     </div>
@@ -95,8 +95,8 @@
                 <div class="image-container">
                   <%= image_tag (@current_hotel.photo), class:"image-card" %>
                 </div>
-                <div class="text-container align-items-start">
-                  <h2><%= @current_hotel.name %></h2>
+                <div class="text-container align-items-start suggestion-name">
+                  <h2><%= @current_hotel.name.capitalize %></h2>
                   <h3> <%= link_to "See google page", @current_hotel.google_link %> </h3>
                 </div>
               </div>

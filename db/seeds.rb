@@ -269,7 +269,7 @@ suggestion_13 = Suggestion.create(
 
 suggestion_14 = Suggestion.create(
   category: "Hotel",
-  name: "Vera Cruz Porto Downtown Hotel",
+  name: "Vera Cruz Porto Downtown Hotel jznefijznefoijzefozfzfzeifznikfnezjfn zeoizaenfozeknfozenf",
   day: portugal_trip.days[0],
   user: portugal_trip.users[4],
   price: 38,

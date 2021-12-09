@@ -110,3 +110,9 @@
   }
 }
 
+.suggestion-name {
+  max-width: 40ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
