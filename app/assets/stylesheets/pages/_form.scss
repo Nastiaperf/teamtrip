@@ -1,5 +1,5 @@
 .suggestion-form {
-  color: rgb(63, 63, 63);
+  color: $dark-blue;
 }
 
 .modal-title {
@@ -15,10 +15,10 @@
 }
 
 .form-group {
-  background-color: #62d0b12c;
-  border-radius: 5%;
   width: 25rem;
+  margin-top: 1rem;
   font-size: larger;
+  text-align: initial;
 }
 
 .form-control {
@@ -28,8 +28,10 @@
 }
 
 .stripes {
-
-border: none !important;
+  border: none !important;
+  margin-bottom: 1rem;
+  border-radius: 34.5rem;
+  padding: 0.5rem 2rem;
 }
 
 .modal-content {
@@ -37,13 +39,50 @@ border: none !important;
   border-radius: 2% !important;
 }
 
-#suggestion_price, #suggestion_comment, #suggestion_name {
+#suggestion_price, #suggestion_name {
   border: none;
   outline: none;
 }
 
+.row-modal {
+  border: none;
+  justify-content: space-between;
+
+  .form-control {
+    padding: 0 !important;
+  }
+  .form-group {
+    margin: 1rem !important;
+  }
+}
+#suggestion_comment {
+  border-radius: .3rem;
+  margin-bottom: 1.5rem;
+}
+
+.suggestion_name {
+  width: 60%;
+  border-bottom: 1px solid $dark-blue;
+}
+
+.suggestion_price {
+  width: 20%;
+  border-bottom: 1px solid $dark-blue;
+}
+
 .suggestion_category {
   background: none !important;
+  border: none;
+
+  legend {
+    display: none;
+  }
+}
+
+.suggestion_day {
+  border: none;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .suggestion-form {
@@ -140,4 +179,10 @@ border: none !important;
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: right 50% bottom;
+}
+
+@media (min-width: 992px) {
+  .modal-lg, .modal-xl {
+    max-width: 600px;
+  }
 }
