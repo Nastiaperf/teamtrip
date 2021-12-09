@@ -111,7 +111,7 @@
     <% if (Trip.first.locked == true)  &&  params[:controller] == 'days' %>
     <div class="locked-bar text-center">
     <%= link_to trip_path(@trip) do %>
-      <div>Votes have been locked, now enjoy your trip and relax!</div>
+      <div style="font-weight: 300">Votes have been locked. <strong style="font-weight: 700">Click & Go to your roadmap </strong> <i class="fas fa-arrow-up"></i>. Explore and enjoy your trip ! <i class="far fa-smile-wink"></i></div>
     <% end %>
     </div>
     <% end %>
