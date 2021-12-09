@@ -48,9 +48,9 @@
           </li>
           <li class="nav-item">
             <% if current_page?(trip_path(Trip.first)) %>
-              <%= link_to "Road map", trip_path(Trip.first), class: "nav-link active border", style:"border-radius: 0.5rem" %>
+              <%= link_to "Road map", trip_path(Trip.first), class: "d-flex justify-content-center align-items-center btn btn-outline-success btn-sm btn-trip", style:"height: 100%" %>
             <% else %>
-              <%= link_to "Road map", trip_path(Trip.first), class: "nav-link border", style:"border-radius: 0.5rem" %>
+              <%= link_to "Road map", trip_path(Trip.first), class: "d-flex justify-content-center align-items-center btn btn-outline-success btn-sm btn-trip", style:"height: 100%" %>
             <% end %>
           </li>
         </div>

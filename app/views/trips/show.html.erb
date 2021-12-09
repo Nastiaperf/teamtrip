@@ -35,7 +35,6 @@
                   <h3> <%= link_to "See google page", @previous_hotel.google_link %> </h3>
                 </div>
               </div>
-
               <div class="price-container align-self-end">
                 <h2><%= @previous_hotel.price.to_i %>€</h2>
               </div>
@@ -54,7 +53,6 @@
       <div class="card-roadmap">
         <ul id="results">
           <% @current_activities_restaurants.each do |suggestion| %>
-
             <li class="list-unstyled card-icon">
               <%= simple_form_for(suggestion, { html: { class: "d-none" } })do |f| %>
                 <%= f.hidden_field :position, class: "new_position" %>

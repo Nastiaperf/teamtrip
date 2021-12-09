@@ -67,10 +67,11 @@ const mapImport = () => {
   }
 }
 
+
 function calcRoute() {
-  const start = document.getElementById('start').value;
-  const end = document.getElementById('end').value;
-  const request = {
+  var start = document.getElementById('start').value;
+  var end = document.getElementById('end').value;
+  var request = {
     origin: start,
     destination: end,
     travelMode: 'DRIVING'
@@ -81,6 +82,7 @@ function calcRoute() {
     }
   });
 }
+
 
 export { mapImport }
 export { calcRoute }
