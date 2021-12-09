@@ -1,6 +1,9 @@
 <div class="container suggestion-form justify-content-center" data-controller="places">
   <%= simple_form_for(Suggestion.new) do |f| %>
-    <%= f.input :name, input_html: {"data-places-target": "field"}, :placeholder => 'Select name with Google Places' %>
+    <div class="row row-modal">
+      <%= f.input :name, input_html: {"data-places-target": "field"}, :placeholder => '10 rue de la Poule Noire, Nantes' %>
+      <%= f.input :price, :placeholder => ' ', input_html: { min: '0' } %>
+    </div>
     <%= f.input :category,
       as: :radio_buttons,
       collection_wrapper_tag: 'div',
@@ -9,13 +12,12 @@
       input_html: {class: 'category-selector'},
       collection: Suggestion::CATEGORIES,
       wrapper: :vertical_collection_inline %>
-    <%= f.input :price, as: :string, wrapper_html: { class: 'price-wrapper' }, label_html: { class: 'mx-2' }, input_html: { class: 'price-input' }%>
-    <%= f.input :comment, as: :text, :placeholder => 'This place is awesome because...'%>
     <%= f.association :day,
       collection: Day.all,
       label_method: :date,
       value_method: :id,
       selected: @day&.id  %>
+    <%= f.input :comment, as: :text, :placeholder => 'This place is awesome because...'%>
     <%= f.button :submit, class: "btn-primary stripes" %>
   <% end %>
 </div>

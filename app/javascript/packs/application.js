@@ -29,12 +29,13 @@ require("flatpickr")
 import "bootstrap";
 import "controllers";
 
-import { mapImport } from '../components/map.js';
-import { setActiveTabOnLoading } from '../components/tab_menu.js';
-import { setActiveTabOnClicking } from '../components/tab_menu.js';
+
+import { mapImport } from '../components/map.js'
+import { calcRoute } from '../components/map.js'
+import { setActiveTabOnLoading } from '../components/tab_menu.js'
+import { setActiveTabOnClicking } from '../components/tab_menu.js'
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { initSortable } from '../components/init_sortable.js';
-import { initFlatpickr } from "../plugins/flatpickr.js";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -44,6 +45,7 @@ document.addEventListener('turbolinks:load', () => {
   initSortable();
   initFlatpickr();
   mapImport();
+  calcRoute();
   setActiveTabOnLoading();
   setActiveTabOnClicking();
   initSweetalert('#sweet-alert', {
