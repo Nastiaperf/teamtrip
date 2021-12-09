@@ -12,12 +12,6 @@
       input_html: {class: 'category-selector'},
       collection: Suggestion::CATEGORIES,
       wrapper: :vertical_collection_inline %>
-<<<<<<< HEAD
-
-=======
-    <%= f.input :price, as: :string, wrapper_html: { class: 'price-wrapper' }, label_html: { class: 'mx-2' }, input_html: { class: 'price-input' }%>
-    <%= f.input :comment, as: :text, :placeholder => 'This place is awesome because...'%>
->>>>>>> master
     <%= f.association :day,
       collection: Day.all,
       label_method: :date,
