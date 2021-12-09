@@ -13,9 +13,13 @@
         <h3 class="text-adress"> <%= data.location %></h3>
       </div>
     </div>
-    <div class="d-flex info-container ">
+    <div class="d-flex info-container">
       <div class="price-container align-self-center">
-        <h3><%= data.price.to_i %>€</h3>
+        <% if data.price.zero? && data.category == "Activity" %>
+          <h3>Free</h3>
+        <% else %>
+          <h3><%= data.price.to_i %>€</h3>
+        <% end %>
       </div>
     </div>
   </div>
