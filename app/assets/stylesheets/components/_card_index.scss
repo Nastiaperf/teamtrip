@@ -3,8 +3,8 @@
 // }
 
 .category-card{
-  margin-left: 4rem;
-  margin-right: 3rem;
+  margin-left: auto;
+  margin-right: auto;
   width: 75%;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -29,15 +29,24 @@
     #color{
       background-color: rgba($light-blue, .2);
     }
+    #arrow{
+      color: $dark-blue;
+    }
   }
   #nav-restaurant{
     #color{
       background-color: rgba($light-saumon, .2);
     }
+    #arrow{
+      color: $dark-saumon;
+    }
   }
   #nav-activity{
     #color{
       background-color: rgba($light-green, .2);
+    }
+    #arrow{
+      color: $dark-green;
     }
   }
 
@@ -61,6 +70,7 @@
     width: 100%;
     border-radius: .5rem;
     margin-bottom: .5rem;
+    overflow: hidden;
   }
 
   .card-top{
@@ -122,3 +132,4 @@
     object-fit: cover;
   }
 }
+

@@ -67,9 +67,20 @@ class TripsController < ApplicationController
   end
 
   def lock_trip
-    @trip = Trip.find(params[:id])
-    @trip.locked = true
-    @trip.save!
+    @trip = Trip.first
+    if @trip.locked == false
+      @trip.locked = true
+      @trip.save!
+      respond_to do |format|
+        format.html { redirect_to trip_path(@trip), notice: 'Votes have sucessfully been locked!' }
+      end
+    else
+      @trip.locked = false
+      @trip.save!
+      respond_to do |format|
+        format.html { redirect_to trip_path(@trip), notice: 'Votes have sucessfully been unlocked!' }
+      end
+    end
   end
 
   def update

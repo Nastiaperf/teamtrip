@@ -10,49 +10,77 @@
 
   .card-top{
     margin-left: 3rem;
+
+    h1{
+      padding-left: 8rem;
+      color: $dark-green;
+    }
+    p {
+      padding-left: 8rem;
+    }
   }
 
   .card-roadmap{
   // width: 70%;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  // margin-bottom: 1rem;
   display: flex;
-  justify-content: center;
+}
+
+.item-card{
+  width: 25rem;
+  height: 6rem;
+  border-radius: .5rem;
+  // margin-bottom: .5rem;
+}
+
+
+ul{
+  list-style-type: none;
+  padding: 0;
+}
+
+li{
+  #arrow{
+    display: flex;
+    align-items: center;
+    background-color: #F8FAFC;
+    margin-left: 1rem;
+
+    i{
+      color: grey;
+      font-size: 1.5rem;
+    }
   }
 
   .item-card{
-    height: 100%;
-    // width: 100%;
-    border-radius: .5rem;
-    // margin-bottom: .5rem;
+    margin-bottom: 1rem;
+    // margin-left: none !important;
+    // box-shadow: 5px 15px -1px rgba(0,0,0,0.84);
   }
+}
 
+#color-activities{
+  background-color: rgba($light-green, .2);
+}
 
-  ul{
-    list-style-type: none;
-    padding: 0;
+#color-restaurants{
+  background-color: rgba($light-saumon, .2);
+}
+
+#color-hotel{
+  background-color: rgba($light-blue, .2);
+}
+.shadowed {
+  box-shadow: 2px 2px 8px -4px rgba(0,0,0,0.40);
+
+  &:hover {
+  box-shadow: 4px 4px 14px -4px rgba(0,0,0,0.59);
   }
-
-  li .item-card{
-      margin-bottom: 1rem;
-      // margin-left: none !important;
-    }
-
-  #color-activities{
-    background-color: rgba($light-green, .2);
-  }
-
-  #color-restaurants{
-    background-color: rgba($light-saumon, .2);
-  }
-
-  #color-hotel{
-    background-color: rgba($light-blue, .2);
-  }
-
-  .text-container{
-    color: $dark-blue;
-    // font-weight: bold;
+}
+.text-container{
+  color: $dark-blue;
+  // font-weight: bold;
   }
 
   .text-container{
@@ -73,4 +101,11 @@
     padding-right: 1rem;
   }
 
+}
+
+.suggestion-name {
+  max-width: 10ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
