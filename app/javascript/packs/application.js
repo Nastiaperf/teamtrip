@@ -44,7 +44,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initSortable();
   mapImport();
-  calcRoute();
+  // calcRoute();
   setActiveTabOnLoading();
   setActiveTabOnClicking();
   initSweetalert('#sweet-alert', {
