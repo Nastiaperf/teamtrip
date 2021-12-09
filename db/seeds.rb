@@ -529,14 +529,14 @@ suggestion_35 = Suggestion.create(
 
 suggestion_36 = Suggestion.create(
   category: "Activity",
-  name: "Parc forestier de Monsanto",
+  name: "O Clube - Monsanto Secret Spot",
   day: portugal_trip.days[1],
-  user: portugal_trip.users[6],
-  price: 0,
+  user: portugal_trip.users[4],
+  price: 86,
   comment: "largest park of the city, amazing point of view",
-  photo: get_photo("Parc forestier de Monsanto"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Parc forestier de Monsanto").normalize}",
-  location: "Parque Florestal de Monsanto"
+  photo: get_photo("O Clube - Monsanto Secret Spot"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("O Clube - Monsanto Secret Spot").normalize}",
+  location: "Estr. Barcal 1500, Lisboa, Portugal"
 )
 
 puts "Suggestions created"
@@ -937,6 +937,12 @@ vote_80 = Vote.create(
   user: portugal_trip.users[5],
   suggestion: suggestion_15,
 )
+
+vote_82 = Vote.create(
+  user: portugal_trip.users[4],
+  suggestion: suggestion_36,
+)
+
 puts "Votes created"
 
 puts "DB all set, now have fun"
