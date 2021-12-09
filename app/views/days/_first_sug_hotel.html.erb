@@ -1,16 +1,19 @@
-<div class="no-item-category p-2 py-3">
+<div class="no-item-category hotel p-2 py-3" >
   <div id="" class="d-flex justify-content-between"> <!-- Category-card-top// ID not defined -->
     <!-- Add type of suggestion PRE-DEFINI on new_suggestion page -->
-    <div class="d-flex align-items-center">
+    <div class="d-flex">
       <!-- button to add new suggestion -->
+      <div>
+        <%= image_tag('Hotel_ROUND.png', style:"width:25px; height:25px; margin-top:4px; margin-right:8px; margin-left:4px;") %>
+      </div>
       <div class="category-title">
-        <h1 class="align-bottom" style="margin-left:2;">Hotels</h1>
+        <h1 class="align-bottom" style="margin-left:2;"> Hotels </h1>
       </div>
     </div>
   </div>
-  <div class="no-item d-flex justify-content-start align-items-center m-2" id="nav-hotel">
-    <button type="button" class="btn btn-sm rounded-pill align-middle " data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus-circle fa-lg btn-blue"></i></button>
-    <h2 style="margin-bottom:0;">Be the first to suggest!</h2>
+  <div class="no-item d-flex justify-content-start align-items-center m-2" id="nav-hotel" data-toggle="modal" data-target=".modal-suggestion" style="cursor: pointer;">
+    <button type="button" class="btn btn-sm rounded-pill align-middle "><i class="fas fa-plus-circle fa-lg btn-blue"></i></button>
+    <h2 style="margin-bottom:0; margin-left:1rem;">Be the first to suggest!</h2>
       <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
