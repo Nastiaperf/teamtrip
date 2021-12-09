@@ -56,7 +56,7 @@ li{
   .item-card{
     margin-bottom: 1rem;
     // margin-left: none !important;
-    box-shadow: 5px 15px -1px rgba(0,0,0,0.84);
+    // box-shadow: 5px 15px -1px rgba(0,0,0,0.84);
   }
 }
 
@@ -72,8 +72,10 @@ li{
   background-color: rgba($light-blue, .2);
 }
 .shadowed {
-    &:hover {
-    box-shadow: 1px 9px 9px 3px rgba(0,0,0,0.59);
+  box-shadow: 2px 2px 8px -4px rgba(0,0,0,0.40);
+
+  &:hover {
+  box-shadow: 4px 4px 14px -4px rgba(0,0,0,0.59);
   }
 }
 .text-container{
