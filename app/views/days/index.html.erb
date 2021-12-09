@@ -4,16 +4,31 @@
       data-markers="<%= @markers.to_json %>">
     </div>
   </div>
-    <!-- DATE SELECTOR -->
   <div class="w-50" id="right-panel">
-    <h2 class="text-center mt-2">Top voted suggestions for the day</h2>
-      <div>
-        <div class="form-wrapper w-75 rounded" style="width: 400px; margin: 0 auto;">
-          <%= simple_form_for trip_days_path, method: :get, data: { controller: "day" } do %>
-            <%= date_field_tag :date, value=@selected_date, class: "form-control datepicker w-100 calendar-index", data: { action: "change->day#handleChange" }%>
-          <% end %>
-        </div>
+    <!-- DATE SELECTOR -->
+    <div class="calendar-container">
+      <div class="calendar-wrapper-days d-flex" style="margin-left: auto; margin-right: auto">
+        <% @calendar_days.each do |data| %>
+          <div class="d-flex align-items-center justify-content-center" style="width: 60px; height: 40px">
+            <div class="text-center align-self-center m-1 p-1">
+              <%=  data.date.strftime("%a")%>
+            </div>
+          </div>
+        <% end %>
       </div>
+      <div class="calendar-wrapper-links d-flex" style="margin-left: auto; margin-right: auto">
+        <% @calendar_days.each do |data| %>
+          <%= link_to trip_days_path(date: data.date), class:"m-0 p-0 d-flex", style:"text-decoration: none" do %>
+            <% params[:date] = @trip.days.first.date.to_s.last(2) if params[:date].nil? %>
+            <div class="day-badge <%= "active" if data.date.strftime("%d") == params[:date].last(2) %>" style="width: 60px; height: 40px">
+              <div>
+                <%=  data.date.strftime("%e")%>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
     <!-- BEGINNING OF HOTEL SECTION -->
       <div class="category-card"> <!-- Category-card // ID not defined -->
         <div id="category-card-top" class="d-flex justify-content-between card-top"> <!-- Category-card-top// ID not defined -->
