@@ -11,6 +11,7 @@ const mapImport = () => {
     const markers = JSON.parse(mapElement.dataset.markers);
     const gmapsMarkers = map.addMarkers(markers);
 
+
     gmapsMarkers.forEach(gmapsMarker => {
       const infowindow = new google.maps.InfoWindow({
         content: gmapsMarker.info_window,
@@ -31,9 +32,25 @@ const mapImport = () => {
             test.setAnimation(null)
           }, 700);
         })
-
       })
 
+
+      // const directionsService = new google.maps.DirectionsService();
+      // const directionsRenderer = new google.maps.DirectionsRenderer();
+      // directionsRenderer.setMap(map);
+
+      // const start = document.getElementById('start').value;
+      // const end = document.getElementById('end').value;
+      // const request = {
+      //   origin: '10 Pass. de la Poule Noire, 44000 Nantes',
+      //   destination: '2 Rue de la Biscuiterie, 44000 Nantes',
+      //   travelMode: 'DRIVING'
+      // };
+      // directionsService.route(request, function (result, status) {
+      //   if (status == 'OK') {
+      //     directionsRenderer.setDirections(result);
+      //   }
+      // });
       // console.log(gmapsMarker.id)
       // console.log(gmapsMarker)
       // gmapsMarker.dataset.marker = gmapsMarker.id
