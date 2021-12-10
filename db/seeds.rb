@@ -216,15 +216,15 @@ suggestion_7 = Suggestion.create(
 
 suggestion_8 = Suggestion.create(
   category: "Hotel",
-  name: "Hotel Borges Chiado",
+  name: "Hotel Vila Galé Collection Palácio dos Arcos",
   day: portugal_trip.days[1],
   user: portugal_trip.users[4],
   price: 140,
-  comment: "This hotel is in the town center",
-  photo: get_photo("Hotel Borges Chiado"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Hotel Borges Chiado").normalize}",
+  comment: "Lovely hotel close to Torre de Belem",
+  photo: get_photo("Hotel Vila Galé Collection Palácio dos Arcos"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Hotel Vila Galé Collection Palácio dos Arcos").normalize}",
   location: "R. Garrett 108, 1200-205 Lisboa, Portugal",
-  opening_hours: get_opening_hours("Hotel Borges Chiado"),
+  opening_hours: get_opening_hours("Hotel Vila Galé Collection Palácio dos Arcos"),
   rating: rand(3.5...5).round(1),
 )
 
@@ -239,20 +239,6 @@ suggestion_9 = Suggestion.create(
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Vincci Porto").normalize}",
   location: "Alameda de Basílio Teles 29, 4150-127 Porto, Portugal",
   opening_hours: get_opening_hours("Vincci Porto"),
-  rating: rand(3.5...5).round(1),
-)
-
-suggestion_10 = Suggestion.create(
-  category: "Restaurant",
-  name: "Frade dos Mares",
-  day: portugal_trip.days[1],
-  user: portugal_trip.users[3],
-  price: 80,
-  comment: "The good look delicious we should try to go",
-  photo: get_photo("Frade dos Mares"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Frade dos Mares").normalize}",
-  location: "Av. Dom Carlos i 55A, 1200-647 Lisboa, Portugal",
-  opening_hours: get_opening_hours("Frade dos Mares"),
   rating: rand(3.5...5).round(1),
 )
 
@@ -281,20 +267,6 @@ suggestion_12 = Suggestion.create(
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Moov Hotel Porto Centro").normalize}",
   location: "Praça da Batalha 32, 4000-101 Porto, Portugal",
   opening_hours: get_opening_hours("Moov Hotel Porto Centro"),
-  rating: rand(3.5...5).round(1),
-)
-
-suggestion_13 = Suggestion.create(
-  category: "Activity",
-  name: "Jardim dos Aciprestes",
-  day: portugal_trip.days[1],
-  user: portugal_trip.users[2],
-  price: 25,
-  comment: "I want do this big amusement park",
-  photo: get_photo("Jardim dos Aciprestes"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Jardim dos Aciprestes").normalize}",
-  location: "Av. Tomás Ribeiro 18, 2795-164 Linda-a-Velha, Portugal",
-  opening_hours: get_opening_hours("Jardim dos Aciprestes"),
   rating: rand(3.5...5).round(1),
 )
 
@@ -604,15 +576,43 @@ suggestion_35 = Suggestion.create(
 
 suggestion_36 = Suggestion.create(
   category: "Activity",
-  name: "O Clube - Monsanto Secret Spot",
+  name: "Elevador de Santa Justa",
   day: portugal_trip.days[1],
   user: portugal_trip.users[4],
   price: 86,
   comment: "largest park of the city, amazing point of view",
-  photo: get_photo("O Clube - Monsanto Secret Spot"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("O Clube - Monsanto Secret Spot").normalize}",
+  photo: get_photo("Elevador de Santa Justa"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Elevador de Santa Justa").normalize}",
   location: "Estr. Barcal 1500, Lisboa, Portugal",
-  opening_hours: get_opening_hours("O Clube - Monsanto Secret Spot"),
+  opening_hours: get_opening_hours("Elevador de Santa Justa"),
+  rating: rand(3.5...5).round(1),
+)
+
+suggestion_10 = Suggestion.create(
+  category: "Restaurant",
+  name: "1300 Taberna",
+  day: portugal_trip.days[1],
+  user: portugal_trip.users[3],
+  price: 80,
+  comment: "The good look delicious we should try to go",
+  photo: get_photo("1300 Taberna"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("1300 Taberna").normalize}",
+  location: "Av. Dom Carlos i 55A, 1200-647 Lisboa, Portugal",
+  opening_hours: get_opening_hours("1300 Taberna"),
+  rating: rand(3.5...5).round(1),
+)
+
+suggestion_13 = Suggestion.create(
+  category: "Activity",
+  name: "Padrão dos Descobrimentos",
+  day: portugal_trip.days[1],
+  user: portugal_trip.users[2],
+  price: 25,
+  comment: "I want do this big amusement park",
+  photo: get_photo("Padrão dos Descobrimentos"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Padrão dos Descobrimentos").normalize}",
+  location: "Av. Tomás Ribeiro 18, 2795-164 Linda-a-Velha, Portugal",
+  opening_hours: get_opening_hours("Padrão dos Descobrimentos"),
   rating: rand(3.5...5).round(1),
 )
 
@@ -703,11 +703,6 @@ vote_15 = Vote.create(
 vote_16 = Vote.create(
   user: portugal_trip.users[4],
   suggestion: suggestion_34,
-)
-
-vote_80 = Vote.create(
-  user: portugal_trip.users[1],
-  suggestion: suggestion_5,
 )
 
 vote_30 = Vote.create(
