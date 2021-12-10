@@ -20,7 +20,7 @@ export default class extends Controller {
     })
     // console.log(roadMArkers);
     const map = new google.maps.Map(document.getElementById('road-map'), {
-      zoom: 8,
+      zoom:15,
       center: {lat: roadMArkers[0]['lat'], lng: roadMArkers[0]['lng'] },
     })
 
@@ -66,7 +66,7 @@ export default class extends Controller {
     } else {
 
       console.log(testMarkers);
-      map.fitLatLngBounds(testMarkers);
+      // map.fitLatLngBounds(testMarkers);
     }
   }
 }
