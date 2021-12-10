@@ -33,8 +33,30 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+
 .btn-banner{
+  // background: rgb(70, 124, 116);
+  background: linear-gradient(160deg, #3b6a63, #559b8e);
+  position: absolute;
+  // background: linear-gradient(180deg, rgba(59,106,99,1) 0%, rgba(85,155,142,1) 100%);
   border-radius: 24px;
+  font-weight: bold;
+  color: $dark-saumon;
+  box-shadow: -4px -4px 5px #3b6a63, 2px 2px 8px #79b8ac;
+}
+
+.btn-banner:hover{
+  left: 4px;
+  top: 2px;
+  box-shadow: inset -2px -2px 6px #559b8e, inset 6px 6px 8px #3b6a63;
+  // transition: 0.3s ease-in-out;
+  // box-shadow: inset -6px -6px 8px #559b8e, inset 6px 6px 8px #3b6a63;
+}
+
+a:hover {
+  color: $dark-saumon;
+  text-decoration: transparent!important;
+  box-shadow: none;
 }
 
 .imageshome{
