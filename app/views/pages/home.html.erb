@@ -1,8 +1,10 @@
-<div class="banner" style="background-color: #173753;">
+<div class="banner" style="">
   <div class="container px-5">
     <h1>Organize your group trip easily</h1>
     <p>Spend more time enjoying, less time organizing</p>
-    <a  type="button" href="/trips/new" class="btn btn-primary border btn-lg py-2 px-5 btn-banner"><strong>Start a trip now!</strong></a>
+    <div class="position-relative">
+      <a  type="button" href="/trips/new" class="btn-lg py-2 px-5 btn-banner"><strong>Start a trip now</strong></a>
+    </div>
   </div>
 </div>
 
@@ -17,8 +19,9 @@
       <%= image_tag("Create a suggestion.png", width:"80%", height:"350rem", class:"imageshome") %>
     </div>
       <div class="text-details vertical-align-center">
-        <h1 class="text-center ml-5">Create suggestions</h1>
-        <p class="text-center ml-5">Let every trip member suggest its ideas and organize the perfect route for each day of the tour. Preview your trip directly on a map with all the spots selected..</p>
+        <h1 class="text-center ml-5">Plan</h1>
+        <p class="text-center ml-5">Let every trip member suggest its ideas and organize the perfect route.
+        For each day get an overview of the most popular hotel, your lunch and diner restaurants and the 3 selected activities from your votes!</p>
       </div>
   </div>
 
@@ -31,16 +34,28 @@
       <%= image_tag("Vote.png", width:"80%", height:"350rem", class:"imageshome") %>
     </div>
       <div class="text-details-blue vertical-align-center">
-        <h1 class="text-center ml-5">Vote and decide together</h1>
-        <p class="text-center ml-5">Let every trip member suggest its ideas and organize the perfect route for each day of the tour. Preview your trip directly on a map with all the spots selected..</p>
+        <h1 class="text-center ml-5">Vote</h1>
+        <p class="text-center ml-5">Discover the suggestion of your friends and vote for your favorite spots.
+        Convince everyone to vote for your ideal places to visit with your own words.</p>
       </div>
   </div>
 
-  <div class="d-flex justify-content-start pt-5">
-    <%= image_tag("Roadmap.png", width:"50%", height:"350rem", class:"imageshome") %>
-    <p class="text-center">Create your trip roadmap</p>
+  <div style="">
+    <div class="d-flex justify-content-end background-saumon">
+    </div>
+    <div class="background-light-saumon">
+    </div>
+    <div class="d-flex justify-content-end pt-5 content-saumon">
+      <%= image_tag("Roadmap.png", width:"97%", height:"350rem", class:"imageshome") %>
+    </div>
+      <div class="text-details-saumon vertical-align-center">
+        <h1 class="text-center ml-5">Explore</h1>
+        <p class="text-center ml-5">Discover the most popular suggestions which will give you the perfect trip to enjoy.
+        Organize each step on each day according to your feeling of the moment.</p>
+      </div>
   </div>
 
+  <!--
   <h1 class="d-flex justify-content-center mt-5 title-home"> <strong>What they think of us</strong></h1>
   <div id="comments" class="cards-home mt-5 mb-5">
     <div class="card card-home review pt-4" style="width: 18rem;">
@@ -82,5 +97,6 @@
       </div>
     </div>
   </div>
+  -->
 
 </div>

@@ -1,11 +1,14 @@
 // Specific CSS for your home-page
 .banner {
+  background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)),
+    asset_url("Planes.jpg");
   background-size: cover;
   background-position: center;
   // height: 300px;
   padding: 12rem 0 12rem 0;
+  // padding: 5rem 0 20rem 0;
   // display: flex;
-  // // align-items: center;
+  // align-items: center;
   // justify-content: center;
   // align-items: flex-start;
   // vertical-align: bottom;
@@ -30,8 +33,30 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+
 .btn-banner{
+  // background: rgb(70, 124, 116);
+  background: linear-gradient(160deg, #3b6a63, #559b8e);
+  position: absolute;
+  // background: linear-gradient(180deg, rgba(59,106,99,1) 0%, rgba(85,155,142,1) 100%);
   border-radius: 24px;
+  font-weight: bold;
+  color: $dark-saumon;
+  box-shadow: -4px -4px 5px #3b6a63, 2px 2px 8px #79b8ac;
+}
+
+.btn-banner:hover{
+  left: 4px;
+  top: 2px;
+  box-shadow: inset -2px -2px 6px #559b8e, inset 6px 6px 8px #3b6a63;
+  // transition: 0.3s ease-in-out;
+  // box-shadow: inset -6px -6px 8px #559b8e, inset 6px 6px 8px #3b6a63;
+}
+
+a:hover {
+  color: $dark-saumon;
+  text-decoration: transparent!important;
+  box-shadow: none;
 }
 
 .imageshome{
@@ -39,6 +64,7 @@
   border-radius: 10px;
 }
 
+// GREEN
 .content {
   position: absolute;
   top: 740px; left: 162px;
@@ -77,6 +103,7 @@
   top: 778px; right: 538px;
 }
 
+// BLUE
 .background-blue{
   background-color: $dark-blue;
   border-radius: 10px;
@@ -94,7 +121,7 @@
   height: 25rem;
   transform: rotate(.5deg);
   position: absolute;
-  top: 1226px;
+  top: 1230px;
   right: 118px;
   z-index: -1;
 }
@@ -108,12 +135,51 @@
   padding-left: 4rem;
   padding-right: 0;
   position: absolute;
-  top: 1197px;
+  top: 1219px;
   right: 838px;
   h1{
     font-size: 35px;
   }
 }
+
+// SAUMON
+.content-saumon {
+  position: absolute;
+  top: 1647px;
+  left: 162px;
+}
+
+.text-details-saumon{
+  padding-top: 7rem;
+  padding-left: 50rem;
+  padding-right: 0;
+  position: absolute;
+  top: 1672px;
+  right: 95px;
+  h1{
+    font-size: 35px;
+  }
+}
+
+.background-saumon{
+  background-color: $dark-saumon;
+  border-radius: 10px;
+  width: 60%;
+  height: 25rem;
+  transform: rotate(-1deg);
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+.background-light-saumon{
+  background-color: rgba($light-saumon, .2);
+  border-radius: 10px;
+  width: 50%;
+  height: 25rem;
+  transform: rotate(-.5deg);
+  position: absolute;
+  top: 1680px; right: 538px;
+}
+
 
 .center{
   display: inline-block;

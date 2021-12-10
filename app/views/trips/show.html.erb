@@ -1,4 +1,4 @@
-<div id="roadmap">
+<div id="roadmap" data-controller="routes">
   <div id="body-roadmap">
     <div class="calendar">
       <div>
@@ -16,7 +16,13 @@
       </div>
     </div>
     <% if @previous_hotel %>
-      <div class="card-top">
+      <div class="card-top roadmarker" data-routes-target="marker" data-coordinates="<%= {
+              lat: @previous_hotel.latitude,
+              lng: @previous_hotel.longitude,
+              id: @previous_hotel.id,
+              icon: asset_url("#{@previous_hotel.category}.png"),
+              info_window: render(partial: "info_window", locals: { suggestion: @previous_hotel }, as: :text)
+            }.to_json %>">
       <!-- hotel previous date -->
         <h1>Wake up in</h1>
         <div class="card-roadmap mb-4">
@@ -52,7 +58,13 @@
       <div class="card-roadmap">
         <ul id="results">
           <% @current_activities_restaurants.each do |suggestion| %>
-            <li class="list-unstyled card-icon">
+            <li class="list-unstyled card-icon roadmarker" data-routes-target="marker" data-coordinates="<%= {
+              lat: suggestion.latitude,
+              lng: suggestion.longitude,
+              id: suggestion.id,
+              icon: asset_url("#{suggestion.category}.png"),
+              info_window: render(partial: "info_window", locals: { suggestion: suggestion }, as: :text)
+            }.to_json %>">
               <%= simple_form_for(suggestion, { html: { class: "d-none" } }) do |f| %>
                 <%= f.hidden_field :position, class: "new_position" %>
               <% end %>
@@ -109,7 +121,14 @@
     <!-- hotel current date -->
       <% if @current_hotel %>
         <h1>Go to sleep</h1>
-        <div class="card-roadmap mb-3">
+        <div class="card-roadmap mb-3 roadmarker" data-routes-target="marker"
+          data-coordinates="<%= {
+            lat: @current_hotel.latitude,
+            lng: @current_hotel.longitude,
+            id: @current_hotel.id,
+            icon: asset_url("#{@current_hotel.category}.png"),
+            info_window: render(partial: "info_window", locals: { suggestion: @current_hotel }, as: :text)
+          }.to_json %>">
           <div class="card-icon">
             <!-- icon premiere colonne -->
             <div class="column-icon">
@@ -139,7 +158,8 @@
       <% end %>
     </div>
   </div>
-  <div id="map"
-    data-markers="<%= @markers.to_json %>">
+  <div id="road-map"
+    data-routes-target="map"
+    data-markers="">
   </div>
 </div>

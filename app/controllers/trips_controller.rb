@@ -49,15 +49,16 @@ class TripsController < ApplicationController
     @current_activities_restaurants = (@current_activities + @current_restaurants).sort_by(&:position)
     # @marker_suggestions_day = (@current_hotel + @current_restaurants + @current_activities)
     # FOR THE MAP
-    @markers = current_day_suggestions.map do |suggestion|
-      {
-        lat: suggestion.latitude,
-        lng: suggestion.longitude,
-        id: suggestion.id,
-        icon: helpers.asset_url("#{suggestion.category}.png"),
-        info_window: render_to_string(partial: "info_window", locals: { suggestion: suggestion })
-      }
-    end
+    # @day_markers = [@current_hotel] + @current_activities + @current_restaurants
+    # @markers = @day_markers.map do |suggestion|
+    #   {
+    #     lat: suggestion.latitude,
+    #     lng: suggestion.longitude,
+    #     id: suggestion.id,
+    #     icon: helpers.asset_url("#{suggestion.category}.png"),
+    #     info_window: render_to_string(partial: "info_window", locals: { suggestion: suggestion })
+    #   }
+    # end
 
     @client = GooglePlaces::Client.new(ENV['GOOGLE_API_BROWSER_KEY'])
     @hotels_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Hotel")
