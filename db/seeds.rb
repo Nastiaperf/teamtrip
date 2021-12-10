@@ -511,7 +511,7 @@ suggestion_31 = Suggestion.create(
   user: portugal_trip.users[5],
   price: 98,
   comment: "The pool looks super cool !",
-  photo: get_photo("The Yeatman"),
+  photo: get_photo("CASA DA MARIQUINHAS"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("The Yeatman").normalize}",
   location: "Rua do Choupelo, 4400-088 Vila Nova de Gaia, Portugal",
   opening_hours: get_opening_hours("The Yeatman"),
@@ -522,7 +522,7 @@ suggestion_32 = Suggestion.create(
   category: "Hotel",
   name: "InterContinental Hotel Porto",
   day: portugal_trip.days[0],
-  user: portugal_trip.users[6],
+  user: portugal_trip.users[5],
   price: 134,
   comment: "I´ve tried it in Vienna, it was all perfect !",
   photo: get_photo("InterContinental Hotel Porto"),
@@ -831,10 +831,10 @@ vote_55 = Vote.create(
   suggestion: suggestion_14,
 )
 
-vote_56 = Vote.create(
-  user: portugal_trip.users[3],
-  suggestion: suggestion_15,
-)
+# vote_56 = Vote.create(
+#   user: portugal_trip.users[3],
+#   suggestion: suggestion_15,
+# )
 
 vote_57 = Vote.create(
   user: portugal_trip.users[3],
@@ -886,10 +886,10 @@ vote_66 = Vote.create(
   suggestion: suggestion_3,
 )
 
-vote_67 = Vote.create(
-  user: portugal_trip.users[5],
-  suggestion: suggestion_5,
-)
+# vote_67 = Vote.create(
+#   user: portugal_trip.users[5],
+#   suggestion: suggestion_5,
+# )
 
 vote_68 = Vote.create(
   user: portugal_trip.users[5],
