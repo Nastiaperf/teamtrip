@@ -2,17 +2,33 @@
   padding: 0 2rem;
   justify-content: space-between;
   background: white;
+
+  .navbar-collapse {
+    flex-grow: 0;
+
+    .size-title{
+      width: 100%;
+      margin-right: 2rem;
+      font-size: 1.2rem;
+
+      .trip-title{
+        padding-left: .5rem;
+      }
+    }
+  }
+
+  .align-items-center{
+    margin-right: 3rem;
+  }
+
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
 
 // .navbar-lewagon .navbar-brand img {
 // }
 
 .centered-links {
-  justify-content: center;
+  justify-content: space-between;
   margin: 0 4rem;
 }
 
@@ -90,14 +106,15 @@ margin-right: 5px;
   width: 100%;
 }
 
+
 .nav-link-active{
   background-color: #62d0b1;
-  width: 15vw;
+  width: 7vw;
 }
 
 .nav-link-inactive{
   background-color: white;
-  width: 15vw;
+  width: 7vw;
 }
 .nav-link-inactive:hover{
   background-color: #62d0b1;
