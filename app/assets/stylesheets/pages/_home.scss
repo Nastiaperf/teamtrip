@@ -67,16 +67,17 @@ a:hover {
 // GREEN
 .content {
   position: absolute;
-  top: 740px; left: 162px;
+  top: -6%;
+  left: 4%;
 }
 
 .text-details{
   padding-top: 7rem;
-  padding-left: 50rem;
+  padding-left: 44rem;
   padding-right: 0;
   position: absolute;
-  top: 773px;
-  right: 95px;
+  top: -5%;
+  right: 5%;
   h1{
     font-size: 35px;
   }
@@ -96,11 +97,12 @@ a:hover {
 .background-light{
   background-color: rgba($light-green, .2);
   border-radius: 10px;
-  width: 50%;
+  width: 61%;
   height: 25rem;
   transform: rotate(-.5deg);
   position: absolute;
-  top: 778px; right: 538px;
+  top: 4%;
+  right: 38%;
 }
 
 // BLUE
@@ -117,26 +119,25 @@ a:hover {
 .background-light-blue{
   background-color: rgba($light-blue, .2);
   border-radius: 10px;
-  width: 50%;
+  width: 60%;
   height: 25rem;
   transform: rotate(.5deg);
   position: absolute;
-  top: 1230px;
-  right: 118px;
+  top: 4%;
+  left: 39%;
   z-index: -1;
 }
 .content-blue {
   position: absolute;
-  top: 1191px;
-  left: 475px;
+  top: -6%;
+  right: 4%;
 }
 .text-details-blue{
   padding-top: 7rem;
-  padding-left: 4rem;
-  padding-right: 0;
+  padding-right: 46rem;
   position: absolute;
-  top: 1219px;
-  right: 838px;
+  top: 3%;
+  left: 1%;
   h1{
     font-size: 35px;
   }
@@ -145,17 +146,17 @@ a:hover {
 // SAUMON
 .content-saumon {
   position: absolute;
-  top: 1647px;
-  left: 162px;
+  top: -6%;
+  left: 4%;
 }
 
 .text-details-saumon{
   padding-top: 7rem;
-  padding-left: 50rem;
+  padding-left: 44rem;
   padding-right: 0;
   position: absolute;
-  top: 1672px;
-  right: 95px;
+  top: -1%;
+  right: 3%;
   h1{
     font-size: 35px;
   }
@@ -173,11 +174,12 @@ a:hover {
 .background-light-saumon{
   background-color: rgba($light-saumon, .2);
   border-radius: 10px;
-  width: 50%;
+  width: 61%;
   height: 25rem;
   transform: rotate(-.5deg);
   position: absolute;
-  top: 1680px; right: 538px;
+  top: 4%;
+  right: 38%;
 }
 
 
