@@ -12,7 +12,7 @@
 
     <ul class="navbar-nav mr-auto align-items-center w-100">
 
-      <li class="nav-item d-flex justify-content-center align-items-center size-title">
+      <li class="nav-item d-flex justify-content-center align-items-center size-title ">
         <%= image_tag("travel.png", width:"20rem", height:"20rem") %>
         <div class="trip-title">
           <%= Trip.first.name %>
@@ -27,9 +27,9 @@
             <div>
               <li class="nav-item">
                 <% if current_page?(trip_days_path(Trip.first)) %>
-                  <button class="d-flex justify-content-center align-items-center active btn-sm btn-trip mr-1 nav-link-active"> <%= link_to "Plan", trip_days_path(Trip.first), class: "nav-link" %></button>
+                  <button class="d-flex justify-content-center align-items-center active btn-sm btn-trip mr-3 nav-link-active"> <%= link_to "Plan", trip_days_path(Trip.first), class: "nav-link" %></button>
                 <% else %>
-                  <button class="d-flex justify-content-center align-items-center active btn-sm btn-trip mr-1 nav-link-inactive"> <%= link_to "Plan", trip_days_path(Trip.first), class: "nav-link" %></button>
+                  <button class="d-flex justify-content-center align-items-center active btn-sm btn-trip mr-3 nav-link-inactive"> <%= link_to "Plan", trip_days_path(Trip.first), class: "nav-link" %></button>
                 <% end %>
               </li>
               <li class="nav-item mx-3">
@@ -76,8 +76,8 @@
             </div>
           <% end %>
         </div>
-        <li class="btn btn-primary btn-sm btn-add" style="border-radius: 0.5rem">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".modal-suggestion">New Suggestion</button>
+        <li class="btn btn-primary btn-sm btn-add btn-add-sugg" style="border-radius: 0.5rem">
+          <button type="button" class="btn btn-primary " data-toggle="modal" data-target=".modal-suggestion">New Suggestion</button>
             <div class="modal fade bd-example-modal-lg modal-suggestion" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">

@@ -9,21 +9,27 @@
     .size-title{
       width: 100%;
       margin-right: 2rem;
-      font-size: 1.2rem;
+      font-size: 1rem;
+      display: inline-block;
 
       .trip-title{
         padding-left: .5rem;
+        width: 100%;
+        min-width: max-content;
       }
+    }
+
+    .btn-add-sugg{
+      min-width: max-content;
+      width: 100%;
     }
   }
 
-  .align-items-center{
-    margin-right: 3rem;
-  }
+  // .align-items-center{
+  //   margin-right: 3rem;
+  // }
 
 }
-
-
 // .navbar-lewagon .navbar-brand img {
 // }
 
