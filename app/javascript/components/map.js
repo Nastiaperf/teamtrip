@@ -72,8 +72,8 @@ function calcRoute() {
   var start = document.getElementById('start').value;
   var end = document.getElementById('end').value;
   var request = {
-    origin: start,
-    destination: end,
+    origin: 'lisbonne',
+    destination: 'porto',
     travelMode: 'DRIVING'
   };
   directionsService.route(request, function (result, status) {
