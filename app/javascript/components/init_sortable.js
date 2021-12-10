@@ -1,10 +1,11 @@
 import Sortable from 'sortablejs';
 
-const initSortable = () => {
+const initSortable = (callback) => {
   const list = document.querySelector('#results');
   if (list == null) {
     return
   }
+  console.log('coucoucou');
   Sortable.create(list, {
     ghostClass: "ghost",
     animation: 150,
@@ -20,13 +21,16 @@ const initSortable = () => {
       if (event.newIndex !== event.oldIndex) {
         form.submit()
       }
+      callback();
     }
+
   });
 
   // element.addEventListener("click", (event) => {
   // event.currentTarget(form)
 
   // })
+
 
 };
 

@@ -2,7 +2,6 @@
 // (1) Function selecting links into calendar to set the category for next/previous day when you land on the Show page.
 const setActiveTabOnLoading = () => {
   const target = document.querySelectorAll("a.active")
-  console.log(target)
   target.forEach(element => {
     changeQuerySearchParamsByActive(element.innerHTML)
   })
