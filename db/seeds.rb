@@ -8,9 +8,15 @@ User.destroy_all
 puts "All exisiting data destroyed"
 
 def get_photo(name)
-  url = Addressable::URI.parse("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=#{name}&inputtype=textquery&fields=formatted_address%2Cphoto%2Crating%2Copening_hours&key=AIzaSyD9TVwPVhLsV4XkHFI6fiAkcJ31IqNPGxA")
+  url = Addressable::URI.parse("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=#{name}&inputtype=textquery&fields=formatted_address%2Cphoto%2Crating%2Copening_hours&key=#{ENV['GOOGLE_API_SERVER_KEY']}")
   response = HTTParty.get("https://maps.googleapis.com#{url.normalize.request_uri}")
   return photo = "https://maps.googleapis.com/maps/api/place/photo?photoreference=#{response['candidates'][0]['photos'][0]['photo_reference']}&sensor=false&maxheight=500&maxwidth=500&key=#{ENV['GOOGLE_API_SERVER_KEY']}"
+end
+
+def get_opening_hours(name)
+  url = Addressable::URI.parse("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=#{name}&inputtype=textquery&fields=formatted_address%2Cphoto%2Crating%2Copening_hours&key=#{ENV['GOOGLE_API_SERVER_KEY']}")
+  response = HTTParty.get("https://maps.googleapis.com#{url.normalize.request_uri}")
+  return opening_hours = response['candidates'][0]['opening_hours']
 end
 
 puts "creating users"
@@ -81,7 +87,6 @@ puts "-- Day range for the trip --"
 puts portugal_trip.days.pluck(:date)
 puts "-- Day range for the trip --"
 
-
 puts "creating trip_members"
 
 trip_member_2 = TripMember.create(
@@ -124,6 +129,7 @@ suggestion_1 = Suggestion.create(
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Golden Tulip Porto Gaia Hotel & SPA").normalize}",
   rating: rand(3.5...5).round(1),
   location: "Praia de Lavadores, R. da Bélgica 86, 4400-044 Vila Nova de Gaia, Portugal",
+  opening_hours: get_opening_hours("Golden Tulip Porto Gaia Hotel & SPA"),
 )
 
 suggestion_2 = Suggestion.create(
@@ -137,6 +143,7 @@ suggestion_2 = Suggestion.create(
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Sabores da Amazónia").normalize}",
   rating: rand(3.5...5).round(1),
   location: "R. de Dom Manuel II 270, 4050-378 Porto, Portugal",
+  opening_hours: get_opening_hours("Sabores da Amazónia porto"),
 )
 
 suggestion_3 = Suggestion.create(
@@ -150,6 +157,7 @@ suggestion_3 = Suggestion.create(
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Meia-Nau Porto").normalize}",
   rating: rand(3.5...5).round(1),
   location: "Tv. de Cedofeita 48, 4050-183 Porto, Portugal",
+  opening_hours: get_opening_hours("Meia-Nau Porto"),
 )
 
 suggestion_4 = Suggestion.create(
@@ -162,6 +170,7 @@ suggestion_4 = Suggestion.create(
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Praia de salgueiro, porto").normalize}",
   rating: rand(3.5...5).round(1),
   location: "Av. da Beira-Mar C2, 4400-572 Vila Nova de Gaia, Portugal",
+  opening_hours: get_opening_hours("Praia de salgueiro, porto"),
 )
 
 suggestion_5 = Suggestion.create(
@@ -172,8 +181,9 @@ suggestion_5 = Suggestion.create(
   comment: "A must see, definitly!",
   photo: get_photo("Ponte Luis I"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Ponte Luis I").normalize}",
+  location: "Pte. Luiz I, Porto, Portugal",
+  opening_hours: get_opening_hours("Ponte Luis I"),
   rating: rand(3.5...5).round(1),
-  location: "Pte. Luiz I, Porto, Portugal"
 )
 
 suggestion_6 = Suggestion.create(
@@ -185,8 +195,9 @@ suggestion_6 = Suggestion.create(
   comment: "We spend a very good time going that cruise",
   photo: get_photo("Cruzeiro das seis pontes"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Cruzeiro das seis pontes").normalize}",
+  location: "Muelle de, 4050-513, Portugal",
+  opening_hours: get_opening_hours("Cruzeiro das seis pontes"),
   rating: rand(3.5...5).round(1),
-  location: "Muelle de, 4050-513, Portugal"
 )
 
 suggestion_7 = Suggestion.create(
@@ -200,6 +211,7 @@ suggestion_7 = Suggestion.create(
   rating: rand(3.5...5).round(1),
   location: "R. José Estêvão 43, 1150-200 Lisboa, Portugal",
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Dom João Lisboa").normalize}",
+  opening_hours: get_opening_hours("Dom João Lisboa"),
 )
 
 suggestion_8 = Suggestion.create(
@@ -211,8 +223,9 @@ suggestion_8 = Suggestion.create(
   comment: "This hotel is in the town center",
   photo: get_photo("Hotel Borges Chiado"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Hotel Borges Chiado").normalize}",
+  location: "R. Garrett 108, 1200-205 Lisboa, Portugal",
+  opening_hours: get_opening_hours("Hotel Borges Chiado"),
   rating: rand(3.5...5).round(1),
-  location: "R. Garrett 108, 1200-205 Lisboa, Portugal"
 )
 
 suggestion_9 = Suggestion.create(
@@ -224,8 +237,9 @@ suggestion_9 = Suggestion.create(
   comment: "I think they have a gym in the building",
   photo: get_photo("Vincci Porto"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Vincci Porto").normalize}",
+  location: "Alameda de Basílio Teles 29, 4150-127 Porto, Portugal",
+  opening_hours: get_opening_hours("Vincci Porto"),
   rating: rand(3.5...5).round(1),
-  location: "Alameda de Basílio Teles 29, 4150-127 Porto, Portugal"
 )
 
 suggestion_10 = Suggestion.create(
@@ -237,8 +251,9 @@ suggestion_10 = Suggestion.create(
   comment: "The good look delicious we should try to go",
   photo: get_photo("Frade dos Mares"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Frade dos Mares").normalize}",
+  location: "Av. Dom Carlos i 55A, 1200-647 Lisboa, Portugal",
+  opening_hours: get_opening_hours("Frade dos Mares"),
   rating: rand(3.5...5).round(1),
-  location: "Av. Dom Carlos i 55A, 1200-647 Lisboa, Portugal"
 )
 
 suggestion_11 = Suggestion.create(
@@ -250,8 +265,9 @@ suggestion_11 = Suggestion.create(
   comment: "A prestigious museum that I want visit",
   photo: get_photo("Museo National de Azulejo"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Museo National de Azulejo").normalize}",
+  location: "R. Me. Deus 4, 1900-312 Lisboa, Portugal",
+  opening_hours: get_opening_hours("Museo National de Azulejo"),
   rating: rand(3.5...5).round(1),
-  location: "R. Me. Deus 4, 1900-312 Lisboa, Portugal"
 )
 
 suggestion_12 = Suggestion.create(
@@ -263,8 +279,9 @@ suggestion_12 = Suggestion.create(
   comment: "The bigger zoo of the country",
   photo: get_photo("Moov Hotel Porto Centro"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Moov Hotel Porto Centro").normalize}",
+  location: "Praça da Batalha 32, 4000-101 Porto, Portugal",
+  opening_hours: get_opening_hours("Moov Hotel Porto Centro"),
   rating: rand(3.5...5).round(1),
-  location: "Praça da Batalha 32, 4000-101 Porto, Portugal"
 )
 
 suggestion_13 = Suggestion.create(
@@ -276,8 +293,9 @@ suggestion_13 = Suggestion.create(
   comment: "I want do this big amusement park",
   photo: get_photo("Jardim dos Aciprestes"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Jardim dos Aciprestes").normalize}",
+  location: "Av. Tomás Ribeiro 18, 2795-164 Linda-a-Velha, Portugal",
+  opening_hours: get_opening_hours("Jardim dos Aciprestes"),
   rating: rand(3.5...5).round(1),
-  location: "Av. Tomás Ribeiro 18, 2795-164 Linda-a-Velha, Portugal"
 )
 
 suggestion_14 = Suggestion.create(
@@ -289,8 +307,9 @@ suggestion_14 = Suggestion.create(
   comment: "Cheap place for the middle journey",
   photo: get_photo("Vera Cruz Porto Downtown Hotel"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Vera Cruz Porto Downtown Hotel").normalize}",
+  location: "R. de Ramalho Ortigão 14, 4000-407 Porto, Portugal",
+  opening_hours: get_opening_hours("Vera Cruz Porto Downtown Hotel"),
   rating: rand(3.5...5).round(1),
-  location: "R. de Ramalho Ortigão 14, 4000-407 Porto, Portugal"
 )
 
 suggestion_15 = Suggestion.create(
@@ -301,8 +320,9 @@ suggestion_15 = Suggestion.create(
   comment: "Very cool beach to see",
   photo: get_photo("Praia de miramar"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Praia de miramar").normalize}",
+  location: "Arcozelo, Portugal",
+  opening_hours: get_opening_hours("Praia de miramar"),
   rating: rand(3.5...5).round(1),
-  location: "Arcozelo, Portugal"
 )
 
 suggestion_16 = Suggestion.create(
@@ -313,8 +333,9 @@ suggestion_16 = Suggestion.create(
   comment: "The biggest waves of the world but a bit far from Porto",
   photo: get_photo("Nazare beach"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Nazare beach").normalize}",
+  location: "Praia da Nazare",
+  opening_hours: get_opening_hours("Nazare beach"),
   rating: rand(3.5...5).round(1),
-  location: "Praia da Nazare"
 )
 
 suggestion_17 = Suggestion.create(
@@ -326,8 +347,9 @@ suggestion_17 = Suggestion.create(
   comment: "Very cool cruize recommended by my cousin",
   photo: get_photo("Double viewpoint De Loivos"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Double viewpoint De Loivos").normalize}",
+  location: "R. Praça de Oliveira 1, 5085-010 Casal de Loivos, Portugal",
+  opening_hours: get_opening_hours("Double viewpoint De Loivos"),
   rating: rand(3.5...5).round(1),
-  location: "R. Praça de Oliveira 1, 5085-010 Casal de Loivos, Portugal"
 )
 
 suggestion_18 = Suggestion.create(
@@ -339,8 +361,9 @@ suggestion_18 = Suggestion.create(
   comment: "They say the view really worth the pain to get there",
   photo: get_photo("Clérigos Tower"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Clérigos Tower").normalize}",
+  location: "R. de São Filipe de Nery, 4050-546 Porto, Portugal",
+  opening_hours: get_opening_hours("Clérigos Tower"),
   rating: rand(3.5...5).round(1),
-  location: "R. de São Filipe de Nery, 4050-546 Porto, Portugal"
 )
 
 suggestion_19 = Suggestion.create(
@@ -352,8 +375,9 @@ suggestion_19 = Suggestion.create(
   comment: "Only opens on morning",
   photo: get_photo("São Bento Station Porto"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("São Bento Station").normalize}",
+  location: "Praça de Almeida Garrett, 4000-069 Porto, Portugal",
+  opening_hours: get_opening_hours("São Bento Station"),
   rating: rand(3.5...5).round(1),
-  location: "Praça de Almeida Garrett, 4000-069 Porto, Portugal"
 )
 
 suggestion_20 = Suggestion.create(
@@ -365,8 +389,9 @@ suggestion_20 = Suggestion.create(
   comment: "Lot of different things to eat, cheap prices !",
   photo: get_photo("Mercado Bom Sucesso"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Mercado Bom Sucesso").normalize}",
+  location: "Praça do Bom Sucesso 74-90, 4150-145 Porto, Portugal",
+  opening_hours: get_opening_hours("Mercado Bom Sucesso"),
   rating: rand(3.5...5).round(1),
-  location: "Praça do Bom Sucesso 74-90, 4150-145 Porto, Portugal"
 )
 
 suggestion_21 = Suggestion.create(
@@ -378,8 +403,9 @@ suggestion_21 = Suggestion.create(
   comment: "The place to eat traditional portuguese food ",
   photo: get_photo("Mercado Beira-Rio"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Mercado Beira-Rio").normalize}",
+  location: "Av. de Ramos Pinto 148, 4400-261 Vila Nova de Gaia, Portugal",
+  opening_hours: get_opening_hours("Mercado Beira-Rio"),
   rating: rand(3.5...5).round(1),
-  location: "Av. de Ramos Pinto 148, 4400-261 Vila Nova de Gaia, Portugal"
 )
 
 suggestion_22 = Suggestion.create(
@@ -390,8 +416,9 @@ suggestion_22 = Suggestion.create(
   comment: "A cool hike to discover the city on first days",
   photo: get_photo("fondation de Serralves"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("fondation de Serralves").normalize}",
+  location: "R. Dom João de Castro 210, 4150-417 Porto, Portugal",
+  opening_hours: get_opening_hours("fondation de Serralves"),
   rating: rand(3.5...5).round(1),
-  location: "R. Dom João de Castro 210, 4150-417 Porto, Portugal"
 )
 
 suggestion_23 = Suggestion.create(
@@ -403,8 +430,9 @@ suggestion_23 = Suggestion.create(
   comment: "The coolest praia arround, let's chill there.",
   photo: get_photo("Jardim do Passeio Alegre"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Jardim do Passeio Alegre").normalize}",
+  location: "R. do Passeio Alegre 828, 4150-570 Porto, Portugal",
+  opening_hours: get_opening_hours("Jardim do Passeio Alegre"),
   rating: rand(3.5...5).round(1),
-    location: "R. do Passeio Alegre 828, 4150-570 Porto, Portugal"
   )
 
 suggestion_24 = Suggestion.create(
@@ -416,8 +444,9 @@ suggestion_24 = Suggestion.create(
   comment: "Street food spot !",
   photo: get_photo("Requinte Francesinhas"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Requinte Francesinhas").normalize}",
+  location: "R. Godinho 837, 4450-150 Matosinhos, Portugal",
+  opening_hours: get_opening_hours("Requinte Francesinhas"),
   rating: rand(3.5...5).round(1),
-  location: "R. Godinho 837, 4450-150 Matosinhos, Portugal"
 )
 
 suggestion_25 = Suggestion.create(
@@ -429,8 +458,9 @@ suggestion_25 = Suggestion.create(
   comment: "wine tasting : We can have a group discount",
   photo: get_photo("Espaço Porto Cruz"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Espaço Porto Cruz").normalize}",
+  location: "Largo Miguel Bombarda 23, 4400-222 Vila Nova de Gaia, Portugal",
+  opening_hours: get_opening_hours("Espaço Porto Cruz"),
   rating: rand(3.5...5).round(1),
-  location: "Largo Miguel Bombarda 23, 4400-222 Vila Nova de Gaia, Portugal"
 )
 
 suggestion_26 = Suggestion.create(
@@ -442,8 +472,9 @@ suggestion_26 = Suggestion.create(
   comment: "The most amazing church my parents told me.",
   photo: get_photo("Sé cathedral Porto"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Sé cathedral").normalize}",
+  location: "Terreiro da Sé, 4050-573 Porto, Portugal",
+  opening_hours: get_opening_hours("Sé cathedral Porto"),
   rating: rand(3.5...5).round(1),
-  location: "Terreiro da Sé, 4050-573 Porto, Portugal"
 )
 
 suggestion_27 = Suggestion.create(
@@ -455,8 +486,9 @@ suggestion_27 = Suggestion.create(
   comment: "We should go there to get Franceshinha and Super Bock.",
   photo: get_photo("Café Santiago Porto"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Café Santiago").normalize}",
+  location: "R. de Passos Manuel 226, 4000-382 Porto, Portugal",
+  opening_hours: get_opening_hours("Café Santiago Porto"),
   rating: rand(3.5...5).round(1),
-  location: "R. de Passos Manuel 226, 4000-382 Porto, Portugal"
 )
 
 suggestion_28 = Suggestion.create(
@@ -467,8 +499,9 @@ suggestion_28 = Suggestion.create(
   comment: "A bit of History ! Open on sunday morning",
   photo: get_photo("Casa do Infante"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Casa do Infante").normalize}",
+  location: "R. da Alfândega 10, 4050-029 Porto, Portugal",
+  opening_hours: get_opening_hours("Casa do Infante"),
   rating: rand(3.5...5).round(1),
-    location: "R. da Alfândega 10, 4050-029 Porto, Portugal"
 )
 
 suggestion_29 = Suggestion.create(
@@ -480,8 +513,9 @@ suggestion_29 = Suggestion.create(
   comment: "Looks regular that nice but they have amazing food",
   photo: get_photo("CASA DA MARIQUINHAS"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("CASA DA MARIQUINHAS").normalize}",
+  location: "R. de São Sebastião 25, Porto, Portugal",
+  opening_hours: get_opening_hours("CASA DA MARIQUINHAS"),
   rating: rand(3.5...5).round(1),
-  location: "R. de São Sebastião 25, Porto, Portugal"
 )
 
 suggestion_30 = Suggestion.create(
@@ -493,8 +527,9 @@ suggestion_30 = Suggestion.create(
   comment: "More expensive that the rest, true ! But much better my local friends said.",
   photo: get_photo("BULHAO BOLHÃO"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("BULHAO BOLHÃO").normalize}",
+  location: "R. de Sá da Bandeira nº 490, 4000-430 Porto, Portugal",
+  opening_hours: get_opening_hours("BULHAO BOLHÃO"),
   rating: rand(3.5...5).round(1),
-  location: "R. de Sá da Bandeira nº 490, 4000-430 Porto, Portugal"
 )
 
 suggestion_31 = Suggestion.create(
@@ -506,8 +541,9 @@ suggestion_31 = Suggestion.create(
   comment: "The pool looks super cool !",
   photo: get_photo("The Yeatman"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("The Yeatman").normalize}",
+  location: "Rua do Choupelo, 4400-088 Vila Nova de Gaia, Portugal",
+  opening_hours: get_opening_hours("The Yeatman"),
   rating: rand(3.5...5).round(1),
-  location: "Rua do Choupelo, 4400-088 Vila Nova de Gaia, Portugal"
 )
 
 suggestion_32 = Suggestion.create(
@@ -519,8 +555,9 @@ suggestion_32 = Suggestion.create(
   comment: "I´ve tried it in Vienna, it was all perfect !",
   photo: get_photo("InterContinental Hotel Porto"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("InterContinental Hotel Porto").normalize}",
+  location: "Praça da Liberdade 25, 4000-322 Porto, Portugal",
+  opening_hours: get_opening_hours("InterContinental Hotel Porto"),
   rating: rand(3.5...5).round(1),
-  location: "Praça da Liberdade 25, 4000-322 Porto, Portugal"
 )
 
 suggestion_33 = Suggestion.create(
@@ -532,8 +569,9 @@ suggestion_33 = Suggestion.create(
   comment: "Super nice place, very centrical",
   photo: get_photo("Pestana Vintage Porto"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Pestana Vintage Porto").normalize}",
+  location: "Praça Ribeira nº1, 4050-513 Porto, Portugal",
+  opening_hours: get_opening_hours("Pestana Vintage Porto"),
   rating: rand(3.5...5).round(1),
-  location: "Praça Ribeira nº1, 4050-513 Porto, Portugal"
 )
 
 suggestion_34 = Suggestion.create(
@@ -545,8 +583,9 @@ suggestion_34 = Suggestion.create(
   comment: "Price is very correct and .. Breakfast Included !",
   photo: get_photo("Torel Palace porto"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Torel Palace porto").normalize}",
+  location: "Rua de Entreparedes 42, 4000-198 Porto, Portugal",
+  opening_hours: get_opening_hours("Torel Palace porto"),
   rating: rand(3.5...5).round(1),
-  location: "Rua de Entreparedes 42, 4000-198 Porto, Portugal"
 )
 
 suggestion_35 = Suggestion.create(
@@ -558,8 +597,9 @@ suggestion_35 = Suggestion.create(
   comment: "Typical place recommended by my colleagues from work.",
   photo: get_photo("Vinha Boutique Hotel"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Vinha Boutique Hotel").normalize}",
+  location: "R. Canos, 4430-604 Vila Nova de Gaia, Portugal",
+  opening_hours: get_opening_hours("Vinha Boutique Hotel"),
   rating: rand(3.5...5).round(1),
-  location: "R. Canos, 4430-604 Vila Nova de Gaia, Portugal"
 )
 
 suggestion_36 = Suggestion.create(
@@ -571,8 +611,9 @@ suggestion_36 = Suggestion.create(
   comment: "largest park of the city, amazing point of view",
   photo: get_photo("O Clube - Monsanto Secret Spot"),
   google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("O Clube - Monsanto Secret Spot").normalize}",
+  location: "Estr. Barcal 1500, Lisboa, Portugal",
+  opening_hours: get_opening_hours("O Clube - Monsanto Secret Spot"),
   rating: rand(3.5...5).round(1),
-  location: "Estr. Barcal 1500, Lisboa, Portugal"
 )
 
 puts "Suggestions created"
