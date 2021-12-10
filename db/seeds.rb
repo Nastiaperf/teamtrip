@@ -965,11 +965,6 @@ vote_82 = Vote.create(
   suggestion: suggestion_36,
 )
 
-vote_82 = Vote.create(
-  user: portugal_trip.users[2],
-  suggestion: suggestion_5,
-)
-
 puts "Votes created"
 
 puts "DB all set, now have fun"
