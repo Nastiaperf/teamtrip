@@ -588,6 +588,20 @@ suggestion_36 = Suggestion.create(
   rating: rand(3.5...5).round(1),
 )
 
+suggestion_13 = Suggestion.create(
+  category: "Activity",
+  name: "Padrão dos Descobrimentos",
+  day: portugal_trip.days[1],
+  user: portugal_trip.users[2],
+  price: 25,
+  comment: "I want do this big amusement park",
+  photo: get_photo("Padrão dos Descobrimentos"),
+  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Padrão dos Descobrimentos").normalize}",
+  location: "Av. Tomás Ribeiro 18, 2795-164 Linda-a-Velha, Portugal",
+  opening_hours: get_opening_hours("Padrão dos Descobrimentos"),
+  rating: rand(3.5...5).round(1),
+)
+
 suggestion_10 = Suggestion.create(
   category: "Restaurant",
   name: "1300 Taberna",
@@ -602,19 +616,6 @@ suggestion_10 = Suggestion.create(
   rating: rand(3.5...5).round(1),
 )
 
-suggestion_13 = Suggestion.create(
-  category: "Activity",
-  name: "Padrão dos Descobrimentos",
-  day: portugal_trip.days[1],
-  user: portugal_trip.users[2],
-  price: 25,
-  comment: "I want do this big amusement park",
-  photo: get_photo("Padrão dos Descobrimentos"),
-  google_link: "https://www.google.com/maps/search/?api=1&query=#{Addressable::URI.parse("Padrão dos Descobrimentos").normalize}",
-  location: "Av. Tomás Ribeiro 18, 2795-164 Linda-a-Velha, Portugal",
-  opening_hours: get_opening_hours("Padrão dos Descobrimentos"),
-  rating: rand(3.5...5).round(1),
-)
 
 puts "Suggestions created"
 
