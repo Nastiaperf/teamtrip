@@ -37,6 +37,9 @@ require bootstrap-toggle
 
 .email-invite {
   width: 20rem;
+  background-color: transparent;
+  text-align: left;
+  font-weight: 300;
 }
 
 .member-invite {
@@ -44,7 +47,19 @@ require bootstrap-toggle
 }
 
 .Votes-lock {
-  margin-top: 3rem;
+  margin-top: 2.8rem;
+}
+
+.edit{
+  padding:2rem;
+}
+
+.freeze-votes{
+  margin-top: 1rem;
+  margin-left: 5rem;
+  border-radius: .5rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
 }
 
 #sweet-alert {

@@ -11,16 +11,18 @@
   </div>
   <h2 class="member-invite">Invite a new trip member:</h2>
   <div class="d-flex flex-row">
-    <input class="input-group-text email-invite" id="basic-addon3" placeholder="email">
-    <button type="button" class="btn btn-outline-success" id="sweet-alert">Invite!</button>
+    <input class="input-group-text email-invite" id="basic-addon3" placeholder="florent.bestTA@gmail.com">
+    <button type="button" class="btn btn-outline-success px-3" id="sweet-alert"><i class="far fa-paper-plane"></i></button>
   </div>
   <div class="Votes-lock">
-    <h4>Close votes for this trip</h4>
-    <%= "Click this button to close the votes and start your trip with the Roadmap page" %>
-    <% if Trip.first.locked == false %>
-      <%= button_to "freeze the votes!", lock_trip_trip_path(:trip_id), method: :patch, class: 'btn btn-outline-warning', data: { confirm: 'Are you sure you want to close the votes?', id:"sweet-alert" }%>
-    <% elsif Trip.first.locked == true %>
-      <%= button_to "Unfreeze the votes!", lock_trip_trip_path(:trip_id), method: :patch, class: 'btn btn-outline-primary', data: { confirm: 'Are you sure you want to re-open the votes?', id:"sweet-alert" }%>
-    <% end %>
+    <h4>Close the votes for this trip</h4>
+    <%= "Close the votes and start exploring with the Roadmap page" %>
+    <div class="d-flex justify-content-center">
+      <% if Trip.first.locked == false %>
+        <%= button_to "Freeze votes", lock_trip_trip_path(:trip_id), method: :patch, class: 'btn btn-outline-warning freeze-votes', data: { confirm: 'Are you sure you want to close the votes?', id:"sweet-alert" }%>
+      <% elsif Trip.first.locked == true %>
+        <%= button_to "Unfreeze votes", lock_trip_trip_path(:trip_id), method: :patch, class: 'btn btn-outline-primary freeze-votes', data: { confirm: 'Are you sure you want to re-open the votes?', id:"sweet-alert" }%>
+      <% end %>
+    </div>
   </div>
 </div>
