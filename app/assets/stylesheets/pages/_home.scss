@@ -1,11 +1,14 @@
 // Specific CSS for your home-page
 .banner {
+  background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)),
+    asset_url("Planes.jpg");
   background-size: cover;
   background-position: center;
   // height: 300px;
   padding: 12rem 0 12rem 0;
+  // padding: 5rem 0 20rem 0;
   // display: flex;
-  // // align-items: center;
+  // align-items: center;
   // justify-content: center;
   // align-items: flex-start;
   // vertical-align: bottom;
@@ -39,6 +42,7 @@
   border-radius: 10px;
 }
 
+// GREEN
 .content {
   position: absolute;
   top: 740px; left: 162px;
@@ -77,6 +81,7 @@
   top: 778px; right: 538px;
 }
 
+// BLUE
 .background-blue{
   background-color: $dark-blue;
   border-radius: 10px;
@@ -94,7 +99,7 @@
   height: 25rem;
   transform: rotate(.5deg);
   position: absolute;
-  top: 1226px;
+  top: 1230px;
   right: 118px;
   z-index: -1;
 }
@@ -108,12 +113,51 @@
   padding-left: 4rem;
   padding-right: 0;
   position: absolute;
-  top: 1197px;
+  top: 1219px;
   right: 838px;
   h1{
     font-size: 35px;
   }
 }
+
+// SAUMON
+.content-saumon {
+  position: absolute;
+  top: 1647px;
+  left: 162px;
+}
+
+.text-details-saumon{
+  padding-top: 7rem;
+  padding-left: 50rem;
+  padding-right: 0;
+  position: absolute;
+  top: 1672px;
+  right: 95px;
+  h1{
+    font-size: 35px;
+  }
+}
+
+.background-saumon{
+  background-color: $dark-saumon;
+  border-radius: 10px;
+  width: 60%;
+  height: 25rem;
+  transform: rotate(-1deg);
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+.background-light-saumon{
+  background-color: rgba($light-saumon, .2);
+  border-radius: 10px;
+  width: 50%;
+  height: 25rem;
+  transform: rotate(-.5deg);
+  position: absolute;
+  top: 1680px; right: 538px;
+}
+
 
 .center{
   display: inline-block;
