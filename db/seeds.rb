@@ -651,10 +651,10 @@ vote_5 = Vote.create(
   suggestion: suggestion_4,
 )
 
-vote_6 = Vote.create(
-  user: portugal_trip.users[4],
-  suggestion: suggestion_5,
-)
+# vote_6 = Vote.create(
+#   user: portugal_trip.users[4],
+#   suggestion: suggestion_5,
+# )
 
 vote_7 = Vote.create(
   user: portugal_trip.users[4],
@@ -841,10 +841,10 @@ vote_57 = Vote.create(
   suggestion: suggestion_17,
 )
 
-vote_58 = Vote.create(
-  user: portugal_trip.users[3],
-  suggestion: suggestion_18,
-)
+# vote_58 = Vote.create(
+#   user: portugal_trip.users[3],
+#   suggestion: suggestion_18,
+# )
 
 vote_59 = Vote.create(
   user: portugal_trip.users[3],
@@ -946,20 +946,35 @@ vote_78 = Vote.create(
   suggestion: suggestion_34,
 )
 
-vote_79 = Vote.create(
-  user: portugal_trip.users[4],
-  suggestion: suggestion_15,
-)
+# vote_79 = Vote.create(
+#   user: portugal_trip.users[4],
+#   suggestion: suggestion_15,
+# )
 
-vote_80 = Vote.create(
-  user: portugal_trip.users[5],
-  suggestion: suggestion_15,
-)
+# vote_80 = Vote.create(
+#   user: portugal_trip.users[5],
+#   suggestion: suggestion_15,
+# )
 
-vote_82 = Vote.create(
+vote_81 = Vote.create(
   user: portugal_trip.users[4],
   suggestion: suggestion_36,
 )
+
+vote_82 = Vote.create(
+  user: portugal_trip.users[5],
+  suggestion: suggestion_4,
+)
+
+# vote_83 = Vote.create(
+#   user: portugal_trip.users[3],
+#   suggestion: suggestion_5,
+# )
+
+# vote_84 = Vote.create(
+#   user: portugal_trip.users[1],
+#   suggestion: suggestion_5,
+# )
 
 puts "Votes created"
 
