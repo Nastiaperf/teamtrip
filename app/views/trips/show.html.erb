@@ -6,8 +6,22 @@
           <%= link_to "#{Date.parse(@previous_date).strftime("%A %e")}", trip_path(@trip, date: @previous_date) %>
         <% end %>
       </div>
-      <div>
+      <div class="day-display">
         <h1> <%= Date.parse(@current_date).strftime("%A %e") %> </h1>
+        <!-- day cost calculations -->
+          <% day_cost = 0  %>
+          <% @current_activities_restaurants.each do |suggestion| %>
+            <% unless suggestion.price.nil? || suggestion.price == 0 %>
+              <% day_cost+=suggestion.price  %>
+            <% end  %>
+          <% end  %>
+        <% unless @current_hotel.nil? %>
+          <% day_cost+=@current_hotel.price %>
+        <% end  %>
+        <% unless day_cost.nil? || day_cost == 0 %>
+          <p class="day-cost-display"><%= day_cost.to_i %> €</p>
+        <% end %>
+        <!-- end of day cost calculations -->
       </div>
       <div>
         <% if @next_date %>
@@ -104,6 +118,7 @@
                   <% else %>
                     <h2><%= suggestion.price.to_i %>€</h2>
                   <% end %>
+                <% end  %>
                 </div>
               </div>
               <div id="six-dice">
