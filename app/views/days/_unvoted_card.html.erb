@@ -17,7 +17,7 @@
         <h2><%= data.name %></h2>
       </div>
       <div class="text-container price align-self-center m-1 ">
-        <% if data.price.zero? && data.category == "Activity" %>
+        <% if (data.price == nil || data.price.zero?) && data.category == "Activity" %>
           <h2>Free</h2>
         <% else %>
           <h2><%= data.price.to_i %>€</h2>

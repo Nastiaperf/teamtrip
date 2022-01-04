@@ -48,8 +48,8 @@ class TripsController < ApplicationController
                           first(2)
     @current_activities_restaurants = (@current_activities + @current_restaurants).sort_by(&:position)
     # @marker_suggestions_day = (@current_hotel + @current_restaurants + @current_activities)
-    # FOR THE MAP
     # @day_markers = [@current_hotel] + @current_activities + @current_restaurants
+    # FOR THE MAP
     # @markers = @day_markers.map do |suggestion|
     #   {
     #     lat: suggestion.latitude,

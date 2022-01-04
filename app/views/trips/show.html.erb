@@ -51,7 +51,7 @@
                 </div>
                 <div class="text-container align-items-start">
                   <h2 class="suggestion-name"><%= @previous_hotel.name %></h2>
-                  <h3><%= link_to "See google page", @previous_hotel.google_link %> </h3>
+                  <h3><%= link_to "See on Google Maps", @previous_hotel.google_link %> </h3>
                 </div>
               </div>
               <div class="price-container align-self-end">
@@ -103,12 +103,17 @@
                   </div>
                   <div class="text-container align-items-start">
                     <h2 class="suggestion-name" ><%= suggestion.name %></h2>
-                    <h3> <%= link_to "See google page", suggestion.google_link %> </h3>
+                    <h3 class="google-section" > <%= link_to "See on Google Maps", suggestion.google_link %> </h3>
+                    <% if suggestion&.opening_hours == "{\"open_now\"=>true}" %>
+                    <h3 class="accepted-color"><i class="fas fa-check-circle"></i> Open now </h3>
+                    <% elsif suggestion&.opening_hours == "{\"open_now\"=>false}"  %>
+                    <h3 class="denied-color"><i class="far fa-window-close"></i> Now closed </h3>
+                    <% else %>
+                    <% end %>
                   </div>
                 </div>
                 <div class="price-container align-self-end">
-                <% unless suggestion.price.nil?  %>
-                  <% if suggestion.price.zero? && suggestion.category == "Activity" %>
+                  <% if (suggestion.price == nil || suggestion.price.zero?) && suggestion.category == "Activity" %>
                     <h2>Free</h2>
                   <% else %>
                     <h2><%= suggestion.price.to_i %>€</h2>
@@ -154,7 +159,7 @@
 
                 <div class="text-container align-items-start">
                   <h2 class="suggestion-name"><%= @current_hotel.name.capitalize %></h2>
-                  <h3> <%= link_to "See google page", @current_hotel.google_link %> </h3>
+                  <h3> <%= link_to "See on Google Maps", @current_hotel.google_link %> </h3>
                 </div>
               </div> <!-- d flex -->
 

@@ -20,7 +20,7 @@ export default class extends Controller {
     })
     // console.log(roadMArkers);
     const map = new google.maps.Map(document.getElementById('road-map'), {
-      zoom:15,
+      zoom: 15,
       center: {lat: roadMArkers[0]['lat'], lng: roadMArkers[0]['lng'] },
     })
 
