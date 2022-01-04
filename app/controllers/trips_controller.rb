@@ -65,6 +65,8 @@ class TripsController < ApplicationController
     @restaurants_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Restaurant")
     @activities_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Activity")
     # END FOR THE MAP
+
+    
   end
 
   def lock_trip
