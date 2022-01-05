@@ -105,10 +105,10 @@
                     <h2 class="suggestion-name" ><%= suggestion.name %></h2>
                     <h3 class="google-section" > <%= link_to "See on Google Maps", suggestion.google_link %> </h3>
                     <% if suggestion&.opening_hours == "{\"open_now\"=>true}" %>
-                    <h3 class="accepted-color"><i class="fas fa-check-circle"></i> Open now </h3>
-                    <% elsif suggestion&.opening_hours == "{\"open_now\"=>false}"  %>
-                    <h3 class="denied-color"><i class="far fa-window-close"></i> Now closed </h3>
-                    <% else %>
+                      <h3 class="accepted-color"><i class="fas fa-check-circle"></i> Open now </h3>
+                      <% elsif suggestion&.opening_hours == "{\"open_now\"=>false}"  %>
+                      <h3 class="denied-color"><i class="far fa-window-close"></i> Now closed </h3>
+                      <% else %>
                     <% end %>
                   </div>
                 </div>
@@ -118,7 +118,6 @@
                   <% else %>
                     <h2><%= suggestion.price.to_i %>€</h2>
                   <% end %>
-                <% end  %>
                 </div>
               </div>
               <div id="six-dice">
