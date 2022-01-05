@@ -8,7 +8,7 @@
       </div>
       <div class="day-display">
         <h1> <%= Date.parse(@current_date).strftime("%A %e") %> </h1>
-        <!-- day cost calculations -->
+        <!-- start of day cost calculations -->
           <% day_cost = 0  %>
           <% @current_activities_restaurants.each do |suggestion| %>
             <% unless suggestion.price.nil? || suggestion.price == 0 %>
