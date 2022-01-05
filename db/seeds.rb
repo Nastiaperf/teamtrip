@@ -53,7 +53,7 @@ vincent = User.create(
   )
 
 largo = User.create(
-  photo: "https://t2.ea.ltmcdn.com/fr/razas/3/7/5/img_573_beagle_0_600.jpg",
+  photo: "https://lh3.googleusercontent.com/proxy/5E0x7MZabQ98Wpdek69eZJpQLcnMexdLhckss6c3xXZTKaY76WAMmBaO7rySJUEOzarwMIh9TydkTt5ck409FA",
   email: "largo@example.com",
   password: "secret",
   first_name: "largo",
