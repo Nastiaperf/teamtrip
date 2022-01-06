@@ -6,7 +6,12 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.creator_id = current_user.id
-    @trip.save!
+    if @trip.save!
+      redirect_to trip_path(@trip)
+      #here need to redirect to Day 1 page instead of trip page
+    else
+      render :new
+    end
   end
 
   def show
