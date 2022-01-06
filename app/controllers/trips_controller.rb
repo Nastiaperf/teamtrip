@@ -83,6 +83,7 @@ class TripsController < ApplicationController
     end
   end
 
+
   # def trip_cost
   #   @trip       = Trip.find(params[:id])
   #   @trip_days  = @trip.days.order(:date)
