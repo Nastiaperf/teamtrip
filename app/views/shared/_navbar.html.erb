@@ -16,8 +16,11 @@
         <%= image_tag("travel.png", width:"20rem", height:"20rem") %>
         <div class="trip-title">
           <%= Trip.first.name %>
-          <%= Trip.first.start_date.strftime("%b") %>
+          <!-- <%= Trip.first.start_date.strftime("%b") %> -->
           <%= Trip.first.start_date.strftime("%Y") %>
+            <% unless @trip_cost.nil? || @trip_cost == 0 %>
+              <p><%= @trip_cost.to_i %> € /person</p>
+            <% end %>
         </div>
       </li>
 

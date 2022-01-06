@@ -8,20 +8,9 @@
       </div>
       <div class="day-display">
         <h1> <%= Date.parse(@current_date).strftime("%A %e") %> </h1>
-        <!-- day cost calculations -->
-          <% day_cost = 0  %>
-          <% @current_activities_restaurants.each do |suggestion| %>
-            <% unless suggestion.price.nil? || suggestion.price == 0 %>
-              <% day_cost+=suggestion.price  %>
-            <% end  %>
-          <% end  %>
-        <% unless @current_hotel.nil? %>
-          <% day_cost+=@current_hotel.price %>
-        <% end  %>
-        <% unless day_cost.nil? || day_cost == 0 %>
-          <p class="day-cost-display"><%= day_cost.to_i %> €</p>
+        <% unless @day_cost.nil? || @day_cost == 0 %>
+          <p class="day-cost-display"><%= @day_cost.to_i %> €</p>
         <% end %>
-        <!-- end of day cost calculations -->
       </div>
       <div>
         <% if @next_date %>
@@ -46,12 +35,15 @@
             </div>
             <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
               <div class="d-flex">
+                <div>
+                  <%= image_tag(@previous_hotel.user.photo, class:"mini-avatar position-absolute border", style:"margin-top: -0.45rem; margin-left: -0.75rem; z-index: 1") %>
+                </div>
                 <div class="image-container">
                   <%= image_tag (@previous_hotel.photo), class:"image-card" %>
                 </div>
                 <div class="text-container align-items-start">
                   <h2 class="suggestion-name"><%= @previous_hotel.name %></h2>
-                  <h3><%= link_to "See on Google Maps", @previous_hotel.google_link %> </h3>
+                  <h3><%= link_to "See on Google Maps", @previous_hotel.google_link, target: :_blank %> </h3>
                 </div>
               </div>
               <div class="price-container align-self-end">
@@ -98,12 +90,15 @@
               <% end %>
               <div id= "<%=background_card_color %>" class="shadowed item-card d-flex justify-content-between">
                 <div class="d-flex">
+                  <div>
+                    <%= image_tag(suggestion.user.photo, class:"mini-avatar position-absolute border", style:"margin-top: -0.45rem; margin-left: -0.75rem; z-index: 1") %>
+                  </div>
                   <div class="image-container">
                     <%= image_tag (suggestion.photo), class:"image-card" %>
                   </div>
                   <div class="text-container align-items-start">
                     <h2 class="suggestion-name" ><%= suggestion.name %></h2>
-                    <h3 class="google-section" > <%= link_to "See on Google Maps", suggestion.google_link %> </h3>
+                    <h3 class="google-section" > <%= link_to "See on Google Maps", suggestion.google_link, target: :_blank %> </h3>
                     <% if suggestion&.opening_hours == "{\"open_now\"=>true}" %>
                       <h3 class="accepted-color"><i class="fas fa-check-circle"></i> Open now </h3>
                       <% elsif suggestion&.opening_hours == "{\"open_now\"=>false}"  %>
@@ -152,13 +147,16 @@
             </div>
             <div id="color-hotel" class="item-card item-card-wrapper d-flex justify-content-between"> <!-- Item-card // ID not defined -->
               <div class="d-flex">
+                <div>
+                  <%= image_tag(@current_hotel.user.photo, class:"mini-avatar position-absolute border", style:"margin-top: -0.45rem; margin-left: -0.75rem; z-index: 1") %>
+                </div>
                 <div class="image-container">
                   <%= image_tag (@current_hotel.photo), class:"image-card" %>
                 </div>
 
                 <div class="text-container align-items-start">
                   <h2 class="suggestion-name"><%= @current_hotel.name.capitalize %></h2>
-                  <h3> <%= link_to "See on Google Maps", @current_hotel.google_link %> </h3>
+                  <h3> <%= link_to "See on Google Maps", @current_hotel.google_link, target: :_blank %> </h3>
                 </div>
               </div> <!-- d flex -->
 
