@@ -16,8 +16,11 @@
         <%= image_tag("travel.png", width:"20rem", height:"20rem") %>
         <div class="trip-title">
           <%= Trip.first.name %>
-          <%= Trip.first.start_date.strftime("%b") %>
+          <!-- <%= Trip.first.start_date.strftime("%b") %> -->
           <%= Trip.first.start_date.strftime("%Y") %>
+            <% unless @trip_cost.nil? || @trip_cost == 0 %>
+              <p><%= @trip_cost.to_i %> € /person</p>
+            <% end %>
         </div>
       </li>
 
@@ -67,7 +70,7 @@
 
         </div>
         <div class="d-flex trip-member-avatar-wrapper">
-          <% TripMember.where(trip_id: @trip).each do |data| %>
+          <% TripMember.where(trip_id: Trip.first).each do |data| %>
             <div class="trip-member-avatar">
               <%= image_tag "#{data.user.photo}", class: "avatar" %>
               <div class="user-info-on-hover">
@@ -120,7 +123,7 @@
 </div>
 <div class="d-flex justify-content-center">
   <% if params[:controller] != 'pages' %>
-    <% if (Trip.first.locked == true)  &&  params[:controller] == 'days' %>
+    <% if (@trip.locked == true)  &&  params[:controller] == 'days' %>
     <div class="locked-bar text-center">
     <%= link_to trip_path(@trip) do %>
       <div style="font-weight: 300">Votes have been locked. <strong style="font-weight: 700">Click & Go to your roadmap </strong> <i class="fas fa-arrow-up"></i>. Explore and enjoy your trip ! <i class="far fa-smile-wink"></i></div>

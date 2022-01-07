@@ -6,7 +6,12 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.creator_id = current_user.id
-    @trip.save!
+    if @trip.save!
+      redirect_to trip_path(@trip)
+      #here need to redirect to Day 1 page instead of trip page
+    else
+      render :new
+    end
   end
 
   def show
@@ -66,8 +71,50 @@ class TripsController < ApplicationController
     @activities_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Activity")
     # END FOR THE MAP
 
-    
+    #daily cost of trip
+    @day_cost = 0
+    @current_activities_restaurants.each do |suggestion|
+      unless suggestion.price.nil? || suggestion.price == 0
+        @day_cost+=suggestion.price
+      end
+    end
+    unless @current_hotel.nil?
+      @day_cost+=@current_hotel.price
+    end
   end
+
+
+  # def trip_cost
+  #   @trip       = Trip.find(params[:id])
+  #   @trip_days  = @trip.days.order(:date)
+  #   @trip_cost  = 0
+
+  #   @trip_days.each do |day|
+  #     current_day_suggestions = day.
+  #                               suggestions.
+  #                               left_joins(:votes).group(:id).
+  #                               order('COUNT(votes.id) DESC')
+  #     @current_hotel = current_day_suggestions.
+  #                     where(category: "Hotel").
+  #                     first
+  #     @current_activities = current_day_suggestions.
+  #                         where(category: "Activity").
+  #                         first(3)
+  #     @current_restaurants = current_day_suggestions.
+  #                         where(category: "Restaurant").
+  #                         first(2)
+
+  #     @current_suggestions = (@current_activities + @current_restaurants + @current_hotel)
+  #     @daily_cost = 0
+  #     @current_suggestions.each do |suggestion|
+  #       unless suggestion.price.nil? || suggestion.price == 0
+  #         @daily_cost += suggestion.price
+  #       end
+  #     end
+  #     @trip_cost += @daily_cost
+  #   end
+  # end
+
 
   def lock_trip
     @trip = Trip.first

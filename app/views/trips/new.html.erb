@@ -1,2 +1,18 @@
-<h1>Trips#new</h1>
-<p>Find me in app/views/trips/new.html.erb</p>
+<div class="container new-form">
+  <h1>Create a new trip !</h1>
+  <%= simple_form_for([@trip]) do |f| %>
+    <%= f.input :name, label: 'Name your trip', error: 'Trip name is mandatory, please specify one', placeholder: 'USA tour 2023, Sanchez Family holidays, ...' %>
+    <%= f.input :location, label: 'Where do you plan to go?', placeholder: 'California, Switzerland, ...' %>
+    <h2>What is the 1st day of your trip?</h2>
+    <%= f.text_field :start_date, placeholder: "Start date", data: {
+          behavior: 'flatpickr',
+        } %>
+    <br>
+    <h2>What is the last day of the trip?</h2>
+    <%= f.text_field :end_date, placeholder: "End date", data: {
+          behavior: 'flatpickr'
+        } %>
+    <br>
+    <%= f.submit "Let's Travel !", class: "btn btn-primary flex-grow-1" %>
+  <% end %>
+</div>

@@ -28,7 +28,8 @@ require("flatpickr")
 // External imports
 import "bootstrap";
 import "controllers";
-
+import { Application } from 'stimulus';
+import Flatpickr from 'flatpickr';
 
 import { mapImport } from '../components/map.js'
 import { calcRoute } from '../components/map.js'
@@ -55,3 +56,14 @@ document.addEventListener('turbolinks:load', () => {
     console.log(value);
   });
 });
+
+// Import style for flatpickr
+require("flatpickr/dist/flatpickr.css");
+
+document.addEventListener('turbolinks:load', () => {
+  flatpickr("[data-behavior='flatpickr']", {
+    altInput: true,
+    altFormat: "F j, Y",
+    dateFormat: "Y-m-d",
+  });
+})

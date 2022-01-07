@@ -36,7 +36,7 @@ gem 'devise'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
-
+gem 'flatpickr'
 
 # Google Places
 gem 'google_places'
