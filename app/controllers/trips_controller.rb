@@ -7,8 +7,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.creator_id = current_user.id
     if @trip.save!
-      redirect_to trip_path(@trip)
-      #here need to redirect to Day 1 page instead of trip page
+      redirect_to trip_days_path(@trip, @trip.days.first)
     else
       render :new
     end
@@ -75,11 +74,17 @@ class TripsController < ApplicationController
     @day_cost = 0
     @current_activities_restaurants.each do |suggestion|
       unless suggestion.price.nil? || suggestion.price == 0
-        @day_cost+=suggestion.price
+        @day_cost += suggestion.price
       end
     end
     unless @current_hotel.nil?
-      @day_cost+=@current_hotel.price
+      @day_cost += @current_hotel.price
+    end
+
+    #global cost of trip
+    @trip_cost = 0
+    @trip_days.each do |day|
+      @trip_cost += @day_cost
     end
   end
 
