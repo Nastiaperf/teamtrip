@@ -77,11 +77,15 @@ Commit (2) = "Contenu dropdown bouton profil - Navbar terminée"
 L´équipe communique via le server slack du Wagon et se réunit environ toute les deux semaines.
 
 
-# Badge
+# Badges Dynamique
+## Total de ligne de code
+![Lines of code](https://img.shields.io/tokei/lines/github/vincentvignali/teamtrip)
 
-https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json
+## Collaborateurs
+![GitHub contributors](https://img.shields.io/github/contributors/vincentvignali/teamtrip)
 
-## 1. Nombre de collaborateur
-## 1. Nombre de commit
-## 1. Le wagon
-## 1. Autre idées
+## Dernier commit
+![GitHub last commit](https://img.shields.io/github/last-commit/vincentvignali/teamtrip)
+
+## Top language
+![GitHub top language](https://img.shields.io/github/languages/top/vincentvignali/teamtrip?style=plastic)
