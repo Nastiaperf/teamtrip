@@ -1,5 +1,11 @@
 Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
 
+![image info](./public/Screenshot_1.png)
+![image info](./public/Screenshot_2.png)
+![image info](./public/Screenshot_3.png)
+![image info](./public/Screenshot_4.png)
+
+
 # Pré-requis
 ## 1. Dépendances du projet
 
