@@ -60,7 +60,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 ## 1. Quelle style de code
 
 Teamtrip est le fruit d'un projet pédagogique dans le cadre de la formation "Developpeur web full stack" dispensé par LeWagon. Il s'agit d'un projet réalisé par des developpeur junior avec pour objectif de se perfectionner.
-Pour le bon déroulement du projet, il est vivement conseillé  de documenter les avancées effectué en commentant son code.
+Pour le bon déroulement du projet, il est vivement conseillé de documenter les avancées effectué en commentant son code.
 
 ## 2. Comment écrire ses commit et nommer ses branches ?
 
