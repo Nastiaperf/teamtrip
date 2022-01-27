@@ -16,10 +16,7 @@ class DaysController < ApplicationController
     @best_restaurants = Suggestion.by_day_and_category_order_by_vote(@day, "Restaurant").where.not(latitude: nil, longitude: nil).first(2)
     @best_activities = Suggestion.by_day_and_category_order_by_vote(@day, "Activity").where.not(latitude: nil, longitude: nil).first(3)
     @suggestions = @best_hotels + @best_activities + @best_restaurants
-    # @suggestions = Suggestion.where.not(latitude: nil, longitude: nil).
-    #                  where(day: @day)
 
-    # @suggestions = Suggestion.where.not(latitude: nil, longitude: nil)
     @markers = @suggestions.map do |suggestion|
       {
         lat: suggestion.latitude,

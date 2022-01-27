@@ -5,7 +5,6 @@ const initSortable = (callback) => {
   if (list == null) {
     return
   }
-  console.log('coucoucou');
   Sortable.create(list, {
     ghostClass: "ghost",
     animation: 150,
@@ -25,11 +24,6 @@ const initSortable = (callback) => {
     }
 
   });
-
-  // element.addEventListener("click", (event) => {
-  // event.currentTarget(form)
-
-  // })
 
 
 };
