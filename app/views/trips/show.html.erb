@@ -8,8 +8,8 @@
       </div>
       <div class="day-display">
         <h1> <%= Date.parse(@current_date).strftime("%A %e") %> </h1>
-        <% unless @day_cost.nil? || @day_cost == 0 %>
-          <p class="day-cost-display"><%= @day_cost.to_i %> €</p>
+        <% unless @daily_cost.nil? || @daily_cost == 0 %>
+          <p class="day-cost-display"><%= @daily_cost.to_i %> €</p>
         <% end %>
       </div>
       <div>
