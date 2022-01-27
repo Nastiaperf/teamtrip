@@ -1,9 +1,0 @@
-- name: Create Awesome Badge
-  uses: schneegans/dynamic-badges-action@v1.1.0
-  with:
-    auth: ${{ secrets.GIST_SECRET }}
-    gistID: abff0d9557286fe4903fb13cd0795c36
-    filename: test.json
-    label: Hello
-    message: World
-    color: orange
