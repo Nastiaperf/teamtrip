@@ -44,7 +44,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
   ``` rails db:seed ```
 
-1 ### Déploiement
+# Déploiement
 
   Voir configuration clever cloud.
 
@@ -79,7 +79,7 @@ L´équipe communique via le server slack du Wagon et se réunit environ toute l
 
 # Badge
 
- ! [Statistiques de votre référentiel] https://github-readme-stats.vercel.app/api?username=Your_GitHub_Username&show_icons=true
+https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/schneegans/2ab8f1d386f13aaebccbd87dac94068d/raw/hello-world.json
 
 ## 1. Nombre de collaborateur
 ## 1. Nombre de commit
