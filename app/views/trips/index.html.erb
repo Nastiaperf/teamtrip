@@ -1,0 +1,15 @@
+<h1>Trips</h1>
+<!-- Beginning of tabs -->
+<nav class="container">
+  <div class="nav nav-tabs d-flex" id="nav-tab" role="tablist">
+    <a class="js-selector nav-link flex-grow-1 text-center font-weight-bold <%= "active" if params[:category] == "Hotel" || params[:category].blank? %>" id="nav-hotel-tab" data-toggle="tab" href="#nav-hotel" role="tab" aria-controls="nav-hotel" aria-selected="true">Ongoing trips</a>
+    <a class="js-selector nav-link flex-grow-1 text-center font-weight-bold <%= "active" if params[:category] == "Restaurant" %>" id="nav-restaurant-tab" data-toggle="tab" href="#nav-restaurant" role="tab" aria-controls="nav-restaurant" aria-selected="false">Future trip</a>
+    <a class="js-selector nav-link flex-grow-1 text-center font-weight-bold <%= "active" if params[:category] == "Activity" %>" id="nav-activity-tab" data-toggle="tab" href="#nav-activity" role="tab" aria-controls="nav-activity" aria-selected="false">Past trips</a>
+  </div>
+</nav>
+<!-- End of tabs -->
+<!-- Beginning of trip cards -->
+<div>
+<%= render 'trips/trip_card' %>
+</div>
+<!-- End of trip cards -->
