@@ -51,19 +51,8 @@ class TripsController < ApplicationController
                           where(category: "Restaurant").
                           first(2)
     @current_activities_restaurants = (@current_activities + @current_restaurants).sort_by(&:position)
-    # @marker_suggestions_day = (@current_hotel + @current_restaurants + @current_activities)
-    # @day_markers = [@current_hotel] + @current_activities + @current_restaurants
-    # FOR THE MAP
-    # @markers = @day_markers.map do |suggestion|
-    #   {
-    #     lat: suggestion.latitude,
-    #     lng: suggestion.longitude,
-    #     id: suggestion.id,
-    #     icon: helpers.asset_url("#{suggestion.category}.png"),
-    #     info_window: render_to_string(partial: "info_window", locals: { suggestion: suggestion })
-    #   }
-    # end
 
+    #Beginning of map markers
     @client = GooglePlaces::Client.new(ENV['GOOGLE_API_BROWSER_KEY'])
     @hotels_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Hotel")
     @restaurants_ordered_by_vote = Suggestion.by_day_and_category_order_by_vote(@day, "Restaurant")
@@ -85,9 +74,9 @@ class TripsController < ApplicationController
     @trip_cost = 0
     @trip_days.each do |day|
       day_suggestions = day.
-                                suggestions.
-                                left_joins(:votes).group(:id).
-                                order('COUNT(votes.id) DESC')
+                        suggestions.
+                        left_joins(:votes).group(:id).
+                        order('COUNT(votes.id) DESC')
 
       @hotel = day_suggestions.
                         where(category: "Hotel").
